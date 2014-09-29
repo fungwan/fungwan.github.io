@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/9 | aicp</title>
+  <title>Archives: 2014/9 | Aicp</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="aicp">
+<meta property="og:title" content="Aicp">
 <meta property="og:url" content="http://yoursite.com/archives/2014/09/">
-<meta property="og:site_name" content="aicp">
+<meta property="og:site_name" content="Aicp">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="aicp">
+<meta name="twitter:title" content="Aicp">
 <meta name="twitter:description">
 
   
-    <link rel="alternative" href="/atom.xml" title="aicp" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Aicp" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -35,7 +35,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">aicp</a>
+        <a href="/" id="logo">Aicp</a>
       </h1>
       
     </div>
@@ -89,12 +89,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、<br>函数、类对象。</p>
+        <p>相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。</p>
 <p>我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">exports.some_words = <span class="string">'this is string'</span>;<span class="comment">//导出一个字符串</span></div><div class="line"></div><div class="line">exports.some_fun = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{<span class="comment">//导出一个函数</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'this is function'</span>);</div><div class="line">};</div><div class="line"></div><div class="line">exports.jsonObj = {</div><div class="line">    name : <span class="string">'fungwan'</span>,</div><div class="line">    sex  : <span class="string">'man'</span>,</div><div class="line">    run  : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'love running!'</span>);</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">//导出一个类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">helper</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> number = <span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'I can help you!'</span>);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">helper.prototype.giveMoney = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'I have lots of cash!'</span>);</div><div class="line">}</div><div class="line"></div><div class="line">exports.c_help = helper;</div></pre></td></tr></table></figure>
 
 <p>那么再新建一文件为调用方，暂命名为main.js，通过下面的代码进行调用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lib = <span class="built_in">require</span>(<span class="string">'./modlue.js'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> some_words = lib.some_words;</div><div class="line"><span class="built_in">console</span>.log(some_words);</div><div class="line"></div><div class="line">lib.some_fun();</div><div class="line"></div><div class="line"><span class="keyword">var</span> myFeature = lib.jsonObj;</div><div class="line"><span class="built_in">console</span>.log(myFeature.name);</div><div class="line">myFeature.run();</div><div class="line"></div><div class="line"><span class="keyword">var</span> c_help =  <span class="keyword">new</span> lib.c_help();</div><div class="line">c_help.do();</div><div class="line">c_help.giveMoney();</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lib = <span class="built_in">require</span>(<span class="string">'./module.js'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> some_words = lib.some_words;</div><div class="line"><span class="built_in">console</span>.log(some_words);</div><div class="line"></div><div class="line">lib.some_fun();</div><div class="line"></div><div class="line"><span class="keyword">var</span> myFeature = lib.jsonObj;</div><div class="line"><span class="built_in">console</span>.log(myFeature.name);</div><div class="line">myFeature.run();</div><div class="line"></div><div class="line"><span class="keyword">var</span> c_help =  <span class="keyword">new</span> lib.c_help();</div><div class="line">c_help.do();</div><div class="line">c_help.giveMoney();</div></pre></td></tr></table></figure>
 
 <p>好了，我们看一下运行结果：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">this is string</div><div class="line">this is function</div><div class="line">fungwan</div><div class="line">love running!</div><div class="line">I can <span class="built_in">help</span> you!</div><div class="line">I have lots of cash!</div></pre></td></tr></table></figure>
@@ -103,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/09/29/node.js学习之exports/" data-id="ez2p4ws771ugjglp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/09/29/node.js学习之exports/" data-id="6vbn1cgolwyeni0p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
@@ -159,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/09/28/hello-world/" data-id="1rricdofddc0yezk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/09/28/hello-world/" data-id="hjlvc5u8mnrt9x5a" class="article-share-link">Share</a>
       
       
     </footer>
