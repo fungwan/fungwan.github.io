@@ -1,304 +1,204 @@
-<!DOCTYPE html>
-<html>
+
+  <!DOCTYPE HTML>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   
-  <title>Tag: exports | Aicp</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aicp">
-<meta property="og:url" content="http://yoursite.com/tags/exports/">
-<meta property="og:site_name" content="Aicp">
-<meta property="og:description">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aicp">
-<meta name="twitter:description">
-
-  
-    <link rel="alternative" href="/atom.xml" title="Aicp" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-
-  
+    <title>Tag: exports | fung wan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="fungwan">
+    
+    <meta name="description" content="Just do it!">
+    
+    
+    
+    
+    <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/cloud.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 
 </head>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Aicp</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-node.js学习之module.exports与exports的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/30/node.js学习之module.exports与exports的区别/" class="article-date">
-  <time datetime="2014-09-30T04:44:12.000Z" itemprop="datePublished">Sep 30 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/30/node.js学习之module.exports与exports的区别/">node.js中module.exports与exports的区别</a>
-    </h1>
-  
-
+    <body>
+      <header>
+        <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="fung wan" title="fung wan"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="fung wan">fung wan</a></h1>
+				<h2 class="blog-motto">不想当歌手的演员不是好程序员!</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:fungwan.me">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
       </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们在阅读它人或开源的node.js代码时，会发现在对模块导出的写法上会出现下面几种情况，而关于导出的方法整理，可以参见我这篇文章<a href="http://fungwan.me/2014/09/29/node.js%E5%AD%A6%E4%B9%A0%E4%B9%8Bexports/" target="_blank" rel="external">node.js中exports的用法整理</a>。现在，我们以导出字符串对象为例：</p>
-<p>在module.js文件中，有如下写法：</p>
-<ul>
-<li>1.exports.get_name = ‘fungwan by exports ‘;</li>
-<li>2.module.exports.get_name = ‘fungwan by modules’;</li>
-<li>3.module.exports = ‘fungwan by modules’;</li>
-</ul>
-<p>通过对比发现，这里较之前多了module.exports，那么它跟exports的导出有什么关系呢？查阅资料即可知晓，其实exports就是module.exports对象的引用，本质上是相等的。我们可以通过这句代码证实：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.exports === exports);</div></pre></td></tr></table></figure>
-
-<p>它打印出来是true。不过我们真正要require出来的是只是module.exports这个对象！</p>
-<p>等等，这里又提到了引用，相信熟悉C++或Java的人应该都对引用或有深刻的认识，即我们对引用的对象进行了属性的修改，那么被引用的对象的属性也会被修改。这就是为什么我们在module.js仅对exports.some_words属性进行修改，而在真正导出的module.exports的对象中，我们在外面（另一个需要require的文件）也可拿到some_words这个字符串对象值。</p>
-<p>这里我们新建一个main.cpp文件，用C++代码来说明一下上述观点：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//新建一个类C_require，待会儿会实例化一个名为module_exports的对象</span></div><div class="line"><span class="keyword">class</span> C_require</div><div class="line">{</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    C_require(<span class="keyword">void</span>);</div><div class="line">    <span class="keyword">virtual</span> ~C_require(<span class="keyword">void</span>);</div><div class="line"></div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="keyword">void</span> modifyName(<span class="built_in">string</span>& name);</div><div class="line">	<span class="built_in">string</span> getName();</div><div class="line"><span class="keyword">private</span>:</div><div class="line">	<span class="built_in">string</span> m_name;</div><div class="line"></div><div class="line">};</div><div class="line">C_require::C_require(){</div><div class="line">	m_name = <span class="string">"冯云"</span>;</div><div class="line">}</div><div class="line"></div><div class="line">C_require::~C_require(){</div><div class="line"></div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">void</span> C_require::modifyName(<span class="built_in">string</span>& after_name){</div><div class="line">	m_name = after_name;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="built_in">string</span> C_require::getName(){</div><div class="line">	m_return name;</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>接着我们在入口函数里面，去实例化一个名为module_exports的对象，就类似于我们真正require的是module_exports。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">int</span> _tmain(<span class="keyword">int</span> argc, _TCHAR* argv[])</div><div class="line">{</div><div class="line"></div><div class="line">	C_require module_exports;</div><div class="line">	<span class="built_in">string</span> name = module_exports.getName();</div><div class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"我是module_exports，中文名叫："</span>&lt;&lt;name&lt;&lt;endl;</div><div class="line"></div><div class="line">	C_require& exports = module_exports;<span class="comment">//exports拥有module_exports一样的属性</span></div><div class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"我是module_exports的引用exports，中文名做："</span>&lt;&lt;name&lt;&lt;endl;</div><div class="line"></div><div class="line">    <span class="comment">//首先，我们通过对引用的对象进行其属性name的修改</span></div><div class="line">	<span class="built_in">string</span> english_name = <span class="string">"andy.fung"</span>;</div><div class="line">	exports.modifyName(english_name);<span class="comment">//当exports去修改属性时，module_exports的属性也会变，因为他们都指向的一块内存区域</span></div><div class="line"></div><div class="line">	<span class="comment">//接着，我们再看被引用的对象module_exports中name属性值的已经改变</span></div><div class="line">	<span class="built_in">string</span> after_name = module_exports.getName();</div><div class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"我是module_exports，我的名字被exports改成了英文，叫做："</span>&lt;&lt;after_name&lt;&lt;endl;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>但是，当我们在一个类似于module.js的模块文件中，同时有exports和module.exports的导出时，后者是会覆盖前者的导出，所以一般在模块文件中只用其中一种方式导出。</p>
-<h2 id="需要注意的一点">需要注意的一点</h2>
-<p>我们在导出的写法上有一点是要避免，因为它是错误的，比如在对字符串对象的导入：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exports = <span class="string">'fungwan by exports '</span>;<span class="comment">//error</span></div></pre></td></tr></table></figure>
-
-<p>这种导出的方式其实是给exports重新赋值了（内存的指向位置发生了变化），即已不是module.exports的引用，exports的修改影响不到module.exports。所以当我们在外部用require时会发现导出的是一个空{}。还是拿上面C++的例子说明一下，我们继续在mian函数里面，重新实例化一个C_require对象，然后用exports指向新的这个对象：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">int</span> _tmain(<span class="keyword">int</span> argc, _TCHAR* argv[])</div><div class="line">{</div><div class="line"></div><div class="line">	<span class="comment">//现将exports重新赋值，即指向了另一个内存区域</span></div><div class="line">	C_require pRequireOther;</div><div class="line">	<span class="built_in">string</span> english_name2 = <span class="string">"jacky.fung"</span>;</div><div class="line">	exports.modifyName(english_name2);</div><div class="line">	exports = pRequireOther;</div><div class="line">	<span class="built_in">string</span> otherName = exports.getName();</div><div class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"我是exports，我的名字变成了："</span>&lt;&lt;otherName&lt;&lt;endl;<span class="comment">//新名jacky.fung</span></div><div class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"我是module_exports，我的名字变成了："</span>&lt;&lt;module_exports.getName()&lt;&lt;endl;<span class="comment">//还是andy.fung</span></div><div class="line"></div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>针对上面的错误的导出方式有一个解决办法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exports = <span class="built_in">module</span>.exports = <span class="string">'fungwan by exports '</span>;</div></pre></td></tr></table></figure>
-
-<p>但是如果像这样，还不如直接就只写成<code>module.exports = &#39;fungwan by exports&#39;</code>;</p>
-<p>最后，再来说说根据不同的导出方式，我们在require的时候需要注意些什么？关键还是要理解属性跟对象的关系。还是以代码的方式，下面我都以module.exports导出，可以跟之前的这篇<a href="http://fungwan.me/2014/09/29/node.js%E5%AD%A6%E4%B9%A0%E4%B9%8Bexports/" target="_blank" rel="external">node.js中exports的用法整理</a>的代码进行对比：</p>
-<p>导出一个字符串</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports = <span class="string">'string by modules'</span>;</div></pre></td></tr></table></figure>
-
-<p>导出一个类</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">helper</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> number = <span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'I can help you!'</span>);</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line">helper.prototype.giveMoney = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'I have lots of cash!'</span>);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = helper;</div></pre></td></tr></table></figure>
-
-<p>那么在require的时候，我们的方式是：</p>
-<p>require一个字符串</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lib = <span class="built_in">require</span>(<span class="string">'./module.js'</span>);</div><div class="line"><span class="built_in">console</span>.log(lib);</div></pre></td></tr></table></figure>
-
-<p>require一个类对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lib = <span class="built_in">require</span>(<span class="string">'./module.js'</span>);</div><div class="line"><span class="keyword">var</span> c_help =  <span class="keyword">new</span> lib();</div><div class="line">c_help.giveMoney();</div></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/09/30/node.js学习之module.exports与exports的区别/" data-id="0se2e30e47hfyjuv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之exports" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/29/node.js学习之exports/" class="article-date">
-  <time datetime="2014-09-29T10:44:12.000Z" itemprop="datePublished">Sep 29 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+      <div id="container">
         
+
+<div class="archive-title" >
+  <h2 class="tag-icon">exports</h2>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/29/node.js学习之exports/">node.js中exports的用法整理</a>
-    </h1>
+</div>
+<div id="main" class="archive-part clearfix">
+  <div id="archive-page">
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2014/09/30/node.js学习之module.exports与exports的区别/" title="node.js中module.exports与exports的区别" itemprop="url">
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。</p>
-<p>我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">exports.some_words = <span class="string">'this is string'</span>;<span class="comment">//导出一个字符串</span></div><div class="line"></div><div class="line">exports.some_fun = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{<span class="comment">//导出一个函数</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'this is function'</span>);</div><div class="line">};</div><div class="line"></div><div class="line">exports.jsonObj = {</div><div class="line">    name : <span class="string">'fungwan'</span>,</div><div class="line">    sex  : <span class="string">'man'</span>,</div><div class="line">    run  : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'love running!'</span>);</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">//导出一个类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">helper</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> number = <span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'I can help you!'</span>);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">helper.prototype.giveMoney = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'I have lots of cash!'</span>);</div><div class="line">}</div><div class="line"></div><div class="line">exports.c_help = helper;</div></pre></td></tr></table></figure>
-
-<p>那么再新建一文件为调用方，暂命名为main.js，通过下面的代码进行调用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lib = <span class="built_in">require</span>(<span class="string">'./module.js'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> some_words = lib.some_words;</div><div class="line"><span class="built_in">console</span>.log(some_words);</div><div class="line"></div><div class="line">lib.some_fun();</div><div class="line"></div><div class="line"><span class="keyword">var</span> myFeature = lib.jsonObj;</div><div class="line"><span class="built_in">console</span>.log(myFeature.name);</div><div class="line">myFeature.run();</div><div class="line"></div><div class="line"><span class="keyword">var</span> c_help =  <span class="keyword">new</span> lib.c_help();</div><div class="line">c_help.do();</div><div class="line">c_help.giveMoney();</div></pre></td></tr></table></figure>
-
-<p>好了，我们看一下运行结果：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">this is string</div><div class="line">this is function</div><div class="line">fungwan</div><div class="line">love running!</div><div class="line">I can <span class="built_in">help</span> you!</div><div class="line">I have lots of cash!</div></pre></td></tr></table></figure>
+    <time datetime="2014-09-30T04:44:12.000Z" itemprop="datePublished">9月 30 2014</time>
 
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/09/29/node.js学习之exports/" data-id="f17txf9qtjrdmnab" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+    <h1 itemprop="name">node.js中module.exports与exports的区别</h1>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-  
+  </a>
 </section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">2</span></li></ul>
-    </div>
-  </div>
 
+  <section class="post" itemscope itemprop="blogPost">
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/exports/">exports</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a><span class="tag-list-count">2</span></li></ul>
-    </div>
-  </div>
+    <a href="/2014/09/29/node.js学习之exports/" title="node.js中exports的用法整理" itemprop="url">
+  
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/exports/" style="font-size: NaNpx;">exports</a><a href="/tags/node-js/" style="font-size: NaNpx;">node.js</a>
-    </div>
-  </div>
+    <time datetime="2014-09-29T10:44:12.000Z" itemprop="datePublished">9月 29 2014</time>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">3</span></li></ul>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2014/09/30/node.js学习之module.exports与exports的区别/">node.js中module.exports与exports的区别</a>
-          </li>
-        
-          <li>
-            <a href="/2014/09/29/node.js学习之exports/">node.js中exports的用法整理</a>
-          </li>
-        
-          <li>
-            <a href="/2014/09/28/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+    <h1 itemprop="name">node.js中exports的用法整理</h1>
 
-  
-</aside>
-        
+  </a>
+</section>
+
+
+  </div>
+</div>
+
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2014 fungwan<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
+      <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m fungwan in Influx. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2014 
+		
+		<a href="http://fungwan.me/about" target="_blank" title="fungwan">fungwan</a>
+		
+		</p>
+</div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+      <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 
 
 
-<script src="/js/script.js" type="text/javascript"></script>
 
 
-  </div>
-</body>
-</html>
+
+
+
+
+
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+
+
+
+    </body>
+   </html>
