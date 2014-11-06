@@ -1,5 +1,5 @@
 title: npm install经常失败解决方法
-date: 2014-11-05 17:44:12
+date: 2014-11-06 09:44:12
 tags:
 - node.js
 - npm
