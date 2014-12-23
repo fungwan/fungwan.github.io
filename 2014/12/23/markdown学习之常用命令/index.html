@@ -4,12 +4,16 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>npm install经常失败解决方法 | fung wan</title>
+    <title>常用的markdown标记 | fung wan</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="fungwan">
     
-    <meta name="description" content="之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是">
+    <meta name="description" content="Markdown
+平常用markdown的时间不多，所以每次用它来写日志的时候都容易忘记，为此总结一些平常自己会经常用到的标记，方便查看（代码和效果同时附上），此后也会持续更新…
+图片
+为致敬女神，图片格式放最前，^_^
+1![Alt text](/img/hexie.jpg &quot;Optional t">
     
     
     
@@ -70,14 +74,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/11/06/node.js学习之npm_install失败/" title="npm install经常失败解决方法" itemprop="url">npm install经常失败解决方法</a>
+      <a href="/2014/12/23/markdown学习之常用命令/" title="常用的markdown标记" itemprop="url">常用的markdown标记</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://fungwan.me/about" title="fungwan" target="_blank" itemprop="author">fungwan</a>
 		
   <p class="article-time">
-    <time datetime="2014-11-06T01:44:12.000Z" itemprop="datePublished"> 发表于 11月 6 2014</time>
+    <time datetime="2014-12-23T09:44:12.000Z" itemprop="datePublished"> 发表于 12月 23 2014</time>
     
   </p>
 </header>
@@ -87,21 +91,57 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown"><span class="toc-number">1.</span> <span class="toc-text">Markdown</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片"><span class="toc-number">1.1.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标题"><span class="toc-number">1.2.</span> <span class="toc-text">标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表"><span class="toc-number">1.3.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接"><span class="toc-number">1.4.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强调"><span class="toc-number">1.5.</span> <span class="toc-text">强调</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他格式，如邮件"><span class="toc-number">1.6.</span> <span class="toc-text">其他格式，如邮件</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。</p>
-<p>*1.通过定制的 cnpm 命令行工具代替默认的 npm</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=http:<span class="comment">//registry.npm.taobao.org</span></div></pre></td></tr></table></figure>
+		<h2 id="Markdown">Markdown</h2>
+<p>平常用markdown的时间不多，所以每次用它来写日志的时候都容易忘记，为此总结一些平常自己会经常用到的标记，方便查看（代码和效果同时附上），此后也会持续更新…</p>
+<h3 id="图片">图片</h3>
+<p>为致敬女神，图片格式放最前，^_^</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![Alt text](<span class="regexp">/img/</span>hexie.jpg <span class="string">"Optional title"</span>)</div></pre></td></tr></table></figure>
 
-<p>*2.安装具体模块</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install [name]</div></pre></td></tr></table></figure>
+<p><img src="/img/songdaofeng.jpg" alt="" title="入门老师"></p>
+<h3 id="标题">标题</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># 这是 H1 #</div><div class="line">## 这是 H2 ##</div><div class="line">### 这是 H3 ######</div></pre></td></tr></table></figure>
 
-<p><code>tips</code>:当安装的时候发现安装的模块还没有同步过来, 淘宝 NPM 会自动在后台进行同步, 并且会让你从官方 NPM registry.npmjs.org 进行安装. 下次你再安装这个模块的时候, 就会直接从 淘宝 NPM 安装了.</p>
-<p>*3.同步模块（直接通过 sync 命令马上同步一个模块）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm sync connect</div></pre></td></tr></table></figure>
+<h3 id="列表">列表</h3>
+<p>无序列表使用星号、加号或是减号作为列表标记：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">*   Red</div><div class="line">*   Green</div><div class="line">*   Blue</div></pre></td></tr></table></figure>
 
+<p>效果如下：</p>
+<ul>
+<li>Red</li>
+<li>Green</li>
+<li>Blue</li>
+</ul>
+<p>有序列表使用数字接着一个英文句点：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>  Bird</div><div class="line"><span class="number">2.</span>  McHale</div><div class="line"><span class="number">3.</span>  Parish</div></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<ol>
+<li>Bird</li>
+<li>McHale</li>
+<li>Parish</li>
+</ol>
+<h3 id="链接">链接</h3>
+<p>链接文字都是用 [方括号] 来标记,想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可~</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">This is [andy.fung](http:<span class="comment">//fungwan.me/ "冯云的博客") inline link.</span></div></pre></td></tr></table></figure>
+
+<p>效果如下：<br>This is <a href="http://fungwan.me/" title="冯云的博客" target="_blank" rel="external">andy.fung</a> inline link.</p>
+<h3 id="强调">强调</h3>
+<p>Markdown 使用星号（<em>）和底线（_）作为标记强调字词的符号，被 </em> 或 <em> 包围的字词会被转成用 <em> 标签包围，用两个 * 或 </em> 包起来的话，则会被转成 <strong></strong></em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">**这就是强调**</div></pre></td></tr></table></figure>
+
+<p>效果如下：<br><strong>这就是强调</strong></p>
+<h3 id="其他格式，如邮件">其他格式，如邮件</h3>
+<p>Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用尖括号包起来， Markdown 就会自动把它转成链接。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;noder.feng@gmail.com&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="title">http:</span>//<span class="attribute">fungwan.me</span>&gt;</span></span></div></pre></td></tr></table></figure>
+
+<p>效果如下：</p>
+<blockquote>
+<p><a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#110;&#111;&#x64;&#x65;&#114;&#x2e;&#102;&#101;&#x6e;&#x67;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;">&#110;&#111;&#x64;&#x65;&#114;&#x2e;&#102;&#101;&#x6e;&#x67;&#x40;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#109;</a><br><a href="http://fungwan.me" target="_blank" rel="external">http://fungwan.me</a></p>
+</blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -109,13 +149,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  <a class="article-category-link" href="/categories/markdown/">markdown</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/node-js/">node.js</a><a href="/tags/npm/">npm</a>
+  <span></span> <a href="/tags/markdown/">markdown</a>
   </div>
 
 </div>
@@ -123,7 +163,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-title="npm install经常失败解决方法 | fung wan" data-tsina="null" class="share clearfix">
+  <div data-url="http://fungwan.me/2014/12/23/markdown学习之常用命令/" data-title="常用的markdown标记 | fung wan" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -132,19 +172,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/12/23/js学习之this用法/" title="学习js中的this用法">
-  <strong>上一篇：</strong><br/>
-  <span>
-  学习js中的this用法</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/09/30/node.js学习之module.exports与exports的区别/"  title="node.js中module.exports与exports的区别">
+<a href="/2014/12/23/js学习之this用法/"  title="学习js中的this用法">
  <strong>下一篇：</strong><br/> 
- <span>node.js中module.exports与exports的区别
+ <span>学习js中的this用法
 </span>
 </a>
 </div>
@@ -163,7 +195,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Markdown"><span class="toc-number">1.</span> <span class="toc-text">Markdown</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#图片"><span class="toc-number">1.1.</span> <span class="toc-text">图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标题"><span class="toc-number">1.2.</span> <span class="toc-text">标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表"><span class="toc-number">1.3.</span> <span class="toc-text">列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接"><span class="toc-number">1.4.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#强调"><span class="toc-number">1.5.</span> <span class="toc-text">强调</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他格式，如邮件"><span class="toc-number">1.6.</span> <span class="toc-text">其他格式，如邮件</span></a></li></ol></li></ol>
  
   </div>
 
