@@ -40,7 +40,7 @@ helper.prototype.giveMoney = function(){
 
 exports.c_help = helper;
 ```
-
+<!-- more -->
 那么再新建一文件为调用方，暂命名为main.js，通过下面的代码进行调用：
 
 ```javascript

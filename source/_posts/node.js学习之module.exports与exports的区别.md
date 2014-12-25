@@ -16,7 +16,10 @@ toc: false
 * 2.module.exports.get_name = 'fungwan by modules';
 * 3.module.exports = 'fungwan by modules';
 
+
 通过对比发现，这里较之前多了module.exports，那么它跟exports的导出有什么关系呢？查阅资料即可知晓，其实exports就是module.exports对象的引用，本质上是相等的。我们可以通过这句代码证实：
+
+<!-- more -->
 
 ```javascript
 console.log(module.exports === exports);

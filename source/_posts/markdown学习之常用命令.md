@@ -14,7 +14,7 @@ categories: markdown
 ![Alt text](/img/hexie.jpg "Optional title")
 ```
 ![](/img/songdaofeng.jpg "入门老师")
-
+<!-- more -->
 ###标题
 
 ```javascript
