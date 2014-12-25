@@ -77,9 +77,11 @@ per_page: 5
 pagination_dir: page
 
 # Duoshuo
-duoshuo_shortname: fungwan
+#duoshuo: 
+#  enable: true  ## duoshuo.com
+#  short_name:    ##e.g. wuchong   for duoshuo short name.
 # Disqus
-#disqus_shortname:  funglau
+disqus_shortname:  funglau
 
 # Extensions
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
