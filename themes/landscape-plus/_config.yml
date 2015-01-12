@@ -14,7 +14,7 @@ fancybox: false
 sidebar: right
 widgets:
 - category
-- tag
+#- tag
 - tagcloud
 - archive
 - recent_posts
@@ -32,13 +32,10 @@ twitter:
 google_plus:
 fb_admins: 
 fb_app_id:
-
 # Duoshuo
-#duoshuo: 
-#  enable: true  ## duoshuo.com
-#  short_name:    ##e.g. wuchong   for duoshuo short name.
+duoshuo_shortname:  fungwan
 # Disqus
-disqus_shortname:  funglau
+#disqus_shortname:  funglau
 
 # Baidu share
 baidushare: true
