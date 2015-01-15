@@ -3,23 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>npm install经常失败解决方法 | fung wan</title>
+  <title>Category: TCP/IP | fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。
-*1.通过定制的 cnpm 命令行工具代替默认的 npm
-1np">
-<meta property="og:type" content="article">
-<meta property="og:title" content="npm install经常失败解决方法">
-<meta property="og:url" content="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/">
+  <meta name="description" content="Just do it!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fung wan">
+<meta property="og:url" content="http://fungwan.me/categories/TCP-IP/">
 <meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。
-*1.通过定制的 cnpm 命令行工具代替默认的 npm
-1np">
+<meta property="og:description" content="Just do it!">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="npm install经常失败解决方法">
-<meta name="twitter:description" content="之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。
-*1.通过定制的 cnpm 命令行工具代替默认的 npm
-1np">
+<meta name="twitter:title" content="fung wan">
+<meta name="twitter:description" content="Just do it!">
 
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
@@ -79,14 +73,16 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-node.js学习之npm_install失败" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-tcpip学习之time_wait" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/06/node.js学习之npm_install失败/" class="article-date">
-  <time datetime="2014-11-06T01:44:12.000Z" itemprop="datePublished">11月 6 2014</time>
+    <a href="/2015/01/13/tcpip学习之time_wait/" class="article-date">
+  <time datetime="2015-01-13T04:44:12.000Z" itemprop="datePublished">1月 13 2015</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
   </div>
 
   </div>
@@ -96,8 +92,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      npm install经常失败解决方法
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/13/tcpip学习之time_wait/">说说Tcp断开连接时的Time_Wait状态</a>
     </h1>
   
 
@@ -105,62 +101,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。</p>
-<p>*1.通过定制的 cnpm 命令行工具代替默认的 npm</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=http:<span class="comment">//registry.npm.taobao.org</span></div></pre></td></tr></table></figure>
-
-<p>*2.安装具体模块</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install [name]</div></pre></td></tr></table></figure>
-
-<p><code>tips</code>:当安装的时候发现安装的模块还没有同步过来, 淘宝 NPM 会自动在后台进行同步, 并且会让你从官方 NPM registry.npmjs.org 进行安装. 下次你再安装这个模块的时候, 就会直接从 淘宝 NPM 安装了.</p>
-<p>*3.同步模块（直接通过 sync 命令马上同步一个模块）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm sync connect</div></pre></td></tr></table></figure>
-
-
+        <p>前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他问题后，我决定再来看看刚刚端口占用的问题，于是把服务器端口给改了回来，运行，咦？可以了。这是怎么回事，当时我百思不得其解~
+        
+          <p class="article-more-link">
+            <a href="/2015/01/13/tcpip学习之time_wait/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="yd709xh5qfgn868j" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/13/tcpip学习之time_wait/" data-id="0mtfr0cb82t2cdld" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2015/01/13/tcpip学习之time_wait/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
 
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2014/12/23/js学习之this用法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          学习js中的this用法
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/09/30/node.js学习之module.exports与exports的区别/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">node.js中module.exports与exports的区别</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
 
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2014/11/06/node.js学习之npm_install失败/" data-title="npm install经常失败解决方法" data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/"></div>
-  </section>
+  
+  
 </section>
         
           <aside id="sidebar">
@@ -244,23 +212,6 @@
   
 </aside>
 		  
-<!--section id="comment">
-    <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'funglau'; // required: replace example with your forum shortname//wtmartcom
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</section-->
-
         
       </div>
       <footer id="footer">
