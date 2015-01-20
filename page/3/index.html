@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: node.js | fung wan</title>
+  <title>fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Just do it!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="fung wan">
-<meta property="og:url" content="http://fungwan.me/tags/node-js/">
+<meta property="og:url" content="http://fungwan.me/page/3/">
 <meta property="og:site_name" content="fung wan">
 <meta property="og:description" content="Just do it!">
 <meta name="twitter:card" content="summary">
@@ -74,172 +74,6 @@
 </header>
       <div class="outer">
         <section id="main">
-  
-    <article id="post-node.js学习之settimeout" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/31/node.js学习之settimeout/" class="article-date">
-  <time datetime="2014-12-31T09:44:12.000Z" itemprop="datePublished">12月 31 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/31/node.js学习之settimeout/">node.js中的定时器setInterval</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>定时器相信大家都用过，而且才开始接触时，老是与线程混淆(特别是自己原来写MFC程序时)，这里有一篇文章对这两个概念作了很好的对比【<a href="http://blog.csdn.net/wangweitingaabbcc/article/details/6723606" target="_blank" rel="external">定时器和多线程对比</a>】。这里我只是在node.js层面作个补充。
-        
-          <p class="article-more-link">
-            <a href="/2014/12/31/node.js学习之settimeout/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/12/31/node.js学习之settimeout/" data-id="x5tqbtshc3brfpx9" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/12/31/node.js学习之settimeout/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之单线程解惑" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/30/node.js学习之单线程解惑/" class="article-date">
-  <time datetime="2014-12-30T04:44:12.000Z" itemprop="datePublished">12月 30 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/30/node.js学习之单线程解惑/">解惑node中的单线程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这里说一下node.js中的单线程缘由还是基于前段时间公司内部培训同事提出的问题：在网络通讯编程中，按照以往的语言或平台，应对成百上千的socket连接时，往往都会利用多线程的特性，对每个连接开启子线程分别接收数据再处理。那么在node.js中它是单线程，是基于事件响应的，即将每个的连接、处理事件会放到一个事件队列里面依次处理。那么问题来了，同事说如果某一个连接上来以后，一直在给服务器发送数据，那么排在事件队列后面的连接怎么处理，会一直等待吗？这个当然不是，下面我先用一个例子来说明一下这个问题的答案，方便理解。</p>
-<p>我们准备模拟这样一个场景：一个客户端向服务器发起tcp连接，成功之后，客户端一直给服务器发送数据，而服务器收到数据后只是作一个回显。然后，我们再用一个客户端向该服务器发起tcp连接，同样发送数据，这时看服务器会不会因为接收上一个连接的持续发送数据，而不能去处理第二个tcp连接的数据发送。
-        
-          <p class="article-more-link">
-            <a href="/2014/12/30/node.js学习之单线程解惑/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/12/30/node.js学习之单线程解惑/" data-id="v69jxmr4yw78cx9o" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/12/30/node.js学习之单线程解惑/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之npm_install失败" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/06/node.js学习之npm_install失败/" class="article-date">
-  <time datetime="2014-11-06T01:44:12.000Z" itemprop="datePublished">11月 6 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/06/node.js学习之npm_install失败/">npm install经常失败解决方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。</p>
-<p>*1.通过定制的 cnpm 命令行工具代替默认的 npm</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=http:<span class="comment">//registry.npm.taobao.org</span></div></pre></td></tr></table></figure>
-
-<p>*2.安装具体模块</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install [name]</div></pre></td></tr></table></figure>
-
-<p><code>tips</code>:当安装的时候发现安装的模块还没有同步过来, 淘宝 NPM 会自动在后台进行同步, 并且会让你从官方 NPM registry.npmjs.org 进行安装. 下次你再安装这个模块的时候, 就会直接从 淘宝 NPM 安装了.</p>
-<p>*3.同步模块（直接通过 sync 命令马上同步一个模块）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm sync connect</div></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="yy1fdlbpl4m7jicf" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
   
     <article id="post-node.js学习之module.exports与exports的区别" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -359,6 +193,10 @@
 
 
   
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 </section>
         

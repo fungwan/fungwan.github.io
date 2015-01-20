@@ -75,6 +75,123 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js学习之自执行" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/15/js学习之自执行/" class="article-date">
+  <time datetime="2015-01-15T02:44:12.000Z" itemprop="datePublished">1月 15 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/15/js学习之自执行/">什么是js中的自执行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前node的时候用了人家封装的库，调进去看了一下，遇到下面这种类似代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>{<span class="built_in">console</span>.log(name)})(<span class="string">'fengyun'</span>);</div></pre></td></tr></table></figure>
+
+<p>当时就在想这都什么玩意儿，我书读的少，写js不久，不要‘骗’我！以前没见过这种写法，于是百度之，才知道这是js里面的<em>匿名函数自执行</em>。这里面提到了两个关键字，一个是匿名函数，一个是自执行。</p>
+<blockquote>
+<p>匿名函数简单来说就是没有名字的函数，不能其单独使用；</p>
+<p>自执行就是函数在定义的时候就立即执行；</p>
+</blockquote>
+<p>概念都好理解，举个例效果更好：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是一般函数'</span>)</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是匿名函数'</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>上面代码中第二个函数表示的就是一个最简单的匿名函数，也没有参数。重点的是，它没办法调用运行的，因为它连名字都没有，怎么调？所以如果我们需要使用它，我们可以这么做：
+        
+          <p class="article-more-link">
+            <a href="/2015/01/15/js学习之自执行/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/01/15/js学习之自执行/" data-id="fiswt5rawys02dom" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/01/15/js学习之自执行/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tcpip学习之序列号和确认号" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/14/tcpip学习之序列号和确认号/" class="article-date">
+  <time datetime="2015-01-14T04:44:12.000Z" itemprop="datePublished">1月 14 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/14/tcpip学习之序列号和确认号/">理解Tcp序列号和确认号</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果见过Tcp的数据封包格式，那么一定会对它首部中的32位序列号和确认号有一定的印象。此篇笔记就是真正理解这两个号码段的作用，因为按以往的话总是停留在什么‘序号+1’的认知，却说不出个所以然。
+        
+          <p class="article-more-link">
+            <a href="/2015/01/14/tcpip学习之序列号和确认号/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/" data-id="cuq7hcebv2jrlx5r" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-tcpip学习之time_wait" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/01/13/tcpip学习之time_wait/" class="article-date">
@@ -111,7 +228,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/13/tcpip学习之time_wait/" data-id="0mtfr0cb82t2cdld" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/13/tcpip学习之time_wait/" data-id="4kiy8n2ga21audff" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -169,7 +286,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/05/js学习之原型继承/" data-id="97glcxi1wlun7rzj" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/05/js学习之原型继承/" data-id="hqqro4pa14ws6gge" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -195,7 +312,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -204,7 +321,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 10.00px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 15.00px;">exports</a><a href="/tags/javascript/" style="font-size: 15.00px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 13.33px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
     </div>
   </div>
 
@@ -213,7 +330,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -225,6 +342,14 @@
       <ul>
         
           <li>
+            <a href="/2015/01/15/js学习之自执行/">什么是js中的自执行</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/14/tcpip学习之序列号和确认号/">理解Tcp序列号和确认号</a>
+          </li>
+        
+          <li>
             <a href="/2015/01/13/tcpip学习之time_wait/">说说Tcp断开连接时的Time_Wait状态</a>
           </li>
         
@@ -234,14 +359,6 @@
         
           <li>
             <a href="/2014/12/31/node.js学习之settimeout/">node.js中的定时器setInterval</a>
-          </li>
-        
-          <li>
-            <a href="/2014/12/30/node.js学习之单线程解惑/">解惑node中的单线程</a>
-          </li>
-        
-          <li>
-            <a href="/2014/12/24/js学习之prototype用法/">解惑js中的prototype</a>
           </li>
         
       </ul>

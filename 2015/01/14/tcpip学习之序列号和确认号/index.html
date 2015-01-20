@@ -3,18 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>说说Tcp断开连接时的Time_Wait状态 | fung wan</title>
+  <title>理解Tcp序列号和确认号 | fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他">
+  <meta name="description" content="如果见过Tcp的数据封包格式，那么一定会对它首部中的32位序列号和确认号有一定的印象。此篇笔记就是真正理解这两个号码段的作用，因为按以往的话总是停留在什么‘序号+1’的认知，却说不出个所以然。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="说说Tcp断开连接时的Time_Wait状态">
-<meta property="og:url" content="http://fungwan.me/2015/01/13/tcpip学习之time_wait/">
+<meta property="og:title" content="理解Tcp序列号和确认号">
+<meta property="og:url" content="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/">
 <meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他">
-<meta property="og:image" content="/img/TIME_WAIT.png">
+<meta property="og:description" content="如果见过Tcp的数据封包格式，那么一定会对它首部中的32位序列号和确认号有一定的印象。此篇笔记就是真正理解这两个号码段的作用，因为按以往的话总是停留在什么‘序号+1’的认知，却说不出个所以然。">
+<meta property="og:image" content="/img/SYN-SENT.png">
+<meta property="og:image" content="/img/isn1.png">
+<meta property="og:image" content="/img/isn2.png">
+<meta property="og:image" content="/img/isn3.png">
+<meta property="og:image" content="/img/isn4.png">
+<meta property="og:image" content="/img/isn5.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="说说Tcp断开连接时的Time_Wait状态">
-<meta name="twitter:description" content="前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他">
+<meta name="twitter:title" content="理解Tcp序列号和确认号">
+<meta name="twitter:description" content="如果见过Tcp的数据封包格式，那么一定会对它首部中的32位序列号和确认号有一定的印象。此篇笔记就是真正理解这两个号码段的作用，因为按以往的话总是停留在什么‘序号+1’的认知，却说不出个所以然。">
 
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
@@ -74,10 +79,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-tcpip学习之time_wait" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-tcpip学习之序列号和确认号" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/01/13/tcpip学习之time_wait/" class="article-date">
-  <time datetime="2015-01-13T04:44:12.000Z" itemprop="datePublished">1月 13 2015</time>
+    <a href="/2015/01/14/tcpip学习之序列号和确认号/" class="article-date">
+  <time datetime="2015-01-14T04:44:12.000Z" itemprop="datePublished">1月 14 2015</time>
 </a>
     
   <div class="article-category">
@@ -92,7 +97,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      说说Tcp断开连接时的Time_Wait状态
+      理解Tcp序列号和确认号
     </h1>
   
 
@@ -100,34 +105,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他问题后，我决定再来看看刚刚端口占用的问题，于是把服务器端口给改了回来，运行，咦？可以了。这是怎么回事，当时我百思不得其解~<a id="more"></a></p>
-<p>后来因为前段时间在看《Tcp/Ip详解》中第18章——Tcp连接的建立和断开的时候，里面讲到了主动断开时的TIME_WAIT状态，我才明白当时重启服务器后为什么会报端口占用的问题。先来看看连接断开时何时出现TIME_WAIT？首先必须了解断开连接时的4次握手，如图：</p>
-<p><img src="/img/TIME_WAIT.png" alt="" title="Optional title"></p>
-<p>我们把TCP正常关闭连接的状态变化，转化成文字描述如下：</p>
-<ol>
-<li>发起方更改状态为FIN_WAIT_1，关闭应用程序进程，发出一个TCP的FIN段；</li>
-<li>接收方收到FIN段，返回一个带确认序号的ACK，同时向自己对应的进程发送一个文件结束符EOF，同时更改状态为CLOSE_WAIT，发起方接到ACK后状态更改为FIN_WAIT_2；</li>
-<li>接收方关闭应用程序进程，更改状态为LAST_ACK，并向对方发出一个TCP的FIN段；</li>
-<li>发起方接到FIN后状态更改为TIME_WAIT，并发出这个FIN的ACK确认。ACK发送成功后(2MSL内)双方TCP状态变为CLOSED。 </li>
-</ol>
-<p>从上面的描述我们知道了TIME_WAIT状态出现的时机，而TIME_WAIT状态称为2MSL等待状态，这里提到了一个关键字MSL（Maximum Segment Lifetime）,它是任何报文段被丢弃钱在网络内的最长时间。所以对于MSL值的处理简而言之概括是，当Tcp一端执行主动关闭，到收到对方的FIN后就进入了TIME_WAIT状态，然后执行发回ACK，<strong>接着整个Tcp连接就必须要在这个状态停留2倍MSL的时间！</strong></p>
-<p>这又有一个问题的提出：为什么TIME_WAIT状态要让TCP连接停留2MSL（max segment lifetime）时间。原因如下：</p>
-<ol>
-<li>防止上一次连接中的包，迷路后重新出现，即第一个连接的重复报文到达，影响新连接（经过2MSL，上一次连接中所有的重复包都会消失）</li>
-<li>可靠的关闭TCP连接。在主动关闭方发送的最后一个 ack(fin) ，有可能丢失，这时被动方会重新发fin, 如果这时主动方处于 CLOSED 状态 ，就会响应 rst 而不是 ack。所以主动方要处于 TIME_WAIT 状态，而不能是 CLOSED 。</li>
-</ol>
-<p>所以，正是基于此，Tcp规定了一个连接在TIME_WAIT状态期间，定义这个连接的插口（客户端IP/Port,服务器IP/Port）不能被使用。这个连接只能在2MSL结束后才能被使用。那这样的话，假如我们终止一个客户端程序，并立即重启它，则这个新的客户端程序就不能使用相同的本地端口。但这不会带来什么问题，因为客户端使用的系统随机分配的本地端口，其实是并不关心这个端口号是什么。然而要是服务器主动关闭进入TIME_WAIT，然后再重启它就有可能出错！因为服务器的端口是‘熟知’的，而这个端口是出于上一个2MSL连接的一部分。所以在重新启动服务器程序前，它需要等待在1~4分钟左右。</p>
-<p>最后小结了一大堆，到这儿相信都应该明白了本文开篇为什么立马重启服务器会出现端口占用的问题，而许久过后再开启就正常的答案了吧。由此得出结论，要码好网络编程，《Tcp/Ip协议详解》是圣经，定要学好它！许多当时摸不着头脑的问题，或许看了书中的某些章节，疑惑就迎刃而解了。</p>
+        <p>如果见过Tcp的数据封包格式，那么一定会对它首部中的32位序列号和确认号有一定的印象。此篇笔记就是真正理解这两个号码段的作用，因为按以往的话总是停留在什么‘序号+1’的认知，却说不出个所以然。<a id="more"></a></p>
+<p>我们都知道TCP之所以可靠，是因为它保证了传送数据包的顺序。而顺序就是用一个序列号来保证的。另外，TCP通过数据分段中的序列号来保证所有传输的数据可以按照正常的顺序进行重组，从而保障数据传输的完整。下面我们用网上的一个例子来说明序列号和确认号是怎么保证顺序的：本机地址(0.92)作客户端，去连接外网(222.77.187.23)的服务器端。</p>
+<p><img src="/img/SYN-SENT.png" alt="" title="Optional title"></p>
+<p>我们将其抓包，首先是Tcp三次握手中的第一次，如图：</p>
+<p><img src="/img/isn1.png" alt="" title="Optional title"></p>
+<p>从图中我们可以看到，客户端的初次请求连接的syn包里面，它的初始序列号(ISN)为2712239078，这是一个客户端随机产生的一个值，之所以随机是因为出于网络安全的因素，如果不是随机产生初始序列号，黑客将会以很容易的方式获取到你与其他主机之间通信的初始化序列号，并且伪造序列号进行攻击！然后它的确认号是0(因为它是第一条不需要确认什么，故为0)。</p>
+<p>接着是服务器收到客户端请求后，发回的ACK确认，如图：</p>
+<p><img src="/img/isn2.png" alt="" title="Optional title"></p>
+<p>这个发回给客户端的ACK确认包中，它的初始化序列号是1288781508，和客户端一样它是服务器端随机产生的值，接着是确认号，显示的是2712239079。都应该可看出它是(2712239078 + 1)，即客户端的初始序列号+1(虽然该包没有数据，但syn标志消耗了一个序号+1)。表示说，客户端你下一次发的数据包里面，序列号是2712239079开始。</p>
+<p>最后是客户端收到服务端发回的Ack后，再向服务器发的最后1次连接确认，如图：</p>
+<p><img src="/img/isn3.png" alt="" title="Optional title"></p>
+<p>三次握手中的最后一个数据包我们可以看到，客户端发的序列号为2712239079(它是上一次服务器发回希望客户端发的序列号)，确认号是1288781509(1288781508 + 1)，即服务器端的初始序列号+1。表示说，服务端你下一次发的数据包里面，序列号是1288781509开始。</p>
+<p>介绍完了握手之后，来看看客户端向服务器发送数据的时候序列号和确认号的变化：</p>
+<p><img src="/img/isn4.png" alt="" title="Optional title"></p>
+<p>从图中来看，该数据包序列号为2712239079，确认号为1288781509，这和三次握手的最后1步两个号码都是一样的。还有我们观察到这个数据包的大小为1018Byte，那么我们做一个算法，让它减去14字节的以太网报头，20字节的IP报头，20字节的TCP报头，4字节的FCS，最后得出这个包真正的数据大小为：1018-14-20-20-4=960。所以说，按照TCP协议的规定，如果服务器正常收到这些数据，那么它返回过来的包里面的确认号应该是：2712239079 + 960 = 2712240039。</p>
+<p>我们看看不就知道咯~如图：</p>
+<p><img src="/img/isn5.png" alt="" title="Optional title"></p>
+<p>怎么样，可以看到此包中序列号为1288781509，而确认号正是上面所计算出来的2712240039。综上我们知道了每个过程完成了不同的工作，而且序列号和确认号在每个过程中的变化都是不同的。</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/13/tcpip学习之time_wait/" data-id="4kiy8n2ga21audff" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/" data-id="cuq7hcebv2jrlx5r" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2015/01/13/tcpip学习之time_wait/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
@@ -139,19 +144,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/01/14/tcpip学习之序列号和确认号/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/01/15/js学习之自执行/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          理解Tcp序列号和确认号
+          什么是js中的自执行
         
       </div>
     </a>
   
   
-    <a href="/2015/01/05/js学习之原型继承/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/01/13/tcpip学习之time_wait/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">理解js中的原型继承</div>
+      <div class="article-nav-title">说说Tcp断开连接时的Time_Wait状态</div>
     </a>
   
 </nav>
@@ -161,7 +166,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/01/13/tcpip学习之time_wait/" data-title="说说Tcp断开连接时的Time_Wait状态" data-url="http://fungwan.me/2015/01/13/tcpip学习之time_wait/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/01/14/tcpip学习之序列号和确认号/" data-title="理解Tcp序列号和确认号" data-url="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/"></div>
   </section>
 </section>
         

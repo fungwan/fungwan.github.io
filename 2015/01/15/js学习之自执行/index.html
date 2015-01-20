@@ -3,18 +3,32 @@
 <head>
   <meta charset="utf-8">
   
-  <title>说说Tcp断开连接时的Time_Wait状态 | fung wan</title>
+  <title>什么是js中的自执行 | fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他">
+  <meta name="description" content="之前node的时候用了人家封装的库，调进去看了一下，遇到下面这种类似代码：
+1(function(name){console.log(name)})('fengyun');
+
+当时就在想这都什么玩意儿，我书读的少，写js不久，不要‘骗’我！以前没见过这种写法，于是百度之，才知道这是js里面的匿名函数自执行。这里面提到了两个关键字，一个是匿名函数，一个是自执行。
+
+匿名函数简单来说就是没有名字的函数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="说说Tcp断开连接时的Time_Wait状态">
-<meta property="og:url" content="http://fungwan.me/2015/01/13/tcpip学习之time_wait/">
+<meta property="og:title" content="什么是js中的自执行">
+<meta property="og:url" content="http://fungwan.me/2015/01/15/js学习之自执行/">
 <meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他">
-<meta property="og:image" content="/img/TIME_WAIT.png">
+<meta property="og:description" content="之前node的时候用了人家封装的库，调进去看了一下，遇到下面这种类似代码：
+1(function(name){console.log(name)})('fengyun');
+
+当时就在想这都什么玩意儿，我书读的少，写js不久，不要‘骗’我！以前没见过这种写法，于是百度之，才知道这是js里面的匿名函数自执行。这里面提到了两个关键字，一个是匿名函数，一个是自执行。
+
+匿名函数简单来说就是没有名字的函数">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="说说Tcp断开连接时的Time_Wait状态">
-<meta name="twitter:description" content="前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他">
+<meta name="twitter:title" content="什么是js中的自执行">
+<meta name="twitter:description" content="之前node的时候用了人家封装的库，调进去看了一下，遇到下面这种类似代码：
+1(function(name){console.log(name)})('fengyun');
+
+当时就在想这都什么玩意儿，我书读的少，写js不久，不要‘骗’我！以前没见过这种写法，于是百度之，才知道这是js里面的匿名函数自执行。这里面提到了两个关键字，一个是匿名函数，一个是自执行。
+
+匿名函数简单来说就是没有名字的函数">
 
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
@@ -74,14 +88,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-tcpip学习之time_wait" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-js学习之自执行" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/01/13/tcpip学习之time_wait/" class="article-date">
-  <time datetime="2015-01-13T04:44:12.000Z" itemprop="datePublished">1月 13 2015</time>
+    <a href="/2015/01/15/js学习之自执行/" class="article-date">
+  <time datetime="2015-01-15T02:44:12.000Z" itemprop="datePublished">1月 15 2015</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -92,7 +106,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      说说Tcp断开连接时的Time_Wait状态
+      什么是js中的自执行
     </h1>
   
 
@@ -100,38 +114,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他问题后，我决定再来看看刚刚端口占用的问题，于是把服务器端口给改了回来，运行，咦？可以了。这是怎么回事，当时我百思不得其解~<a id="more"></a></p>
-<p>后来因为前段时间在看《Tcp/Ip详解》中第18章——Tcp连接的建立和断开的时候，里面讲到了主动断开时的TIME_WAIT状态，我才明白当时重启服务器后为什么会报端口占用的问题。先来看看连接断开时何时出现TIME_WAIT？首先必须了解断开连接时的4次握手，如图：</p>
-<p><img src="/img/TIME_WAIT.png" alt="" title="Optional title"></p>
-<p>我们把TCP正常关闭连接的状态变化，转化成文字描述如下：</p>
-<ol>
-<li>发起方更改状态为FIN_WAIT_1，关闭应用程序进程，发出一个TCP的FIN段；</li>
-<li>接收方收到FIN段，返回一个带确认序号的ACK，同时向自己对应的进程发送一个文件结束符EOF，同时更改状态为CLOSE_WAIT，发起方接到ACK后状态更改为FIN_WAIT_2；</li>
-<li>接收方关闭应用程序进程，更改状态为LAST_ACK，并向对方发出一个TCP的FIN段；</li>
-<li>发起方接到FIN后状态更改为TIME_WAIT，并发出这个FIN的ACK确认。ACK发送成功后(2MSL内)双方TCP状态变为CLOSED。 </li>
-</ol>
-<p>从上面的描述我们知道了TIME_WAIT状态出现的时机，而TIME_WAIT状态称为2MSL等待状态，这里提到了一个关键字MSL（Maximum Segment Lifetime）,它是任何报文段被丢弃钱在网络内的最长时间。所以对于MSL值的处理简而言之概括是，当Tcp一端执行主动关闭，到收到对方的FIN后就进入了TIME_WAIT状态，然后执行发回ACK，<strong>接着整个Tcp连接就必须要在这个状态停留2倍MSL的时间！</strong></p>
-<p>这又有一个问题的提出：为什么TIME_WAIT状态要让TCP连接停留2MSL（max segment lifetime）时间。原因如下：</p>
-<ol>
-<li>防止上一次连接中的包，迷路后重新出现，即第一个连接的重复报文到达，影响新连接（经过2MSL，上一次连接中所有的重复包都会消失）</li>
-<li>可靠的关闭TCP连接。在主动关闭方发送的最后一个 ack(fin) ，有可能丢失，这时被动方会重新发fin, 如果这时主动方处于 CLOSED 状态 ，就会响应 rst 而不是 ack。所以主动方要处于 TIME_WAIT 状态，而不能是 CLOSED 。</li>
-</ol>
-<p>所以，正是基于此，Tcp规定了一个连接在TIME_WAIT状态期间，定义这个连接的插口（客户端IP/Port,服务器IP/Port）不能被使用。这个连接只能在2MSL结束后才能被使用。那这样的话，假如我们终止一个客户端程序，并立即重启它，则这个新的客户端程序就不能使用相同的本地端口。但这不会带来什么问题，因为客户端使用的系统随机分配的本地端口，其实是并不关心这个端口号是什么。然而要是服务器主动关闭进入TIME_WAIT，然后再重启它就有可能出错！因为服务器的端口是‘熟知’的，而这个端口是出于上一个2MSL连接的一部分。所以在重新启动服务器程序前，它需要等待在1~4分钟左右。</p>
-<p>最后小结了一大堆，到这儿相信都应该明白了本文开篇为什么立马重启服务器会出现端口占用的问题，而许久过后再开启就正常的答案了吧。由此得出结论，要码好网络编程，《Tcp/Ip协议详解》是圣经，定要学好它！许多当时摸不着头脑的问题，或许看了书中的某些章节，疑惑就迎刃而解了。</p>
+        <p>之前node的时候用了人家封装的库，调进去看了一下，遇到下面这种类似代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>{<span class="built_in">console</span>.log(name)})(<span class="string">'fengyun'</span>);</div></pre></td></tr></table></figure>
+
+<p>当时就在想这都什么玩意儿，我书读的少，写js不久，不要‘骗’我！以前没见过这种写法，于是百度之，才知道这是js里面的<em>匿名函数自执行</em>。这里面提到了两个关键字，一个是匿名函数，一个是自执行。</p>
+<blockquote>
+<p>匿名函数简单来说就是没有名字的函数，不能其单独使用；</p>
+<p>自执行就是函数在定义的时候就立即执行；</p>
+</blockquote>
+<p>概念都好理解，举个例效果更好：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是一般函数'</span>)</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是匿名函数'</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>上面代码中第二个函数表示的就是一个最简单的匿名函数，也没有参数。重点的是，它没办法调用运行的，因为它连名字都没有，怎么调？所以如果我们需要使用它，我们可以这么做：<a id="more"></a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> who = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是匿名函数'</span>)</div><div class="line">}</div><div class="line"></div><div class="line">who();</div></pre></td></tr></table></figure>
+
+<p>即把该匿名函数赋值给一个变量,然后让变量执行就可以了。题外话，我们这里可不可以只写who，不加那个括号，像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> who = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是匿名函数'</span>)</div><div class="line">}</div><div class="line"></div><div class="line">who</div></pre></td></tr></table></figure>
+
+<p>当然不行，js会报错，这样相当于who只是指向了函数的内存地址，单独使用没什么意义，把它console出来也是一个[Function]，而我们要执行它，就像指针解引用一样加*一样的，给它加上()让它执行。</p>
+<p>撤回来再看，但是这样的话感觉上跟正常函数的调用没什么两样，于是这里又引出了自执行的概念，我们可以把who的部分用那一堆匿名函数块给替换掉看行不行，像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是匿名函数'</span>)</div><div class="line">}();</div></pre></td></tr></table></figure>
+
+<p>很遗憾，上面的js写法会报语言错误，原因就在于Javascript解析器在解析全局的function或者函数内部function这个关键字的时候，默认会把大括号解析成function声明，而不是function表达式。所以，我们还需要把前面这部分转成表达式，怎么转？加上括号就可以：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是匿名函数'</span>)</div><div class="line">})();</div></pre></td></tr></table></figure>
+
+<p>运行成功打印‘我是匿名函数’，所以总结出来，它的格式就是(匿名函数)()，当然第二个括号里面可以带参数，比如我们要构造一个带参数的匿名函数，就像本篇开篇那样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>{<span class="built_in">console</span>.log(name)})(<span class="string">'fengyun'</span>);</div></pre></td></tr></table></figure>
+
+<p>我们说一般而言，匿名函数一般都跟闭包搭着使用，好基友一般。这里提到的闭包等以后再做学习笔记吧~</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/13/tcpip学习之time_wait/" data-id="4kiy8n2ga21audff" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/15/js学习之自执行/" data-id="fiswt5rawys02dom" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2015/01/13/tcpip学习之time_wait/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2015/01/15/js学习之自执行/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -139,19 +163,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/01/14/tcpip学习之序列号和确认号/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          理解Tcp序列号和确认号
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/01/05/js学习之原型继承/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/01/14/tcpip学习之序列号和确认号/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">理解js中的原型继承</div>
+      <div class="article-nav-title">理解Tcp序列号和确认号</div>
     </a>
   
 </nav>
@@ -161,7 +176,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/01/13/tcpip学习之time_wait/" data-title="说说Tcp断开连接时的Time_Wait状态" data-url="http://fungwan.me/2015/01/13/tcpip学习之time_wait/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/01/15/js学习之自执行/" data-title="什么是js中的自执行" data-url="http://fungwan.me/2015/01/15/js学习之自执行/"></div>
   </section>
 </section>
         
