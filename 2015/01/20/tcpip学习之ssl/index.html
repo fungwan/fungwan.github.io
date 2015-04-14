@@ -3,23 +3,34 @@
 <head>
   <meta charset="utf-8">
   
-  <title>node.js中exports的用法整理 | fung wan</title>
+  <title>理解对称加密与非对称加密 | fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。
-我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：
-123456789101112131415161718192021222324252627exports.some_words =">
+  <meta name="description" content="前段时间在公司的读书会上分享了网络服务中的安全部分，现在把当中涉及的一个很基础的概念笔记下来，就是关于加密的两种方式：对称加密与非对称加密。
+其实就名字而言都可以把两者作以区分，对称说明可能是某种事物的相同（当然这里指密钥），非对称则反之。先来看看对称加密百科的定义吧：
+
+采用单钥密码系统的加密方法，同一个密钥可以同时用作信息的加密和解密，这种加密方法称为对称加密，也称为单密钥加密。
+
+简而言之就">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node.js中exports的用法整理">
-<meta property="og:url" content="http://fungwan.me/2014/09/29/node.js学习之exports/">
+<meta property="og:title" content="理解对称加密与非对称加密">
+<meta property="og:url" content="http://fungwan.me/2015/01/20/tcpip学习之ssl/">
 <meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。
-我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：
-123456789101112131415161718192021222324252627exports.some_words =">
+<meta property="og:description" content="前段时间在公司的读书会上分享了网络服务中的安全部分，现在把当中涉及的一个很基础的概念笔记下来，就是关于加密的两种方式：对称加密与非对称加密。
+其实就名字而言都可以把两者作以区分，对称说明可能是某种事物的相同（当然这里指密钥），非对称则反之。先来看看对称加密百科的定义吧：
+
+采用单钥密码系统的加密方法，同一个密钥可以同时用作信息的加密和解密，这种加密方法称为对称加密，也称为单密钥加密。
+
+简而言之就">
+<meta property="og:image" content="http://s3.51cto.com/wyfs02/M02/39/5F/wKioL1O6ABzSzaeZAACatucI5eU001.jpg">
+<meta property="og:image" content="http://7u2nix.com1.z0.glb.clouddn.com/fungwan_key.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node.js中exports的用法整理">
-<meta name="twitter:description" content="相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。
-我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：
-123456789101112131415161718192021222324252627exports.some_words =">
+<meta name="twitter:title" content="理解对称加密与非对称加密">
+<meta name="twitter:description" content="前段时间在公司的读书会上分享了网络服务中的安全部分，现在把当中涉及的一个很基础的概念笔记下来，就是关于加密的两种方式：对称加密与非对称加密。
+其实就名字而言都可以把两者作以区分，对称说明可能是某种事物的相同（当然这里指密钥），非对称则反之。先来看看对称加密百科的定义吧：
+
+采用单钥密码系统的加密方法，同一个密钥可以同时用作信息的加密和解密，这种加密方法称为对称加密，也称为单密钥加密。
+
+简而言之就">
 
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
@@ -79,14 +90,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-node.js学习之exports" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-tcpip学习之ssl" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/09/29/node.js学习之exports/" class="article-date">
-  <time datetime="2014-09-29T10:44:12.000Z" itemprop="datePublished">9月 29 2014</time>
+    <a href="/2015/01/20/tcpip学习之ssl/" class="article-date">
+  <time datetime="2015-01-20T02:44:12.000Z" itemprop="datePublished">1月 20 2015</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
   </div>
 
   </div>
@@ -97,7 +108,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      node.js中exports的用法整理
+      理解对称加密与非对称加密
     </h1>
   
 
@@ -105,30 +116,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。</p>
-<p>我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">exports.some_words = <span class="string">'this is string'</span>;<span class="comment">//导出一个字符串</span></div><div class="line"></div><div class="line">exports.some_fun = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{<span class="comment">//导出一个函数</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'this is function'</span>);</div><div class="line">};</div><div class="line"></div><div class="line">exports.jsonObj = {</div><div class="line">    name : <span class="string">'fungwan'</span>,</div><div class="line">    sex  : <span class="string">'man'</span>,</div><div class="line">    run  : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'love running!'</span>);</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">//导出一个类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">helper</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> number = <span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'I can help you!'</span>);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">helper.prototype.giveMoney = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'I have lots of cash!'</span>);</div><div class="line">}</div><div class="line"></div><div class="line">exports.c_help = helper;</div></pre></td></tr></table></figure>
-
-<p><a id="more"></a><br>那么再新建一文件为调用方，暂命名为main.js，通过下面的代码进行调用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lib = <span class="built_in">require</span>(<span class="string">'./module.js'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> some_words = lib.some_words;</div><div class="line"><span class="built_in">console</span>.log(some_words);</div><div class="line"></div><div class="line">lib.some_fun();</div><div class="line"></div><div class="line"><span class="keyword">var</span> myFeature = lib.jsonObj;</div><div class="line"><span class="built_in">console</span>.log(myFeature.name);</div><div class="line">myFeature.run();</div><div class="line"></div><div class="line"><span class="keyword">var</span> c_help =  <span class="keyword">new</span> lib.c_help();</div><div class="line">c_help.do();</div><div class="line">c_help.giveMoney();</div></pre></td></tr></table></figure>
-
-<p>好了，我们看一下运行结果：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">this is string</div><div class="line">this is function</div><div class="line">fungwan</div><div class="line">love running!</div><div class="line">I can <span class="built_in">help</span> you!</div><div class="line">I have lots of cash!</div></pre></td></tr></table></figure>
-
+        <p>前段时间在公司的读书会上分享了网络服务中的安全部分，现在把当中涉及的一个很基础的概念笔记下来，就是关于加密的两种方式：对称加密与非对称加密。</p>
+<p>其实就名字而言都可以把两者作以区分，对称说明可能是某种事物的相同（当然这里指密钥），非对称则反之。先来看看对称加密百科的定义吧：</p>
+<blockquote>
+<p>采用单钥密码系统的加密方法，同一个密钥可以同时用作信息的加密和解密，这种加密方法称为对称加密，也称为单密钥加密。</p>
+</blockquote>
+<p>简而言之就是，对称加密是加密解密用的是同样的“钥匙”，举个网上邮局寄件的例子就是：<a id="more"></a></p>
+<p>Alice 在盒子里放有信息，盒子上有挂锁，她有钥匙。通过邮局她把这个盒子寄给Bob。Bob收到盒子后，用相同的钥匙打开盒子(钥匙之前就得到了，可能是Alice面对面给他的)。然后Bob可以用同样的方法回复。如图：</p>
+<p><img src="http://s3.51cto.com/wyfs02/M02/39/5F/wKioL1O6ABzSzaeZAACatucI5eU001.jpg" alt="Alt text" title="51cto"></p>
+<p>怎么样？很好理解吧。再来看看非对称加密的解释：</p>
+<blockquote>
+<p>与对称不相同，非对称加密需要两个密钥来进行加密和解密，这两个秘钥是公开密钥（public key，简称公钥）和私有密钥（private key，简称私钥）。</p>
+</blockquote>
+<p>还是用百科的图来理解它的概念吧，上图：</p>
+<p><img src="http://7u2nix.com1.z0.glb.clouddn.com/fungwan_key.jpg" alt="Alt text" title="51cto"></p>
+<p>介绍一下图示的流程：</p>
+<ol>
+<li>乙方生成一对密钥（公钥和私钥）并将公钥向其它方公开。</li>
+<li>得到该公钥的甲方使用该密钥对机密信息进行加密后再发送给乙方。</li>
+<li>乙方再用自己保存的另一把专用密钥（私钥）对加密后的信息进行解密。乙方只能用其专用密钥（私钥）解密由对应的公钥加密后的信息。</li>
+</ol>
+<p>这样做最大的好处就在于，在传输过程中，即使攻击者截获了传输的密文，并得到了乙的公钥，也无法破解密文，因为只有乙的私钥才能解密密文。同样，如果乙要回复加密信息给甲，那么需要甲先公布甲的公钥给乙用于加密，甲自己保存甲的私钥用于解密。所以，在两端进行安全传输之前，<strong>他们之间需要交换各自公钥！</strong></p>
+<p>以上便是对两种加密方式的基础笔记，后续有时间会在https的网络传输中，对非对称加密的应用作进一步了解。</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/09/29/node.js学习之exports/" data-id="r3ddrc7e8mrmds99" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/20/tcpip学习之ssl/" data-id="ij81nicbpwc2cfaq" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2014/09/29/node.js学习之exports/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2015/01/20/tcpip学习之ssl/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https-ssl/">https ssl</a></li></ul>
 
     </footer>
   </div>
@@ -136,15 +159,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/09/30/node.js学习之module.exports与exports的区别/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          node.js中module.exports与exports的区别
-        
-      </div>
-    </a>
   
+    <a href="/2015/01/15/js学习之自执行/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">什么是js中的自执行</div>
+    </a>
   
 </nav>
 
@@ -153,7 +172,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2014/09/29/node.js学习之exports/" data-title="node.js中exports的用法整理" data-url="http://fungwan.me/2014/09/29/node.js学习之exports/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/01/20/tcpip学习之ssl/" data-title="理解对称加密与非对称加密" data-url="http://fungwan.me/2015/01/20/tcpip学习之ssl/"></div>
   </section>
 </section>
         

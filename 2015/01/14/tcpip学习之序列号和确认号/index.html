@@ -11,12 +11,12 @@
 <meta property="og:url" content="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/">
 <meta property="og:site_name" content="fung wan">
 <meta property="og:description" content="如果见过Tcp的数据封包格式，那么一定会对它首部中的32位序列号和确认号有一定的印象。此篇笔记就是真正理解这两个号码段的作用，因为按以往的话总是停留在什么‘序号+1’的认知，却说不出个所以然。">
-<meta property="og:image" content="/img/SYN-SENT.png">
-<meta property="og:image" content="/img/isn1.png">
-<meta property="og:image" content="/img/isn2.png">
-<meta property="og:image" content="/img/isn3.png">
-<meta property="og:image" content="/img/isn4.png">
-<meta property="og:image" content="/img/isn5.png">
+<meta property="og:image" content="http://7u2nix.com1.z0.glb.clouddn.com/SYN-SENT.png">
+<meta property="og:image" content="http://7u2nix.com1.z0.glb.clouddn.com/isn1.png">
+<meta property="og:image" content="http://7u2nix.com1.z0.glb.clouddn.com/isn2.png">
+<meta property="og:image" content="http://7u2nix.com1.z0.glb.clouddn.com/isn3.png">
+<meta property="og:image" content="http://7u2nix.com1.z0.glb.clouddn.com/isn4.png">
+<meta property="og:image" content="http://7u2nix.com1.z0.glb.clouddn.com/isn5.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解Tcp序列号和确认号">
 <meta name="twitter:description" content="如果见过Tcp的数据封包格式，那么一定会对它首部中的32位序列号和确认号有一定的印象。此篇笔记就是真正理解这两个号码段的作用，因为按以往的话总是停留在什么‘序号+1’的认知，却说不出个所以然。">
@@ -107,28 +107,28 @@
       
         <p>如果见过Tcp的数据封包格式，那么一定会对它首部中的32位序列号和确认号有一定的印象。此篇笔记就是真正理解这两个号码段的作用，因为按以往的话总是停留在什么‘序号+1’的认知，却说不出个所以然。<a id="more"></a></p>
 <p>我们都知道TCP之所以可靠，是因为它保证了传送数据包的顺序。而顺序就是用一个序列号来保证的。另外，TCP通过数据分段中的序列号来保证所有传输的数据可以按照正常的顺序进行重组，从而保障数据传输的完整。下面我们用网上的一个例子来说明序列号和确认号是怎么保证顺序的：本机地址(0.92)作客户端，去连接外网(222.77.187.23)的服务器端。</p>
-<p><img src="/img/SYN-SENT.png" alt="" title="Optional title"></p>
+<p><img src="http://7u2nix.com1.z0.glb.clouddn.com/SYN-SENT.png" alt="" title="Optional title"></p>
 <p>我们将其抓包，首先是Tcp三次握手中的第一次，如图：</p>
-<p><img src="/img/isn1.png" alt="" title="Optional title"></p>
+<p><img src="http://7u2nix.com1.z0.glb.clouddn.com/isn1.png" alt="" title="Optional title"></p>
 <p>从图中我们可以看到，客户端的初次请求连接的syn包里面，它的初始序列号(ISN)为2712239078，这是一个客户端随机产生的一个值，之所以随机是因为出于网络安全的因素，如果不是随机产生初始序列号，黑客将会以很容易的方式获取到你与其他主机之间通信的初始化序列号，并且伪造序列号进行攻击！然后它的确认号是0(因为它是第一条不需要确认什么，故为0)。</p>
 <p>接着是服务器收到客户端请求后，发回的ACK确认，如图：</p>
-<p><img src="/img/isn2.png" alt="" title="Optional title"></p>
+<p><img src="http://7u2nix.com1.z0.glb.clouddn.com/isn2.png" alt="" title="Optional title"></p>
 <p>这个发回给客户端的ACK确认包中，它的初始化序列号是1288781508，和客户端一样它是服务器端随机产生的值，接着是确认号，显示的是2712239079。都应该可看出它是(2712239078 + 1)，即客户端的初始序列号+1(虽然该包没有数据，但syn标志消耗了一个序号+1)。表示说，客户端你下一次发的数据包里面，序列号是2712239079开始。</p>
 <p>最后是客户端收到服务端发回的Ack后，再向服务器发的最后1次连接确认，如图：</p>
-<p><img src="/img/isn3.png" alt="" title="Optional title"></p>
+<p><img src="http://7u2nix.com1.z0.glb.clouddn.com/isn3.png" alt="" title="Optional title"></p>
 <p>三次握手中的最后一个数据包我们可以看到，客户端发的序列号为2712239079(它是上一次服务器发回希望客户端发的序列号)，确认号是1288781509(1288781508 + 1)，即服务器端的初始序列号+1。表示说，服务端你下一次发的数据包里面，序列号是1288781509开始。</p>
 <p>介绍完了握手之后，来看看客户端向服务器发送数据的时候序列号和确认号的变化：</p>
-<p><img src="/img/isn4.png" alt="" title="Optional title"></p>
+<p><img src="http://7u2nix.com1.z0.glb.clouddn.com/isn4.png" alt="" title="Optional title"></p>
 <p>从图中来看，该数据包序列号为2712239079，确认号为1288781509，这和三次握手的最后1步两个号码都是一样的。还有我们观察到这个数据包的大小为1018Byte，那么我们做一个算法，让它减去14字节的以太网报头，20字节的IP报头，20字节的TCP报头，4字节的FCS，最后得出这个包真正的数据大小为：1018-14-20-20-4=960。所以说，按照TCP协议的规定，如果服务器正常收到这些数据，那么它返回过来的包里面的确认号应该是：2712239079 + 960 = 2712240039。</p>
 <p>我们看看不就知道咯~如图：</p>
-<p><img src="/img/isn5.png" alt="" title="Optional title"></p>
+<p><img src="http://7u2nix.com1.z0.glb.clouddn.com/isn5.png" alt="" title="Optional title"></p>
 <p>怎么样，可以看到此包中序列号为1288781509，而确认号正是上面所计算出来的2712240039。综上我们知道了每个过程完成了不同的工作，而且序列号和确认号在每个过程中的变化都是不同的。</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/" data-id="cuq7hcebv2jrlx5r" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/" data-id="tfxk74nb3t70hjkz" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -176,7 +176,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -185,7 +185,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 13.33px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 13.33px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/https-ssl/" style="font-size: 10.00px;">https ssl</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
     </div>
   </div>
 
@@ -194,7 +194,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -204,6 +204,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/01/20/tcpip学习之ssl/">理解对称加密与非对称加密</a>
+          </li>
         
           <li>
             <a href="/2015/01/15/js学习之自执行/">什么是js中的自执行</a>
@@ -219,10 +223,6 @@
         
           <li>
             <a href="/2015/01/05/js学习之原型继承/">理解js中的原型继承</a>
-          </li>
-        
-          <li>
-            <a href="/2014/12/31/node.js学习之settimeout/">node.js中的定时器setInterval</a>
           </li>
         
       </ul>
