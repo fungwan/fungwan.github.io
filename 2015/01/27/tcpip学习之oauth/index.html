@@ -3,23 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>node.js中exports的用法整理 | fung wan</title>
+  <title>认知OAuth授权基本概念 | fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。
-我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：
-123456789101112131415161718192021222324252627exports.some_words =">
+  <meta name="description" content="现在凡是涉及注册登录的网站，为了赚取用户量，都使用了大型社交网站的登陆授权这种方式，因为对于用户来说免除了繁杂、琐碎、重复性的注册行为，进而又可以享受该网站的相应服务，这应该说是双赢的！今天笔记的就是实现该方式的OAuth授权，参考了阮一峰的这篇博文， 《理解OAuth 2.0》。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node.js中exports的用法整理">
-<meta property="og:url" content="http://fungwan.me/2014/09/29/node.js学习之exports/">
+<meta property="og:title" content="认知OAuth授权基本概念">
+<meta property="og:url" content="http://fungwan.me/2015/01/27/tcpip学习之oauth/">
 <meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。
-我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：
-123456789101112131415161718192021222324252627exports.some_words =">
+<meta property="og:description" content="现在凡是涉及注册登录的网站，为了赚取用户量，都使用了大型社交网站的登陆授权这种方式，因为对于用户来说免除了繁杂、琐碎、重复性的注册行为，进而又可以享受该网站的相应服务，这应该说是双赢的！今天笔记的就是实现该方式的OAuth授权，参考了阮一峰的这篇博文， 《理解OAuth 2.0》。">
+<meta property="og:image" content="http://img2.tuicool.com/quERVf.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node.js中exports的用法整理">
-<meta name="twitter:description" content="相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。
-我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：
-123456789101112131415161718192021222324252627exports.some_words =">
+<meta name="twitter:title" content="认知OAuth授权基本概念">
+<meta name="twitter:description" content="现在凡是涉及注册登录的网站，为了赚取用户量，都使用了大型社交网站的登陆授权这种方式，因为对于用户来说免除了繁杂、琐碎、重复性的注册行为，进而又可以享受该网站的相应服务，这应该说是双赢的！今天笔记的就是实现该方式的OAuth授权，参考了阮一峰的这篇博文， 《理解OAuth 2.0》。">
 
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
@@ -79,14 +74,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-node.js学习之exports" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-tcpip学习之oauth" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/09/29/node.js学习之exports/" class="article-date">
-  <time datetime="2014-09-29T10:44:12.000Z" itemprop="datePublished">9月 29 2014</time>
+    <a href="/2015/01/27/tcpip学习之oauth/" class="article-date">
+  <time datetime="2015-01-27T03:22:12.000Z" itemprop="datePublished">1月 27 2015</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
   </div>
 
   </div>
@@ -97,7 +92,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      node.js中exports的用法整理
+      认知OAuth授权基本概念
     </h1>
   
 
@@ -105,30 +100,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。</p>
-<p>我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">exports.some_words = <span class="string">'this is string'</span>;<span class="comment">//导出一个字符串</span></div><div class="line"></div><div class="line">exports.some_fun = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{<span class="comment">//导出一个函数</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'this is function'</span>);</div><div class="line">};</div><div class="line"></div><div class="line">exports.jsonObj = {</div><div class="line">    name : <span class="string">'fungwan'</span>,</div><div class="line">    sex  : <span class="string">'man'</span>,</div><div class="line">    run  : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'love running!'</span>);</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">//导出一个类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">helper</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> number = <span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'I can help you!'</span>);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">helper.prototype.giveMoney = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'I have lots of cash!'</span>);</div><div class="line">}</div><div class="line"></div><div class="line">exports.c_help = helper;</div></pre></td></tr></table></figure>
-
-<p><a id="more"></a><br>那么再新建一文件为调用方，暂命名为main.js，通过下面的代码进行调用：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> lib = <span class="built_in">require</span>(<span class="string">'./module.js'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> some_words = lib.some_words;</div><div class="line"><span class="built_in">console</span>.log(some_words);</div><div class="line"></div><div class="line">lib.some_fun();</div><div class="line"></div><div class="line"><span class="keyword">var</span> myFeature = lib.jsonObj;</div><div class="line"><span class="built_in">console</span>.log(myFeature.name);</div><div class="line">myFeature.run();</div><div class="line"></div><div class="line"><span class="keyword">var</span> c_help =  <span class="keyword">new</span> lib.c_help();</div><div class="line">c_help.do();</div><div class="line">c_help.giveMoney();</div></pre></td></tr></table></figure>
-
-<p>好了，我们看一下运行结果：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">this is string</div><div class="line">this is function</div><div class="line">fungwan</div><div class="line">love running!</div><div class="line">I can <span class="built_in">help</span> you!</div><div class="line">I have lots of cash!</div></pre></td></tr></table></figure>
-
+        <p>现在凡是涉及注册登录的网站，为了赚取用户量，都使用了大型社交网站的登陆授权这种方式，因为对于用户来说免除了繁杂、琐碎、重复性的注册行为，进而又可以享受该网站的相应服务，这应该说是双赢的！今天笔记的就是实现该方式的OAuth授权，参考了阮一峰的这篇博文， <a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" title="ruan" target="_blank" rel="external">《理解OAuth 2.0》</a>。<a id="more"></a></p>
+<p>首先引用阮老师博文的一段话，来阐述OAuth的思路：</p>
+<blockquote>
+<p>OAuth在”客户端”与”服务提供商”之间，设置了一个授权层（authorization layer）。”客户端”不能直接登录”服务提供商”，只能登录授权层，以此将用户与客户端区分开来。”客户端”登录授权层所用的令牌（token），与用户的密码不同。用户可以在登录的时候，指定授权层令牌的权限范围和有效期。<br>“客户端”登录授权层以后，”服务提供商”根据令牌的权限范围和有效期，向”客户端”开放用户储存的资料</p>
+</blockquote>
+<p>思路明确过后，那么对于OAuth的认证流程，我想用自己使用网易云笔记的场景解释一下，因为网上其他地方的描述读起来不太清晰，想来还是用自己的语言组织容易理解一点，以后翻看过来也容易读懂。</p>
+<p>场景还原一下就是：当首次使用网易云笔记的时候，我没有去注册而是选择了第三方qq登陆，然后云笔记把我导向了一个qq登陆认证的界面，我输了正确的用户名和密码点击确定过后，随之又跑回并进入了云笔记的主界面，而且在它的右上角显示了我的qq用户名和头像。</p>
+<p>然后我们从技术的层面上来解析每一个流程：</p>
+<ol>
+<li>当我想以qq登陆的方式进入云笔记时，云笔记就需要拿我的qq用户名和头像来初始化我这个云笔记新用户。所以，云笔记首先会向服务提供商（这里指qq）申请一个未授权的临时令牌；</li>
+<li>qq收到云笔记的请求过后，会去验证云笔记的身份（因为之前云笔记已经向qq申请了诸如appkey之类的东东），验证通过过后，则会将这个未授权的令牌返回给云笔记；</li>
+<li>云笔记拿到这个未授权的令牌后，将用户（这里指我本人）重定向引导到qq的授权页面，即请求用户授权，同时云笔记也将之前得到的未授权的令牌和网站返回地址（后面qq会用它）发给服务提供商；</li>
+<li>当我输入正确的用户名和密码即表示愿意授权云笔记获取我的qq用户名和头像；</li>
+<li>有了我的授权过后，服务提供商才会放心的将已经授权的临时令牌返回给云笔记，并将用户导向第3步中云笔记提供的地址；</li>
+<li>云笔记根据拿到的已经授权的令牌再去请求获取最高级别的访问令牌；</li>
+<li>服务提供商qq会根据云笔记提供的已经授权的临时令牌返回最高级别的访问令牌；</li>
+<li>云笔记根据最高级别的访问令牌去获取服务提供商的相应资源（这里指用户名和头像）；</li>
+<li>服务提供商返回资源；</li>
+</ol>
+<p>上面的文字看起来太繁杂的话，也可以用下面的这幅流程图加以理解：</p>
+<p><img src="http://img2.tuicool.com/quERVf.jpg" alt="" title="51cto"></p>
+<p>总之，云笔记之类的应用程序要想拿服务商的资源，就必须要的到访问令牌，而访问令牌的获取就关键的就是要的到用户的授权。OAuth 2.0定义了四种授权方式。以上介绍的这个授权模式，应该是授权码模式（authorization code）是功能最完整、流程最严密的授权模式。它的特点就是通过客户端的后台服务器，与”服务提供商”的认证服务器进行互动。</p>
+<p>好了，写了那么多感觉好累，如果还有什么遗漏或者描述不清楚的地方，以后再来添加笔记吧~</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/09/29/node.js学习之exports/" data-id="ld9ibn0011bq5lb2" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/27/tcpip学习之oauth/" data-id="7ae15e5kdpvoke6d" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2014/09/29/node.js学习之exports/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2015/01/27/tcpip学习之oauth/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oauth2-0/">oauth2.0</a></li></ul>
 
     </footer>
   </div>
@@ -136,15 +144,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/09/30/node.js学习之module.exports与exports的区别/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          node.js中module.exports与exports的区别
-        
-      </div>
-    </a>
   
+    <a href="/2015/01/22/tcpip学习之https/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">https服务</div>
+    </a>
   
 </nav>
 
@@ -153,7 +157,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2014/09/29/node.js学习之exports/" data-title="node.js中exports的用法整理" data-url="http://fungwan.me/2014/09/29/node.js学习之exports/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/01/27/tcpip学习之oauth/" data-title="认知OAuth授权基本概念" data-url="http://fungwan.me/2015/01/27/tcpip学习之oauth/"></div>
   </section>
 </section>
         
