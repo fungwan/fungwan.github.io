@@ -75,6 +75,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-node.js学习之module.exports与exports的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/09/30/node.js学习之module.exports与exports的区别/" class="article-date">
+  <time datetime="2014-09-30T04:44:12.000Z" itemprop="datePublished">9月 30 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/30/node.js学习之module.exports与exports的区别/">node.js中module.exports与exports的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们在阅读它人或开源的node.js代码时，会发现在对模块导出的写法上会出现下面几种情况，而关于导出的方法整理，可以参见我这篇文章<a href="http://fungwan.me/2014/09/29/node.js%E5%AD%A6%E4%B9%A0%E4%B9%8Bexports/" target="_blank" rel="external">node.js中exports的用法整理</a>。现在，我们以导出字符串对象为例：</p>
+<p>在module.js文件中，有如下写法：</p>
+<ul>
+<li>1.exports.get_name = ‘fungwan by exports ‘;</li>
+<li>2.module.exports.get_name = ‘fungwan by modules’;</li>
+<li>3.module.exports = ‘fungwan by modules’;</li>
+</ul>
+<p>通过对比发现，这里较之前多了module.exports，那么它跟exports的导出有什么关系呢？查阅资料即可知晓，其实exports就是module.exports对象的引用，本质上是相等的。我们可以通过这句代码证实：</p>
+
+        
+          <p class="article-more-link">
+            <a href="/2014/09/30/node.js学习之module.exports与exports的区别/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/" data-id="clfaad4yf00jqmvv" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-node.js学习之exports" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/09/29/node.js学习之exports/" class="article-date">
@@ -115,7 +176,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/09/29/node.js学习之exports/" data-id="cnqao639699sn1wf" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/09/29/node.js学习之exports/" data-id="1612zw0jq6dsmhrq" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -124,6 +185,137 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node.js学习之解决Node在centos上无法访问" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/09/node.js学习之解决Node在centos上无法访问/" class="article-date">
+  <time datetime="2014-08-09T05:44:12.000Z" itemprop="datePublished">8月 9 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/09/node.js学习之解决Node在centos上无法访问/">解决Node在centos上无法访问</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>将Node安装在了centos 上，发现在主机上并不能访问虚拟机上centos的node服务器，但是虚拟机能访问自己的web。各自都可ping通对方的IP。虚拟机采用的NAT的方式。后来查阅了资料，可能是防火墙的原因。<br>服务器的5858端口被防火墙堵了，可在主机通过命令：telnet server_ip 5858 来测试。</p>
+<p>解决方案：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/sbin/iptables -I INPUT -p tcp --dport <span class="number">5858</span> -j ACCEPT</div></pre></td></tr></table></figure>
+
+<p>然后保存：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/rc.d/init.d/iptables save</div></pre></td></tr></table></figure>
+
+<p>重启防火墙</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/iptables restart</div></pre></td></tr></table></figure>
+
+<p>再在主机访问OK！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/08/09/node.js学习之解决Node在centos上无法访问/" data-id="d7h90efxl3y3x9e8" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/08/09/node.js学习之解决Node在centos上无法访问/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node.js学习之centos环境补充" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/08/08/node.js学习之centos环境补充/" class="article-date">
+  <time datetime="2014-08-08T09:44:12.000Z" itemprop="datePublished">8月 8 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/08/node.js学习之centos环境补充/">Node.js在Centos上的安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前在windows上写Node,后面考虑到项目部署，于是需要移植到centos上。</p>
+<p>环境需求：</p>
+<ol>
+<li>centos版本为6.5 64位</li>
+<li>Node安装0.10.24</li>
+</ol>
+<p>步骤如下：</p>
+<p>1.安装gcc编译</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install gcc gcc-c++ openssl-devel</div></pre></td></tr></table></figure>
+
+<p>2.下载node.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a.wget http:<span class="comment">//nodejs.org/dist/v0.10.24/node-v0.10.24.tar.gz  </span></div><div class="line">b.tar zxvf node-v0<span class="number">.10</span><span class="number">.24</span>.tar.gz </div><div class="line">c.cd node-v0<span class="number">.10</span><span class="number">.24</span></div></pre></td></tr></table></figure>
+
+<p>3.配置编译安装</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=<span class="regexp">/usr/</span>local/node </div><div class="line">make && make install</div></pre></td></tr></table></figure>
+
+<p>4.配置Node环境<br>vim /etc/profile </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#set nodejs env  </div><div class="line">export NODE_HOME=<span class="regexp">/usr/</span>local/node  </div><div class="line">export PATH=$NODE_HOME/bin:$PATH  </div><div class="line">export NODE_PATH=$NODE_HOME/lib/node_modules:$PATH</div></pre></td></tr></table></figure>
+
+
+<p>qw!</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
+
+<p>5.重启</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/08/08/node.js学习之centos环境补充/" data-id="0ezvo25b63lcld1h" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/08/08/node.js学习之centos环境补充/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
@@ -145,7 +337,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -163,7 +355,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -173,6 +365,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/02/01/js学习之对象内容是否为空/">判断对象内容是否为空</a>
+          </li>
         
           <li>
             <a href="/2015/01/27/tcpip学习之oauth/">认知OAuth授权基本概念</a>
@@ -188,10 +384,6 @@
         
           <li>
             <a href="/2015/01/15/js学习之自执行/">什么是js中的自执行</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/14/tcpip学习之序列号和确认号/">理解Tcp序列号和确认号</a>
           </li>
         
       </ul>

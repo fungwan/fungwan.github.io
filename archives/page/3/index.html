@@ -75,6 +75,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js学习之prototype用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/24/js学习之prototype用法/" class="article-date">
+  <time datetime="2014-12-24T01:44:12.000Z" itemprop="datePublished">12月 24 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/24/js学习之prototype用法/">解惑js中的prototype</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>平时node中在人家源码里往往会看到prototype，之前百度了下说的是原型方法，也没有细看，今天决定好好把这块知识点学习一下。结合网上的资料，把prototype的定义精简一下：js中每个函数都有一个默认的prototype属性，这个属性是另一个对象（我们称之为‘原型对象’）的引用，换句话说，其实prototype属性就是一个对象。这个原型对象的所有属性和方法，都会被构造函数的实例继承。</p>
+<p>说了定义，那我们来看什么时候使用prototype呢？这篇<a href="http://www.cnblogs.com/dolphinX/p/3286177.html" title="色拉油啊油" target="_blank" rel="external">博文</a>对这部分讲的很清楚。按照他的例子举个例，在传统的实例化出来的对象要使用属性或方法时，我们事先是这样构造一个‘类’（为了好理解暂叫类吧）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">()</span></span>{</div><div class="line">    <span class="keyword">this</span>.friends = []; <span class="comment">//实例变量</span></div><div class="line">    <span class="keyword">this</span>.read=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{ <span class="comment">//实例方法</span></div><div class="line">	    <span class="keyword">var</span> bookName = <span class="string">'代码与艺术'</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'我要读'</span> + bookName);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> fengyun = <span class="keyword">new</span> Student();</div><div class="line">fengyun.friends.push(<span class="string">'lauchunpung'</span>);</div><div class="line">fengyun.read();</div><div class="line"><span class="built_in">console</span>.log(fengyun.friends); <span class="comment">//['lauchunpung']</span></div><div class="line">        </div><div class="line"><span class="keyword">var</span> andy = <span class="keyword">new</span> Student();</div><div class="line">andy.friends.push(<span class="string">'zhuliqian'</span>);</div><div class="line">andy.read();</div><div class="line"><span class="built_in">console</span>.log(andy.friends); <span class="comment">//['zhuliqian']</span></div></pre></td></tr></table></figure>
+
+<p>
+        
+          <p class="article-more-link">
+            <a href="/2014/12/24/js学习之prototype用法/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/12/24/js学习之prototype用法/" data-id="q3sit92zuyq43ly3" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/12/24/js学习之prototype用法/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-markdown学习之常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/12/23/markdown学习之常用命令/" class="article-date">
@@ -117,7 +174,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/23/markdown学习之常用命令/" data-id="oro3lcm3z1kjcot7" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/23/markdown学习之常用命令/" data-id="ihld0hude1pdxtzr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -175,7 +232,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/23/js学习之this用法/" data-id="qce8p3uuk2k5r3te" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/23/js学习之this用法/" data-id="5x4of3we5904480k" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -234,7 +291,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="8xhhx35wi78wmek2" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="lmh5o1kzai2nkqbi" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -287,7 +344,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/10/16/C语言之typedef/" data-id="1x1tzbol3yu6h491" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/10/16/C语言之typedef/" data-id="6ggwplgt1z0doswv" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -296,67 +353,6 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之module.exports与exports的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/30/node.js学习之module.exports与exports的区别/" class="article-date">
-  <time datetime="2014-09-30T04:44:12.000Z" itemprop="datePublished">9月 30 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/30/node.js学习之module.exports与exports的区别/">node.js中module.exports与exports的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们在阅读它人或开源的node.js代码时，会发现在对模块导出的写法上会出现下面几种情况，而关于导出的方法整理，可以参见我这篇文章<a href="http://fungwan.me/2014/09/29/node.js%E5%AD%A6%E4%B9%A0%E4%B9%8Bexports/" target="_blank" rel="external">node.js中exports的用法整理</a>。现在，我们以导出字符串对象为例：</p>
-<p>在module.js文件中，有如下写法：</p>
-<ul>
-<li>1.exports.get_name = ‘fungwan by exports ‘;</li>
-<li>2.module.exports.get_name = ‘fungwan by modules’;</li>
-<li>3.module.exports = ‘fungwan by modules’;</li>
-</ul>
-<p>通过对比发现，这里较之前多了module.exports，那么它跟exports的导出有什么关系呢？查阅资料即可知晓，其实exports就是module.exports对象的引用，本质上是相等的。我们可以通过这句代码证实：</p>
-
-        
-          <p class="article-more-link">
-            <a href="/2014/09/30/node.js学习之module.exports与exports的区别/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/" data-id="6v41wmi2e2z2znus" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
@@ -378,7 +374,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -396,7 +392,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -406,6 +402,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/02/01/js学习之对象内容是否为空/">判断对象内容是否为空</a>
+          </li>
         
           <li>
             <a href="/2015/01/27/tcpip学习之oauth/">认知OAuth授权基本概念</a>
@@ -421,10 +421,6 @@
         
           <li>
             <a href="/2015/01/15/js学习之自执行/">什么是js中的自执行</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/14/tcpip学习之序列号和确认号/">理解Tcp序列号和确认号</a>
           </li>
         
       </ul>
