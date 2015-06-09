@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>解惑js中的prototype | fung wan</title>
+  <title>解决spydroid-ipcamera视频串流的问题 | fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="平时node中在人家源码里往往会看到prototype，之前百度了下说的是原型方法，也没有细看，今天决定好好把这块知识点学习一下。结合网上的资料，把prototype的定义精简一下：js中每个函数都有一个默认的prototype属性，这个属性是另一个对象（我们称之为‘原型对象’）的引用，换句话说，其实prototype属性就是一个对象。这个原型对象的所有属性和方法，都会被构造函数的实例继承。
-说了">
+  <meta name="description" content="根据项目需求，要实现android端推送视频流，然后在客户端（这里是浏览器）里播放。后面选取的方案是采用Google Code上的一个开源项目：spydroid-ipcamera，它能在Android手机中建立一个精简的HTTP Server和RTSP Server。这跟以往的如需要类似red5流媒体服务器中转的解决方案不一样，它是在推送端直接建立服务器，让需要显示的客户端（浏览器）去连接它。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解惑js中的prototype">
-<meta property="og:url" content="http://fungwan.me/2014/12/24/js学习之prototype用法/">
+<meta property="og:title" content="解决spydroid-ipcamera视频串流的问题">
+<meta property="og:url" content="http://fungwan.me/2015/02/14/流媒体学习之spydroid/">
 <meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="平时node中在人家源码里往往会看到prototype，之前百度了下说的是原型方法，也没有细看，今天决定好好把这块知识点学习一下。结合网上的资料，把prototype的定义精简一下：js中每个函数都有一个默认的prototype属性，这个属性是另一个对象（我们称之为‘原型对象’）的引用，换句话说，其实prototype属性就是一个对象。这个原型对象的所有属性和方法，都会被构造函数的实例继承。
-说了">
+<meta property="og:description" content="根据项目需求，要实现android端推送视频流，然后在客户端（这里是浏览器）里播放。后面选取的方案是采用Google Code上的一个开源项目：spydroid-ipcamera，它能在Android手机中建立一个精简的HTTP Server和RTSP Server。这跟以往的如需要类似red5流媒体服务器中转的解决方案不一样，它是在推送端直接建立服务器，让需要显示的客户端（浏览器）去连接它。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解惑js中的prototype">
-<meta name="twitter:description" content="平时node中在人家源码里往往会看到prototype，之前百度了下说的是原型方法，也没有细看，今天决定好好把这块知识点学习一下。结合网上的资料，把prototype的定义精简一下：js中每个函数都有一个默认的prototype属性，这个属性是另一个对象（我们称之为‘原型对象’）的引用，换句话说，其实prototype属性就是一个对象。这个原型对象的所有属性和方法，都会被构造函数的实例继承。
-说了">
+<meta name="twitter:title" content="解决spydroid-ipcamera视频串流的问题">
+<meta name="twitter:description" content="根据项目需求，要实现android端推送视频流，然后在客户端（这里是浏览器）里播放。后面选取的方案是采用Google Code上的一个开源项目：spydroid-ipcamera，它能在Android手机中建立一个精简的HTTP Server和RTSP Server。这跟以往的如需要类似red5流媒体服务器中转的解决方案不一样，它是在推送端直接建立服务器，让需要显示的客户端（浏览器）去连接它。">
 
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
@@ -76,14 +73,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-js学习之prototype用法" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-流媒体学习之spydroid" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/12/24/js学习之prototype用法/" class="article-date">
-  <time datetime="2014-12-24T01:44:12.000Z" itemprop="datePublished">12月 24 2014</time>
+    <a href="/2015/02/14/流媒体学习之spydroid/" class="article-date">
+  <time datetime="2015-02-14T07:44:12.000Z" itemprop="datePublished">2月 14 2015</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+    <a class="article-category-link" href="/categories/流媒体/">流媒体</a>
   </div>
 
   </div>
@@ -94,7 +91,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      解惑js中的prototype
+      解决spydroid-ipcamera视频串流的问题
     </h1>
   
 
@@ -102,30 +99,60 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>平时node中在人家源码里往往会看到prototype，之前百度了下说的是原型方法，也没有细看，今天决定好好把这块知识点学习一下。结合网上的资料，把prototype的定义精简一下：js中每个函数都有一个默认的prototype属性，这个属性是另一个对象（我们称之为‘原型对象’）的引用，换句话说，其实prototype属性就是一个对象。这个原型对象的所有属性和方法，都会被构造函数的实例继承。</p>
-<p>说了定义，那我们来看什么时候使用prototype呢？这篇<a href="http://www.cnblogs.com/dolphinX/p/3286177.html" title="色拉油啊油" target="_blank" rel="external">博文</a>对这部分讲的很清楚。按照他的例子举个例，在传统的实例化出来的对象要使用属性或方法时，我们事先是这样构造一个‘类’（为了好理解暂叫类吧）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">()</span></span>{</div><div class="line">    <span class="keyword">this</span>.friends = []; <span class="comment">//实例变量</span></div><div class="line">    <span class="keyword">this</span>.read=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{ <span class="comment">//实例方法</span></div><div class="line">	    <span class="keyword">var</span> bookName = <span class="string">'代码与艺术'</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'我要读'</span> + bookName);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> fengyun = <span class="keyword">new</span> Student();</div><div class="line">fengyun.friends.push(<span class="string">'lauchunpung'</span>);</div><div class="line">fengyun.read();</div><div class="line"><span class="built_in">console</span>.log(fengyun.friends); <span class="comment">//['lauchunpung']</span></div><div class="line">        </div><div class="line"><span class="keyword">var</span> andy = <span class="keyword">new</span> Student();</div><div class="line">andy.friends.push(<span class="string">'zhuliqian'</span>);</div><div class="line">andy.read();</div><div class="line"><span class="built_in">console</span>.log(andy.friends); <span class="comment">//['zhuliqian']</span></div></pre></td></tr></table></figure>
+        <p>根据项目需求，要实现android端推送视频流，然后在客户端（这里是浏览器）里播放。后面选取的方案是采用Google Code上的一个开源项目：spydroid-ipcamera，它能在Android手机中建立一个精简的HTTP Server和RTSP Server。这跟以往的如需要类似red5流媒体服务器中转的解决方案不一样，它是在推送端直接建立服务器，让需要显示的客户端（浏览器）去连接它。<a id="more"></a></p>
+<p>在实作的过程当中，按照demo例子可以其正常运行，但是这里有一个小插曲，就是当初用vlc PC客户端去连接访问http地址或者rtsp地址时可正常访问，但是用网页的方式就是不行。后来通过单步调试才明白是浏览器上vlc插件似乎安装有问题，js代码里面提示vlc这个object找不到，继而addItem流失败。后面更新了下firefox和chrome的插件，然后开启一直启用方可正常！</p>
+<p>似乎到这里就都ok了，但好事多磨，当我在浏览器嵌入2个vlc播放对象，分别连接两个不同的android设备时候，竟然发现在浏览器上vlc播放窗口出现‘串影’，即一个vlc窗口里面会间断性播放两个android设备的直播流，而另一个vlc窗口则毫无响应。当时大伙儿都以为可能是web端在处理vlc对象的时候出问题了，是代码错误，可是后面看了vlc文档似乎找不出什么原因。于是，又换了另一种测试方案，分别开两个浏览器，再各自浏览器只嵌入1个vlc对象，再来连接android设备，最后的结果出人意料，还是出现上述的bug。</p>
+<p>这下使得我们将问题的出处指向了android客户端，没办法下载了它的源码，啃一啃再说。这里有一篇关于<a href="http://blog.csdn.net/xiaoliouc/article/details/8493161" title="." target="_blank" rel="external">spydroid</a>源码剖析的文章，会有一点帮助，此外还需要读一读关于rtsp协议的交互过程，才能更好理解代码的作用。参考这里，<a href="http://blog.chinaunix.net/uid-790245-id-2037516.html" title="." target="_blank" rel="external">关于RTSP的理解和例子说明 </a>。</p>
+<p>最后，通过各种折腾，终于让我发现了这个bug的罪魁祸首！在RTSP交互命令的过程里面有这么一节点（<strong>DESCRIBE</strong>）：</p>
+<pre><code>C-&gt;S:DESCRIBE request <span class="comment">//客户端要求得到S提供的媒体初始化描述信息 </span>
+S-&gt;C:DESCRIBE response <span class="comment">//S回应媒体初始化描述信息，主要是sdp </span>
+</code></pre><p>在上面code部分的第二行，server回复描述信息的内容里面，如下：</p>
+<pre><code>RTSP/<span class="number">1.0</span> <span class="number">200</span> OK 
+Server: UServer <span class="number">0.9</span>.<span class="number">7</span>_rc1 
+Cseq: <span class="number">2</span> 
+x-prev-url: rtsp://<span class="number">192.168</span>.<span class="number">20.136</span>:<span class="number">5000</span> 
+x-next-url: rtsp://<span class="number">192.168</span>.<span class="number">20.136</span>:<span class="number">5000</span> 
+x-Accept-Retransmit: our-retransmit 
+x-Accept-Dynamic-Rate: <span class="number">1</span> 
+Cache-Control: must-revalidate 
+Last-Modified: Fri, <span class="number">10</span> Nov <span class="number">2006</span> <span class="number">12</span>:<span class="number">34</span>:<span class="number">38</span> GMT 
+Date: Fri, <span class="number">10</span> Nov <span class="number">2006</span> <span class="number">12</span>:<span class="number">34</span>:<span class="number">38</span> GMT 
+Expires: Fri, <span class="number">10</span> Nov <span class="number">2006</span> <span class="number">12</span>:<span class="number">34</span>:<span class="number">38</span> GMT 
+Content-Base: rtsp://<span class="number">192.168</span>.<span class="number">20.136</span>:<span class="number">5000</span>/xxx666/ 
+Content-Length: <span class="number">344</span> 
+Content-Type: application/sdp 
 
-<p><a id="more"></a><br>从上面的代码可以看到，通过类student，我们实例化了两个对象，fengyun和andy。这两个对象操作属性或方法时，都是独立的互不影响。<em>所以fengyun中的属性和方法与andy中的属性与方法虽然同名但却不是一个引用，而是对Studen定义的属性和方法的一个拷贝。</em>所以如果实例化的对象越多，对应的拷贝份数越多。虽然V8有自己的一套内存管理体系，不会像之前C++那样new出来的对象需要自己手动管理delete。但是为了更好的速度和空间，prototype因运而生。</p>
-<p>我们这时候用prototype的方式来重写上面的代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">()</span></span>{</div><div class="line">	</div><div class="line">}</div><div class="line"></div><div class="line">Student.prototype.friends = []; <span class="comment">//原型属性</span></div><div class="line"></div><div class="line">Student.prototype.read=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{ <span class="comment">//原型方法</span></div><div class="line">	<span class="keyword">var</span> bookName = <span class="string">'代码与艺术'</span>;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我要读'</span> + bookName);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> fengyun = <span class="keyword">new</span> Student();</div><div class="line">fengyun.friends.push(<span class="string">'lauchunpung'</span>);</div><div class="line">fengyun.read();</div><div class="line"><span class="built_in">console</span>.log(fengyun.friends); <span class="comment">//['lauchunpung']</span></div><div class="line">        </div><div class="line"><span class="keyword">var</span> andy = <span class="keyword">new</span> Student();</div><div class="line">andy.friends.push(<span class="string">'zhuliqian'</span>);</div><div class="line">andy.read();</div><div class="line"><span class="built_in">console</span>.log(andy.friends); <span class="comment">//['lauchunpung','zhuliqian']</span></div></pre></td></tr></table></figure>
+<span class="variable">v=</span><span class="number">0</span> //以下都是sdp信息 
+<span class="variable">o=</span>OnewaveUServerNG <span class="number">1451516402</span> <span class="number">1025358037</span> IN IP4 <span class="number">192.168</span>.<span class="number">20.136</span> 
+<span class="variable">s=</span>/xxx666 
+<span class="variable">u=</span>http:/// 
+<span class="variable">e=</span>admin@ 
+<span class="variable">c=</span>IN IP4 <span class="number">0.0</span>.<span class="number">0.0</span> 
+<span class="variable">t=</span><span class="number">0</span> <span class="number">0</span> 
+<span class="variable">a=</span>isma-compliance:<span class="number">1</span>,<span class="number">1.0</span>,<span class="number">1</span> 
 
-<p>从上面的运行结果来看，特别是属性friends,在对象andy的再次操作下，最后也得到了之前fengyun的操作结果，所以数组输出为’liuchunping’和’zhuliqian’,由此我们可以看出所有实例的friends属性和read()方法，其实都是同一个内存地址，指向prototype对象，他的属性和方法都属共享状态，另一方面来说，实例的访问它们也会更快（没有拷贝动作）！</p>
-<p>上面所说的关于prototype只是初步的一部分，只有‘是什么’，和‘为什么’，为了不在一篇文章里写太多东西而搞复杂，所以后面可能会整理关于prototype的原型继承等更高级的特性~</p>
+<span class="variable">a=</span>range:<span class="variable">npt=</span><span class="number">0</span>- 
+<span class="variable">m=</span>video <span class="number">5006</span> RTP/AVP <span class="number">96</span> //m表示媒体描述，下面是对会话中视频通道的媒体描述 
+<span class="variable">a=</span>rtpmap:<span class="number">96</span> MP4V-ES/<span class="number">90000</span> 
+<span class="variable">a=</span>fmtp:<span class="number">96</span> 
+<span class="variable">profile-level-id=</span><span class="number">245</span>;<span class="variable">config=</span><span class="number">000001</span>B0F5000001B509000001000000012000C888B0E0E0FA62D089028307 
+
+<span class="variable">a=</span>control:<span class="variable">trackID=</span><span class="number">0</span>//trackID＝<span class="number">0</span>表示视频流用的是通道<span class="number">0</span>
+</code></pre><p>其中在m行中,中间的数字为服务端推荐客户端接收的端口,如果服务端不想这样做,可以将port置为0。对！问题就出现在这推荐端口上。demo的源码在实现它时，默认写死了5006，所以试想一下，在同一台pc机上，IP地址一样，两个vlc使用的又都是默认推荐端口5006，这样android端在往客户端推流的时候势必会出现串流的问题。解决的办法就是，如果想在一台pc机上使用多个vlc播放spydroid直播流的话，那么android在推荐给客户端的端口上就不能写死，即确保唯一性就行！</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/24/js学习之prototype用法/" data-id="nl273g8j50s7gkbs" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="5gfzn4xaizbj9lig" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2014/12/24/js学习之prototype用法/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2015/02/14/流媒体学习之spydroid/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rtsp/">rtsp</a></li></ul>
 
     </footer>
   </div>
@@ -133,19 +160,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/12/30/node.js学习之单线程解惑/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          解惑node中的单线程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/12/23/markdown学习之常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/02/01/js学习之对象内容是否为空/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">常用的markdown标记</div>
+      <div class="article-nav-title">判断对象内容是否为空</div>
     </a>
   
 </nav>
@@ -155,7 +173,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2014/12/24/js学习之prototype用法/" data-title="解惑js中的prototype" data-url="http://fungwan.me/2014/12/24/js学习之prototype用法/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/02/14/流媒体学习之spydroid/" data-title="解决spydroid-ipcamera视频串流的问题" data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/"></div>
   </section>
 </section>
         
