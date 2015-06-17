@@ -75,6 +75,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tcpip学习之Mqtt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/22/tcpip学习之Mqtt/" class="article-date">
+  <time datetime="2015-02-22T05:44:12.000Z" itemprop="datePublished">2月 22 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/22/tcpip学习之Mqtt/">好久不见，mqtt</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>公司新项目可能会用到推送，于是又重拾了有近1年时间没碰过的mqtt。而对于‘推送’本身，当初在选择实现的时候也是作了几番比较，现简要回顾一下。</p>
+<p>一般此类的解决方案网上分为了几类（这里就忽略了pull）：</p>
+<ol>
+<li>C2DM云端推送功能；</li>
+<li>MQTT协议实现Android推送功能；</li>
+<li>XMPP协议实现Android推送功能；</li>
+<li>第三方推送平台。</li>
+</ol>
+<p>对于第一种，C2DM需要依赖于Google官方提供的C2DM服务器，在国内这个基本不靠谱，放弃。MQTT是一个轻量级的消息发布/订阅协议，也是后来我准备采用的解决方案，实现它的客户端和服务器又丰富。接着是xmpp，该协议较复杂、冗余（基于XML）、费流量、费电，放弃。最后是第三方平台，确实，优点很明显（人家专门做这个，稳定先进），也符合了当前大环境下的web serivce的思想，把不是自己产品的核心功能，靠第三方完成，比如多说。但是，使用第三方会使用人家的服务器，感觉有些地方会受限，而且万一哪天就不免费了呢？
+        
+          <p class="article-more-link">
+            <a href="/2015/02/22/tcpip学习之Mqtt/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/02/22/tcpip学习之Mqtt/" data-id="br7hiybhl247gnod" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/02/22/tcpip学习之Mqtt/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/">mqtt</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-流媒体学习之spydroid" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/02/14/流媒体学习之spydroid/" class="article-date">
@@ -111,7 +172,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="538tjpcudjxlesmz" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="4lebws5uzmou3o36" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -170,7 +231,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/02/01/js学习之对象内容是否为空/" data-id="w9qpc25m7rekwxvj" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/02/01/js学习之对象内容是否为空/" data-id="bz2zpvbph9o58z11" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -223,7 +284,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/27/tcpip学习之oauth/" data-id="5plo8f76lquuo1p3" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/27/tcpip学习之oauth/" data-id="nh266df15bz8yxf4" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -281,7 +342,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/22/tcpip学习之https/" data-id="sg22sl0rblke2hjc" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/22/tcpip学习之https/" data-id="lnzzih5cmaroyrxi" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -298,67 +359,9 @@
 
 
   
-    <article id="post-tcpip学习之ssl" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/20/tcpip学习之ssl/" class="article-date">
-  <time datetime="2015-01-20T02:44:12.000Z" itemprop="datePublished">1月 20 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/20/tcpip学习之ssl/">理解对称加密与非对称加密</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前段时间在公司的读书会上分享了网络服务中的安全部分，现在把当中涉及的一个很基础的概念笔记下来，就是关于加密的两种方式：对称加密与非对称加密。</p>
-<p>其实就名字而言都可以把两者作以区分，对称说明可能是某种事物的相同（当然这里指密钥），非对称则反之。先来看看对称加密百科的定义吧：</p>
-<blockquote>
-<p>采用单钥密码系统的加密方法，同一个密钥可以同时用作信息的加密和解密，这种加密方法称为对称加密，也称为单密钥加密。</p>
-</blockquote>
-<p>简而言之就是，对称加密是加密解密用的是同样的“钥匙”，举个网上邮局寄件的例子就是：
-        
-          <p class="article-more-link">
-            <a href="/2015/01/20/tcpip学习之ssl/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/01/20/tcpip学习之ssl/" data-id="mmb8matl46mki0nr" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/01/20/tcpip学习之ssl/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https-ssl/">https ssl</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -369,7 +372,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -378,7 +381,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 13.33px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/https-ssl/" style="font-size: 13.33px;">https ssl</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 13.33px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/https-ssl/" style="font-size: 13.33px;">https ssl</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
     </div>
   </div>
 
@@ -387,7 +390,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -397,6 +400,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/02/22/tcpip学习之Mqtt/">好久不见，mqtt</a>
+          </li>
         
           <li>
             <a href="/2015/02/14/流媒体学习之spydroid/">解决spydroid-ipcamera视频串流的问题</a>
@@ -412,10 +419,6 @@
         
           <li>
             <a href="/2015/01/22/tcpip学习之https/">https服务</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/20/tcpip学习之ssl/">理解对称加密与非对称加密</a>
           </li>
         
       </ul>

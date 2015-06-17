@@ -3,34 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>https服务 | fung wan</title>
+  <title>fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="较之于平常一般网页的http访问，除非是银行、政府机关或者其它对于安全性要求比较高的机构才会采用https服务，因为它所要付出的成本是比较高的。先看看二者的区别：
-
-https协议需要到ca申请证书，一般免费证书很少，需要交费。
-http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。
-http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，">
-<meta property="og:type" content="article">
-<meta property="og:title" content="https服务">
-<meta property="og:url" content="http://fungwan.me/2015/01/22/tcpip学习之https/">
+  <meta name="description" content="Just do it!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fung wan">
+<meta property="og:url" content="http://fungwan.me/page/5/">
 <meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="较之于平常一般网页的http访问，除非是银行、政府机关或者其它对于安全性要求比较高的机构才会采用https服务，因为它所要付出的成本是比较高的。先看看二者的区别：
-
-https协议需要到ca申请证书，一般免费证书很少，需要交费。
-http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。
-http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，">
-<meta property="og:image" content="http://s2.51cto.com/wyfs02/M02/39/5F/wKiom1O6AHDxrw_GAACOgQ-7FRI497.jpg">
-<meta property="og:image" content="http://s9.51cto.com/wyfs02/M01/39/60/wKiom1O6AILxBMSVAACkbKd3kUo776.jpg">
-<meta property="og:image" content="http://s9.51cto.com/wyfs02/M00/39/60/wKioL1O6AGPBWHM-AADcqkHf6iE748.jpg">
-<meta property="og:image" content="http://s5.51cto.com/wyfs02/M02/39/60/wKiom1O6AJyCBK3SAAClxwgO8KQ127.jpg">
-<meta property="og:image" content="http://s6.51cto.com/wyfs02/M00/39/60/wKiom1O6AMDiYvHqAAClgxrYCH4300.jpg">
+<meta property="og:description" content="Just do it!">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="https服务">
-<meta name="twitter:description" content="较之于平常一般网页的http访问，除非是银行、政府机关或者其它对于安全性要求比较高的机构才会采用https服务，因为它所要付出的成本是比较高的。先看看二者的区别：
-
-https协议需要到ca申请证书，一般免费证书很少，需要交费。
-http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。
-http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，">
+<meta name="twitter:title" content="fung wan">
+<meta name="twitter:description" content="Just do it!">
 
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
@@ -90,14 +73,16 @@ http和https使用的是完全不同的连接方式，用的端口也不一样�
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-tcpip学习之https" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-node.js学习之centos环境补充" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/01/22/tcpip学习之https/" class="article-date">
-  <time datetime="2015-01-22T07:44:12.000Z" itemprop="datePublished">1月 22 2015</time>
+    <a href="/2014/08/08/node.js学习之centos环境补充/" class="article-date">
+  <time datetime="2014-08-08T09:44:12.000Z" itemprop="datePublished">8月 8 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
   </div>
 
   </div>
@@ -107,8 +92,8 @@ http和https使用的是完全不同的连接方式，用的端口也不一样�
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      https服务
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/08/node.js学习之centos环境补充/">Node.js在Centos上的安装</a>
     </h1>
   
 
@@ -116,71 +101,57 @@ http和https使用的是完全不同的连接方式，用的端口也不一样�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>较之于平常一般网页的http访问，除非是银行、政府机关或者其它对于安全性要求比较高的机构才会采用https服务，因为它所要付出的成本是比较高的。先看看二者的区别：</p>
+        <p>之前在windows上写Node,后面考虑到项目部署，于是需要移植到centos上。</p>
+<p>环境需求：</p>
 <ol>
-<li>https协议需要到ca申请证书，一般免费证书很少，需要交费。</li>
-<li>http是超文本传输协议，信息是明文传输，https 则是具有安全性的ssl加密传输协议。</li>
-<li>http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</li>
-<li>http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。<a id="more"></a></li>
+<li>centos版本为6.5 64位</li>
+<li>Node安装0.10.24</li>
 </ol>
-<p>从区别可以看出，对于诸如银行的企业来说，用户的数据和交易信息都是非常敏感的，容不得第三方的窃取，毕竟如得逞后果是非常严重的。所以必须要采用走https的方案来保证数据传输的安全，那么这里面会涉及建立连接之前的证书验证，密钥交换，过程中的信息加密解密等等，这必然会带来效率上的下降，当然从大局上看效率上的牺牲对于保证安全来说是值得的。所以，对于一般性的网站，只需要采用http就行了，方便快捷！</p>
-<p>接下来我想再笔记下，用户在请求https服务的网站所经过的流程。再延伸一点，https服务其实就是工作在TLS/SSL上的http,而TLS/SSL则是一个公钥/私钥的结构。对于公钥/私钥的概念在之前的文章就介绍过， <a href="http://fungwan.me/2015/01/20/tcpip%E5%AD%A6%E4%B9%A0%E4%B9%8Bssl/" title="siyue" target="_blank" rel="external">在这里</a>。</p>
-<p>我就以访问百度为例吧（话说以前访问度娘都是http的），下面的图是网上找的，请自行忽略地址栏的url。当我请求这个百度地址的时候，如图：</p>
-<p><img src="http://s2.51cto.com/wyfs02/M02/39/5F/wKiom1O6AHDxrw_GAACOgQ-7FRI497.jpg" alt="Alt text" title="51cto"></p>
-<p>百度服务器收到了我的url请求了过后，它会把它的证书和公钥发送给我，如图：</p>
-<p><img src="http://s9.51cto.com/wyfs02/M01/39/60/wKiom1O6AILxBMSVAACkbKd3kUo776.jpg" alt="Alt text" title="51cto"></p>
-<p>这里面提到了证书，它是防止第三方中间人介入的认证，我客户端就是根据这个来知晓对方服务器是正常的，不是人家伪造的。对于数字证书更多的知识，比如如何申请、本身的构成部分可自行wiki哈。如图：</p>
-<p><img src="http://s9.51cto.com/wyfs02/M00/39/60/wKioL1O6AGPBWHM-AADcqkHf6iE748.jpg" alt="Alt text" title="51cto"></p>
-<p>此时我们已经拿到了服务器发过来的公钥，为了以后跟服务器进行加密通信，我需要跟服务器协商出一个密钥（这个密钥就是对称密钥了，注意区别哦），所以我这边就使用公钥加密了一个随机对称密钥（假设是RSA算法）包括用它加密的URL一起发送到服务器。</p>
-<p><img src="http://s5.51cto.com/wyfs02/M02/39/60/wKiom1O6AJyCBK3SAAClxwgO8KQ127.jpg" alt="Alt text" title="51cto"></p>
-<p>接着服务器应该会收到我发给它的一串加密信息，然后它用它的私钥把它解密打开，看到了里面的内容（哦，里面是让我们用RSA算法的对称钥加密数据呀）。服务器紧接着用看到的对称钥解密了我刚发过来的url请求,然后把请求得到的结果用对称钥加密后，通过服务器的私钥再包裹这个用对称钥加密的结果发送给我！</p>
-<p><img src="http://s6.51cto.com/wyfs02/M00/39/60/wKiom1O6AMDiYvHqAAClgxrYCH4300.jpg" alt="Alt text" title="51cto"></p>
-<p>自此会话密钥协商成功，双方以后就可以用同一份会话密钥来通信了，这次清楚了吧~</p>
+<p>步骤如下：</p>
+<p>1.安装gcc编译</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install gcc gcc-c++ openssl-devel</div></pre></td></tr></table></figure>
+
+<p>2.下载node.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a.wget http:<span class="comment">//nodejs.org/dist/v0.10.24/node-v0.10.24.tar.gz  </span></div><div class="line">b.tar zxvf node-v0<span class="number">.10</span><span class="number">.24</span>.tar.gz </div><div class="line">c.cd node-v0<span class="number">.10</span><span class="number">.24</span></div></pre></td></tr></table></figure>
+
+<p>3.配置编译安装</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=<span class="regexp">/usr/</span>local/node </div><div class="line">make && make install</div></pre></td></tr></table></figure>
+
+<p>4.配置Node环境<br>vim /etc/profile </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#set nodejs env  </div><div class="line">export NODE_HOME=<span class="regexp">/usr/</span>local/node  </div><div class="line">export PATH=$NODE_HOME/bin:$PATH  </div><div class="line">export NODE_PATH=$NODE_HOME/lib/node_modules:$PATH</div></pre></td></tr></table></figure>
+
+
+<p>qw!</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
+
+<p>5.重启</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/22/tcpip学习之https/" data-id="lnzzih5cmaroyrxi" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/08/08/node.js学习之centos环境补充/" data-id="0utoas9laliqvh4y" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2015/01/22/tcpip学习之https/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2014/08/08/node.js学习之centos环境补充/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https-ssl/">https ssl</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2015/01/27/tcpip学习之oauth/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          认知OAuth授权基本概念
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/01/20/tcpip学习之ssl/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">理解对称加密与非对称加密</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
 
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/01/22/tcpip学习之https/" data-title="https服务" data-url="http://fungwan.me/2015/01/22/tcpip学习之https/"></div>
-  </section>
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    </nav>
+  
 </section>
         
           <aside id="sidebar">
@@ -264,23 +235,6 @@ http和https使用的是完全不同的连接方式，用的端口也不一样�
   
 </aside>
 		  
-<!--section id="comment">
-    <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'funglau'; // required: replace example with your forum shortname//wtmartcom
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</section-->
-
         
       </div>
       <footer id="footer">
