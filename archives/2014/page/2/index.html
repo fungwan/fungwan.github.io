@@ -117,7 +117,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="8v8gz5qx0wxmlxxa" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="nxbkvlv4llvemghs" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -126,6 +126,83 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node.js学习之packageJson管理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/10/25/node.js学习之packageJson管理/" class="article-date">
+  <time datetime="2014-10-25T11:44:12.000Z" itemprop="datePublished">10月 25 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/25/node.js学习之packageJson管理/">package.json里面的版本管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在学习和使用node的过程中，常常会接触到package.json里面的配置，不管是自己填写还是去阅读人家的文件，刚开始都是一头雾水，此篇笔记只是针对里面的<strong>dependencies</strong>属性。因为我们在更新或者使用人家第三方模块的时候（npm install），最关键的就是dependencies里面的版本值。举一个小例子：</p>
+<pre><code><span class="string">"dependencies"</span>: {
+<span class="string">"websvr"</span>: <span class="string">"0.1.x"</span>,
+<span class="string">"websvr-redis"</span>: <span class="string">"0.x.x"</span>,
+<span class="string">"mustache"</span>: <span class="string">"~0.7.2"</span>，
+<span class="string">"connect-multiparty"</span>: <span class="string">"^1.1.0"</span> }
+</code></pre><p>这里面头两个模块的依赖都好理解，即websvr匹配0.1.0,0.1.1等版本，不会匹配如0.2.0之类的。关键后面的两个模块依赖，有两个特殊符号~和^,它们的区别分别如下：</p>
+<ul>
+<li>~会匹配最新的子版本（中间那个数字），比如~0.7.2会匹配所有的0.7.x版本，但不匹配到0.8.0及以上;</li>
+<li>^会匹配最新的主版本（第一个数字），比如^1.1.0将会匹配所有的1.x.x版本，2.0.0就略过。</li>
+</ul>
+<p>最后，附上版本控制的其他范围：</p>
+<pre><code><span class="built_in">version</span> 必须严格匹配到 <span class="built_in">version</span> 版本
+&gt;<span class="built_in">version</span> 必须大于 <span class="built_in">version</span> 的版本
+&gt;=<span class="built_in">version</span> 大于等于 <span class="built_in">version</span> 的版本
+&lt;<span class="built_in">version</span> 小于
+&lt;=<span class="built_in">version</span> 小于等于
+~<span class="built_in">version</span> “几乎相同的版本（Approximately equivalent <span class="built_in">to</span> <span class="built_in">version</span>）” 参见semver(<span class="number">7</span>)
+^<span class="built_in">version</span> “兼容的版本” 参见 semver(<span class="number">7</span>)
+<span class="number">1.2</span>.x 匹配<span class="number">1.2</span><span class="number">.0</span>, <span class="number">1.2</span><span class="number">.1</span>, 之类., 但不匹配 <span class="number">1.3</span><span class="number">.0</span>
+<span class="keyword">http</span>://... 以<span class="built_in">URL</span>地址作为依赖
+* 匹配任意版本
+<span class="string">""</span> (就是一个空白字符<span class="constant">empty</span> <span class="keyword">string</span>) 同 *，任意版本
+version1 - version2 同 &gt;=version1 &lt;=version2.
+range1 || range2  range1 或者 range2 的任一版本.
+git... 以GIT地址作为依赖
+user/repo 以GitHub地址作为依赖
+tag 匹配一个以 tag 标记并发布的版本，参见 npm-tag(<span class="number">1</span>)
+path/path/path 以本地地址作为依赖
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/10/25/node.js学习之packageJson管理/" data-id="4l7c1ioo1haktf1l" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/10/25/node.js学习之packageJson管理/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/package-json/">package.json</a></li></ul>
 
     </footer>
   </div>
@@ -170,7 +247,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/10/16/C语言之typedef/" data-id="tgzyt9ze4b4v5n3h" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/10/16/C语言之typedef/" data-id="iv87ilzant1gxtzf" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -231,7 +308,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/" data-id="vxucwits3v6fujdl" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/" data-id="xzr62cxcij7i7on0" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -288,7 +365,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/09/29/node.js学习之exports/" data-id="dojda7rspjfrzr0a" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/09/29/node.js学习之exports/" data-id="r6ypgoag6x3pfytj" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -297,65 +374,6 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之解决Node在centos上无法访问" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/08/09/node.js学习之解决Node在centos上无法访问/" class="article-date">
-  <time datetime="2014-08-09T05:44:12.000Z" itemprop="datePublished">8月 9 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/09/node.js学习之解决Node在centos上无法访问/">解决Node在centos上无法访问</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>将Node安装在了centos 上，发现在主机上并不能访问虚拟机上centos的node服务器，但是虚拟机能访问自己的web。各自都可ping通对方的IP。虚拟机采用的NAT的方式。后来查阅了资料，可能是防火墙的原因。<br>服务器的5858端口被防火墙堵了，可在主机通过命令：telnet server_ip 5858 来测试。</p>
-<p>解决方案：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/sbin/iptables -I INPUT -p tcp --dport <span class="number">5858</span> -j ACCEPT</div></pre></td></tr></table></figure>
-
-<p>然后保存：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/rc.d/init.d/iptables save</div></pre></td></tr></table></figure>
-
-<p>重启防火墙</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/iptables restart</div></pre></td></tr></table></figure>
-
-<p>再在主机访问OK！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/08/09/node.js学习之解决Node在centos上无法访问/" data-id="fpyipj3hc0jum0i1" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/08/09/node.js学习之解决Node在centos上无法访问/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
@@ -377,7 +395,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -386,7 +404,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 13.33px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/https-ssl/" style="font-size: 13.33px;">https ssl</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 13.33px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/https-ssl/" style="font-size: 13.33px;">https ssl</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
     </div>
   </div>
 
@@ -395,7 +413,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -405,6 +423,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/06/18/生活杂记之孕期饮食/">孕期饮食</a>
+          </li>
         
           <li>
             <a href="/2015/02/22/tcpip学习之Mqtt/">好久不见，mqtt</a>
@@ -420,10 +442,6 @@
         
           <li>
             <a href="/2015/01/27/tcpip学习之oauth/">认知OAuth授权基本概念</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/22/tcpip学习之https/">https服务</a>
           </li>
         
       </ul>
