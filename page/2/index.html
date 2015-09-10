@@ -75,6 +75,232 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tcpip学习之Mqtt" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/22/tcpip学习之Mqtt/" class="article-date">
+  <time datetime="2015-02-22T05:44:12.000Z" itemprop="datePublished">2月 22 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/22/tcpip学习之Mqtt/">好久不见，mqtt</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>公司新项目可能会用到推送，于是又重拾了有近1年时间没碰过的mqtt。而对于‘推送’本身，当初在选择实现的时候也是作了几番比较，现简要回顾一下。</p>
+<p>一般此类的解决方案网上分为了几类（这里就忽略了pull）：</p>
+<ol>
+<li>C2DM云端推送功能；</li>
+<li>MQTT协议实现Android推送功能；</li>
+<li>XMPP协议实现Android推送功能；</li>
+<li>第三方推送平台。</li>
+</ol>
+<p>对于第一种，C2DM需要依赖于Google官方提供的C2DM服务器，在国内这个基本不靠谱，放弃。MQTT是一个轻量级的消息发布/订阅协议，也是后来我准备采用的解决方案，实现它的客户端和服务器又丰富。接着是xmpp，该协议较复杂、冗余（基于XML）、费流量、费电，放弃。最后是第三方平台，确实，优点很明显（人家专门做这个，稳定先进），也符合了当前大环境下的web serivce的思想，把不是自己产品的核心功能，靠第三方完成，比如多说。但是，使用第三方会使用人家的服务器，感觉有些地方会受限，而且万一哪天就不免费了呢？
+        
+          <p class="article-more-link">
+            <a href="/2015/02/22/tcpip学习之Mqtt/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/02/22/tcpip学习之Mqtt/" data-id="ou7huzflna0j5f4o" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/02/22/tcpip学习之Mqtt/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/">mqtt</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-流媒体学习之spydroid" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/14/流媒体学习之spydroid/" class="article-date">
+  <time datetime="2015-02-14T07:44:12.000Z" itemprop="datePublished">2月 14 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/流媒体/">流媒体</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/14/流媒体学习之spydroid/">解决spydroid-ipcamera视频串流的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>根据项目需求，要实现android端推送视频流，然后在客户端（这里是浏览器）里播放。后面选取的方案是采用Google Code上的一个开源项目：spydroid-ipcamera，它能在Android手机中建立一个精简的HTTP Server和RTSP Server。这跟以往的如需要类似red5流媒体服务器中转的解决方案不一样，它是在推送端直接建立服务器，让需要显示的客户端（浏览器）去连接它。
+        
+          <p class="article-more-link">
+            <a href="/2015/02/14/流媒体学习之spydroid/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="c9ywizjdanv2y1k4" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/02/14/流媒体学习之spydroid/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rtsp/">rtsp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js学习之对象内容是否为空" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/01/js学习之对象内容是否为空/" class="article-date">
+  <time datetime="2015-02-01T03:44:12.000Z" itemprop="datePublished">2月 1 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/01/js学习之对象内容是否为空/">判断对象内容是否为空</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如题所说的判断对象为空指的是其里面是否有其属性和对应的值，而不是像以前普通的判断非空方法，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="keyword">if</span>   (typeOf(x)   ==   <span class="string">"undefined"</span>)</div><div class="line"><span class="keyword">if</span>   (typeOf(x)   !=   <span class="string">"object"</span>)</div><div class="line"><span class="keyword">if</span>	 (!x)</div><div class="line"></div><div class="line"><span class="comment">//亦或是下面这种</span></div><div class="line"><span class="keyword">if</span>(x === <span class="literal">null</span>)</div><div class="line"><span class="keyword">if</span>(x === <span class="string">''</span>)</div></pre></td></tr></table></figure>
+
+<p>现在的情况是x是一个已经定义了的对象，但里面没有任何属性，所以如果再向上面的那些判断方式的话，是会出问题的，可以参考下面的方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> voteObject = {<span class="string">"ds"</span>:<span class="number">1</span>};</div><div class="line"><span class="comment">//var voteObject = {};</span></div><div class="line"><span class="keyword">var</span> hasProp;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> voteObject){</div><div class="line">    hasProp = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">}</div><div class="line"><span class="keyword">if</span> (hasProp){</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'对象里有属性'</span>);</div><div class="line">}<span class="keyword">else</span>{</div><div class="line">    <span class="built_in">console</span>.error(<span class="string">'对象里面为空'</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+
+        
+          <p class="article-more-link">
+            <a href="/2015/02/01/js学习之对象内容是否为空/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/02/01/js学习之对象内容是否为空/" data-id="9pgvx40t71gu8sik" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/02/01/js学习之对象内容是否为空/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tcpip学习之oauth" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/27/tcpip学习之oauth/" class="article-date">
+  <time datetime="2015-01-27T03:22:12.000Z" itemprop="datePublished">1月 27 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/27/tcpip学习之oauth/">认知OAuth授权基本概念</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现在凡是涉及注册登录的网站，为了赚取用户量，都使用了大型社交网站的登陆授权这种方式，因为对于用户来说免除了繁杂、琐碎、重复性的注册行为，进而又可以享受该网站的相应服务，这应该说是双赢的！今天笔记的就是实现该方式的OAuth授权，参考了阮一峰的这篇博文， <a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" title="ruan" target="_blank" rel="external">《理解OAuth 2.0》</a>。
+        
+          <p class="article-more-link">
+            <a href="/2015/01/27/tcpip学习之oauth/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/01/27/tcpip学习之oauth/" data-id="i9sxyqvsw9lswlx0" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/01/27/tcpip学习之oauth/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oauth2-0/">oauth2.0</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-tcpip学习之https" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/01/22/tcpip学习之https/" class="article-date">
@@ -116,7 +342,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/22/tcpip学习之https/" data-id="ntw28d3ptwf1k3ji" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/22/tcpip学习之https/" data-id="6z8i13rnuervac9i" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -133,237 +359,9 @@
 
 
   
-    <article id="post-tcpip学习之ssl" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/20/tcpip学习之ssl/" class="article-date">
-  <time datetime="2015-01-20T02:44:12.000Z" itemprop="datePublished">1月 20 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/20/tcpip学习之ssl/">理解对称加密与非对称加密</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前段时间在公司的读书会上分享了网络服务中的安全部分，现在把当中涉及的一个很基础的概念笔记下来，就是关于加密的两种方式：对称加密与非对称加密。</p>
-<p>其实就名字而言都可以把两者作以区分，对称说明可能是某种事物的相同（当然这里指密钥），非对称则反之。先来看看对称加密百科的定义吧：</p>
-<blockquote>
-<p>采用单钥密码系统的加密方法，同一个密钥可以同时用作信息的加密和解密，这种加密方法称为对称加密，也称为单密钥加密。</p>
-</blockquote>
-<p>简而言之就是，对称加密是加密解密用的是同样的“钥匙”，举个网上邮局寄件的例子就是：
-        
-          <p class="article-more-link">
-            <a href="/2015/01/20/tcpip学习之ssl/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/01/20/tcpip学习之ssl/" data-id="ij4w7fzjwwu2xct9" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/01/20/tcpip学习之ssl/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https-ssl/">https ssl</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js学习之自执行" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/15/js学习之自执行/" class="article-date">
-  <time datetime="2015-01-15T02:44:12.000Z" itemprop="datePublished">1月 15 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/15/js学习之自执行/">什么是js中的自执行</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前node的时候用了人家封装的库，调进去看了一下，遇到下面这种类似代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>{<span class="built_in">console</span>.log(name)})(<span class="string">'fengyun'</span>);</div></pre></td></tr></table></figure>
-
-<p>当时就在想这都什么玩意儿，我书读的少，写js不久，不要‘骗’我！以前没见过这种写法，于是百度之，才知道这是js里面的<em>匿名函数自执行</em>。这里面提到了两个关键字，一个是匿名函数，一个是自执行。</p>
-<blockquote>
-<p>匿名函数简单来说就是没有名字的函数，不能其单独使用；</p>
-<p>自执行就是函数在定义的时候就立即执行；</p>
-</blockquote>
-<p>概念都好理解，举个例效果更好：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是一般函数'</span>)</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是匿名函数'</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<p>上面代码中第二个函数表示的就是一个最简单的匿名函数，也没有参数。重点的是，它没办法调用运行的，因为它连名字都没有，怎么调？所以如果我们需要使用它，我们可以这么做：
-        
-          <p class="article-more-link">
-            <a href="/2015/01/15/js学习之自执行/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/01/15/js学习之自执行/" data-id="67cfxzdpyjj8sxrk" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/01/15/js学习之自执行/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tcpip学习之序列号和确认号" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/14/tcpip学习之序列号和确认号/" class="article-date">
-  <time datetime="2015-01-14T04:44:12.000Z" itemprop="datePublished">1月 14 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/14/tcpip学习之序列号和确认号/">理解Tcp序列号和确认号</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如果见过Tcp的数据封包格式，那么一定会对它首部中的32位序列号和确认号有一定的印象。此篇笔记就是真正理解这两个号码段的作用，因为按以往的话总是停留在什么‘序号+1’的认知，却说不出个所以然。
-        
-          <p class="article-more-link">
-            <a href="/2015/01/14/tcpip学习之序列号和确认号/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/" data-id="w3kwlh0f11z55iez" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/01/14/tcpip学习之序列号和确认号/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tcpip学习之time_wait" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/13/tcpip学习之time_wait/" class="article-date">
-  <time datetime="2015-01-13T04:44:12.000Z" itemprop="datePublished">1月 13 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/13/tcpip学习之time_wait/">说说Tcp断开连接时的Time_Wait状态</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他问题后，我决定再来看看刚刚端口占用的问题，于是把服务器端口给改了回来，运行，咦？可以了。这是怎么回事，当时我百思不得其解~
-        
-          <p class="article-more-link">
-            <a href="/2015/01/13/tcpip学习之time_wait/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/01/13/tcpip学习之time_wait/" data-id="jpg8vc0v17iv6sad" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/01/13/tcpip学习之time_wait/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -374,7 +372,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -383,7 +381,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 13.33px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/https-ssl/" style="font-size: 13.33px;">https ssl</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 16.67px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/https-ssl/" style="font-size: 13.33px;">https ssl</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
     </div>
   </div>
 
@@ -392,7 +390,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -404,23 +402,23 @@
       <ul>
         
           <li>
+            <a href="/2015/06/28/node.js学习之作为windows服务/">node.js作为windows服务启动</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/20/tcpip学习之广播消息/">应用于广播的解决方案</a>
+          </li>
+        
+          <li>
             <a href="/2015/06/18/生活杂记之孕期饮食/">孕期饮食</a>
           </li>
         
           <li>
-            <a href="/2015/02/22/tcpip学习之Mqtt/">好久不见，mqtt</a>
+            <a href="/2015/03/08/tcpip学习之粘包/">TCP的粘包问题</a>
           </li>
         
           <li>
-            <a href="/2015/02/14/流媒体学习之spydroid/">解决spydroid-ipcamera视频串流的问题</a>
-          </li>
-        
-          <li>
-            <a href="/2015/02/01/js学习之对象内容是否为空/">判断对象内容是否为空</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/27/tcpip学习之oauth/">认知OAuth授权基本概念</a>
+            <a href="/2015/02/28/tcpip学习之半打开/">TCP的半开连接</a>
           </li>
         
       </ul>
