@@ -75,6 +75,83 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-服务器端开发之rabbitmq安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/08/服务器端开发之rabbitmq安装/" class="article-date">
+  <time datetime="2015-08-08T09:44:12.000Z" itemprop="datePublished">8月 8 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/服务器端开发/">服务器端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>根据自己的实验结果，同网上的其他教程资料参考，自己也笔记一份搭建手册供以后生产环境使用！</p>
+<h1 id="一、Erlang安装">一、Erlang安装</h1>
+<p>RabbitMQ是基于Erlang的，所以首先必须配置Erlang环境。</p>
+<ol>
+<li><p>安装依赖包，我的实验环境是需要安装<strong>ncurses-devel</strong>，至于其他的可按实际需要安装，这在后面erlang安装完成后有提示的</p>
+<p> yum install ncurses-devel</p>
+</li>
+<li><p>2.下载Erlang源码otp_src_R15B03-1.tar.gz，并解压到指定位置</p>
+<p> tar -xzvf otp_src_R15B03-1.tar.gz</p>
+</li>
+<li><p>进入安装目录，依次执行以下操作</p>
+<p> ./configure —prefix=/usr/local/erlang —without-javac //不用java编译，故去掉java避免错误</p>
+<p> make &amp;&amp; make install</p>
+</li>
+<li><p>上述编译安装无误后，配置环境变量</p>
+<p> vi /etc/profile</p>
+<p> export PATH=$PATH:/usr/local/erlang/bin</p>
+</li>
+</ol>
+<ol>
+<li><p>在终端输入erl看可否进入交互界面，如下</p>
+<p> Erlang/OTP 18 [erts-7.0] [source] [64-bit] [async-threads:10] [hipe] [kernel-poll:false]</p>
+</li>
+</ol>
+
+        
+          <p class="article-more-link">
+            <a href="/2015/08/08/服务器端开发之rabbitmq安装/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="y1t4cjdksi6k2f8r" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitMQ/">rabbitMQ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-node.js学习之作为windows服务" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/06/28/node.js学习之作为windows服务/" class="article-date">
@@ -117,7 +194,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="04i5wc0y4o9acge2" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="s4q1fiu1404m7jhq" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -170,7 +247,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/20/tcpip学习之广播消息/" data-id="vipbd7gt04edy2cd" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/20/tcpip学习之广播消息/" data-id="plrpntpgfd7zce0d" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -252,7 +329,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/18/生活杂记之孕期饮食/" data-id="gq8nyio5csj2t5x8" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/18/生活杂记之孕期饮食/" data-id="f259ifz37zsekql6" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -306,64 +383,11 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/03/08/tcpip学习之粘包/" data-id="7myi15rb7ttyst52" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/03/08/tcpip学习之粘包/" data-id="6axcz4vhetb0slak" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
         <a href="http://fungwan.me/2015/03/08/tcpip学习之粘包/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tcpip学习之半打开" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/02/28/tcpip学习之半打开/" class="article-date">
-  <time datetime="2015-02-28T11:44:12.000Z" itemprop="datePublished">2月 28 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/28/tcpip学习之半打开/">TCP的半开连接</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>项目里面要测试平板终端的关机功能，所以需要我服务器接收发送端的关机命令，然后转发至接收端。因为考虑到方便测试，所以平板发过来的命令是‘重启’，不然每一台都要人工去开机很麻烦，重启之后各终端再连接服务器，进入app主界面。很简单的一个逻辑，可是在实际测试的时候，却出现了问题，影响了后面程序的逻辑，后来仔细分析原来是TCP的半开连接所导致！以此记录。
-        
-          <p class="article-more-link">
-            <a href="/2015/02/28/tcpip学习之半打开/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/02/28/tcpip学习之半打开/" data-id="isf47o3v86bky1lj" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/02/28/tcpip学习之半打开/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
@@ -389,7 +413,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -398,7 +422,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 16.67px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/https-ssl/" style="font-size: 13.33px;">https ssl</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 16.67px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/https-ssl/" style="font-size: 13.33px;">https ssl</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/rabbitMQ/" style="font-size: 10.00px;">rabbitMQ</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/日常问题/" style="font-size: 10.00px;">日常问题</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
     </div>
   </div>
 
@@ -407,7 +431,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -417,6 +441,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
+          </li>
         
           <li>
             <a href="/2015/06/28/node.js学习之作为windows服务/">node.js作为windows服务启动</a>
@@ -432,10 +460,6 @@
         
           <li>
             <a href="/2015/03/08/tcpip学习之粘包/">TCP的粘包问题</a>
-          </li>
-        
-          <li>
-            <a href="/2015/02/28/tcpip学习之半打开/">TCP的半开连接</a>
           </li>
         
       </ul>
