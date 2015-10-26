@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/9 | fung wan</title>
+  <title>Archives | fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Just do it!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="fung wan">
-<meta property="og:url" content="http://fungwan.me/archives/2014/09/">
+<meta property="og:url" content="http://fungwan.me/archives/page/7/">
 <meta property="og:site_name" content="fung wan">
 <meta property="og:description" content="Just do it!">
 <meta name="twitter:card" content="summary">
@@ -75,10 +75,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-node.js学习之module.exports与exports的区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-node.js学习之解决Node在centos上无法访问" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/09/30/node.js学习之module.exports与exports的区别/" class="article-date">
-  <time datetime="2014-09-30T04:44:12.000Z" itemprop="datePublished">9月 30 2014</time>
+    <a href="/2014/08/09/node.js学习之解决Node在centos上无法访问/" class="article-date">
+  <time datetime="2014-08-09T05:44:12.000Z" itemprop="datePublished">8月 9 2014</time>
 </a>
     
   <div class="article-category">
@@ -93,7 +93,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/30/node.js学习之module.exports与exports的区别/">node.js中module.exports与exports的区别</a>
+      <a class="article-title" href="/2014/08/09/node.js学习之解决Node在centos上无法访问/">解决Node在centos上无法访问</a>
     </h1>
   
 
@@ -101,33 +101,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我们在阅读它人或开源的node.js代码时，会发现在对模块导出的写法上会出现下面几种情况，而关于导出的方法整理，可以参见我这篇文章<a href="http://fungwan.me/2014/09/29/node.js%E5%AD%A6%E4%B9%A0%E4%B9%8Bexports/" target="_blank" rel="external">node.js中exports的用法整理</a>。现在，我们以导出字符串对象为例：</p>
-<p>在module.js文件中，有如下写法：</p>
-<ul>
-<li>1.exports.get_name = ‘fungwan by exports ‘;</li>
-<li>2.module.exports.get_name = ‘fungwan by modules’;</li>
-<li>3.module.exports = ‘fungwan by modules’;</li>
-</ul>
-<p>通过对比发现，这里较之前多了module.exports，那么它跟exports的导出有什么关系呢？查阅资料即可知晓，其实exports就是module.exports对象的引用，本质上是相等的。我们可以通过这句代码证实：</p>
+        <p>将Node安装在了centos 上，发现在主机上并不能访问虚拟机上centos的node服务器，但是虚拟机能访问自己的web。各自都可ping通对方的IP。虚拟机采用的NAT的方式。后来查阅了资料，可能是防火墙的原因。<br>服务器的5858端口被防火墙堵了，可在主机通过命令：telnet server_ip 5858 来测试。</p>
+<p>解决方案：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/sbin/iptables -I INPUT -p tcp --dport <span class="number">5858</span> -j ACCEPT</div></pre></td></tr></table></figure>
 
-        
-          <p class="article-more-link">
-            <a href="/2014/09/30/node.js学习之module.exports与exports的区别/#more">Read More</a>
-          </p>
-        
+<p>然后保存：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/rc.d/init.d/iptables save</div></pre></td></tr></table></figure>
+
+<p>重启防火墙</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/iptables restart</div></pre></td></tr></table></figure>
+
+<p>再在主机访问OK！</p>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/" data-id="a0iumn8wmxtfycd4" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/08/09/node.js学习之解决Node在centos上无法访问/" data-id="pmisxzywvwv03cw7" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2014/08/09/node.js学习之解决Node在centos上无法访问/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
@@ -136,10 +134,10 @@
 
 
   
-    <article id="post-node.js学习之exports" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-node.js学习之centos环境补充" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/09/29/node.js学习之exports/" class="article-date">
-  <time datetime="2014-09-29T10:44:12.000Z" itemprop="datePublished">9月 29 2014</time>
+    <a href="/2014/08/08/node.js学习之centos环境补充/" class="article-date">
+  <time datetime="2014-08-08T09:44:12.000Z" itemprop="datePublished">8月 8 2014</time>
 </a>
     
   <div class="article-category">
@@ -154,7 +152,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/29/node.js学习之exports/">node.js中exports的用法整理</a>
+      <a class="article-title" href="/2014/08/08/node.js学习之centos环境补充/">Node.js在Centos上的安装</a>
     </h1>
   
 
@@ -162,29 +160,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。</p>
-<p>我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">exports.some_words = <span class="string">'this is string'</span>;<span class="comment">//导出一个字符串</span></div><div class="line"></div><div class="line">exports.some_fun = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{<span class="comment">//导出一个函数</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'this is function'</span>);</div><div class="line">};</div><div class="line"></div><div class="line">exports.jsonObj = {</div><div class="line">    name : <span class="string">'fungwan'</span>,</div><div class="line">    sex  : <span class="string">'man'</span>,</div><div class="line">    run  : <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'love running!'</span>);</div><div class="line">    }</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">//导出一个类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">helper</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> number = <span class="string">''</span>;</div><div class="line">    <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'I can help you!'</span>);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">helper.prototype.giveMoney = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'I have lots of cash!'</span>);</div><div class="line">}</div><div class="line"></div><div class="line">exports.c_help = helper;</div></pre></td></tr></table></figure>
+        <p>之前在windows上写Node,后面考虑到项目部署，于是需要移植到centos上。</p>
+<p>环境需求：</p>
+<ol>
+<li>centos版本为6.5 64位</li>
+<li>Node安装0.10.24</li>
+</ol>
+<p>步骤如下：</p>
+<p>1.安装gcc编译</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install gcc gcc-c++ openssl-devel</div></pre></td></tr></table></figure>
 
-<p>
-        
-          <p class="article-more-link">
-            <a href="/2014/09/29/node.js学习之exports/#more">Read More</a>
-          </p>
-        
+<p>2.下载node.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a.wget http:<span class="comment">//nodejs.org/dist/v0.10.24/node-v0.10.24.tar.gz  </span></div><div class="line">b.tar zxvf node-v0<span class="number">.10</span><span class="number">.24</span>.tar.gz </div><div class="line">c.cd node-v0<span class="number">.10</span><span class="number">.24</span></div></pre></td></tr></table></figure>
+
+<p>3.配置编译安装</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=<span class="regexp">/usr/</span>local/node </div><div class="line">make && make install</div></pre></td></tr></table></figure>
+
+<p>4.配置Node环境<br>vim /etc/profile </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#set nodejs env  </div><div class="line">export NODE_HOME=<span class="regexp">/usr/</span>local/node  </div><div class="line">export PATH=$NODE_HOME/bin:$PATH  </div><div class="line">export NODE_PATH=$NODE_HOME/lib/node_modules:$PATH</div></pre></td></tr></table></figure>
+
+
+<p>qw!</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /etc/profile</div></pre></td></tr></table></figure>
+
+<p>5.重启</p>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/09/29/node.js学习之exports/" data-id="i71s0dw618chkpyt" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/08/08/node.js学习之centos环境补充/" data-id="se2d4wylb5hiokf3" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2014/09/29/node.js学习之exports/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2014/08/08/node.js学习之centos环境补充/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
@@ -193,6 +206,10 @@
 
 
   
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/6/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="page-number" href="/archives/page/6/">6</a><span class="page-number current">7</span>
+    </nav>
   
 </section>
         

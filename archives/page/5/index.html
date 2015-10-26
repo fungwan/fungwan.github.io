@@ -75,6 +75,113 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-node.js学习之settimeout" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/31/node.js学习之settimeout/" class="article-date">
+  <time datetime="2014-12-31T09:44:12.000Z" itemprop="datePublished">12月 31 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/31/node.js学习之settimeout/">node.js中的定时器setInterval</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>定时器相信大家都用过，而且才开始接触时，老是与线程混淆(特别是自己原来写MFC程序时)，这里有一篇文章对这两个概念作了很好的对比【<a href="http://blog.csdn.net/wangweitingaabbcc/article/details/6723606" target="_blank" rel="external">定时器和多线程对比</a>】。这里我只是在node.js层面作个补充。
+        
+          <p class="article-more-link">
+            <a href="/2014/12/31/node.js学习之settimeout/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/12/31/node.js学习之settimeout/" data-id="wsnwtgda92army8z" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/12/31/node.js学习之settimeout/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node.js学习之单线程解惑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/30/node.js学习之单线程解惑/" class="article-date">
+  <time datetime="2014-12-30T04:44:12.000Z" itemprop="datePublished">12月 30 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/30/node.js学习之单线程解惑/">解惑node中的单线程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这里说一下node.js中的单线程缘由还是基于前段时间公司内部培训同事提出的问题：在网络通讯编程中，按照以往的语言或平台，应对成百上千的socket连接时，往往都会利用多线程的特性，对每个连接开启子线程分别接收数据再处理。那么在node.js中它是单线程，是基于事件响应的，即将每个的连接、处理事件会放到一个事件队列里面依次处理。那么问题来了，同事说如果某一个连接上来以后，一直在给服务器发送数据，那么排在事件队列后面的连接怎么处理，会一直等待吗？这个当然不是，下面我先用一个例子来说明一下这个问题的答案，方便理解。</p>
+<p>我们准备模拟这样一个场景：一个客户端向服务器发起tcp连接，成功之后，客户端一直给服务器发送数据，而服务器收到数据后只是作一个回显。然后，我们再用一个客户端向该服务器发起tcp连接，同样发送数据，这时看服务器会不会因为接收上一个连接的持续发送数据，而不能去处理第二个tcp连接的数据发送。
+        
+          <p class="article-more-link">
+            <a href="/2014/12/30/node.js学习之单线程解惑/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/12/30/node.js学习之单线程解惑/" data-id="leel7l2zw6rs4cih" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/12/30/node.js学习之单线程解惑/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-js学习之prototype用法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/12/24/js学习之prototype用法/" class="article-date">
@@ -115,7 +222,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/24/js学习之prototype用法/" data-id="m8w880km30lq4wa7" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/24/js学习之prototype用法/" data-id="t0hk0rcdt51qcjnn" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -174,7 +281,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/23/markdown学习之常用命令/" data-id="m6kbb95znghr7xf1" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/23/markdown学习之常用命令/" data-id="5o8zgp3k76znzx78" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -232,7 +339,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/23/js学习之this用法/" data-id="sl3jyf54j63j2u8l" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/23/js学习之this用法/" data-id="xgge4xjbe1evu4fx" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -249,145 +356,9 @@
 
 
   
-    <article id="post-node.js学习之npm_install失败" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/06/node.js学习之npm_install失败/" class="article-date">
-  <time datetime="2014-11-06T01:44:12.000Z" itemprop="datePublished">11月 6 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/06/node.js学习之npm_install失败/">npm install经常失败解决方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。</p>
-<p>*1.通过定制的 cnpm 命令行工具代替默认的 npm</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=http:<span class="comment">//registry.npm.taobao.org</span></div></pre></td></tr></table></figure>
-
-<p>*2.安装具体模块</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install [name]</div></pre></td></tr></table></figure>
-
-<p><code>tips</code>:当安装的时候发现安装的模块还没有同步过来, 淘宝 NPM 会自动在后台进行同步, 并且会让你从官方 NPM registry.npmjs.org 进行安装. 下次你再安装这个模块的时候, 就会直接从 淘宝 NPM 安装了.</p>
-<p>*3.同步模块（直接通过 sync 命令马上同步一个模块）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm sync connect</div></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="m6fpz865utfs50pm" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之packageJson管理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/25/node.js学习之packageJson管理/" class="article-date">
-  <time datetime="2014-10-25T11:44:12.000Z" itemprop="datePublished">10月 25 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/25/node.js学习之packageJson管理/">package.json里面的版本管理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在学习和使用node的过程中，常常会接触到package.json里面的配置，不管是自己填写还是去阅读人家的文件，刚开始都是一头雾水，此篇笔记只是针对里面的<strong>dependencies</strong>属性。因为我们在更新或者使用人家第三方模块的时候（npm install），最关键的就是dependencies里面的版本值。举一个小例子：</p>
-<pre><code><span class="string">"dependencies"</span>: {
-<span class="string">"websvr"</span>: <span class="string">"0.1.x"</span>,
-<span class="string">"websvr-redis"</span>: <span class="string">"0.x.x"</span>,
-<span class="string">"mustache"</span>: <span class="string">"~0.7.2"</span>，
-<span class="string">"connect-multiparty"</span>: <span class="string">"^1.1.0"</span> }
-</code></pre><p>这里面头两个模块的依赖都好理解，即websvr匹配0.1.0,0.1.1等版本，不会匹配如0.2.0之类的。关键后面的两个模块依赖，有两个特殊符号~和^,它们的区别分别如下：</p>
-<ul>
-<li>~会匹配最新的子版本（中间那个数字），比如~0.7.2会匹配所有的0.7.x版本，但不匹配到0.8.0及以上;</li>
-<li>^会匹配最新的主版本（第一个数字），比如^1.1.0将会匹配所有的1.x.x版本，2.0.0就略过。</li>
-</ul>
-<p>最后，附上版本控制的其他范围：</p>
-<pre><code><span class="built_in">version</span> 必须严格匹配到 <span class="built_in">version</span> 版本
-&gt;<span class="built_in">version</span> 必须大于 <span class="built_in">version</span> 的版本
-&gt;=<span class="built_in">version</span> 大于等于 <span class="built_in">version</span> 的版本
-&lt;<span class="built_in">version</span> 小于
-&lt;=<span class="built_in">version</span> 小于等于
-~<span class="built_in">version</span> “几乎相同的版本（Approximately equivalent <span class="built_in">to</span> <span class="built_in">version</span>）” 参见semver(<span class="number">7</span>)
-^<span class="built_in">version</span> “兼容的版本” 参见 semver(<span class="number">7</span>)
-<span class="number">1.2</span>.x 匹配<span class="number">1.2</span><span class="number">.0</span>, <span class="number">1.2</span><span class="number">.1</span>, 之类., 但不匹配 <span class="number">1.3</span><span class="number">.0</span>
-<span class="keyword">http</span>://... 以<span class="built_in">URL</span>地址作为依赖
-* 匹配任意版本
-<span class="string">""</span> (就是一个空白字符<span class="constant">empty</span> <span class="keyword">string</span>) 同 *，任意版本
-version1 - version2 同 &gt;=version1 &lt;=version2.
-range1 || range2  range1 或者 range2 的任一版本.
-git... 以GIT地址作为依赖
-user/repo 以GitHub地址作为依赖
-tag 匹配一个以 tag 标记并发布的版本，参见 npm-tag(<span class="number">1</span>)
-path/path/path 以本地地址作为依赖
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/10/25/node.js学习之packageJson管理/" data-id="cfjc5gp79f4avsre" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/10/25/node.js学习之packageJson管理/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/package-json/">package.json</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/6/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/archives/page/4/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/archives/page/6/">6</a><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/6/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -398,7 +369,7 @@ path/path/path 以本地地址作为依赖
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -407,7 +378,7 @@ path/path/path 以本地地址作为依赖
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 16.67px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 13.33px;">exports</a><a href="/tags/https-ssl/" style="font-size: 13.33px;">https ssl</a><a href="/tags/javascript/" style="font-size: 16.67px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/rabbitMQ/" style="font-size: 10.00px;">rabbitMQ</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/日常问题/" style="font-size: 10.00px;">日常问题</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 17.50px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 12.50px;">exports</a><a href="/tags/https-ssl/" style="font-size: 12.50px;">https ssl</a><a href="/tags/javascript/" style="font-size: 17.50px;">javascript</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/rabbitMQ/" style="font-size: 15.00px;">rabbitMQ</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/日常问题/" style="font-size: 10.00px;">日常问题</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
     </div>
   </div>
 
@@ -416,7 +387,7 @@ path/path/path 以本地地址作为依赖
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -428,6 +399,14 @@ path/path/path 以本地地址作为依赖
       <ul>
         
           <li>
+            <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/">解决rabbitMQ无法远程登录</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/18/服务器端开发之rabbitmq集群搭建/">rabbitMQ集群搭建</a>
+          </li>
+        
+          <li>
             <a href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
           </li>
         
@@ -437,14 +416,6 @@ path/path/path 以本地地址作为依赖
         
           <li>
             <a href="/2015/06/20/tcpip学习之广播消息/">应用于广播的解决方案</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/18/生活杂记之孕期饮食/">孕期饮食</a>
-          </li>
-        
-          <li>
-            <a href="/2015/03/08/tcpip学习之粘包/">TCP的粘包问题</a>
           </li>
         
       </ul>
