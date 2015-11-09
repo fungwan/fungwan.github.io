@@ -117,7 +117,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="8cee3jlg2tlypx1a" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="o9kv8wgz0m89y0rw" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -176,7 +176,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/" data-id="y29xwojzcji5x92c" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/" data-id="5htuy39cs60ng9e0" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -229,7 +229,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/31/node.js学习之settimeout/" data-id="ko3i0250yrsx4zqw" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/31/node.js学习之settimeout/" data-id="loyvn8upbrxg6ml6" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -283,7 +283,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/30/node.js学习之单线程解惑/" data-id="wo9r1yhbqjcwdnoy" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/30/node.js学习之单线程解惑/" data-id="0wtxtd8ybgs2li6r" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -300,10 +300,10 @@
 
 
   
-    <article id="post-node.js学习之npm_install失败" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-node.js学习之promise实现" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/06/node.js学习之npm_install失败/" class="article-date">
-  <time datetime="2014-11-06T01:44:12.000Z" itemprop="datePublished">11月 6 2014</time>
+    <a href="/2014/11/11/node.js学习之promise实现/" class="article-date">
+  <time datetime="2014-11-11T09:44:13.000Z" itemprop="datePublished">11月 11 2014</time>
 </a>
     
   <div class="article-category">
@@ -318,7 +318,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/06/node.js学习之npm_install失败/">npm install经常失败解决方法</a>
+      <a class="article-title" href="/2014/11/11/node.js学习之promise实现/">node中异步回调解决方案之promise</a>
     </h1>
   
 
@@ -326,31 +326,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。</p>
-<p>*1.通过定制的 cnpm 命令行工具代替默认的 npm</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=http:<span class="comment">//registry.npm.taobao.org</span></div></pre></td></tr></table></figure>
-
-<p>*2.安装具体模块</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm install [name]</div></pre></td></tr></table></figure>
-
-<p><code>tips</code>:当安装的时候发现安装的模块还没有同步过来, 淘宝 NPM 会自动在后台进行同步, 并且会让你从官方 NPM registry.npmjs.org 进行安装. 下次你再安装这个模块的时候, 就会直接从 淘宝 NPM 安装了.</p>
-<p>*3.同步模块（直接通过 sync 命令马上同步一个模块）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm sync connect</div></pre></td></tr></table></figure>
-
-
+        <p>以前在其他开发平台写码习惯了同步的写法，现在切换到node.js里面的异步特性，还是有一点的不习惯，起初还不怎么觉得，但当遇到数据库的操作，并且需要其返回的数据作下一步的逻辑时，问题就出来了，后面的逻辑都会写在前一个异步的回调里面，如此炮制，最后的结果就是一个金字塔似的回调噩梦就产生了。</p>
+<p>那么如何解决这样的噩梦呢？其实不管是网上还是其他渠道的资料上都有其针对异步的解决方案，而我是在看了张丹老师的博文后，决定尝试使用asyn库，并且应用在了实际的项目中来，效果不错。而今天我要笔记的是另外一种异步的解决方案-promise。
+        
+          <p class="article-more-link">
+            <a href="/2014/11/11/node.js学习之promise实现/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="h6p1o18av4jqvbfa" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/11/11/node.js学习之promise实现/" data-id="2lnmj3kxparg80f4" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2014/11/11/node.js学习之promise实现/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/promise/">promise</a></li></ul>
 
     </footer>
   </div>
@@ -361,7 +356,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/categories/node-js/page/2/">2</a><a class="extend next" rel="next" href="/categories/node-js/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/categories/node-js/page/2/">2</a><a class="page-number" href="/categories/node-js/page/3/">3</a><a class="extend next" rel="next" href="/categories/node-js/page/2/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -372,7 +367,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -381,7 +376,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 17.50px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 12.50px;">exports</a><a href="/tags/https-ssl/" style="font-size: 12.50px;">https ssl</a><a href="/tags/javascript/" style="font-size: 17.50px;">javascript</a><a href="/tags/javascript-正则表达式/" style="font-size: 10.00px;">javascript 正则表达式</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/rabbitMQ/" style="font-size: 15.00px;">rabbitMQ</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/日常问题/" style="font-size: 10.00px;">日常问题</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 17.50px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 12.50px;">exports</a><a href="/tags/https-ssl/" style="font-size: 12.50px;">https ssl</a><a href="/tags/javascript/" style="font-size: 17.50px;">javascript</a><a href="/tags/javascript-正则表达式/" style="font-size: 10.00px;">javascript 正则表达式</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/promise/" style="font-size: 10.00px;">promise</a><a href="/tags/rabbitMQ/" style="font-size: 15.00px;">rabbitMQ</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/日常问题/" style="font-size: 10.00px;">日常问题</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
     </div>
   </div>
 
@@ -390,7 +385,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
