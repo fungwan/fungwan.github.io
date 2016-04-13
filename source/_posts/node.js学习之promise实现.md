@@ -21,7 +21,7 @@ categories: node.js
 
 而这个方法的返回值也是一个promise对象，所以我们又可以将其结果再次的调用then方法以达到流程控制的效果。那对于其中参数的传递和错误处理等等，官方有做了如下定义：
 
-1. onFulfilled或者onRejected函数的返回值不是Promise对象，则该值将会作为下一个then方法中onFulfilled的第一个参数，如果返回值是一个Promise对象，怎么then方法的返回值就是该Promise对象；
+1. onFulfilled或者onRejected函数的返回值不是Promise对象，则该值将会作为下一个then方法中onFulfilled的第一个参数，如果返回值是一个Promise对象，那么then方法的返回值就是该Promise对象；
 
 2. onFulfilled或者onRejected函数中如果有异常抛出，则该then方法的返回的Promise对象状态转为Rejected，如果该Promise对象调用then，则Error对象会作为onRejected函数的第一个参数；
 
