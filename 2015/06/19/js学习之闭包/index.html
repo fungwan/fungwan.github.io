@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>node.js作为windows服务启动 | fung wan</title>
+  <title>多么痛的领悟之闭包小结 | fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="因为特殊原因，项目里node服务器需要部署在windowsServer上（怀念阿里云啊），很明显之前的forever神器就不能用了。但是回到现实中该怎么在windows上部署呢？不可能叫人家开个cmd窗口吧？怪怪的感觉，而且管理员稍不注意还容易将cmd误操作将其关闭！难不成再叫人家到目标目录，node app.js？
-后来到网上搜索找到了一篇文章 将node.js程序注册为windows服务，然后">
+  <meta name="description" content="“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~
+关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，闭包就是能够读取其他函数内部变量的函数。第二个，可能要长点：2.1闭包就是函数的局部变量集合，只是这些局">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node.js作为windows服务启动">
-<meta property="og:url" content="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/index.html">
+<meta property="og:title" content="多么痛的领悟之闭包小结">
+<meta property="og:url" content="http://fungwan.me/2015/06/19/js学习之闭包/index.html">
 <meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="因为特殊原因，项目里node服务器需要部署在windowsServer上（怀念阿里云啊），很明显之前的forever神器就不能用了。但是回到现实中该怎么在windows上部署呢？不可能叫人家开个cmd窗口吧？怪怪的感觉，而且管理员稍不注意还容易将cmd误操作将其关闭！难不成再叫人家到目标目录，node app.js？
-后来到网上搜索找到了一篇文章 将node.js程序注册为windows服务，然后">
-<meta property="og:updated_time" content="2015-09-18T06:21:43.000Z">
+<meta property="og:description" content="“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~
+关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，闭包就是能够读取其他函数内部变量的函数。第二个，可能要长点：2.1闭包就是函数的局部变量集合，只是这些局">
+<meta property="og:updated_time" content="2016-04-13T09:19:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node.js作为windows服务启动">
-<meta name="twitter:description" content="因为特殊原因，项目里node服务器需要部署在windowsServer上（怀念阿里云啊），很明显之前的forever神器就不能用了。但是回到现实中该怎么在windows上部署呢？不可能叫人家开个cmd窗口吧？怪怪的感觉，而且管理员稍不注意还容易将cmd误操作将其关闭！难不成再叫人家到目标目录，node app.js？
-后来到网上搜索找到了一篇文章 将node.js程序注册为windows服务，然后">
+<meta name="twitter:title" content="多么痛的领悟之闭包小结">
+<meta name="twitter:description" content="“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~
+关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，闭包就是能够读取其他函数内部变量的函数。第二个，可能要长点：2.1闭包就是函数的局部变量集合，只是这些局">
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
   
@@ -75,14 +75,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-node.js学习之作为windows服务" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-js学习之闭包" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/06/28/node.js学习之作为windows服务/" class="article-date">
-  <time datetime="2015-06-28T03:22:12.000Z" itemprop="datePublished">6月 28 2015</time>
+    <a href="/2015/06/19/js学习之闭包/" class="article-date">
+  <time datetime="2015-06-19T04:44:12.000Z" itemprop="datePublished">6月 19 2015</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -93,7 +93,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      node.js作为windows服务启动
+      多么痛的领悟之闭包小结
     </h1>
   
 
@@ -101,37 +101,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>因为特殊原因，项目里node服务器需要部署在windowsServer上（怀念阿里云啊），很明显之前的forever神器就不能用了。但是回到现实中该怎么在windows上部署呢？不可能叫人家开个cmd窗口吧？怪怪的感觉，而且管理员稍不注意还容易将cmd误操作将其关闭！难不成再叫人家到目标目录，node app.js？</p>
-<p>后来到网上搜索找到了一篇文章 <a href="http://www.oschina.net/question/12_18694?sort=time" title="ruan" target="_blank" rel="external">将node.js程序注册为windows服务</a>，然后按照上面的方法照做，也下载了文中提到的两个必备工具：</p>
-<ol>
-<li>Instrsrv.exe installs and removes system services from Windows NT.</li>
-<li>Srvany.exe allows any Windows NT application to run as a service.</li>
-</ol>
-<p>最后比较遗憾的是，尽管在windows服务里面也查看到了我已经注册到的服务，但是怎么都跑不起来，重启也是一个情况。顺带说一句，它这个方案真是麻烦又难用。于是继续搜索，后来终于找到了一个工具可以解决，一个叫<strong>nssm</strong>的工具（“the Non-Sucking Service Manager”），它会监控你安装的node服务，如果node挂了，nssm会自动重启它。可以看<a href="http://nssm.cc/" title="nssm" target="_blank" rel="external">官网</a>深入了解。<a id="more"></a></p>
-<ol>
-<li>进入官网下载对应系统版本，安装完成后，进入程序安装目录，nssw install +你的服务名（influx）</li>
-<li>接着它会弹出注册服务界面，里面需要配置相关的目录，按要求配置即可。<strong>Path</strong>中选择你的node.exe的安装路径，<strong>Startup directory</strong> 选择你的node应用的目录，即项目文件启动目录，<strong>Argument</strong>输入你的启动文件，我们项目是app.js</li>
-</ol>
-<p>就绪过后，点击Install Service，它会弹出提示框提示服务已安装成功。</p>
-<p>通过上面的步骤我们已经把需要的node服务已经注册成功，接着是使用。依然是进入nssm的程序安装目录，运行启动服务：</p>
-<blockquote>
-<p>nssm start influx</p>
-</blockquote>
-<p>我们可以通过自己的客户端来连接服务器，测试是否安装服务成功。当然上面提到的start参数，对应肯定还有stop，所以欲想了解更多参数，可以去官网查看，里面很详细。</p>
+        <p>“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~</p>
+<p>关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，<br><strong>闭包就是能够读取其他函数内部变量的函数。</strong>第二个，可能要长点：2.1<strong>闭包就是函数的局部变量集合</strong>，只是这些局部变量在函数返回后会继续存在；2.2闭包就是就是函数的“堆栈”在函数返回后并不释放，我们也可以理解为这些函数堆栈并不在栈上分配而是在堆上分配；2.3当在一个函数内定义另外一个函数就会产生闭包。<a id="more"></a></p>
+<p>那什么时候的场景会用到闭包这样的特性呢？一个最常见的例子，你如果想访问函数内部的变量该怎么办？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> num1 = <span class="number">22</span>;</span><br><span class="line">   num2 = <span class="number">33</span>;</span><br><span class="line">&#125;</span><br><span class="line">func2();</span><br><span class="line"><span class="built_in">console</span>.log(num1);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(num2);<span class="comment">//33</span></span><br></pre></td></tr></table></figure>
+<p>像上面的这个例子：你在外面直接输出num2会报“没有定义”的错，这不难理解，因为函数作用域的缘故。那，我们有没有办法可以访问其内部变量呢？按以前静态语言的做法，就是再封装一个public的方法，里面返回局部私有变量，在js中呢，我们的闭包就该登场了，将上面的代码改造下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">func3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">var</span> num3 = <span class="number">44</span>;</span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">func4</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="keyword">return</span> num3;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> func4;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">var</span> func = func3();</span><br><span class="line"> <span class="built_in">console</span>.log(func());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再来分析，虽然在外面我们不能直接取到num3,但是func4可以取到num3,因此返回一个func4的引用，这样在外部通过这个func4就可以获取到func3的内部变量。记住，<strong>闭包中局部变量是引用而非拷贝</strong>。其实兜这么大一圈去取得num3的这种方法，感觉真是跟静态语言想在外部访问类的私有变量是异曲同工呀。这里的func4就是静态语言的类的公有方法，只不过在js里面就变成了闭包！或许这就是当初设计js时没有类和对象，但是又想实现如上的操作而制作了这样的一个‘坑’。</p>
+<p>再举一个有时候会在工作中遇到的情景吧，也是网上的例子。在一个循环里面会异步执行操作，如果不做处理，出来的结果一般会让你大跌眼镜。这是使用闭包的一个坑。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原始例子，定时服务也可以看作是一个异步操作</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			alert(i); </span><br><span class="line">		&#125;, <span class="number">1000</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
+<p>上面的代码我们本来的意图是通过定时函数执行f1内部的闭包依次来输出f1的局部变量i,但是结果却是输出的10个10而不是期望的0到9，因为闭包内是对i的引用，然后函数执行时i已经变成了10。所以，要解决这个问题，我们可以进行如下的修正：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原始例子，定时服务也可以看作是一个异步操作</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">		(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">			setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				alert(e); </span><br><span class="line">			&#125;, <span class="number">1000</span>);</span><br><span class="line">		&#125;)(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">f2();</span><br></pre></td></tr></table></figure>
+<p>这里的匿名函数将i作为参数，这里的e会有i的一个拷贝，而引用时是对e的引用，这就避免了上述的问题。</p>
+<p>另外还有一个关于<a href="http://www.cnblogs.com/star-studio/archive/2011/06/22/2086493.html" title="闭包场景" target="_blank" rel="external">闭包</a>的场景描述可以看看~</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cin17amsg0020nsni5qyplsn5" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/19/js学习之闭包/" data-id="cin17amqf000jnsni34ifsmbd" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2015/06/19/js学习之闭包/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -139,19 +135,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/08/08/服务器端开发之rabbitmq安装/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/06/20/tcpip学习之广播消息/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          rabbitMQ安装笔记
+          应用于广播的解决方案
         
       </div>
     </a>
   
   
-    <a href="/2015/06/20/tcpip学习之广播消息/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/06/18/生活杂记之孕期饮食/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">应用于广播的解决方案</div>
+      <div class="article-nav-title">孕期饮食</div>
     </a>
   
 </nav>
@@ -161,7 +157,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/06/28/node.js学习之作为windows服务/" data-title="node.js作为windows服务启动" data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/06/19/js学习之闭包/" data-title="多么痛的领悟之闭包小结" data-url="http://fungwan.me/2015/06/19/js学习之闭包/"></div>
   </section>
 </section>
         

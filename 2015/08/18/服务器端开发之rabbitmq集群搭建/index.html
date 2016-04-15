@@ -11,27 +11,26 @@
  输">
 <meta property="og:type" content="article">
 <meta property="og:title" content="rabbitMQ集群搭建">
-<meta property="og:url" content="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/">
+<meta property="og:url" content="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/index.html">
 <meta property="og:site_name" content="fung wan">
 <meta property="og:description" content="本文笔记的是rabbitMQ集群搭建（镜像模式），同参考教程一样，设计模型为，在一个集群里，有3台机器，其中1台使用磁盘模式，另1台使用内存模式。内存模式的节点，无疑速度更快，因此客户端（consumer、producer）连接访问它。而磁盘模式的节点（RabbitMQ启动后，默认是磁盘节点），由于磁盘IO相对较慢，因此仅作数据备份使用，另外一台作为反向代理。接下来是具体配置：
 
 修改主机名
  输">
+<meta property="og:updated_time" content="2015-10-26T07:36:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rabbitMQ集群搭建">
 <meta name="twitter:description" content="本文笔记的是rabbitMQ集群搭建（镜像模式），同参考教程一样，设计模型为，在一个集群里，有3台机器，其中1台使用磁盘模式，另1台使用内存模式。内存模式的节点，无疑速度更快，因此客户端（consumer、producer）连接访问它。而磁盘模式的节点（RabbitMQ启动后，默认是磁盘节点），由于磁盘IO相对较慢，因此仅作数据备份使用，另外一台作为反向代理。接下来是具体配置：
 
 修改主机名
  输">
-
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-
+  <link rel="stylesheet" href="/css/style.css">
   <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
   
 </head>
@@ -120,11 +119,11 @@
 <ol>
 <li><p>修改host文件</p>
 <p> 在安装好的两台节点服务器中，分别修改/etc/hosts文件，如：</p>
-<pre><code> <span class="number">172.16</span><span class="number">.3</span><span class="number">.32</span> <span class="built_in">queue</span>
+<pre><code>172.16.3.32 queue
 
- <span class="number">172.16</span><span class="number">.3</span><span class="number">.107</span> influx
+172.16.3.107 influx
 
- <span class="number">172.16</span><span class="number">.3</span><span class="number">.109</span> proxy
+172.16.3.109 proxy
 </code></pre></li>
 </ol>
 <ol>
@@ -132,19 +131,19 @@
 <p> Rabbitmq的集群是依赖于erlang的集群来工作的，所以必须先构建起erlang的集群环境。Erlang的集群中各节点是通过一个magic cookie来实现的，这个cookie存放在 /var/lib/rabbitmq/.erlang.cookie 中，文件是400的权限。所以必须保证各节点cookie保持一致，否则节点之间就无法通信。<a id="more"></a></p>
 </li>
 <li><p>使用detached参数独立运行,查看各节点信息</p>
-<pre><code>     queue<span class="comment"># rabbitmq-server -detached</span>
-     queue<span class="comment"># rabbitmqctl cluster_status</span>
+<pre><code>queue# rabbitmq-server -detached
+queue# rabbitmqctl cluster_status
 
-     Cluster status of node rabbit@queue <span class="keyword">...</span>
-     [{nodes,[{disc,[rabbit@queue]}]},
-     {running_nodes,[rabbit@queue]},
-     {partitions,[]}]
-     ...done.
+Cluster status of node rabbit@queue ...
+[{nodes,[{disc,[rabbit@queue]}]},
+{running_nodes,[rabbit@queue]},
+{partitions,[]}]
+...done.
 </code></pre></li>
 </ol>
 <ol>
 <li><p>将influx作为内存节点与queue连接起来</p>
-<p>  在influx上，执行如下命令：rabbitmqctl join_cluster —ram rabbit@queue   </p>
+<p>  在influx上，执行如下命令：rabbitmqctl join_cluster –ram rabbit@queue   </p>
 </li>
 <li><p>接着是配置镜像模式</p>
 <p> 上面配置RabbitMQ默认集群模式，但并不保证队列的高可用性，尽管交换机、绑定这些可以复制到集群里的任何一个节点，但是队列内容不会复制，虽然该模式解决一部分节点压力，但队列节点宕机直接导致该队列无法使用，只能等待重启，所以要想在队列节点宕机或故障也能正常使用，就要复制队列内容到集群里的每个节点，需要创建镜像队列</p>
@@ -158,27 +157,27 @@
 <blockquote>
 <pre><code>defaults
 modehttp
-<span class="built_in">log</span> global
-<span class="keyword">option</span>  httplog
-<span class="keyword">option</span>  dontlognull
-<span class="keyword">option</span> http-<span class="built_in">server</span>-close
-<span class="keyword">option</span> forwardfor   except <span class="number">127.0</span><span class="number">.0</span><span class="number">.0</span>/<span class="number">8</span>
-<span class="keyword">option</span>  redispatch
-retries <span class="number">3</span>
+log global
+option  httplog
+option  dontlognull
+option http-server-close
+option forwardfor   except 127.0.0.0/8
+option  redispatch
+retries 3
 timeout http-request10s
-timeout queue   <span class="number">1</span>m
-timeout connect <span class="number">10</span>s
-timeout client  <span class="number">1</span>m
-timeout <span class="built_in">server</span>  <span class="number">1</span>m
-timeout http-keep-alive <span class="number">10</span>s
-timeout check   <span class="number">10</span>s
-maxconn <span class="number">3000</span>
+timeout queue   1m
+timeout connect 10s
+timeout client  1m
+timeout server  1m
+timeout http-keep-alive 10s
+timeout check   10s
+maxconn 3000
 
-listen rabbitmq_cluster <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">5672</span>
+listen rabbitmq_cluster 0.0.0.0:5672
 mode tcp
 balance roundrobin
-<span class="built_in">server</span>   rqslave1 <span class="number">172.16</span><span class="number">.3</span><span class="number">.32</span>:<span class="number">5672</span> check inter <span class="number">2000</span> rise <span class="number">2</span> fall <span class="number">3</span>   
-<span class="built_in">server</span>   rqslave2 <span class="number">172.16</span><span class="number">.3</span><span class="number">.107</span>:<span class="number">5672</span> check inter <span class="number">2000</span> rise <span class="number">2</span> fall <span class="number">3</span> 
+server   rqslave1 172.16.3.32:5672 check inter 2000 rise 2 fall 3   
+server   rqslave2 172.16.3.107:5672 check inter 2000 rise 2 fall 3 
 </code></pre></blockquote>
 <p>参考文章<a href="http://www.cnblogs.com/flat_peach/archive/2013/04/07/3004008.html" target="_blank" rel="external">在这</a>。</p>
 
@@ -186,7 +185,7 @@ balance roundrobin
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/" data-id="3z0s5v66wz6u2c6b" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/" data-id="cin17amu7003fnsnitlkmw3qv" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -234,7 +233,7 @@ balance roundrobin
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -243,7 +242,7 @@ balance roundrobin
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 17.50px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 12.50px;">exports</a><a href="/tags/https-ssl/" style="font-size: 12.50px;">https ssl</a><a href="/tags/javascript/" style="font-size: 17.50px;">javascript</a><a href="/tags/javascript-正则表达式/" style="font-size: 10.00px;">javascript 正则表达式</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/promise/" style="font-size: 10.00px;">promise</a><a href="/tags/rabbitMQ/" style="font-size: 15.00px;">rabbitMQ</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/日常问题/" style="font-size: 10.00px;">日常问题</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 16px;">Tcp/Ip</a> <a href="/tags/exports/" style="font-size: 12px;">exports</a> <a href="/tags/https-ssl/" style="font-size: 12px;">https ssl</a> <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/javascript-正则表达式/" style="font-size: 10px;">javascript 正则表达式</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oauth2-0/" style="font-size: 10px;">oauth2.0</a> <a href="/tags/package-json/" style="font-size: 10px;">package.json</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/rabbitMQ/" style="font-size: 14px;">rabbitMQ</a> <a href="/tags/rtsp/" style="font-size: 10px;">rtsp</a> <a href="/tags/孕期饮食/" style="font-size: 10px;">孕期饮食</a> <a href="/tags/日常问题/" style="font-size: 10px;">日常问题</a> <a href="/tags/春天怀孕记/" style="font-size: 10px;">春天怀孕记</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     </div>
   </div>
 
@@ -252,7 +251,7 @@ balance roundrobin
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -332,7 +331,7 @@ balance roundrobin
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 fungwan
+      &copy; 2016 fungwan
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>
@@ -423,8 +422,7 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<script src="/js/script.js" type="text/javascript"></script>
-
+<script src="/js/script.js"></script>
 
   </div>
 </body>

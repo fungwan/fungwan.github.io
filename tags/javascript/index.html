@@ -8,21 +8,19 @@
   <meta name="description" content="Just do it!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="fung wan">
-<meta property="og:url" content="http://fungwan.me/tags/javascript/">
+<meta property="og:url" content="http://fungwan.me/tags/javascript/index.html">
 <meta property="og:site_name" content="fung wan">
 <meta property="og:description" content="Just do it!">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fung wan">
 <meta name="twitter:description" content="Just do it!">
-
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-
+  <link rel="stylesheet" href="/css/style.css">
   <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
   
 </head>
@@ -75,6 +73,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js学习之闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/19/js学习之闭包/" class="article-date">
+  <time datetime="2015-06-19T04:44:12.000Z" itemprop="datePublished">6月 19 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/19/js学习之闭包/">多么痛的领悟之闭包小结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~</p>
+<p>关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，<br><strong>闭包就是能够读取其他函数内部变量的函数。</strong>第二个，可能要长点：2.1<strong>闭包就是函数的局部变量集合</strong>，只是这些局部变量在函数返回后会继续存在；2.2闭包就是就是函数的“堆栈”在函数返回后并不释放，我们也可以理解为这些函数堆栈并不在栈上分配而是在堆上分配；2.3当在一个函数内定义另外一个函数就会产生闭包。
+        
+          <p class="article-more-link">
+            <a href="/2015/06/19/js学习之闭包/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/06/19/js学习之闭包/" data-id="cin17amqf000jnsni34ifsmbd" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/06/19/js学习之闭包/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-js学习之对象内容是否为空" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/02/01/js学习之对象内容是否为空/" class="article-date">
@@ -102,12 +154,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>如题所说的判断对象为空指的是其里面是否有其属性和对应的值，而不是像以前普通的判断非空方法，如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="keyword">if</span>   (typeOf(x)   ==   <span class="string">"undefined"</span>)</div><div class="line"><span class="keyword">if</span>   (typeOf(x)   !=   <span class="string">"object"</span>)</div><div class="line"><span class="keyword">if</span>	 (!x)</div><div class="line"></div><div class="line"><span class="comment">//亦或是下面这种</span></div><div class="line"><span class="keyword">if</span>(x === <span class="literal">null</span>)</div><div class="line"><span class="keyword">if</span>(x === <span class="string">''</span>)</div></pre></td></tr></table></figure>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="keyword">if</span>   (typeOf(x)   ==   <span class="string">"undefined"</span>)</span><br><span class="line"><span class="keyword">if</span>   (typeOf(x)   !=   <span class="string">"object"</span>)</span><br><span class="line"><span class="keyword">if</span>	 (!x)</span><br><span class="line"></span><br><span class="line"><span class="comment">//亦或是下面这种</span></span><br><span class="line"><span class="keyword">if</span>(x === <span class="literal">null</span>)</span><br><span class="line"><span class="keyword">if</span>(x === <span class="string">''</span>)</span><br></pre></td></tr></table></figure>
 <p>现在的情况是x是一个已经定义了的对象，但里面没有任何属性，所以如果再向上面的那些判断方式的话，是会出问题的，可以参考下面的方式：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> voteObject = {<span class="string">"ds"</span>:<span class="number">1</span>};</div><div class="line"><span class="comment">//var voteObject = {};</span></div><div class="line"><span class="keyword">var</span> hasProp;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> voteObject){</div><div class="line">    hasProp = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">}</div><div class="line"><span class="keyword">if</span> (hasProp){</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'对象里有属性'</span>);</div><div class="line">}<span class="keyword">else</span>{</div><div class="line">    <span class="built_in">console</span>.error(<span class="string">'对象里面为空'</span>);</div><div class="line">}</div></pre></td></tr></table></figure>
-
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> voteObject = &#123;<span class="string">"ds"</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="comment">//var voteObject = &#123;&#125;;</span></span><br><span class="line"><span class="keyword">var</span> hasProp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> voteObject)&#123;</span><br><span class="line">    hasProp = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (hasProp)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'对象里有属性'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'对象里面为空'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             <a href="/2015/02/01/js学习之对象内容是否为空/#more">Read More</a>
@@ -117,7 +166,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/02/01/js学习之对象内容是否为空/" data-id="9y7te6v3loyd5jut" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/02/01/js学习之对象内容是否为空/" data-id="cin17amq4000dnsniih721ky1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -161,16 +210,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>之前node的时候用了人家封装的库，调进去看了一下，遇到下面这种类似代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">(name)</span></span>{<span class="built_in">console</span>.log(name)})(<span class="string">'fengyun'</span>);</div></pre></td></tr></table></figure>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;<span class="built_in">console</span>.log(name)&#125;)(<span class="string">'fengyun'</span>);</span><br></pre></td></tr></table></figure>
 <p>当时就在想这都什么玩意儿，我书读的少，写js不久，不要‘骗’我！以前没见过这种写法，于是百度之，才知道这是js里面的<em>匿名函数自执行</em>。这里面提到了两个关键字，一个是匿名函数，一个是自执行。</p>
 <blockquote>
 <p>匿名函数简单来说就是没有名字的函数，不能其单独使用；</p>
 <p>自执行就是函数在定义的时候就立即执行；</p>
 </blockquote>
 <p>概念都好理解，举个例效果更好：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是一般函数'</span>)</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'我是匿名函数'</span>)</div><div class="line">}</div></pre></td></tr></table></figure>
-
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'我是一般函数'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'我是匿名函数'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面代码中第二个函数表示的就是一个最简单的匿名函数，也没有参数。重点的是，它没办法调用运行的，因为它连名字都没有，怎么调？所以如果我们需要使用它，我们可以这么做：
         
           <p class="article-more-link">
@@ -181,7 +228,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/15/js学习之自执行/" data-id="s5aolaec9grx3qk9" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/15/js学习之自执行/" data-id="cin17amq8000gnsnin5k1frd5" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -225,10 +272,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>平时node中在人家源码里往往会看到prototype，之前百度了下说的是原型方法，也没有细看，今天决定好好把这块知识点学习一下。结合网上的资料，把prototype的定义精简一下：js中每个函数都有一个默认的prototype属性，这个属性是另一个对象（我们称之为‘原型对象’）的引用，换句话说，其实prototype属性就是一个对象。这个原型对象的所有属性和方法，都会被构造函数的实例继承。</p>
-<p>说了定义，那我们来看什么时候使用prototype呢？这篇<a href="http://www.cnblogs.com/dolphinX/p/3286177.html" title="色拉油啊油" target="_blank" rel="external">博文</a>对这部分讲的很清楚。按照他的例子举个例，在传统的实例化出来的对象要使用属性或方法时，我们事先是这样构造一个‘类’（为了好理解暂叫类吧）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">()</span></span>{</div><div class="line">    <span class="keyword">this</span>.friends = []; <span class="comment">//实例变量</span></div><div class="line">    <span class="keyword">this</span>.read=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{ <span class="comment">//实例方法</span></div><div class="line">	    <span class="keyword">var</span> bookName = <span class="string">'代码与艺术'</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'我要读'</span> + bookName);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> fengyun = <span class="keyword">new</span> Student();</div><div class="line">fengyun.friends.push(<span class="string">'lauchunpung'</span>);</div><div class="line">fengyun.read();</div><div class="line"><span class="built_in">console</span>.log(fengyun.friends); <span class="comment">//['lauchunpung']</span></div><div class="line">        </div><div class="line"><span class="keyword">var</span> andy = <span class="keyword">new</span> Student();</div><div class="line">andy.friends.push(<span class="string">'zhuliqian'</span>);</div><div class="line">andy.read();</div><div class="line"><span class="built_in">console</span>.log(andy.friends); <span class="comment">//['zhuliqian']</span></div></pre></td></tr></table></figure>
-
-<p>
+<p>说了定义，那我们来看什么时候使用prototype呢？这篇<a href="http://www.cnblogs.com/dolphinX/p/3286177.html" title="色拉油啊油">博文</a>对这部分讲的很清楚。按照他的例子举个例，在传统的实例化出来的对象要使用属性或方法时，我们事先是这样构造一个‘类’（为了好理解暂叫类吧）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.friends = []; <span class="comment">//实例变量</span></span><br><span class="line">    <span class="keyword">this</span>.read=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">//实例方法</span></span><br><span class="line">	    <span class="keyword">var</span> bookName = <span class="string">'代码与艺术'</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我要读'</span> + bookName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fengyun = <span class="keyword">new</span> Student();</span><br><span class="line">fengyun.friends.push(<span class="string">'lauchunpung'</span>);</span><br><span class="line">fengyun.read();</span><br><span class="line"><span class="built_in">console</span>.log(fengyun.friends); <span class="comment">//['lauchunpung']</span></span><br><span class="line">        </span><br><span class="line"><span class="keyword">var</span> andy = <span class="keyword">new</span> Student();</span><br><span class="line">andy.friends.push(<span class="string">'zhuliqian'</span>);</span><br><span class="line">andy.read();</span><br><span class="line"><span class="built_in">console</span>.log(andy.friends); <span class="comment">//['zhuliqian']</span></span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             <a href="/2014/12/24/js学习之prototype用法/#more">Read More</a>
@@ -238,7 +283,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/24/js学习之prototype用法/" data-id="wxtpzvhwxk7rtg0t" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/24/js学习之prototype用法/" data-id="cin17amq0000ansni2sqb6tai" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -283,10 +328,7 @@
       
         <p>通过这几个月在node.js上的工作，发现js其实并不是那么简单，而且感觉上越来越深，比如现在要笔记的一个坑——this,因为之前用过C++对this有一定的了解，其就是指向当前对象，而javascript中的this，因其弱语言的灵活性，它被赋予了更多的作用和使用范围。由于其运行期绑定的特性，它可以是全局对象、当前对象或者任意对象，这完全取决于函数的调用方式，下面根据网上的文章作了一个归纳，方便日后温习。</p>
 <p>一般而言，在Javascript中，this指向函数执行时的当前对象，该关键字在Javascript中的执行环境，而非声明环境有关。</p>
-<h2 id="1-作为单纯的函数调用">1.作为单纯的函数调用</h2>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">modifyName</span><span class="params">(name)</span> </span>{</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">}</div><div class="line">modifyName(<span class="string">'fengyun'</span>);</div><div class="line"><span class="built_in">console</span>.log(name);</div></pre></td></tr></table></figure>
-
-<p>
+<p>##1.作为单纯的函数调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">modifyName</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">modifyName(<span class="string">'fengyun'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br></pre></td></tr></table></figure></p>
         
           <p class="article-more-link">
             <a href="/2014/12/23/js学习之this用法/#more">Read More</a>
@@ -296,7 +338,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/23/js学习之this用法/" data-id="seay2e7c4dqqfxsf" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/23/js学习之this用法/" data-id="cin17ampk0001nsnifs3tqzw6" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -313,59 +355,10 @@
 
 
   
-    <article id="post-C语言之typedef" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/16/C语言之typedef/" class="article-date">
-  <time datetime="2014-10-16T11:44:12.000Z" itemprop="datePublished">10月 16 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/c-c/">c/c++</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/16/C语言之typedef/">温习typedef</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>typedef是c语言里面基础的语法知识，作用有点跟#define类似，但是如果它与其他结构搅在一起，还是会让你在风中凌乱。此次笔记就不说简单的typedef基本类型，只重点说下typedef结构体~
-        
-          <p class="article-more-link">
-            <a href="/2014/10/16/C语言之typedef/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/10/16/C语言之typedef/" data-id="wgzwj2sh3dd28u6s" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/10/16/C语言之typedef/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/tags/javascript/page/2/">2</a><a class="extend next" rel="next" href="/tags/javascript/page/2/">Next &raquo;</a>
+    </nav>
   
 </section>
         
@@ -375,7 +368,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -384,7 +377,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 17.50px;">Tcp/Ip</a><a href="/tags/exports/" style="font-size: 12.50px;">exports</a><a href="/tags/https-ssl/" style="font-size: 12.50px;">https ssl</a><a href="/tags/javascript/" style="font-size: 17.50px;">javascript</a><a href="/tags/javascript-正则表达式/" style="font-size: 10.00px;">javascript 正则表达式</a><a href="/tags/markdown/" style="font-size: 10.00px;">markdown</a><a href="/tags/mqtt/" style="font-size: 10.00px;">mqtt</a><a href="/tags/node-js/" style="font-size: 20.00px;">node.js</a><a href="/tags/npm/" style="font-size: 10.00px;">npm</a><a href="/tags/oauth2-0/" style="font-size: 10.00px;">oauth2.0</a><a href="/tags/package-json/" style="font-size: 10.00px;">package.json</a><a href="/tags/promise/" style="font-size: 10.00px;">promise</a><a href="/tags/rabbitMQ/" style="font-size: 15.00px;">rabbitMQ</a><a href="/tags/rtsp/" style="font-size: 10.00px;">rtsp</a><a href="/tags/孕期饮食/" style="font-size: 10.00px;">孕期饮食</a><a href="/tags/日常问题/" style="font-size: 10.00px;">日常问题</a><a href="/tags/春天怀孕记/" style="font-size: 10.00px;">春天怀孕记</a><a href="/tags/面向对象/" style="font-size: 10.00px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 16px;">Tcp/Ip</a> <a href="/tags/exports/" style="font-size: 12px;">exports</a> <a href="/tags/https-ssl/" style="font-size: 12px;">https ssl</a> <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/javascript-正则表达式/" style="font-size: 10px;">javascript 正则表达式</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oauth2-0/" style="font-size: 10px;">oauth2.0</a> <a href="/tags/package-json/" style="font-size: 10px;">package.json</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/rabbitMQ/" style="font-size: 14px;">rabbitMQ</a> <a href="/tags/rtsp/" style="font-size: 10px;">rtsp</a> <a href="/tags/孕期饮食/" style="font-size: 10px;">孕期饮食</a> <a href="/tags/日常问题/" style="font-size: 10px;">日常问题</a> <a href="/tags/春天怀孕记/" style="font-size: 10px;">春天怀孕记</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     </div>
   </div>
 
@@ -393,7 +386,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -456,7 +449,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 fungwan
+      &copy; 2016 fungwan
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>
@@ -547,8 +540,7 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<script src="/js/script.js" type="text/javascript"></script>
-
+<script src="/js/script.js"></script>
 
   </div>
 </body>

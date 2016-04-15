@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014/11 | fung wan</title>
+  <title>Tag: javascript | fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Just do it!">
 <meta property="og:type" content="website">
 <meta property="og:title" content="fung wan">
-<meta property="og:url" content="http://fungwan.me/archives/2014/11/index.html">
+<meta property="og:url" content="http://fungwan.me/tags/javascript/page/2/index.html">
 <meta property="og:site_name" content="fung wan">
 <meta property="og:description" content="Just do it!">
 <meta name="twitter:card" content="summary">
@@ -73,14 +73,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-node.js学习之promise实现" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-C语言之typedef" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/11/node.js学习之promise实现/" class="article-date">
-  <time datetime="2014-11-11T09:44:13.000Z" itemprop="datePublished">11月 11 2014</time>
+    <a href="/2014/10/16/C语言之typedef/" class="article-date">
+  <time datetime="2014-10-16T11:44:12.000Z" itemprop="datePublished">10月 16 2014</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+    <a class="article-category-link" href="/categories/c-c/">c/c++</a>
   </div>
 
   </div>
@@ -91,7 +91,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/11/node.js学习之promise实现/">node中异步回调解决方案之promise</a>
+      <a class="article-title" href="/2014/10/16/C语言之typedef/">温习typedef</a>
     </h1>
   
 
@@ -99,26 +99,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以前在其他开发平台写码习惯了同步的写法，现在切换到node.js里面的异步特性，还是有一点的不习惯，起初还不怎么觉得，但当遇到数据库的操作，并且需要其返回的数据作下一步的逻辑时，问题就出来了，后面的逻辑都会写在前一个异步的回调里面，如此炮制，最后的结果就是一个金字塔似的回调噩梦就产生了。</p>
-<p>那么如何解决这样的噩梦呢？其实不管是网上还是其他渠道的资料上都有其针对异步的解决方案，而我是在看了张丹老师的博文后，决定尝试使用asyn库，并且应用在了实际的项目中来，效果不错。而今天我要笔记的是另外一种异步的解决方案-promise。
+        <p>typedef是c语言里面基础的语法知识，作用有点跟#define类似，但是如果它与其他结构搅在一起，还是会让你在风中凌乱。此次笔记就不说简单的typedef基本类型，只重点说下typedef结构体~
         
           <p class="article-more-link">
-            <a href="/2014/11/11/node.js学习之promise实现/#more">Read More</a>
+            <a href="/2014/10/16/C语言之typedef/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/11/11/node.js学习之promise实现/" data-id="cin17amsk0023nsni0dgulh9j" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/10/16/C语言之typedef/" data-id="cin17ampv0006nsniockb1ta7" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2014/11/11/node.js学习之promise实现/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2014/10/16/C语言之typedef/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/promise/">promise</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -127,60 +126,10 @@
 
 
   
-    <article id="post-node.js学习之npm_install失败" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/06/node.js学习之npm_install失败/" class="article-date">
-  <time datetime="2014-11-06T01:44:12.000Z" itemprop="datePublished">11月 6 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/06/node.js学习之npm_install失败/">npm install经常失败解决方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。</p>
-<p>*1.通过定制的 cnpm 命令行工具代替默认的 npm<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=http:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure></p>
-<p>*2.安装具体模块</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install [name]</span><br></pre></td></tr></table></figure>
-<p><code>tips</code>:当安装的时候发现安装的模块还没有同步过来, 淘宝 NPM 会自动在后台进行同步, 并且会让你从官方 NPM registry.npmjs.org 进行安装. 下次你再安装这个模块的时候, 就会直接从 淘宝 NPM 安装了.</p>
-<p>*3.同步模块（直接通过 sync 命令马上同步一个模块）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm sync connect</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="cin17amrj001ensnimokn4xht" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/tags/javascript/">&laquo; Prev</a><a class="page-number" href="/tags/javascript/">1</a><span class="page-number current">2</span>
+    </nav>
   
 </section>
         
