@@ -3,42 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>孕期饮食 | fung wan</title>
+  <title>谈谈js中的作用域 | fung wan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="到今天写下这篇日志时，我家春天都怀孕50多天啦。原谅孕妇比较馋，什么都想吃，所以每次春天问我“老公，我可不可以吃这个啊？”，我都要去百度一下，太麻烦，信息不集中，所以要把这些东西归档一下！
-什么不能吃！
-木瓜、桂圆、荔枝：具体原因忘记了,好象是会容易导致流产,所以不能吃..
-
-山楂：山楂对妇女子宫有收缩作用，如果孕妇大量食用山楂食品，就会刺激子宫收缩，甚至导致流产
-
-柿子：不能吃，怕引至流产
-
-龙">
+  <meta name="description" content="如果有过其他高级语言‘块级作用域’的认知，那么再接触js的函数作用域后就会大跌眼镜。个人认为应该在这几个方面着重关注一下：作用域、作用域链、变量提升。
+先看作用域，js是没有块作用域的说法的（不过现在ES6的let关键字已经支持了），用网络上其他的例子作说明：
+123456var name=&quot;global&quot;;if(true)&amp;#123;    var name=&quot;local&quot;;    consol">
 <meta property="og:type" content="article">
-<meta property="og:title" content="孕期饮食">
-<meta property="og:url" content="http://fungwan.me/2015/06/18/生活杂记之孕期饮食/index.html">
+<meta property="og:title" content="谈谈js中的作用域">
+<meta property="og:url" content="http://fungwan.me/2015/06/22/js学习之作用域详解/index.html">
 <meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="到今天写下这篇日志时，我家春天都怀孕50多天啦。原谅孕妇比较馋，什么都想吃，所以每次春天问我“老公，我可不可以吃这个啊？”，我都要去百度一下，太麻烦，信息不集中，所以要把这些东西归档一下！
-什么不能吃！
-木瓜、桂圆、荔枝：具体原因忘记了,好象是会容易导致流产,所以不能吃..
-
-山楂：山楂对妇女子宫有收缩作用，如果孕妇大量食用山楂食品，就会刺激子宫收缩，甚至导致流产
-
-柿子：不能吃，怕引至流产
-
-龙">
-<meta property="og:updated_time" content="2015-06-18T08:58:26.000Z">
+<meta property="og:description" content="如果有过其他高级语言‘块级作用域’的认知，那么再接触js的函数作用域后就会大跌眼镜。个人认为应该在这几个方面着重关注一下：作用域、作用域链、变量提升。
+先看作用域，js是没有块作用域的说法的（不过现在ES6的let关键字已经支持了），用网络上其他的例子作说明：
+123456var name=&quot;global&quot;;if(true)&amp;#123;    var name=&quot;local&quot;;    consol">
+<meta property="og:updated_time" content="2016-04-19T09:27:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="孕期饮食">
-<meta name="twitter:description" content="到今天写下这篇日志时，我家春天都怀孕50多天啦。原谅孕妇比较馋，什么都想吃，所以每次春天问我“老公，我可不可以吃这个啊？”，我都要去百度一下，太麻烦，信息不集中，所以要把这些东西归档一下！
-什么不能吃！
-木瓜、桂圆、荔枝：具体原因忘记了,好象是会容易导致流产,所以不能吃..
-
-山楂：山楂对妇女子宫有收缩作用，如果孕妇大量食用山楂食品，就会刺激子宫收缩，甚至导致流产
-
-柿子：不能吃，怕引至流产
-
-龙">
+<meta name="twitter:title" content="谈谈js中的作用域">
+<meta name="twitter:description" content="如果有过其他高级语言‘块级作用域’的认知，那么再接触js的函数作用域后就会大跌眼镜。个人认为应该在这几个方面着重关注一下：作用域、作用域链、变量提升。
+先看作用域，js是没有块作用域的说法的（不过现在ES6的let关键字已经支持了），用网络上其他的例子作说明：
+123456var name=&quot;global&quot;;if(true)&amp;#123;    var name=&quot;local&quot;;    consol">
   
     <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
   
@@ -96,14 +78,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-生活杂记之孕期饮食" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-js学习之作用域详解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/06/18/生活杂记之孕期饮食/" class="article-date">
-  <time datetime="2015-06-18T11:44:12.000Z" itemprop="datePublished">6月 18 2015</time>
+    <a href="/2015/06/22/js学习之作用域详解/" class="article-date">
+  <time datetime="2015-06-22T04:44:12.000Z" itemprop="datePublished">6月 22 2015</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/生活杂记/">生活杂记</a>
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
   </div>
 
   </div>
@@ -114,7 +96,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      孕期饮食
+      谈谈js中的作用域
     </h1>
   
 
@@ -122,98 +104,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>到今天写下这篇日志时，我家春天都怀孕50多天啦。原谅孕妇比较馋，什么都想吃，所以每次春天问我“老公，我可不可以吃这个啊？”，我都要去百度一下，太麻烦，信息不集中，所以要把这些东西归档一下！</p>
-<h1 id="什么不能吃！"><a href="#什么不能吃！" class="headerlink" title="什么不能吃！"></a>什么不能吃！</h1><ol>
-<li><p>木瓜、桂圆、荔枝：具体原因忘记了,好象是会<strong>容易导致流产</strong>,所以不能吃..</p>
-</li>
-<li><p>山楂：山楂对妇女子宫有收缩作用，如果孕妇大量食用山楂食品，就会刺激子宫收缩，<strong>甚至导致流产</strong></p>
-</li>
-<li><p>柿子：不能吃，怕引至<strong>流产</strong></p>
-</li>
-<li><p>龙眼和荔枝、人参：不能吃的，它能刺激子宫收缩，特别是在<strong>怀孕后期，易流产</strong>。</p>
-</li>
-<li><p>螃蟹、甲鱼：荷尔蒙十分旺盛，<strong>是早期的“堕胎药”</strong>，特别是蟹爪。</p>
-</li>
-<li><p>咖啡：在「早期妊娠」喝大量咖啡，可能造成胎儿心脏畸形、裂颚、多手指头、缺手指头，机会比没喝咖啡的人大一点。若大量饮用，则<strong>流产机率高达百分之七十</strong>。</p>
-</li>
-<li><p>酒：喝酒多了，怀孕期及周产期之<strong>胎儿死亡率是十七％</strong>。</p>
-</li>
-<li><p>可乐，茶：和咖啡差不多</p>
-</li>
-<li><p>薏仁：其作用为消除体内异常细胞，故薏仁的功效恐会抑制<strong>受精卵的成长</strong>.</p>
-</li>
-<li><p>猪肝：许多人认为猪肝很补血，然而它却有破血之效，会打散子宫内的废血；但因怀孕时期子宫内并无废血，故反易造成<strong>早期流产</strong>。</p>
-</li>
-<li><p>马齿笕、薏米、黑木耳也是不能触碰的！</p>
-</li>
-<li><p>山楂：活血破瘀，使用过多，<strong>一定会引发流产</strong></p>
-</li>
-<li><p>嚼槟榔：孕妇吃槟榔或孕龄妇女长期嚼槟榔后再怀孕，<strong>其流产、死产及畸胎率为常人的两倍</strong>。止吐药可能导致胎儿畸型</p>
-</li>
-<li><p>大麦芽、燕麦：根据前人经验，妇人怀孕期间忌食大芽。如《本草正》中说：麦芽，女子有胎妊者不宜多服。<strong>亦善催生落胎。</strong><a id="more"></a></p>
-</li>
-<li><p>《药品化义》亦云：凡痰火哮喘及孕妇、切不可用麦芽。驴肉：性平，味酸甘，虽有补血益气作用，但根据前人经验，怀孕妇女应当忌食驴肉。</p>
-</li>
-<li><p>兔肉：性凉，能凉血活血，又易损人阳气</p>
-</li>
-<li><p>茄子：根据前人经验，怀孕妇女忌吃茄子。如《本草求真》中说：茄味甘气寒，质滑而利，孕妇食之，尤见其害木耳菜,又称滑腹莱、落葵、西洋菜。性属寒滑，有滑利凉血之弊。如《南宁市药物志》中告诫：孕妇忌服。尤其是在怀孕早期以及有习惯性流产(即中医所说滑胎)的孕妇，更应忌食之。</p>
-</li>
-<li><p>慈姑：慈姑有活血作用。《随息居饮食谱》中明确指出：慈姑功专破血，通淋，滑胎，利窍。多食动血，孕妇尤忌之。《日华子本草》中也有怀孕人不可食的告诫。尤其是在怀孕早期和有习惯性流产史者，更应忌食之。因为活血破血，滑胎利窍之品，均对妊娠不利。</p>
-</li>
-<li><p>柚子：柚子性寒，食之过多则伤阳气，孕妇不宜多吃或者最好不吃</p>
-</li>
-<li><p>菠萝：菠萝中含有一种叫蛋白酶的物质，过敏体质的人食之会引起菠萝中毒，称为“菠萝病”。 </p>
-</li>
-<li><p>葡萄：不能多吃,会血糖高</p>
-</li>
-<li><p>韭菜、麦芽(糖)：产后退奶时很有效，但会影响荷尔蒙的分泌，且易造成恶心、呕吐。</p>
-</li>
-</ol>
-<p>总结起来就是：</p>
-<blockquote>
-<p>1、高脂肪食物；</p>
-<p>2、高糖饮食，使孕妈有患上糖尿病的风险；</p>
-<p>3、寒凉、辛辣食物，容易加重孕妈肠胃负担。</p>
-</blockquote>
-<p>如：</p>
-<pre><code>蔬菜：生蒜、辣椒、胡椒、茴香、韭菜。
-
-水果：龙眼、山楂
-
-腌制食物：榨菜、腊肉、腊肠、咸鱼、酸菜、豆腐乳
-
-酒精饮品：白酒、啤酒、红酒、黄酒
-</code></pre><h1 id="多吃什么？"><a href="#多吃什么？" class="headerlink" title="多吃什么？"></a>多吃什么？</h1><p>相对于不能吃什么，可以吃的食物就罗列的较少了：</p>
-<blockquote>
-<p>1、富含较多维生素的食物；</p>
-<p>2、富含铁、钙、钠、镁、铜、锌等营养元素的食物；</p>
-<p>3、含有不饱和脂肪酸丰富的食物；</p>
-<p>4、含丰富蛋白质的食物；</p>
-<p>5、富含碘的食物。</p>
-</blockquote>
-<p>如：</p>
-<pre><code>蔬菜：胡萝卜、花菜、西红柿、海带、紫菜、菠菜、油菜。
-
-肉类：鲫鱼、鲤鱼、鸡肉、虾、猪肉、牛肉
-
-水果：苹果、梨子、香蕉、樱桃、草莓、葡萄
-
-坚果：核桃、花生、杏仁、松果、开心果
-</code></pre><p>网上抄了那么多，还是要感慨一句，孕育真是个系统工程，为了生出健康的宝宝，光就吃这一块都有那么多讲究，任重道远啊！</p>
+        <p>如果有过其他高级语言‘块级作用域’的认知，那么再接触js的函数作用域后就会大跌眼镜。个人认为应该在这几个方面着重关注一下：作用域、作用域链、变量提升。</p>
+<p>先看作用域，js是没有块作用域的说法的（不过现在ES6的let关键字已经支持了），用网络上其他的例子作说明：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name=<span class="string">"global"</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> name=<span class="string">"local"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(name)<span class="comment">//local</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(name);<span class="comment">//local</span></span><br></pre></td></tr></table></figure>
+<p>上面的输出都为local,如果不是函数作用域而是块作用域的话，输出应该依次是local和global。所以，以上代码证明了开始的观点。这里一定要注意<strong>函数作用域</strong>这个关键点哦！<a id="more"></a></p>
+<p>再来看一个作用域链的例子，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> func1 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> num = <span class="number">20</span>;</span><br><span class="line"> <span class="keyword">var</span> func2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> num = <span class="number">30</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(num);</span><br><span class="line"> &#125;;</span><br><span class="line"> func2();</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> func2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">var</span> num = <span class="number">20</span>;</span><br><span class="line"> <span class="keyword">var</span> func3 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(num);</span><br><span class="line"> &#125;;</span><br><span class="line"> func3();</span><br><span class="line">&#125;;</span><br><span class="line">func1();</span><br><span class="line">func2();</span><br></pre></td></tr></table></figure>
+<p>反正总的思想就是，查看欲访问的对象属于当前哪一个作用域，如果找不到则向上级逐级查找，直到查找最顶级作用域，如果还没定义就返回undefined。比如上面的例子，运行func2()的时候，我们程序为了打印num,发现在当前函数作用域里面没有发现num的定义，于是往上级查找，在func2的函数作用域里面有num和func3（函数也是对象哦，别忘了）.那么这里自然有num的定义，即它找到了，所以输出20，同理运行func1(),就会输出已经在当前作用域找到的num为30。</p>
+<p>最后我们来说说变量提升，这个就更变态了，稍不注意就会弄错，还是以上面的例子为例，只不过改一个地方，缩减版：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> func2 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> func3 = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(num);</span><br><span class="line"> &#125;;</span><br><span class="line"></span><br><span class="line"> func3();</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> num = <span class="number">20</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">func2();</span><br></pre></td></tr></table></figure>
+<p>猜猜运行func2()会是什么结果呢？如果按照上面的思想你答20那就错了或者说只离成功只差一半啦，还是先按作用域链的思想进行分析，我们欲打印num，然后在func2所在的函数域里面找到了num，但是这里要<strong>注意</strong>，此时的num并没有赋值，因为代码是从上往下运行的。是不是很坑。所以打印出来是undefined。这种现象就叫做变量提升，所以，你将var num = 2放到func3()的前面，结果是不是又不一样呢?哈哈。</p>
+<p>以上为自己学习js函数作用域的一些愚见、小结，最后我感觉这逼就是一坑啊作用域特性，不知当时作者为什么要设计成与其他高级语言背道而驰的作用域概念。所以以后写码的时候特别是node后端，要用到的变量提前写到最前面在一个作用域里面，当然用ES6也是个不错的选择！</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/18/生活杂记之孕期饮食/" data-id="cin78btyq000iasnixyq07j2n" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/22/js学习之作用域详解/" data-id="cin78btxa0000asniey958b39" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2015/06/18/生活杂记之孕期饮食/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2015/06/22/js学习之作用域详解/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/孕期饮食/">孕期饮食</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/春天怀孕记/">春天怀孕记</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -221,19 +136,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/06/19/js学习之闭包/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/06/28/node.js学习之作为windows服务/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          多么痛的领悟之闭包小结
+          node.js作为windows服务启动
         
       </div>
     </a>
   
   
-    <a href="/2015/03/08/tcpip学习之粘包/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/06/20/tcpip学习之广播消息/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">TCP的粘包问题</div>
+      <div class="article-nav-title">应用于广播的解决方案</div>
     </a>
   
 </nav>
@@ -243,7 +158,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/06/18/生活杂记之孕期饮食/" data-title="孕期饮食" data-url="http://fungwan.me/2015/06/18/生活杂记之孕期饮食/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/06/22/js学习之作用域详解/" data-title="谈谈js中的作用域" data-url="http://fungwan.me/2015/06/22/js学习之作用域详解/"></div>
   </section>
 </section>
         
