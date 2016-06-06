@@ -73,6 +73,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-node.js学习之http请求出错" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/22/node.js学习之http请求出错/" class="article-date">
+  <time datetime="2016-05-22T09:44:12.000Z" itemprop="datePublished">5月 22 2016</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/22/node.js学习之http请求出错/">踩中文的坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如标题所示，这次笔记一个工作中遇到的小坑，虽说小却楞是花了我几大小时的时间。当时的背景是这样的，我需要在客户端这边发送一个http的POST请求，然后服务器根据请求执行相应的db操作。代码类似下面这样子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bookBody = &#123;</span><br><span class="line">    <span class="string">"title"</span>: <span class="string">"黑客与画家"</span>,</span><br><span class="line">    <span class="string">"price"</span>:<span class="number">9.89</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bookBodyString = <span class="built_in">JSON</span>.stringify(bookBody);</span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    host: <span class="string">'localhost'</span>,</span><br><span class="line">    port:<span class="string">'3000'</span>,</span><br><span class="line">    path: <span class="string">'/books'</span>,</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        <span class="string">'Accept'</span>: <span class="string">'/'</span>,</span><br><span class="line">        <span class="string">'Content-Type'</span>:<span class="string">'application/json'</span>,</span><br><span class="line">        <span class="string">'Content-Length'</span>: bookBodyString.length</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> req = http.request(options, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">    res.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">    res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    res.on(<span class="string">'err'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">req.write(bookBodyString);</span><br><span class="line">req.end();<span class="string">`</span></span><br></pre></td></tr></table></figure>
+<p>结果代码执行过后，对方的服务器给挂掉了，当然我这边也就没有响应到正确的数据
+        
+          <p class="article-more-link">
+            <a href="/2016/05/22/node.js学习之http请求出错/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2016/05/22/node.js学习之http请求出错/" data-id="cip3fjju1001lwgni810qsrla" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2016/05/22/node.js学习之http请求出错/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-服务器端开发之rabbitmq无法登陆" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/" class="article-date">
@@ -110,7 +165,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/25/服务器端开发之rabbitmq无法登陆/" data-id="cin78bu1f002basniewsffmcg" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/08/25/服务器端开发之rabbitmq无法登陆/" data-id="cip3fjjwv003iwgnicgdn3f0z" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -184,7 +239,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/" data-id="cin78btz8000uasnimfrbhyrm" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/" data-id="cip3fjjwz003lwgnibriir3r0" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -259,7 +314,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cin78bu2b002oasniwlajjg1i" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cip3fjjwo003dwgni3ccb7s80" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -318,7 +373,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cin78bu00001aasni272wjcbx" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cip3fjjuw0025wgnikdgfks88" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -327,62 +382,6 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js学习之作用域详解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/22/js学习之作用域详解/" class="article-date">
-  <time datetime="2015-06-22T04:44:12.000Z" itemprop="datePublished">6月 22 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/22/js学习之作用域详解/">谈谈js中的作用域</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如果有过其他高级语言‘块级作用域’的认知，那么再接触js的函数作用域后就会大跌眼镜。个人认为应该在这几个方面着重关注一下：作用域、作用域链、变量提升。</p>
-<p>先看作用域，js是没有块作用域的说法的（不过现在ES6的let关键字已经支持了），用网络上其他的例子作说明：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name=<span class="string">"global"</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> name=<span class="string">"local"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(name)<span class="comment">//local</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(name);<span class="comment">//local</span></span><br></pre></td></tr></table></figure>
-<p>上面的输出都为local,如果不是函数作用域而是块作用域的话，输出应该依次是local和global。所以，以上代码证明了开始的观点。这里一定要注意<strong>函数作用域</strong>这个关键点哦！
-        
-          <p class="article-more-link">
-            <a href="/2015/06/22/js学习之作用域详解/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/06/22/js学习之作用域详解/" data-id="cin78btxa0000asniey958b39" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/06/22/js学习之作用域详解/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -404,7 +403,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -422,7 +421,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -432,6 +431,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/05/22/node.js学习之http请求出错/">踩中文的坑</a>
+          </li>
         
           <li>
             <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/">解决rabbitMQ无法远程登录</a>
@@ -447,10 +450,6 @@
         
           <li>
             <a href="/2015/06/28/node.js学习之作为windows服务/">node.js作为windows服务启动</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/22/js学习之作用域详解/">谈谈js中的作用域</a>
           </li>
         
       </ul>
