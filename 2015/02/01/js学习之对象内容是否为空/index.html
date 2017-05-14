@@ -3,26 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>判断对象内容是否为空 | fung wan</title>
+  <title>判断对象内容是否为空 | 冯云</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如题所说的判断对象为空指的是其里面是否有其属性和对应的值，而不是像以前普通的判断非空方法，如下：
-12345678var x;if   (typeOf(x)   ==   &quot;undefined&quot;)if   (typeOf(x)   !=   &quot;object&quot;)if	 (!x)//亦或是下面这种if(x === null)if(x === &apos;&apos;)
-现在的情况是x是一个已经定义了的对象，但里面没有任何">
+  <meta name="description" content="如题所说的判断对象为空指的是其里面是否有其属性和对应的值，而不是像以前普通的判断非空方法，如下： 12345678var x;if   (typeOf(x)   ==   &quot;undefined&quot;)if   (typeOf(x)   !=   &quot;object&quot;)if	 (!x)//亦或是下面这种if(x === null)if(x === &apos;&apos;) 现在的情况是x是一个已经定义了的对象，但里面没有任何">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="判断对象内容是否为空">
 <meta property="og:url" content="http://fungwan.me/2015/02/01/js学习之对象内容是否为空/index.html">
-<meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="如题所说的判断对象为空指的是其里面是否有其属性和对应的值，而不是像以前普通的判断非空方法，如下：
-12345678var x;if   (typeOf(x)   ==   &quot;undefined&quot;)if   (typeOf(x)   !=   &quot;object&quot;)if	 (!x)//亦或是下面这种if(x === null)if(x === &apos;&apos;)
-现在的情况是x是一个已经定义了的对象，但里面没有任何">
-<meta property="og:updated_time" content="2015-06-04T07:19:54.000Z">
+<meta property="og:site_name" content="冯云">
+<meta property="og:description" content="如题所说的判断对象为空指的是其里面是否有其属性和对应的值，而不是像以前普通的判断非空方法，如下： 12345678var x;if   (typeOf(x)   ==   &quot;undefined&quot;)if   (typeOf(x)   !=   &quot;object&quot;)if	 (!x)//亦或是下面这种if(x === null)if(x === &apos;&apos;) 现在的情况是x是一个已经定义了的对象，但里面没有任何">
+<meta property="og:updated_time" content="2017-04-10T02:18:00.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="判断对象内容是否为空">
-<meta name="twitter:description" content="如题所说的判断对象为空指的是其里面是否有其属性和对应的值，而不是像以前普通的判断非空方法，如下：
-12345678var x;if   (typeOf(x)   ==   &quot;undefined&quot;)if   (typeOf(x)   !=   &quot;object&quot;)if	 (!x)//亦或是下面这种if(x === null)if(x === &apos;&apos;)
-现在的情况是x是一个已经定义了的对象，但里面没有任何">
+<meta name="twitter:description" content="如题所说的判断对象为空指的是其里面是否有其属性和对应的值，而不是像以前普通的判断非空方法，如下： 12345678var x;if   (typeOf(x)   ==   &quot;undefined&quot;)if   (typeOf(x)   !=   &quot;object&quot;)if	 (!x)//亦或是下面这种if(x === null)if(x === &apos;&apos;) 现在的情况是x是一个已经定义了的对象，但里面没有任何">
   
-    <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="冯云" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -39,7 +34,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">fung wan</a>
+        <a href="/" id="logo">冯云</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -105,18 +100,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>如题所说的判断对象为空指的是其里面是否有其属性和对应的值，而不是像以前普通的判断非空方法，如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="keyword">if</span>   (typeOf(x)   ==   <span class="string">"undefined"</span>)</span><br><span class="line"><span class="keyword">if</span>   (typeOf(x)   !=   <span class="string">"object"</span>)</span><br><span class="line"><span class="keyword">if</span>	 (!x)</span><br><span class="line"></span><br><span class="line"><span class="comment">//亦或是下面这种</span></span><br><span class="line"><span class="keyword">if</span>(x === <span class="literal">null</span>)</span><br><span class="line"><span class="keyword">if</span>(x === <span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x;</div><div class="line"><span class="keyword">if</span>   (typeOf(x)   ==   <span class="string">"undefined"</span>)</div><div class="line"><span class="keyword">if</span>   (typeOf(x)   !=   <span class="string">"object"</span>)</div><div class="line"><span class="keyword">if</span>	 (!x)</div><div class="line"></div><div class="line"><span class="comment">//亦或是下面这种</span></div><div class="line"><span class="keyword">if</span>(x === <span class="literal">null</span>)</div><div class="line"><span class="keyword">if</span>(x === <span class="string">''</span>)</div></pre></td></tr></table></figure>
 <p>现在的情况是x是一个已经定义了的对象，但里面没有任何属性，所以如果再向上面的那些判断方式的话，是会出问题的，可以参考下面的方式：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> voteObject = &#123;<span class="string">"ds"</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="comment">//var voteObject = &#123;&#125;;</span></span><br><span class="line"><span class="keyword">var</span> hasProp;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> voteObject)&#123;</span><br><span class="line">    hasProp = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (hasProp)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'对象里有属性'</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">'对象里面为空'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> voteObject = &#123;<span class="string">"ds"</span>:<span class="number">1</span>&#125;;</div><div class="line"><span class="comment">//var voteObject = &#123;&#125;;</span></div><div class="line"><span class="keyword">var</span> hasProp;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> voteObject)&#123;</div><div class="line">    hasProp = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">if</span> (hasProp)&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'对象里有属性'</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="built_in">console</span>.error(<span class="string">'对象里面为空'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>再补充一个题外点，就是如何判断对象是否为数组，具体方法如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> object = [];</span><br><span class="line"> <span class="keyword">if</span>(object <span class="keyword">instanceof</span>  <span class="built_in">Array</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> object = [];</div><div class="line"> <span class="keyword">if</span>(object <span class="keyword">instanceof</span>  <span class="built_in">Array</span>)</div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/02/01/js学习之对象内容是否为空/" data-id="cip3fjjsp000kwgni9p6wx9c6" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/02/01/js学习之对象内容是否为空/" data-id="cj2onkpbb000br8v0mwg27bnt" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -164,7 +159,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -182,7 +177,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -194,7 +189,11 @@
       <ul>
         
           <li>
-            <a href="/2016/05/22/node.js学习之http请求出错/">踩中文的坑</a>
+            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
           </li>
         
           <li>
@@ -207,10 +206,6 @@
         
           <li>
             <a href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/28/node.js学习之作为windows服务/">node.js作为windows服务启动</a>
           </li>
         
       </ul>
@@ -262,7 +257,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 fungwan
+      &copy; 2017 fungwan
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>

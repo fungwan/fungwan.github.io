@@ -3,23 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>多么痛的领悟之闭包小结 | fung wan</title>
+  <title>多么痛的领悟之闭包小结 | 冯云</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~
-关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，闭包就是能够读取其他函数内部变量的函数。第二个，可能要长点：2.1闭包就是函数的局部变量集合，只是这些局">
+  <meta name="description" content="“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~ 关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，闭包就是能够读取其他函数内部变量的函数。第二个，可能要长点：2.1闭包就是函数的局部变量集合，只是这些局">
+<meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多么痛的领悟之闭包小结">
 <meta property="og:url" content="http://fungwan.me/2015/06/19/js学习之闭包/index.html">
-<meta property="og:site_name" content="fung wan">
-<meta property="og:description" content="“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~
-关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，闭包就是能够读取其他函数内部变量的函数。第二个，可能要长点：2.1闭包就是函数的局部变量集合，只是这些局">
-<meta property="og:updated_time" content="2016-04-13T09:19:30.000Z">
+<meta property="og:site_name" content="冯云">
+<meta property="og:description" content="“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~ 关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，闭包就是能够读取其他函数内部变量的函数。第二个，可能要长点：2.1闭包就是函数的局部变量集合，只是这些局">
+<meta property="og:updated_time" content="2017-04-10T02:18:00.793Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多么痛的领悟之闭包小结">
-<meta name="twitter:description" content="“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~
-关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，闭包就是能够读取其他函数内部变量的函数。第二个，可能要长点：2.1闭包就是函数的局部变量集合，只是这些局">
+<meta name="twitter:description" content="“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~ 关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，闭包就是能够读取其他函数内部变量的函数。第二个，可能要长点：2.1闭包就是函数的局部变量集合，只是这些局">
   
-    <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="冯云" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -36,7 +34,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">fung wan</a>
+        <a href="/" id="logo">冯云</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -104,14 +102,14 @@
         <p>“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~</p>
 <p>关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，<br><strong>闭包就是能够读取其他函数内部变量的函数。</strong>第二个，可能要长点：2.1<strong>闭包就是函数的局部变量集合</strong>，只是这些局部变量在函数返回后会继续存在；2.2闭包就是就是函数的“堆栈”在函数返回后并不释放，我们也可以理解为这些函数堆栈并不在栈上分配而是在堆上分配；2.3当在一个函数内定义另外一个函数就会产生闭包。<a id="more"></a></p>
 <p>那什么时候的场景会用到闭包这样的特性呢？一个最常见的例子，你如果想访问函数内部的变量该怎么办？</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> num1 = <span class="number">22</span>;</span><br><span class="line">   num2 = <span class="number">33</span>;</span><br><span class="line">&#125;</span><br><span class="line">func2();</span><br><span class="line"><span class="built_in">console</span>.log(num1);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(num2);<span class="comment">//33</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> num1 = <span class="number">22</span>;</div><div class="line">   num2 = <span class="number">33</span>;</div><div class="line">&#125;</div><div class="line">func2();</div><div class="line"><span class="built_in">console</span>.log(num1);<span class="comment">//undefined</span></div><div class="line"><span class="built_in">console</span>.log(num2);<span class="comment">//33</span></div></pre></td></tr></table></figure>
 <p>像上面的这个例子：你在外面直接输出num2会报“没有定义”的错，这不难理解，因为函数作用域的缘故。那，我们有没有办法可以访问其内部变量呢？按以前静态语言的做法，就是再封装一个public的方法，里面返回局部私有变量，在js中呢，我们的闭包就该登场了，将上面的代码改造下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">func3</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">var</span> num3 = <span class="number">44</span>;</span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">func4</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="keyword">return</span> num3;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> func4;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">var</span> func = func3();</span><br><span class="line"> <span class="built_in">console</span>.log(func());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">func3</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> num3 = <span class="number">44</span>;</div><div class="line">     <span class="function"><span class="keyword">function</span> <span class="title">func4</span>(<span class="params"></span>)</span>&#123;</div><div class="line">         <span class="keyword">return</span> num3;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> func4;</div><div class="line"> &#125;</div><div class="line"> <span class="keyword">var</span> func = func3();</div><div class="line"> <span class="built_in">console</span>.log(func());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>再来分析，虽然在外面我们不能直接取到num3,但是func4可以取到num3,因此返回一个func4的引用，这样在外部通过这个func4就可以获取到func3的内部变量。记住，<strong>闭包中局部变量是引用而非拷贝</strong>。其实兜这么大一圈去取得num3的这种方法，感觉真是跟静态语言想在外部访问类的私有变量是异曲同工呀。这里的func4就是静态语言的类的公有方法，只不过在js里面就变成了闭包！或许这就是当初设计js时没有类和对象，但是又想实现如上的操作而制作了这样的一个‘坑’。</p>
 <p>再举一个有时候会在工作中遇到的情景吧，也是网上的例子。在一个循环里面会异步执行操作，如果不做处理，出来的结果一般会让你大跌眼镜。这是使用闭包的一个坑。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原始例子，定时服务也可以看作是一个异步操作</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			alert(i); </span><br><span class="line">		&#125;, <span class="number">1000</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//原始例子，定时服务也可以看作是一个异步操作</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">		setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			alert(i); </div><div class="line">		&#125;, <span class="number">1000</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">f1();</div></pre></td></tr></table></figure>
 <p>上面的代码我们本来的意图是通过定时函数执行f1内部的闭包依次来输出f1的局部变量i,但是结果却是输出的10个10而不是期望的0到9，因为闭包内是对i的引用，然后函数执行时i已经变成了10。所以，要解决这个问题，我们可以进行如下的修正：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原始例子，定时服务也可以看作是一个异步操作</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">		(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">			setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				alert(e); </span><br><span class="line">			&#125;, <span class="number">1000</span>);</span><br><span class="line">		&#125;)(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">f2();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//原始例子，定时服务也可以看作是一个异步操作</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">		(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">			setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				alert(e); </div><div class="line">			&#125;, <span class="number">1000</span>);</div><div class="line">		&#125;)(i);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">f2();</div></pre></td></tr></table></figure>
 <p>这里的匿名函数将i作为参数，这里的e会有i的一个拷贝，而引用时是对e的引用，这就避免了上述的问题。</p>
 <p>另外还有一个关于<a href="http://www.cnblogs.com/star-studio/archive/2011/06/22/2086493.html" title="闭包场景" target="_blank" rel="external">闭包</a>的场景描述可以看看~</p>
 
@@ -119,7 +117,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/19/js学习之闭包/" data-id="cip3fjjst000nwgniwrghl2tp" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/19/js学习之闭包/" data-id="cj2onkpbq000mr8v0q306slut" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -167,7 +165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -185,7 +183,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -197,7 +195,11 @@
       <ul>
         
           <li>
-            <a href="/2016/05/22/node.js学习之http请求出错/">踩中文的坑</a>
+            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
           </li>
         
           <li>
@@ -210,10 +212,6 @@
         
           <li>
             <a href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/28/node.js学习之作为windows服务/">node.js作为windows服务启动</a>
           </li>
         
       </ul>
@@ -265,7 +263,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 fungwan
+      &copy; 2017 fungwan
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>

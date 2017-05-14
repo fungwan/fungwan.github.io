@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>记录下http的缓存策略 | 冯云</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="相信很多做过前端或者后台性能优化的童鞋对http缓存机制都有过了解，今天准备复习下这部分的知识。 首先开篇有两个问题抛出，即是，1.什么时候客户端需要使用缓存？2.使用缓存的规则是什么？ 第一个问题，客户端请求一个文件，服务器返回的响应头会有两种方式可以判断，首先是cache-control属性值，它除了no-store之外，浏览器都会缓存文件数据，供下次使用。">
+<meta name="keywords" content="Tcp&#x2F;Ip">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录下http的缓存策略">
+<meta property="og:url" content="http://fungwan.me/2017/01/16/tcpip学习之http缓存/index.html">
+<meta property="og:site_name" content="冯云">
+<meta property="og:description" content="相信很多做过前端或者后台性能优化的童鞋对http缓存机制都有过了解，今天准备复习下这部分的知识。 首先开篇有两个问题抛出，即是，1.什么时候客户端需要使用缓存？2.使用缓存的规则是什么？ 第一个问题，客户端请求一个文件，服务器返回的响应头会有两种方式可以判断，首先是cache-control属性值，它除了no-store之外，浏览器都会缓存文件数据，供下次使用。">
+<meta property="og:image" content="http://note.youdao.com/yws/res/1524/WEBRESOURCEa3cb1ea3e84ac671477a92481b3e1c39">
+<meta property="og:updated_time" content="2017-05-14T11:37:16.687Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录下http的缓存策略">
+<meta name="twitter:description" content="相信很多做过前端或者后台性能优化的童鞋对http缓存机制都有过了解，今天准备复习下这部分的知识。 首先开篇有两个问题抛出，即是，1.什么时候客户端需要使用缓存？2.使用缓存的规则是什么？ 第一个问题，客户端请求一个文件，服务器返回的响应头会有两种方式可以判断，首先是cache-control属性值，它除了no-store之外，浏览器都会缓存文件数据，供下次使用。">
+<meta name="twitter:image" content="http://note.youdao.com/yws/res/1524/WEBRESOURCEa3cb1ea3e84ac671477a92481b3e1c39">
+  
+    <link rel="alternative" href="/atom.xml" title="冯云" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">冯云</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">不想当歌手的演员不是好程序员!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="fungwan.me">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-tcpip学习之http缓存" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/16/tcpip学习之http缓存/" class="article-date">
+  <time datetime="2017-01-16T14:44:12.000Z" itemprop="datePublished">1月 16 2017</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      记录下http的缓存策略
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>相信很多做过前端或者后台性能优化的童鞋对http缓存机制都有过了解，今天准备复习下这部分的知识。</p>
+<p>首先开篇有两个问题抛出，即是，1.什么时候客户端需要使用缓存？2.使用缓存的规则是什么？</p>
+<p>第一个问题，客户端请求一个文件，服务器返回的响应头会有两种方式可以判断，首先是cache-control属性值，它除了no-store之外，浏览器都会缓存文件数据，供下次使用。<a id="more"></a></p>
+<p>其次是Expires属性值，它告诉浏览器在该过期时间值前可以使用副本（但有可能存在时间不一致问题）。以上两种方式目前用的最多的是第一种，如果二者同时出现，cache-control优先级高。</p>
+<p>最后，HTTP响应头中如果不包含Last-Modified/Etag，也不包含Cache-Control/Expires的请求，浏览器不会缓存文件。</p>
+<p>第二个问题，虽然满足上述缓存文件的要求，但并不意味着浏览器会直接从缓存中读取数据并使用。因为浏览器它无法确定本地缓存是否可以继续使用，或许已经过期。所以这里涉及到一个策略问题来判断使用缓存的规则，我们可以从两大维度来解读此策略：新鲜度，校验值。</p>
+<p>对于第一个维度(新鲜度)，通常http协议可以通过下面这两个属性鉴别：{Last-Midified（响应）If-Modified-Since(请求)}，Last-Midified属性值是告诉浏览器当前资源的最后修改时间，那下一次浏览器再次请求该资源时候，会通过If-Modified-Since把第一次的value值带上，web服务器这边会去做检查，若传输的时间值与服务器上该资源最终修改时间是一致的，则说明该资源没有被修改过，直接返回304状态码即可。当然它有一个缺点：如果在服务器上，一个资源被修改了，但是实际内容根本没有发生改变，会因为Last-Modified时间匹配不上而返回了整个实例给客户端（即使客户端缓存里有个一模一样的资源）。</p>
+<p>那对于第二个维度(校验值)，通常http协议可以通过下面这两个属性鉴别：{ETag（响应）If-None-Match(请求)}。它可以很好解决上述维度存在不准确的问题，原理和Last-Midified类似：当第一次请求服务器上的某个资源时，服务器会通过某种算法，给资源计算得出一个唯一标识符，在把资源响应给客户端的时候，会在实体首部加上ETag一起返回给客户端，那下一次浏览器再次请求该资源时候，会通过If-None-Match把第一次的Etagvalue值带上，服务器只需要比较客户端传来的ETag跟自己服务器上资源的ETag是否一致，就能很好地判断资源相对客户端而言是否被修改过，如果服务器发现ETag匹配不上，那么直接以常规GET200回包形式将新的资源（包括新的ETag）发给客户端；如果ETag是一致的，则直接返回304告诉客户端直接使用本地缓存即可。</p>
+<p>一般而言，当Cache-Control/Expires和Last-Modified/ETag同时返回时，前者优先级高，所以再次请求相同资源，而当该副本还在有效期时间内，浏览器是不会再向服务器通过Last-Modified或者ETag去判断资源的新旧度返304或者200,而是直接取副本200(fromcache)。所以，当一些资源有可能改动比较频繁时，设置过期时间要短，不然会发生服务器端更新了资源，浏览器因为读的是缓存而不能加载最新资源。</p>
+<p>文章最后，附一张摘自网络上很常见的资源请求流程图：<br><img src="http://note.youdao.com/yws/res/1524/WEBRESOURCEa3cb1ea3e84ac671477a92481b3e1c39" alt="cache"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2017/01/16/tcpip学习之http缓存/" data-id="cj2onkpd1002br8v0y6mt1kcu" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2017/01/16/tcpip学习之http缓存/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/06/15/js学习之通信传输中文的坑/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">踩中文的坑</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2017/01/16/tcpip学习之http缓存/" data-title="记录下http的缓存策略" data-url="http://fungwan.me/2017/01/16/tcpip学习之http缓存/"></div>
+  </section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Tcp-Ip/" style="font-size: 16px;">Tcp/Ip</a> <a href="/tags/exports/" style="font-size: 12px;">exports</a> <a href="/tags/https-ssl/" style="font-size: 12px;">https ssl</a> <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/javascript-正则表达式/" style="font-size: 10px;">javascript 正则表达式</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oauth2-0/" style="font-size: 10px;">oauth2.0</a> <a href="/tags/package-json/" style="font-size: 10px;">package.json</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/rabbitMQ/" style="font-size: 14px;">rabbitMQ</a> <a href="/tags/rtsp/" style="font-size: 10px;">rtsp</a> <a href="/tags/孕期饮食/" style="font-size: 10px;">孕期饮食</a> <a href="/tags/日常问题/" style="font-size: 10px;">日常问题</a> <a href="/tags/春天怀孕记/" style="font-size: 10px;">春天怀孕记</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/">解决rabbitMQ无法远程登录</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/18/服务器端开发之rabbitmq集群搭建/">rabbitMQ集群搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+		  
+<!--section id="comment">
+    <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'funglau'; // required: replace example with your forum shortname//wtmartcom
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section-->
+
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 fungwan
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>
+	  
+	  <embed src="http://music.163.com/style/swf/widget.swf?sid=286602&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"fungwan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"nocss.css"}};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                processEscapes: true
+                    
+}
+  
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                  
+}
+    
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                            all[i].SourceElement().parentNode.className += ' has-jax';
+                                    
+            }
+                
+        });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

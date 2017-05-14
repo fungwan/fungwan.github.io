@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>node.js中的定时器setInterval | fung wan</title>
+  <title>node.js中的定时器setInterval | 冯云</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="定时器相信大家都用过，而且才开始接触时，老是与线程混淆(特别是自己原来写MFC程序时)，这里有一篇文章对这两个概念作了很好的对比【定时器和多线程对比】。这里我只是在node.js层面作个补充。">
+<meta name="keywords" content="node.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="node.js中的定时器setInterval">
 <meta property="og:url" content="http://fungwan.me/2014/12/31/node.js学习之settimeout/index.html">
-<meta property="og:site_name" content="fung wan">
+<meta property="og:site_name" content="冯云">
 <meta property="og:description" content="定时器相信大家都用过，而且才开始接触时，老是与线程混淆(特别是自己原来写MFC程序时)，这里有一篇文章对这两个概念作了很好的对比【定时器和多线程对比】。这里我只是在node.js层面作个补充。">
-<meta property="og:updated_time" content="2015-01-04T06:37:15.000Z">
+<meta property="og:updated_time" content="2017-04-10T02:18:00.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js中的定时器setInterval">
 <meta name="twitter:description" content="定时器相信大家都用过，而且才开始接触时，老是与线程混淆(特别是自己原来写MFC程序时)，这里有一篇文章对这两个概念作了很好的对比【定时器和多线程对比】。这里我只是在node.js层面作个补充。">
   
-    <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="冯云" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -33,7 +34,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">fung wan</a>
+        <a href="/" id="logo">冯云</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -101,9 +102,9 @@
         <p>定时器相信大家都用过，而且才开始接触时，老是与线程混淆(特别是自己原来写MFC程序时)，这里有一篇文章对这两个概念作了很好的对比【<a href="http://blog.csdn.net/wangweitingaabbcc/article/details/6723606" target="_blank" rel="external">定时器和多线程对比</a>】。这里我只是在node.js层面作个补充。<a id="more"></a></p>
 <p>为什么会有这个想法，因为之前在作项目的codeReview时，发现我的代码里面有一个维护在线用户的列表的数组，定时器会实时检测它是否有掉线的情况，并做相应处理，而我程序的主线程（这里暂叫吧，习惯了）也在操作这个数组，害怕他们会把数组的数据‘搞烂’，作了不必要的判断。当然这全是因为当时对定时器和线程概念不太清晰，殊不知他们其实都在一个线程里面，是串行的，相互间不会影响。不会像从前写MFC时候，为避免类似错误，子线程或者定时器里面操作同一份数据时要加上互斥锁！</p>
 <p>举一个人家的<a href="http://www.admin10000.com/document/4196.html" target="_blank" rel="external">例子</a>，代码如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> start = <span class="built_in">Date</span>.now();<span class="comment">//获取当前时间戳</span></span><br><span class="line">setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Date</span>.now() - start);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000000</span>; i++)&#123;<span class="comment">//执行长循环</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br><span class="line">setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Date</span>.now() - start);</span><br><span class="line">&#125;, <span class="number">2000</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> start = <span class="built_in">Date</span>.now();<span class="comment">//获取当前时间戳</span></div><div class="line">setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Date</span>.now() - start);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000000</span>; i++)&#123;<span class="comment">//执行长循环</span></div><div class="line">    &#125;</div><div class="line">&#125;, <span class="number">1000</span>);</div><div class="line">setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">Date</span>.now() - start);</div><div class="line">&#125;, <span class="number">2000</span>);</div></pre></td></tr></table></figure>
 <p>先来看看最后的打印结果：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1000</span></span><br><span class="line"><span class="number">3738</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">1000</span></div><div class="line"><span class="number">3738</span></div></pre></td></tr></table></figure>
 <p>对于我们期望2秒后执行的setInterval函数其实经过了3738毫秒之后才执行，换而言之，因为执行了一个很长的for循环，所以我们整个Node.js主线程被阻塞了，如果在我们处理100个用户请求中，其中第一个有需要这样大量的计算，那么其余99个就都会被延迟执行。对于setTimeout的行为，可以参考《深入浅出node.js》P61的流程图，相信会有更深的理解。</p>
 <p>所以虽然Node.js可以处理数以千记的并发，但是一个Node.js进程在某一时刻其实只是在处理一个请求。</p>
 
@@ -111,7 +112,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/31/node.js学习之settimeout/" data-id="cip3fjjus0022wgnidaf3v79k" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/31/node.js学习之settimeout/" data-id="cj2onkpcd001kr8v0ugktigmr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -159,7 +160,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -177,7 +178,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -189,7 +190,11 @@
       <ul>
         
           <li>
-            <a href="/2016/05/22/node.js学习之http请求出错/">踩中文的坑</a>
+            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
           </li>
         
           <li>
@@ -202,10 +207,6 @@
         
           <li>
             <a href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/28/node.js学习之作为windows服务/">node.js作为windows服务启动</a>
           </li>
         
       </ul>
@@ -257,7 +258,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 fungwan
+      &copy; 2017 fungwan
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>

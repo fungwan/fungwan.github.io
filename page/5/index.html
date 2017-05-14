@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>fung wan</title>
+  <title>冯云</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Just do it!">
 <meta property="og:type" content="website">
-<meta property="og:title" content="fung wan">
+<meta property="og:title" content="冯云">
 <meta property="og:url" content="http://fungwan.me/page/5/index.html">
-<meta property="og:site_name" content="fung wan">
+<meta property="og:site_name" content="冯云">
 <meta property="og:description" content="Just do it!">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fung wan">
+<meta name="twitter:title" content="冯云">
 <meta name="twitter:description" content="Just do it!">
   
-    <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="冯云" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -32,7 +32,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">fung wan</a>
+        <a href="/" id="logo">冯云</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -73,6 +73,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tcpip学习之time_wait" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/13/tcpip学习之time_wait/" class="article-date">
+  <time datetime="2015-01-13T04:44:12.000Z" itemprop="datePublished">1月 13 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/13/tcpip学习之time_wait/">说说Tcp断开连接时的Time_Wait状态</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前段时间码代码，关于网络编程的，分为了服务器和客户端。因为要验证业务逻辑的正确性，所以需边改边测，时不时也会重启下服务器或客户端。那正巧有一次，当我改好了服务器的代码然后重启的时候，程序给报异常了，说端口怎么怎么样了，我心想没有其他程序占用这个端口吧，然后马上再重启了一次还是不行。因为当时急着要解决其他的问题，所以只好暂时把服务器监听的端口给改了，接着程序给运行起来了，过了好一会儿，解决验证了其他问题后，我决定再来看看刚刚端口占用的问题，于是把服务器端口给改了回来，运行，咦？可以了。这是怎么回事，当时我百思不得其解~
+        
+          <p class="article-more-link">
+            <a href="/2015/01/13/tcpip学习之time_wait/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/01/13/tcpip学习之time_wait/" data-id="cj2onkpd6002jr8v0z32ics7y" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/01/13/tcpip学习之time_wait/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-node.js学习之获取本机IP" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/01/07/node.js学习之获取本机IP/" class="article-date">
@@ -100,9 +153,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在node.js里面获取本机IP很简单，在OS模块里面，直接调用networkInterfaces()，就可以列出你机子的所有网络接口的信息,它返回的是一个数组，如官网列出的信息：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123; lo0: </span><br><span class="line">   [ &#123; address: <span class="string">'::1'</span>, family: <span class="string">'IPv6'</span>, internal: <span class="literal">true</span> &#125;,</span><br><span class="line">     &#123; address: <span class="string">'fe80::1'</span>, family: <span class="string">'IPv6'</span>, internal: <span class="literal">true</span> &#125;,</span><br><span class="line">     &#123; address: <span class="string">'127.0.0.1'</span>, family: <span class="string">'IPv4'</span>, internal: <span class="literal">true</span> &#125; ],</span><br><span class="line">  en1: </span><br><span class="line">   [ &#123; address: <span class="string">'fe80::cabc:c8ff:feef:f996'</span>, family: <span class="string">'IPv6'</span>,</span><br><span class="line">       internal: <span class="literal">false</span> &#125;,</span><br><span class="line">     &#123; address: <span class="string">'10.0.1.123'</span>, family: <span class="string">'IPv4'</span>, internal: <span class="literal">false</span> &#125; ],</span><br><span class="line">  vmnet1: [ &#123; address: <span class="string">'10.99.99.254'</span>, family: <span class="string">'IPv4'</span>, internal: <span class="literal">false</span> &#125; ],</span><br><span class="line">  vmnet8: [ &#123; address: <span class="string">'10.88.88.1'</span>, family: <span class="string">'IPv4'</span>, internal: <span class="literal">false</span> &#125; ],</span><br><span class="line">  ppp0: [ &#123; address: <span class="string">'10.2.0.231'</span>, family: <span class="string">'IPv4'</span>, internal: <span class="literal">false</span> &#125; ] &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="attr">lo0</span>: </div><div class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'::1'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'fe80::1'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'127.0.0.1'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125; ],</div><div class="line">  <span class="attr">en1</span>: </div><div class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'fe80::cabc:c8ff:feef:f996'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>,</div><div class="line">       <span class="attr">internal</span>: <span class="literal">false</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'10.0.1.123'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">vmnet1</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.99.99.254'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">vmnet8</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.88.88.1'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">ppp0</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.2.0.231'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ] &#125;</div></pre></td></tr></table></figure>
 <p>据此，我们可以根据实际需要取到相应的值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIPAdress</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> interfaces = <span class="built_in">require</span>(<span class="string">'os'</span>).networkInterfaces();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> devName <span class="keyword">in</span> interfaces)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> iface = interfaces[devName];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;iface.length;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> alias = iface[i];</span><br><span class="line">            <span class="keyword">if</span>(alias.family === <span class="string">'IPv4'</span> &amp;&amp; alias.address !== <span class="string">'127.0.0.1'</span> &amp;&amp; !alias.internal)&#123;</span><br><span class="line">                <span class="keyword">return</span> alias.address;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIPAdress</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> interfaces = <span class="built_in">require</span>(<span class="string">'os'</span>).networkInterfaces();</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> devName <span class="keyword">in</span> interfaces)&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> iface = interfaces[devName];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;iface.length;i++)&#123;</div><div class="line">            <span class="keyword">var</span> alias = iface[i];</div><div class="line">            <span class="keyword">if</span>(alias.family === <span class="string">'IPv4'</span> &amp;&amp; alias.address !== <span class="string">'127.0.0.1'</span> &amp;&amp; !alias.internal)&#123;</div><div class="line">                <span class="keyword">return</span> alias.address;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             <a href="/2015/01/07/node.js学习之获取本机IP/#more">Read More</a>
@@ -112,7 +165,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/" data-id="cip3fjjv4002bwgniu5najapo" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/" data-id="cj2onkpcq001vr8v0fyt7isd3" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -167,7 +220,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/06/linux学习之MAC更换/" data-id="cip3fjjt1000qwgnibzxa0e3d" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/06/linux学习之MAC更换/" data-id="cj2onkpbx000xr8v08910aobb" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -212,8 +265,8 @@
       
         <p>为了搞清在js中如何实现继承，也是对之前这篇博文<a href="http://fungwan.me/2014/12/24/js%E5%AD%A6%E4%B9%A0%E4%B9%8Bprototype%E7%94%A8%E6%B3%95/" title="冯云的博客">js中prototype用法</a>的补充，我主要参考了下面两篇文章：</p>
 <blockquote>
-<p>伯乐在线的<a href="http://blog.jobbole.com/19795/">JavaScript原型和继承</a></p>
-<p>阮一峰的<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html">构造函数的继承</a></p>
+<p>伯乐在线的<a href="http://blog.jobbole.com/19795/" target="_blank" rel="external">JavaScript原型和继承</a></p>
+<p>阮一峰的<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="external">构造函数的继承</a></p>
 </blockquote>
 <p>我是两篇对比着看的，刚开始看的时候脑袋都快被绕晕了，或许是自己对于js的高级特性不熟悉，亦或是js本身语言的强大灵活性与传统的编译性语言区别太大的原因导致，所以此次的学习笔记决定‘从简’，为了不搞混淆，只把我觉得易懂的部分给抽出来，方便以后查阅。
         
@@ -225,7 +278,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/05/js学习之原型继承/" data-id="cip3fjjs40006wgniml7evudg" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/05/js学习之原型继承/" data-id="cj2onkpb20006r8v04nenlaf8" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -268,7 +321,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>定时器相信大家都用过，而且才开始接触时，老是与线程混淆(特别是自己原来写MFC程序时)，这里有一篇文章对这两个概念作了很好的对比【<a href="http://blog.csdn.net/wangweitingaabbcc/article/details/6723606">定时器和多线程对比</a>】。这里我只是在node.js层面作个补充。
+        <p>定时器相信大家都用过，而且才开始接触时，老是与线程混淆(特别是自己原来写MFC程序时)，这里有一篇文章对这两个概念作了很好的对比【<a href="http://blog.csdn.net/wangweitingaabbcc/article/details/6723606" target="_blank" rel="external">定时器和多线程对比</a>】。这里我只是在node.js层面作个补充。
         
           <p class="article-more-link">
             <a href="/2014/12/31/node.js学习之settimeout/#more">Read More</a>
@@ -278,65 +331,11 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/31/node.js学习之settimeout/" data-id="cip3fjjus0022wgnidaf3v79k" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/31/node.js学习之settimeout/" data-id="cj2onkpcd001kr8v0ugktigmr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
         <a href="http://fungwan.me/2014/12/31/node.js学习之settimeout/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之单线程解惑" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/30/node.js学习之单线程解惑/" class="article-date">
-  <time datetime="2014-12-30T04:44:12.000Z" itemprop="datePublished">12月 30 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/30/node.js学习之单线程解惑/">解惑node中的单线程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这里说一下node.js中的单线程缘由还是基于前段时间公司内部培训同事提出的问题：在网络通讯编程中，按照以往的语言或平台，应对成百上千的socket连接时，往往都会利用多线程的特性，对每个连接开启子线程分别接收数据再处理。那么在node.js中它是单线程，是基于事件响应的，即将每个的连接、处理事件会放到一个事件队列里面依次处理。那么问题来了，同事说如果某一个连接上来以后，一直在给服务器发送数据，那么排在事件队列后面的连接怎么处理，会一直等待吗？这个当然不是，下面我先用一个例子来说明一下这个问题的答案，方便理解。</p>
-<p>我们准备模拟这样一个场景：一个客户端向服务器发起tcp连接，成功之后，客户端一直给服务器发送数据，而服务器收到数据后只是作一个回显。然后，我们再用一个客户端向该服务器发起tcp连接，同样发送数据，这时看服务器会不会因为接收上一个连接的持续发送数据，而不能去处理第二个tcp连接的数据发送。
-        
-          <p class="article-more-link">
-            <a href="/2014/12/30/node.js学习之单线程解惑/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/12/30/node.js学习之单线程解惑/" data-id="cip3fjjuz0028wgniar92ypgw" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/12/30/node.js学习之单线程解惑/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
@@ -362,7 +361,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -380,7 +379,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -392,7 +391,11 @@
       <ul>
         
           <li>
-            <a href="/2016/05/22/node.js学习之http请求出错/">踩中文的坑</a>
+            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
           </li>
         
           <li>
@@ -405,10 +408,6 @@
         
           <li>
             <a href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/28/node.js学习之作为windows服务/">node.js作为windows服务启动</a>
           </li>
         
       </ul>
@@ -443,7 +442,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 fungwan
+      &copy; 2017 fungwan
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>

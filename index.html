@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>fung wan</title>
+  <title>冯云</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Just do it!">
 <meta property="og:type" content="website">
-<meta property="og:title" content="fung wan">
+<meta property="og:title" content="冯云">
 <meta property="og:url" content="http://fungwan.me/index.html">
-<meta property="og:site_name" content="fung wan">
+<meta property="og:site_name" content="冯云">
 <meta property="og:description" content="Just do it!">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fung wan">
+<meta name="twitter:title" content="冯云">
 <meta name="twitter:description" content="Just do it!">
   
-    <link rel="alternative" href="/atom.xml" title="fung wan" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="冯云" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -32,7 +32,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">fung wan</a>
+        <a href="/" id="logo">冯云</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -73,10 +73,65 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-node.js学习之http请求出错" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-tcpip学习之http缓存" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/22/node.js学习之http请求出错/" class="article-date">
-  <time datetime="2016-05-22T09:44:12.000Z" itemprop="datePublished">5月 22 2016</time>
+    <a href="/2017/01/16/tcpip学习之http缓存/" class="article-date">
+  <time datetime="2017-01-16T14:44:12.000Z" itemprop="datePublished">1月 16 2017</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>相信很多做过前端或者后台性能优化的童鞋对http缓存机制都有过了解，今天准备复习下这部分的知识。</p>
+<p>首先开篇有两个问题抛出，即是，1.什么时候客户端需要使用缓存？2.使用缓存的规则是什么？</p>
+<p>第一个问题，客户端请求一个文件，服务器返回的响应头会有两种方式可以判断，首先是cache-control属性值，它除了no-store之外，浏览器都会缓存文件数据，供下次使用。
+        
+          <p class="article-more-link">
+            <a href="/2017/01/16/tcpip学习之http缓存/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2017/01/16/tcpip学习之http缓存/" data-id="cj2onkpd1002br8v0y6mt1kcu" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2017/01/16/tcpip学习之http缓存/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js学习之通信传输中文的坑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/15/js学习之通信传输中文的坑/" class="article-date">
+  <time datetime="2016-06-15T02:44:12.000Z" itemprop="datePublished">6月 15 2016</time>
 </a>
     
   <div class="article-category">
@@ -91,7 +146,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/22/node.js学习之http请求出错/">踩中文的坑</a>
+      <a class="article-title" href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
     </h1>
   
 
@@ -100,22 +155,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>如标题所示，这次笔记一个工作中遇到的小坑，虽说小却楞是花了我几大小时的时间。当时的背景是这样的，我需要在客户端这边发送一个http的POST请求，然后服务器根据请求执行相应的db操作。代码类似下面这样子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bookBody = &#123;</span><br><span class="line">    <span class="string">"title"</span>: <span class="string">"黑客与画家"</span>,</span><br><span class="line">    <span class="string">"price"</span>:<span class="number">9.89</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bookBodyString = <span class="built_in">JSON</span>.stringify(bookBody);</span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    host: <span class="string">'localhost'</span>,</span><br><span class="line">    port:<span class="string">'3000'</span>,</span><br><span class="line">    path: <span class="string">'/books'</span>,</span><br><span class="line">    method: <span class="string">'POST'</span>,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        <span class="string">'Accept'</span>: <span class="string">'/'</span>,</span><br><span class="line">        <span class="string">'Content-Type'</span>:<span class="string">'application/json'</span>,</span><br><span class="line">        <span class="string">'Content-Length'</span>: bookBodyString.length</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> req = http.request(options, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</span><br><span class="line">    res.setEncoding(<span class="string">'utf8'</span>);</span><br><span class="line">    res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    res.on(<span class="string">'err'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">req.write(bookBodyString);</span><br><span class="line">req.end();<span class="string">`</span></span><br></pre></td></tr></table></figure>
-<p>结果代码执行过后，对方的服务器给挂掉了，当然我这边也就没有响应到正确的数据
-        
-          <p class="article-more-link">
-            <a href="/2016/05/22/node.js学习之http请求出错/#more">Read More</a>
-          </p>
-        
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> bookBody = &#123;</div><div class="line">    <span class="string">"title"</span>: <span class="string">"黑客与画家"</span>,</div><div class="line">    <span class="string">"price"</span>:<span class="number">9.89</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> bookBodyString = <span class="built_in">JSON</span>.stringify(bookBody);</div><div class="line"><span class="keyword">var</span> options = &#123;</div><div class="line">    <span class="attr">host</span>: <span class="string">'localhost'</span>,</div><div class="line">    <span class="attr">port</span>:<span class="string">'3000'</span>,</div><div class="line">    <span class="attr">path</span>: <span class="string">'/books'</span>,</div><div class="line">    <span class="attr">method</span>: <span class="string">'POST'</span>,</div><div class="line">    <span class="attr">headers</span>: &#123;</div><div class="line">        <span class="string">'Accept'</span>: <span class="string">'/'</span>,</div><div class="line">        <span class="string">'Content-Type'</span>:<span class="string">'application/json'</span>,</div><div class="line">        <span class="string">'Content-Length'</span>: bookBodyString.length</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> req = http.request(options, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123;</div><div class="line">    res.setEncoding(<span class="string">'utf8'</span>);</div><div class="line">    res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    res.on(<span class="string">'err'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">req.write(bookBodyString);</div><div class="line">req.end();<span class="string">`</span></div></pre></td></tr></table></figure>
+<p>结果代码执行过后，对方的服务器给挂掉了，当然我这边也就没有响应到正确的数据，服务器报出了语法的错，类似‘无法解析的结尾’。当时我就在想，这部分的请求代码是我直接拷过来的（话说直接拷代码是非常‘危险’的动作），拷的这部分代码在之前是成功执行的，只是我这边稍微改了一下，难不成是因为这次改动的原因，然后我回滚代码，让它几乎保持了与拷贝之前一致性，接着再执行，晕~依然崩溃。仔细对比了代码，发现剩下不同的就只有新的代码里面消息体包含了中文。于是换成英文再执行,OK。那依这样看是不是就是该服务端的问题呢，即对方在接收数据时没有做正确的处理，或者没有做中文编码之类的处理。于是，我把这个问题反馈给了作者，<a href="https://github.com/TossShinHwa/node-odata/issues/57" title="色拉油啊油" target="_blank" rel="external">这篇</a>的6楼是我的反馈记录。大家可以看看。</p>
+<p>那从上面的链接我们可以牢记一个点是，在请求的头部，content-length它表示的是所在消息体的字节数而不是字符个数，明白这个道理的话就释然了</p>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2016/05/22/node.js学习之http请求出错/" data-id="cip3fjju1001lwgni810qsrla" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2016/06/15/js学习之通信传输中文的坑/" data-id="cj2onkpbs000qr8v03eg5w0ny" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2016/05/22/node.js学习之http请求出错/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2016/06/15/js学习之通信传输中文的坑/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
@@ -155,7 +207,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>搭建好了rabbitmq集群后，自己想测试一下，于是通过rabbitmq的node.js lib去连了一下，我这里直接连的是proxy节点，但是迟迟没反应，没有收到回复消息，于是跑上去看日志，上面确实是收到了我的连接请求，但是proxy节点却在转发的时候出了问题，它始终连接不上下面的节点，难道是防火墙的问题，不会吧？我三台机子可是全部关闭了的，后来几经查证，确认了是rabbitmq自身机制问题引发的。</p>
-<p>原因是出于安全的考虑，guest这个默认的用户只能通过<a href="http://localhost:15672">http://localhost:15672</a> 来登录，不能使用IP地址登录，也就是不能远程访问，这样的话，对于服务器上没有安装桌面的情况是不方便管理维护的（不用代码的方式）。
+<p>原因是出于安全的考虑，guest这个默认的用户只能通过<a href="http://localhost:15672" target="_blank" rel="external">http://localhost:15672</a> 来登录，不能使用IP地址登录，也就是不能远程访问，这样的话，对于服务器上没有安装桌面的情况是不方便管理维护的（不用代码的方式）。
         
           <p class="article-more-link">
             <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/#more">Read More</a>
@@ -165,7 +217,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/25/服务器端开发之rabbitmq无法登陆/" data-id="cip3fjjwv003iwgnicgdn3f0z" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/08/25/服务器端开发之rabbitmq无法登陆/" data-id="cj2onkpdt0037r8v0epjkm764" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -239,7 +291,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/" data-id="cip3fjjwz003lwgnibriir3r0" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/" data-id="cj2onkpdv003cr8v0v8p0wtp4" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -314,7 +366,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cip3fjjwo003dwgni3ccb7s80" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cj2onkpdr0034r8v006w3m6od" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -323,65 +375,6 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitMQ/">rabbitMQ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之作为windows服务" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/28/node.js学习之作为windows服务/" class="article-date">
-  <time datetime="2015-06-28T03:22:12.000Z" itemprop="datePublished">6月 28 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/28/node.js学习之作为windows服务/">node.js作为windows服务启动</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>因为特殊原因，项目里node服务器需要部署在windowsServer上（怀念阿里云啊），很明显之前的forever神器就不能用了。但是回到现实中该怎么在windows上部署呢？不可能叫人家开个cmd窗口吧？怪怪的感觉，而且管理员稍不注意还容易将cmd误操作将其关闭！难不成再叫人家到目标目录，node app.js？</p>
-<p>后来到网上搜索找到了一篇文章 <a href="http://www.oschina.net/question/12_18694?sort=time" title="ruan">将node.js程序注册为windows服务</a>，然后按照上面的方法照做，也下载了文中提到的两个必备工具：</p>
-<ol>
-<li>Instrsrv.exe installs and removes system services from Windows NT.</li>
-<li>Srvany.exe allows any Windows NT application to run as a service.</li>
-</ol>
-<p>最后比较遗憾的是，尽管在windows服务里面也查看到了我已经注册到的服务，但是怎么都跑不起来，重启也是一个情况。顺带说一句，它这个方案真是麻烦又难用。于是继续搜索，后来终于找到了一个工具可以解决，一个叫<strong>nssm</strong>的工具（“the Non-Sucking Service Manager”），它会监控你安装的node服务，如果node挂了，nssm会自动重启它。可以看<a href="http://nssm.cc/" title="nssm">官网</a>深入了解。
-        
-          <p class="article-more-link">
-            <a href="/2015/06/28/node.js学习之作为windows服务/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cip3fjjuw0025wgnikdgfks88" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
@@ -403,7 +396,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -421,7 +414,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -433,7 +426,11 @@
       <ul>
         
           <li>
-            <a href="/2016/05/22/node.js学习之http请求出错/">踩中文的坑</a>
+            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
           </li>
         
           <li>
@@ -446,10 +443,6 @@
         
           <li>
             <a href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/28/node.js学习之作为windows服务/">node.js作为windows服务启动</a>
           </li>
         
       </ul>
@@ -484,7 +477,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 fungwan
+      &copy; 2017 fungwan
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>

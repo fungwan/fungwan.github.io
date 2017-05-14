@@ -209,7 +209,6 @@ body {
   background: #fff;
   -webkit-box-shadow: 1px 2px 3px #ddd;
   box-shadow: 1px 2px 3px #ddd;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
 }
 .article-entry h1,
@@ -438,7 +437,6 @@ body {
   letter-spacing: 2px;
   background: #e32d40;
   padding: 5px 10px;
-  -webkit-border-radius: 5px;
   border-radius: 5px;
 }
 #subtitle {
@@ -551,7 +549,6 @@ body {
   right: 0;
   background: #fff;
   padding: 5px 15px;
-  -webkit-border-radius: 15px;
   border-radius: 15px;
   -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -763,7 +760,6 @@ a.article-title:hover {
   display: inline-block;
   line-height: 1em;
   padding: 6px 15px;
-  -webkit-border-radius: 15px;
   border-radius: 15px;
   background: #eee;
   color: #999;
@@ -849,7 +845,6 @@ a.article-title:hover {
     margin-top: -4px;
     margin-left: -4px;
     content: "";
-    -webkit-border-radius: 50%;
     border-radius: 50%;
     background: #ddd;
     -webkit-box-shadow: 0 1px 2px #fff;
@@ -911,7 +906,6 @@ a.article-title:hover {
   background: #fff;
   -webkit-box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
   box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   margin-left: -145px;
   overflow: hidden;
@@ -931,7 +925,6 @@ a.article-title:hover {
   color: #000;
   outline: none;
   border: 1px solid #ddd;
-  -webkit-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
   height: 36px;
   line-height: 36px;
@@ -1090,7 +1083,6 @@ a.article-title:hover {
   box-shadow: 1px 2px 3px #ddd;
   padding: 20px;
   border: 1px solid #ddd;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   margin: 50px 0;
 }
@@ -1176,7 +1168,6 @@ a.article-title:hover {
   -webkit-box-shadow: 1px 2px 3px #ddd;
   box-shadow: 1px 2px 3px #ddd;
   border: 1px solid #ddd;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   text-align: center;
   color: #999;
@@ -1269,7 +1260,6 @@ a.article-title:hover {
   font-size: 0.85em;
   padding: 0 0.3em;
   border: 1px solid #dcdcdc;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
 }
 .article-entry pre code {
@@ -1463,7 +1453,6 @@ pre .javascript .function {
   -webkit-box-shadow: 1px 2px 3px #ddd;
   box-shadow: 1px 2px 3px #ddd;
   padding: 15px;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
 }
 .widget a {
