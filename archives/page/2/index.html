@@ -73,6 +73,81 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-服务器端开发之rabbitmq安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/08/服务器端开发之rabbitmq安装/" class="article-date">
+  <time datetime="2015-08-08T09:44:12.000Z" itemprop="datePublished">8月 8 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/服务器端开发/">服务器端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>根据自己的实验结果，同网上的其他教程资料参考，自己也笔记一份搭建手册供以后生产环境使用！</p>
+<h1 id="一、Erlang安装"><a href="#一、Erlang安装" class="headerlink" title="一、Erlang安装"></a>一、Erlang安装</h1><p>RabbitMQ是基于Erlang的，所以首先必须配置Erlang环境。</p>
+<ol>
+<li><p>安装依赖包，我的实验环境是需要安装<strong>ncurses-devel</strong>，至于其他的可按实际需要安装，这在后面erlang安装完成后有提示的</p>
+<p> yum install ncurses-devel</p>
+</li>
+<li><p>2.下载Erlang源码otp_src_R15B03-1.tar.gz，并解压到指定位置</p>
+<p> tar -xzvf otp_src_R15B03-1.tar.gz</p>
+</li>
+<li><p>进入安装目录，依次执行以下操作</p>
+<p> ./configure –prefix=/usr/local/erlang –without-javac //不用java编译，故去掉java避免错误</p>
+<p> make &amp;&amp; make install</p>
+</li>
+<li><p>上述编译安装无误后，配置环境变量</p>
+<p> vi /etc/profile</p>
+<p> export PATH=$PATH:/usr/local/erlang/bin</p>
+</li>
+</ol>
+<ol>
+<li><p>在终端输入erl看可否进入交互界面，如下</p>
+<p> Erlang/OTP 18 [erts-7.0] [source] [64-bit] [async-threads:10] [hipe] [kernel-poll:false]</p>
+</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2015/08/08/服务器端开发之rabbitmq安装/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cj3csi7c50034vkv06uespicy" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitMQ/">rabbitMQ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-node.js学习之作为windows服务" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/06/28/node.js学习之作为windows服务/" class="article-date">
@@ -115,7 +190,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cj2onkpch001nr8v0s1vd7l68" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cj3csi7b0001rvkv05wp16qfa" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -171,7 +246,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/22/js学习之作用域详解/" data-id="cj2onkpb60007r8v0kewgdizg" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/22/js学习之作用域详解/" data-id="cj3csi7990006vkv0d60p9t9p" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -224,7 +299,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/20/tcpip学习之广播消息/" data-id="cj2onkpdd002ur8v0hic0w627" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/20/tcpip学习之广播消息/" data-id="cj3csi7bu002uvkv0wzc4rcnj" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -278,7 +353,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/19/js学习之闭包/" data-id="cj2onkpbq000mr8v0q306slut" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/19/js学习之闭包/" data-id="cj3csi79z000qvkv09ljcpunv" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -287,87 +362,6 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-生活杂记之孕期饮食" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/18/生活杂记之孕期饮食/" class="article-date">
-  <time datetime="2015-06-18T11:44:12.000Z" itemprop="datePublished">6月 18 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/生活杂记/">生活杂记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/18/生活杂记之孕期饮食/">孕期饮食</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>到今天写下这篇日志时，我家春天都怀孕50多天啦。原谅孕妇比较馋，什么都想吃，所以每次春天问我“老公，我可不可以吃这个啊？”，我都要去百度一下，太麻烦，信息不集中，所以要把这些东西归档一下！</p>
-<h1 id="什么不能吃！"><a href="#什么不能吃！" class="headerlink" title="什么不能吃！"></a>什么不能吃！</h1><ol>
-<li><p>木瓜、桂圆、荔枝：具体原因忘记了,好象是会<strong>容易导致流产</strong>,所以不能吃..</p>
-</li>
-<li><p>山楂：山楂对妇女子宫有收缩作用，如果孕妇大量食用山楂食品，就会刺激子宫收缩，<strong>甚至导致流产</strong></p>
-</li>
-<li><p>柿子：不能吃，怕引至<strong>流产</strong></p>
-</li>
-<li><p>龙眼和荔枝、人参：不能吃的，它能刺激子宫收缩，特别是在<strong>怀孕后期，易流产</strong>。</p>
-</li>
-<li><p>螃蟹、甲鱼：荷尔蒙十分旺盛，<strong>是早期的“堕胎药”</strong>，特别是蟹爪。</p>
-</li>
-<li><p>咖啡：在「早期妊娠」喝大量咖啡，可能造成胎儿心脏畸形、裂颚、多手指头、缺手指头，机会比没喝咖啡的人大一点。若大量饮用，则<strong>流产机率高达百分之七十</strong>。</p>
-</li>
-<li><p>酒：喝酒多了，怀孕期及周产期之<strong>胎儿死亡率是十七％</strong>。</p>
-</li>
-<li><p>可乐，茶：和咖啡差不多</p>
-</li>
-<li><p>薏仁：其作用为消除体内异常细胞，故薏仁的功效恐会抑制<strong>受精卵的成长</strong>.</p>
-</li>
-<li><p>猪肝：许多人认为猪肝很补血，然而它却有破血之效，会打散子宫内的废血；但因怀孕时期子宫内并无废血，故反易造成<strong>早期流产</strong>。</p>
-</li>
-<li><p>马齿笕、薏米、黑木耳也是不能触碰的！</p>
-</li>
-<li><p>山楂：活血破瘀，使用过多，<strong>一定会引发流产</strong></p>
-</li>
-<li><p>嚼槟榔：孕妇吃槟榔或孕龄妇女长期嚼槟榔后再怀孕，<strong>其流产、死产及畸胎率为常人的两倍</strong>。止吐药可能导致胎儿畸型</p>
-</li>
-<li><p>大麦芽、燕麦：根据前人经验，妇人怀孕期间忌食大芽。如《本草正》中说：麦芽，女子有胎妊者不宜多服。<strong>亦善催生落胎。</strong>
-        
-          <p class="article-more-link">
-            <a href="/2015/06/18/生活杂记之孕期饮食/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/06/18/生活杂记之孕期饮食/" data-id="cj2onkpdz003hr8v07o7mo727" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/06/18/生活杂记之孕期饮食/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/孕期饮食/">孕期饮食</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/春天怀孕记/">春天怀孕记</a></li></ul>
 
     </footer>
   </div>
@@ -389,7 +383,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -398,7 +392,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 16px;">Tcp/Ip</a> <a href="/tags/exports/" style="font-size: 12px;">exports</a> <a href="/tags/https-ssl/" style="font-size: 12px;">https ssl</a> <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/javascript-正则表达式/" style="font-size: 10px;">javascript 正则表达式</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oauth2-0/" style="font-size: 10px;">oauth2.0</a> <a href="/tags/package-json/" style="font-size: 10px;">package.json</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/rabbitMQ/" style="font-size: 14px;">rabbitMQ</a> <a href="/tags/rtsp/" style="font-size: 10px;">rtsp</a> <a href="/tags/孕期饮食/" style="font-size: 10px;">孕期饮食</a> <a href="/tags/日常问题/" style="font-size: 10px;">日常问题</a> <a href="/tags/春天怀孕记/" style="font-size: 10px;">春天怀孕记</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 16px;">Tcp/Ip</a> <a href="/tags/exports/" style="font-size: 12px;">exports</a> <a href="/tags/https-ssl/" style="font-size: 12px;">https ssl</a> <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/javascript-正则表达式/" style="font-size: 10px;">javascript 正则表达式</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oauth2-0/" style="font-size: 10px;">oauth2.0</a> <a href="/tags/package-json/" style="font-size: 10px;">package.json</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/rabbitMQ/" style="font-size: 14px;">rabbitMQ</a> <a href="/tags/rtsp/" style="font-size: 10px;">rtsp</a> <a href="/tags/wechat/" style="font-size: 10px;">wechat</a> <a href="/tags/孕期饮食/" style="font-size: 10px;">孕期饮食</a> <a href="/tags/日常问题/" style="font-size: 10px;">日常问题</a> <a href="/tags/春天怀孕记/" style="font-size: 10px;">春天怀孕记</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     </div>
   </div>
 
@@ -407,7 +401,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -423,6 +417,10 @@
           </li>
         
           <li>
+            <a href="/2016/09/09/服务器端开发之微信支付微服务/">微信支付开发小结</a>
+          </li>
+        
+          <li>
             <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
           </li>
         
@@ -432,10 +430,6 @@
         
           <li>
             <a href="/2015/08/18/服务器端开发之rabbitmq集群搭建/">rabbitMQ集群搭建</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
           </li>
         
       </ul>

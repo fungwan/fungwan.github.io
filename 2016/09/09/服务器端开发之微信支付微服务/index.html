@@ -3,19 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>rabbitMQ集群搭建 | 冯云</title>
+  <title>微信支付开发小结 | 冯云</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文笔记的是rabbitMQ集群搭建（镜像模式），同参考教程一样，设计模型为，在一个集群里，有3台机器，其中1台使用磁盘模式，另1台使用内存模式。内存模式的节点，无疑速度更快，因此客户端（consumer、producer）连接访问它。而磁盘模式的节点（RabbitMQ启动后，默认是磁盘节点），由于磁盘IO相对较慢，因此仅作数据备份使用，另外一台作为反向代理。接下来是具体配置：  修改主机名  输">
-<meta name="keywords" content="rabbitMQ">
+  <meta name="description" content="这段时间在忙于微商城项目，在我负责的商城结算模块用到了微信公众号支付，所以便把过程中的一些实践和问题整理了下来！ 1.微信支付环境准备当然，这里的支付准备默认前提是你已经申请了微信公众平台等相关信息。 a.确保微信支付功能开通，可以前往对应的公众号平台查看； b.在公众号的微信支付页面设置支付授权目录; c.前往对应的商户平台设置支付密钥和授权目录，并下载相应的证书文件；">
+<meta name="keywords" content="wechat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="rabbitMQ集群搭建">
-<meta property="og:url" content="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/index.html">
+<meta property="og:title" content="微信支付开发小结">
+<meta property="og:url" content="http://fungwan.me/2016/09/09/服务器端开发之微信支付微服务/index.html">
 <meta property="og:site_name" content="冯云">
-<meta property="og:description" content="本文笔记的是rabbitMQ集群搭建（镜像模式），同参考教程一样，设计模型为，在一个集群里，有3台机器，其中1台使用磁盘模式，另1台使用内存模式。内存模式的节点，无疑速度更快，因此客户端（consumer、producer）连接访问它。而磁盘模式的节点（RabbitMQ启动后，默认是磁盘节点），由于磁盘IO相对较慢，因此仅作数据备份使用，另外一台作为反向代理。接下来是具体配置：  修改主机名  输">
-<meta property="og:updated_time" content="2017-04-10T02:18:00.805Z">
+<meta property="og:description" content="这段时间在忙于微商城项目，在我负责的商城结算模块用到了微信公众号支付，所以便把过程中的一些实践和问题整理了下来！ 1.微信支付环境准备当然，这里的支付准备默认前提是你已经申请了微信公众平台等相关信息。 a.确保微信支付功能开通，可以前往对应的公众号平台查看； b.在公众号的微信支付页面设置支付授权目录; c.前往对应的商户平台设置支付密钥和授权目录，并下载相应的证书文件；">
+<meta property="og:image" content="http://i1.piimg.com/1949/24b888a7d6cf4f7e.png">
+<meta property="og:image" content="http://i1.piimg.com/1949/65ed6ae7756815bc.png">
+<meta property="og:image" content="http://i1.piimg.com/1949/5c3192db1596510d.png">
+<meta property="og:image" content="http://i1.piimg.com/1949/73284a36ccea6e99.png">
+<meta property="og:image" content="http://i1.piimg.com/1949/a4ce689af1aa53a3.png">
+<meta property="og:updated_time" content="2017-05-31T09:28:45.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rabbitMQ集群搭建">
-<meta name="twitter:description" content="本文笔记的是rabbitMQ集群搭建（镜像模式），同参考教程一样，设计模型为，在一个集群里，有3台机器，其中1台使用磁盘模式，另1台使用内存模式。内存模式的节点，无疑速度更快，因此客户端（consumer、producer）连接访问它。而磁盘模式的节点（RabbitMQ启动后，默认是磁盘节点），由于磁盘IO相对较慢，因此仅作数据备份使用，另外一台作为反向代理。接下来是具体配置：  修改主机名  输">
+<meta name="twitter:title" content="微信支付开发小结">
+<meta name="twitter:description" content="这段时间在忙于微商城项目，在我负责的商城结算模块用到了微信公众号支付，所以便把过程中的一些实践和问题整理了下来！ 1.微信支付环境准备当然，这里的支付准备默认前提是你已经申请了微信公众平台等相关信息。 a.确保微信支付功能开通，可以前往对应的公众号平台查看； b.在公众号的微信支付页面设置支付授权目录; c.前往对应的商户平台设置支付密钥和授权目录，并下载相应的证书文件；">
+<meta name="twitter:image" content="http://i1.piimg.com/1949/24b888a7d6cf4f7e.png">
   
     <link rel="alternative" href="/atom.xml" title="冯云" type="application/atom+xml">
   
@@ -73,10 +79,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-服务器端开发之rabbitmq集群搭建" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-服务器端开发之微信支付微服务" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/08/18/服务器端开发之rabbitmq集群搭建/" class="article-date">
-  <time datetime="2015-08-18T08:48:15.000Z" itemprop="datePublished">8月 18 2015</time>
+    <a href="/2016/09/09/服务器端开发之微信支付微服务/" class="article-date">
+  <time datetime="2016-09-09T10:44:12.000Z" itemprop="datePublished">9月 9 2016</time>
 </a>
     
   <div class="article-category">
@@ -91,7 +97,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      rabbitMQ集群搭建
+      微信支付开发小结
     </h1>
   
 
@@ -99,93 +105,192 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>本文笔记的是rabbitMQ集群搭建（镜像模式），同参考教程一样，设计模型为，在一个集群里，有3台机器，其中1台使用磁盘模式，另1台使用内存模式。内存模式的节点，无疑速度更快，因此客户端（consumer、producer）连接访问它。而磁盘模式的节点（RabbitMQ启动后，默认是磁盘节点），由于磁盘IO相对较慢，因此仅作数据备份使用，另外一台作为反向代理。接下来是具体配置：</p>
-<ol>
-<li><p>修改主机名</p>
-<p> 输入vim /etc/sysconfig/network后，将HOSTNAME后面的值改为想要设置的主机名</p>
-<p> 输入vim /etc/hosts后，将localhost.localdomain改为想要设置的主机名。</p>
-<p> reboot命令，重新启动服务器后，输入hostname查看主机名是否修改</p>
-<p> 修改主机名的意义在于以后以此区分各个节点</p>
-</li>
-</ol>
-<ol>
-<li><p>修改host文件</p>
-<p> 在安装好的两台节点服务器中，分别修改/etc/hosts文件，如：</p>
-<pre><code>172.16.3.32 queue
-
-172.16.3.107 influx
-
-172.16.3.109 proxy
-</code></pre></li>
-</ol>
-<ol>
-<li><p>设置每个节点Cookie</p>
-<p> Rabbitmq的集群是依赖于erlang的集群来工作的，所以必须先构建起erlang的集群环境。Erlang的集群中各节点是通过一个magic cookie来实现的，这个cookie存放在 /var/lib/rabbitmq/.erlang.cookie 中，文件是400的权限。所以必须保证各节点cookie保持一致，否则节点之间就无法通信。<a id="more"></a></p>
-</li>
-<li><p>使用detached参数独立运行,查看各节点信息</p>
-<pre><code>queue# rabbitmq-server -detached
-queue# rabbitmqctl cluster_status
-
-Cluster status of node rabbit@queue ...
-[{nodes,[{disc,[rabbit@queue]}]},
-{running_nodes,[rabbit@queue]},
-{partitions,[]}]
-...done.
-</code></pre></li>
-</ol>
-<ol>
-<li><p>将influx作为内存节点与queue连接起来</p>
-<p>  在influx上，执行如下命令：rabbitmqctl join_cluster –ram rabbit@queue   </p>
-</li>
-<li><p>接着是配置镜像模式</p>
-<p> 上面配置RabbitMQ默认集群模式，但并不保证队列的高可用性，尽管交换机、绑定这些可以复制到集群里的任何一个节点，但是队列内容不会复制，虽然该模式解决一部分节点压力，但队列节点宕机直接导致该队列无法使用，只能等待重启，所以要想在队列节点宕机或故障也能正常使用，就要复制队列内容到集群里的每个节点，需要创建镜像队列</p>
-<p> 在任意一个节点上执行：<br> rabbitmqctl set_policy ha-all “^” ‘{“ha-mode”:”all”}’</p>
-</li>
-<li><p>增加负载均衡器</p>
-<p> 关于负载均衡器，商业的比如F5的BIG-IP，Radware的AppDirector，是硬件架构的产品，可以实现很高的处理能力。但这些产品昂贵的价格会让人止步，所以我们还有软件负载均衡方案。互联网公司常用的软件LB一般有LVS、HAProxy、Nginx等。LVS是一个内核层的产品，主要在第四层负责数据包转发，使用较复杂。HAProxy和Nginx是应用层的产品，但Nginx主要用于处理HTTP，所以这里选择HAProxy作为RabbitMQ前端的LB。</p>
-<p> HAProxy的安装使用非常简单，在Centos下直接yum install haproxy，然后更改/etc/haproxy/haproxy.cfg 文件即可，文件内容大概如下：</p>
-</li>
-</ol>
+        <p>这段时间在忙于微商城项目，在我负责的商城结算模块用到了微信公众号支付，所以便把过程中的一些实践和问题整理了下来！</p>
+<h2 id="1-微信支付环境准备"><a href="#1-微信支付环境准备" class="headerlink" title="1.微信支付环境准备"></a>1.微信支付环境准备</h2><p><strong>当然，这里的支付准备默认前提是你已经申请了微信公众平台等相关信息。</strong></p>
+<p>a.确保微信支付功能开通，可以前往对应的公众号平台查看；<br><img src="http://i1.piimg.com/1949/24b888a7d6cf4f7e.png" alt="Markdown"></p>
+<p>b.<strong>在公众号的微信支付页面设置支付授权目录;</strong><br><img src="http://i1.piimg.com/1949/65ed6ae7756815bc.png" alt="Markdown"></p>
+<p>c.前往对应的商户平台设置支付密钥和授权目录，并下载相应的证书文件；<br><img src="http://i1.piimg.com/1949/5c3192db1596510d.png" alt="Markdown"><br><a id="more"></a></p>
+<h2 id="2-场景业务流程"><a href="#2-场景业务流程" class="headerlink" title="2.场景业务流程"></a>2.场景业务流程</h2><p>a.用户下单<br><img src="http://i1.piimg.com/1949/73284a36ccea6e99.png" alt="Markdown"></p>
+<p>b.公众号支付<br><img src="http://i1.piimg.com/1949/a4ce689af1aa53a3.png" alt="Markdown"></p>
+<h2 id="3-微信支付服务（wxpayserver）接口描述"><a href="#3-微信支付服务（wxpayserver）接口描述" class="headerlink" title="3.微信支付服务（wxpayserver）接口描述"></a>3.微信支付服务（wxpayserver）接口描述</h2><p>a.正确返回格式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    data:xxx</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>xxx可以是任意对象，具体值应与相应业务接口返回为准。</p>
+<p>b.错误返回格式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    error:&#123;</div><div class="line">        code:xxx</div><div class="line">        message:xxx</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <blockquote>
-<pre><code>defaults
-modehttp
-log global
-option  httplog
-option  dontlognull
-option http-server-close
-option forwardfor   except 127.0.0.0/8
-option  redispatch
-retries 3
-timeout http-request10s
-timeout queue   1m
-timeout connect 10s
-timeout client  1m
-timeout server  1m
-timeout http-keep-alive 10s
-timeout check   10s
-maxconn 3000
-
-listen rabbitmq_cluster 0.0.0.0:5672
-mode tcp
-balance roundrobin
-server   rqslave1 172.16.3.32:5672 check inter 2000 rise 2 fall 3   
-server   rqslave2 172.16.3.107:5672 check inter 2000 rise 2 fall 3 
-</code></pre></blockquote>
-<p>参考文章<a href="http://www.cnblogs.com/flat_peach/archive/2013/04/07/3004008.html" target="_blank" rel="external">在这</a>。</p>
+<p>code为错误代码，分为两大类，参数校验类和业务校验类。code值为wxPayError.params为参数校验类错误，其对应的message信息为提示具体的字段错误及其原因。剩余的所有code值都是业务结果错误的返回，具体描述也在message里面</p>
+</blockquote>
+<p>c.涉及的接口列表</p>
+<p>3.1请求h5支付需要的预支付参数<br>基本信息<br>请求类型：HTTP<br>请求地址：/v1/pay/params<br>请求方式：post  数据类型：x-www-form-urlencode<br>响应类型：json<br>请求参数</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数名称</th>
+<th style="text-align:center">是否必须</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">body</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">商品描述</td>
+</tr>
+<tr>
+<td style="text-align:center">out_trade_no</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">商家内部唯一订单号 </td>
+</tr>
+<tr>
+<td style="text-align:center">total_fee</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">单位(分)</td>
+</tr>
+<tr>
+<td style="text-align:center">spbill_create_ip</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">客户端ip</td>
+</tr>
+<tr>
+<td style="text-align:center">notify_url</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">微信请求的支付回调</td>
+</tr>
+<tr>
+<td style="text-align:center">openid</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">微信用户的openid</td>
+</tr>
+</tbody>
+</table>
+<p>3.2统一下单接口<br>基本信息<br>请求类型：HTTP<br>请求地址：/v1/pay/unified<br>请求方式：post  数据类型：x-www-form-urlencode<br>响应类型：json<br>请求参数</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数名称</th>
+<th style="text-align:center">是否必须</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">body</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">商品描述</td>
+</tr>
+<tr>
+<td style="text-align:center">out_trade_no</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">商家内部唯一订单号 </td>
+</tr>
+<tr>
+<td style="text-align:center">total_fee</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">单位(分) </td>
+</tr>
+<tr>
+<td style="text-align:center">spbill_create_ip</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">客户端ip</td>
+</tr>
+<tr>
+<td style="text-align:center">notify_url</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">微信请求的支付回调</td>
+</tr>
+<tr>
+<td style="text-align:center">openid</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">微信用户的openid（如果支付类型为jsapi,为必填）</td>
+</tr>
+<tr>
+<td style="text-align:center">trade_type</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">支付类型</td>
+</tr>
+</tbody>
+</table>
+<p>3.3查询指定订单的支付情况<br>基本信息<br>请求类型：HTTP<br>请求地址：/v1/pay/queryOrder<br>请求方式：post  数据类型：x-www-form-urlencode<br>响应类型：json<br>请求参数</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数名称</th>
+<th style="text-align:center">是否必须</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">transaction_id</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">微信订单号</td>
+</tr>
+<tr>
+<td style="text-align:center">out_trade_no</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">商家内部唯一订单号 </td>
+</tr>
+</tbody>
+</table>
+<p>3.4 关闭指定订单<br>基本信息<br>请求类型：HTTP<br>请求地址：/v1/pay/closeOrder<br>请求方式：post  数据类型：x-www-form-urlencode<br>响应类型：json<br>请求参数</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数名称</th>
+<th style="text-align:center">是否必须</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">transaction_id</td>
+<td style="text-align:center">否</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">微信订单号</td>
+</tr>
+<tr>
+<td style="text-align:center">out_trade_no</td>
+<td style="text-align:center">是</td>
+<td style="text-align:center">string</td>
+<td style="text-align:center">商家内部唯一订单号 </td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/" data-id="cj3csi7c40031vkv0tlluz3wc" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2016/09/09/服务器端开发之微信支付微服务/" data-id="cj3csi7c9003bvkv0h3plwauy" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2016/09/09/服务器端开发之微信支付微服务/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitMQ/">rabbitMQ</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wechat/">wechat</a></li></ul>
 
     </footer>
   </div>
@@ -193,19 +298,19 @@ server   rqslave2 172.16.3.107:5672 check inter 2000 rise 2 fall 3
     
 <nav id="article-nav">
   
-    <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/01/16/tcpip学习之http缓存/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          解决rabbitMQ无法远程登录
+          记录下http的缓存策略
         
       </div>
     </a>
   
   
-    <a href="/2015/08/08/服务器端开发之rabbitmq安装/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/06/15/js学习之通信传输中文的坑/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">rabbitMQ安装笔记</div>
+      <div class="article-nav-title">踩中文的坑</div>
     </a>
   
 </nav>
@@ -215,7 +320,7 @@ server   rqslave2 172.16.3.107:5672 check inter 2000 rise 2 fall 3
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/08/18/服务器端开发之rabbitmq集群搭建/" data-title="rabbitMQ集群搭建" data-url="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/09/09/服务器端开发之微信支付微服务/" data-title="微信支付开发小结" data-url="http://fungwan.me/2016/09/09/服务器端开发之微信支付微服务/"></div>
   </section>
 </section>
         
