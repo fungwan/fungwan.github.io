@@ -131,7 +131,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cj3csi7c50034vkv06uespicy" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cj3dsim5m0039p0v0kst6mwc8" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -140,6 +140,58 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitMQ/">rabbitMQ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node.js学习之第三方包依赖" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/28/node.js学习之第三方包依赖/" class="article-date">
+  <time datetime="2015-07-28T10:22:12.000Z" itemprop="datePublished">7月 28 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/28/node.js学习之第三方包依赖/">理解package.json中devDependencies和dependencies的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用node写项目经常会用到第三方的包，阅读人家工程代码时留意到package.json里面除了我们常见的dependencies节点属性外，还看到了另外一个devDependencies，那么它们二者有什么区别呢？</p>
+<p>dependencies 程序正常运行需要的包，是需要发布到生产环境的。devDependencies 是开发需要的包，比如一些单元测试的包之类的。其中前者依赖的项该是正常运行该包时所需要的依赖项，而后者则是开发的时候需要的依赖项，像一些进行单元测试之类的包（jslint）。</p>
+<p>换言之，在使用 –save-dev 安装的插件它是被写入到 devDependencies对象里面去，而使用 –save 安装的插件，则被写入到 dependencies 对象里面去。</p>
+<p>如果将包下载下来在包的根目录里运行npminstall默认会安装两种依赖，如果只是单纯的使用这个包而不需要进行一些改动测试之类的，可以使用npm install –production，只安装dependencies而不安装devDependencies。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/" data-id="cj3dsim4i001vp0v0mc3iim2e" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
@@ -190,7 +242,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cj3csi7b0001rvkv05wp16qfa" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cj3dsim49001op0v04449e0au" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -246,7 +298,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/22/js学习之作用域详解/" data-id="cj3csi7990006vkv0d60p9t9p" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/22/js学习之作用域详解/" data-id="cj3dsim2l0006p0v0au5t2wn1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -299,7 +351,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/20/tcpip学习之广播消息/" data-id="cj3csi7bu002uvkv0wzc4rcnj" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/20/tcpip学习之广播消息/" data-id="cj3dsim5a002yp0v0d8z0g6ub" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -308,60 +360,6 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js学习之闭包" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/19/js学习之闭包/" class="article-date">
-  <time datetime="2015-06-19T04:44:12.000Z" itemprop="datePublished">6月 19 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/javascript/">javascript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/19/js学习之闭包/">多么痛的领悟之闭包小结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>“闭包”，一个快被讲烂了的知识点，以至坊间流传着一种说法，不识闭包的人就不能谈精通js。好吧，虽然现在大部分时间在写node后端，极少用到闭包，但是为了以后写前端js真正遇到闭包特性时，不必乍慌~</p>
-<p>关于什么是闭包的定义，官网上的解释有点晦涩，参考了网上一大圈解释，选了几个易懂的方便理解：第一个，<br><strong>闭包就是能够读取其他函数内部变量的函数。</strong>第二个，可能要长点：2.1<strong>闭包就是函数的局部变量集合</strong>，只是这些局部变量在函数返回后会继续存在；2.2闭包就是就是函数的“堆栈”在函数返回后并不释放，我们也可以理解为这些函数堆栈并不在栈上分配而是在堆上分配；2.3当在一个函数内定义另外一个函数就会产生闭包。
-        
-          <p class="article-more-link">
-            <a href="/2015/06/19/js学习之闭包/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/06/19/js学习之闭包/" data-id="cj3csi79z000qvkv09ljcpunv" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/06/19/js学习之闭包/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 
     </footer>
   </div>
@@ -383,7 +381,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -401,7 +399,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

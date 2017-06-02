@@ -73,6 +73,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js学习之this用法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/23/js学习之this用法/" class="article-date">
+  <time datetime="2014-12-23T01:44:12.000Z" itemprop="datePublished">12月 23 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/23/js学习之this用法/">学习js中的this用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>通过这几个月在node.js上的工作，发现js其实并不是那么简单，而且感觉上越来越深，比如现在要笔记的一个坑——this,因为之前用过C++对this有一定的了解，其就是指向当前对象，而javascript中的this，因其弱语言的灵活性，它被赋予了更多的作用和使用范围。由于其运行期绑定的特性，它可以是全局对象、当前对象或者任意对象，这完全取决于函数的调用方式，下面根据网上的文章作了一个归纳，方便日后温习。</p>
+<p>一般而言，在Javascript中，this指向函数执行时的当前对象，该关键字在Javascript中的执行环境，而非声明环境有关。</p>
+<p>##1.作为单纯的函数调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">modifyName</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">modifyName(<span class="string">'fengyun'</span>);</div><div class="line"><span class="built_in">console</span>.log(name);</div></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2014/12/23/js学习之this用法/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/12/23/js学习之this用法/" data-id="cj3dsim2h0005p0v0metukm70" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/12/23/js学习之this用法/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-node.js学习之promise实现" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/11/11/node.js学习之promise实现/" class="article-date">
@@ -110,7 +165,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/11/11/node.js学习之promise实现/" data-id="cj3csi7am001fvkv0id8rt23t" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/11/11/node.js学习之promise实现/" data-id="cj3dsim43001jp0v0hznsnuo1" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -164,7 +219,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="cj3csi7ao001hvkv0rwukewqg" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="cj3dsim3z001dp0v0bx3rzi9g" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -241,7 +296,7 @@ path/path/path 以本地地址作为依赖
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/10/25/node.js学习之packageJson管理/" data-id="cj3csi7aj001cvkv0g7vfoyex" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/10/25/node.js学习之packageJson管理/" data-id="cj3dsim42001gp0v0ncx1kqah" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -294,7 +349,7 @@ path/path/path 以本地地址作为依赖
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/10/16/C语言之typedef/" data-id="cj3csi78y0002vkv0ahz5bs9g" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/10/16/C语言之typedef/" data-id="cj3dsim230000p0v0aaoxs5n2" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -303,66 +358,6 @@ path/path/path 以本地地址作为依赖
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之module.exports与exports的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/30/node.js学习之module.exports与exports的区别/" class="article-date">
-  <time datetime="2014-09-30T04:44:12.000Z" itemprop="datePublished">9月 30 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/node-js/">node.js</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/30/node.js学习之module.exports与exports的区别/">node.js中module.exports与exports的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们在阅读它人或开源的node.js代码时，会发现在对模块导出的写法上会出现下面几种情况，而关于导出的方法整理，可以参见我这篇文章<a href="http://fungwan.me/2014/09/29/node.js%E5%AD%A6%E4%B9%A0%E4%B9%8Bexports/">node.js中exports的用法整理</a>。现在，我们以导出字符串对象为例：</p>
-<p>在module.js文件中，有如下写法：</p>
-<ul>
-<li>1.exports.get_name = ‘fungwan by exports ‘;</li>
-<li>2.module.exports.get_name = ‘fungwan by modules’;</li>
-<li>3.module.exports = ‘fungwan by modules’;</li>
-</ul>
-<p>通过对比发现，这里较之前多了module.exports，那么它跟exports的导出有什么关系呢？查阅资料即可知晓，其实exports就是module.exports对象的引用，本质上是相等的。我们可以通过这句代码证实：</p>
-        
-          <p class="article-more-link">
-            <a href="/2014/09/30/node.js学习之module.exports与exports的区别/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/" data-id="cj3csi7af0018vkv0vntr8v5e" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
@@ -384,7 +379,7 @@ path/path/path 以本地地址作为依赖
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -402,7 +397,7 @@ path/path/path 以本地地址作为依赖
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 

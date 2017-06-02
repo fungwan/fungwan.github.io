@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>node.js获取本机IP地址 | 冯云</title>
+  <title>理解package.json中devDependencies和dependencies的区别 | 冯云</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在node.js里面获取本机IP很简单，在OS模块里面，直接调用networkInterfaces()，就可以列出你机子的所有网络接口的信息,它返回的是一个数组，如官网列出的信息： 1234567891011&amp;#123; lo0:    [ &amp;#123; address: &apos;::1&apos;, family: &apos;IPv6&apos;, internal: true &amp;#125;,     &amp;#123; addres">
+  <meta name="description" content="用node写项目经常会用到第三方的包，阅读人家工程代码时留意到package.json里面除了我们常见的dependencies节点属性外，还看到了另外一个devDependencies，那么它们二者有什么区别呢？ dependencies 程序正常运行需要的包，是需要发布到生产环境的。devDependencies 是开发需要的包，比如一些单元测试的包之类的。其中前者依赖的项该是正常运行该包时所">
 <meta name="keywords" content="node.js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node.js获取本机IP地址">
-<meta property="og:url" content="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/index.html">
+<meta property="og:title" content="理解package.json中devDependencies和dependencies的区别">
+<meta property="og:url" content="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/index.html">
 <meta property="og:site_name" content="冯云">
-<meta property="og:description" content="在node.js里面获取本机IP很简单，在OS模块里面，直接调用networkInterfaces()，就可以列出你机子的所有网络接口的信息,它返回的是一个数组，如官网列出的信息： 1234567891011&amp;#123; lo0:    [ &amp;#123; address: &apos;::1&apos;, family: &apos;IPv6&apos;, internal: true &amp;#125;,     &amp;#123; addres">
-<meta property="og:updated_time" content="2017-04-10T02:18:00.799Z">
+<meta property="og:description" content="用node写项目经常会用到第三方的包，阅读人家工程代码时留意到package.json里面除了我们常见的dependencies节点属性外，还看到了另外一个devDependencies，那么它们二者有什么区别呢？ dependencies 程序正常运行需要的包，是需要发布到生产环境的。devDependencies 是开发需要的包，比如一些单元测试的包之类的。其中前者依赖的项该是正常运行该包时所">
+<meta property="og:updated_time" content="2017-06-01T02:16:25.307Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node.js获取本机IP地址">
-<meta name="twitter:description" content="在node.js里面获取本机IP很简单，在OS模块里面，直接调用networkInterfaces()，就可以列出你机子的所有网络接口的信息,它返回的是一个数组，如官网列出的信息： 1234567891011&amp;#123; lo0:    [ &amp;#123; address: &apos;::1&apos;, family: &apos;IPv6&apos;, internal: true &amp;#125;,     &amp;#123; addres">
+<meta name="twitter:title" content="理解package.json中devDependencies和dependencies的区别">
+<meta name="twitter:description" content="用node写项目经常会用到第三方的包，阅读人家工程代码时留意到package.json里面除了我们常见的dependencies节点属性外，还看到了另外一个devDependencies，那么它们二者有什么区别呢？ dependencies 程序正常运行需要的包，是需要发布到生产环境的。devDependencies 是开发需要的包，比如一些单元测试的包之类的。其中前者依赖的项该是正常运行该包时所">
   
     <link rel="alternative" href="/atom.xml" title="冯云" type="application/atom+xml">
   
@@ -73,10 +73,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-node.js学习之获取本机IP" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-node.js学习之第三方包依赖" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/01/07/node.js学习之获取本机IP/" class="article-date">
-  <time datetime="2015-01-07T02:29:15.000Z" itemprop="datePublished">1月 7 2015</time>
+    <a href="/2015/07/28/node.js学习之第三方包依赖/" class="article-date">
+  <time datetime="2015-07-28T10:22:12.000Z" itemprop="datePublished">7月 28 2015</time>
 </a>
     
   <div class="article-category">
@@ -91,7 +91,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      node.js获取本机IP地址
+      理解package.json中devDependencies和dependencies的区别
     </h1>
   
 
@@ -99,24 +99,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在node.js里面获取本机IP很简单，在OS模块里面，直接调用networkInterfaces()，就可以列出你机子的所有网络接口的信息,它返回的是一个数组，如官网列出的信息：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="attr">lo0</span>: </div><div class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'::1'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'fe80::1'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'127.0.0.1'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125; ],</div><div class="line">  <span class="attr">en1</span>: </div><div class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'fe80::cabc:c8ff:feef:f996'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>,</div><div class="line">       <span class="attr">internal</span>: <span class="literal">false</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'10.0.1.123'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">vmnet1</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.99.99.254'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">vmnet8</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.88.88.1'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">ppp0</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.2.0.231'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ] &#125;</div></pre></td></tr></table></figure>
-<p>据此，我们可以根据实际需要取到相应的值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIPAdress</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> interfaces = <span class="built_in">require</span>(<span class="string">'os'</span>).networkInterfaces();</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> devName <span class="keyword">in</span> interfaces)&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> iface = interfaces[devName];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;iface.length;i++)&#123;</div><div class="line">            <span class="keyword">var</span> alias = iface[i];</div><div class="line">            <span class="keyword">if</span>(alias.family === <span class="string">'IPv4'</span> &amp;&amp; alias.address !== <span class="string">'127.0.0.1'</span> &amp;&amp; !alias.internal)&#123;</div><div class="line">                <span class="keyword">return</span> alias.address;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>还有因为javaweb项目中的其他地方需要此功能，所以这里顺便说一下关于java版本的获取方式：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Enumeration allNetInterfaces = NetworkInterface.getNetworkInterfaces();</div><div class="line">		InetAddress ip = <span class="literal">null</span>;</div><div class="line">		</div><div class="line">		<span class="built_in">String</span> strIp = <span class="string">""</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">while</span> (allNetInterfaces.hasMoreElements())</div><div class="line">		&#123;</div><div class="line">			NetworkInterface netInterface = (NetworkInterface) allNetInterfaces.nextElement();</div><div class="line">			<span class="keyword">if</span> (netInterface.getName().equals(<span class="string">"lo"</span>)) &#123;</div><div class="line">				System.out.println(<span class="string">"回环地址："</span> + netInterface.getName());</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">    			Enumeration addresses = netInterface.getInetAddresses();</div><div class="line">    			<span class="keyword">while</span> (addresses.hasMoreElements())</div><div class="line">    			&#123;</div><div class="line">    				</div><div class="line">    				ip = (InetAddress) addresses.nextElement();</div><div class="line">    				<span class="keyword">if</span> (ip != <span class="literal">null</span> &amp;&amp; ip  <span class="keyword">instanceof</span> Inet4Address) </div><div class="line">    				&#123;</div><div class="line">    					<span class="keyword">if</span>(netInterface.isVirtual())&#123;</div><div class="line">    						<span class="keyword">continue</span>;</div><div class="line">    					&#125;</div><div class="line">    					System.out.println(<span class="string">"本机网卡描述："</span> + netInterface.getDisplayName());</div><div class="line">    					</div><div class="line">    					<span class="keyword">if</span>(netInterface.getDisplayName().indexOf(<span class="string">"Virtual"</span>) == <span class="number">-1</span>)&#123;</div><div class="line">    						System.out.println(<span class="string">"本机的IP： "</span> + ip.getHostAddress());</div><div class="line">    						strIp = ip.getHostAddress();</div><div class="line">    					&#125;</div><div class="line">    					</div><div class="line">    				&#125; </div><div class="line">    			&#125;</div><div class="line">            &#125;</div><div class="line">			</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
-<p>通过发现，好像它们都没有直接的办法可以区分出虚拟网卡的IP地址。</p>
+        <p>用node写项目经常会用到第三方的包，阅读人家工程代码时留意到package.json里面除了我们常见的dependencies节点属性外，还看到了另外一个devDependencies，那么它们二者有什么区别呢？</p>
+<p>dependencies 程序正常运行需要的包，是需要发布到生产环境的。devDependencies 是开发需要的包，比如一些单元测试的包之类的。其中前者依赖的项该是正常运行该包时所需要的依赖项，而后者则是开发的时候需要的依赖项，像一些进行单元测试之类的包（jslint）。</p>
+<p>换言之，在使用 –save-dev 安装的插件它是被写入到 devDependencies对象里面去，而使用 –save 安装的插件，则被写入到 dependencies 对象里面去。</p>
+<p>如果将包下载下来在包的根目录里运行npminstall默认会安装两种依赖，如果只是单纯的使用这个包而不需要进行一些改动测试之类的，可以使用npm install –production，只安装dependencies而不安装devDependencies。</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/" data-id="cj3dsim4m0023p0v05zjfdsao" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/" data-id="cj3dsim4i001vp0v0mc3iim2e" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
-        <a href="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/#ds-thread" class="article-comment-link">Comments</a>
       
 
       
@@ -128,19 +124,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/01/13/tcpip学习之time_wait/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/08/08/服务器端开发之rabbitmq安装/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          说说Tcp断开连接时的Time_Wait状态
+          rabbitMQ安装笔记
         
       </div>
     </a>
   
   
-    <a href="/2015/01/06/linux学习之MAC更换/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/06/28/node.js学习之作为windows服务/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">解决clone过后的虚拟机网卡上网相关问题</div>
+      <div class="article-nav-title">node.js作为windows服务启动</div>
     </a>
   
 </nav>
@@ -150,7 +146,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2015/01/07/node.js学习之获取本机IP/" data-title="node.js获取本机IP地址" data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/07/28/node.js学习之第三方包依赖/" data-title="理解package.json中devDependencies和dependencies的区别" data-url="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/"></div>
   </section>
 </section>
         
