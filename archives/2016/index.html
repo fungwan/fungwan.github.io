@@ -113,7 +113,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2016/09/09/服务器端开发之微信支付微服务/" data-id="cj3dsim5v003jp0v0lapx62l5" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2016/09/09/服务器端开发之微信支付微服务/" data-id="cj3jwqfwv003qjkv0wvcrxpf3" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -165,7 +165,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2016/06/15/js学习之通信传输中文的坑/" data-id="cj3dsim3g000qp0v0w1juqm1a" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2016/06/15/js学习之通信传输中文的坑/" data-id="cj3jwqftp000ljkv08for6gk6" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -174,6 +174,75 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node.js学习之pm2记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/18/node.js学习之pm2记录/" class="article-date">
+  <time datetime="2016-02-18T05:22:12.000Z" itemprop="datePublished">2月 18 2016</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/node-js/">node.js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近项目上线，准备上pm2，一个带有负载均衡功能的Node应用的进程管理器。抛弃forever了，哈哈。</p>
+<p>主要特性：</p>
+<ol>
+<li>内建负载均衡（使用Node cluster 集群模块）</li>
+<li>后台运行</li>
+<li>0秒停机重载，我理解大概意思是维护升级的时候不需要停机.</li>
+<li>具有Ubuntu和CentOS 的启动脚本</li>
+<li>停止不稳定的进程（避免无限循环</li>
+<li>控制台检测</li>
+<li>提供 HTTP API</li>
+<li>远程控制和实时的接口API ( Nodejs 模块,允许和PM2进程管理器交互 )</li>
+</ol>
+<p>下面是有用的命令：</p>
+<blockquote>
+<p>npm install pm2 -g     # 命令行安装 pm2<br>pm2 start app.js -i 4 #后台运行pm2，启动4个app.js<br>pm2 start app.js –name my-api # 命名进程<br><strong>pm2 list</strong>               # 显示所有进程状态<br><strong>pm2 show 0</strong>               # 显示某个id的进程状态<br><strong>pm2 monit</strong>              # 监视所有进程<br>pm2 logs               #  显示所有进程日志<br>pm2 stop all           # 停止所有进程<br>pm2 restart all        # 重启所有进程<br>pm2 reload all         # 0秒停机重载进程 (用于 NETWORKED 进程)<br>pm2 stop 0             # 停止指定的进程<br>pm2 restart 0          # 重启指定的进程<br>pm2 startup            # 产生 init 脚本 保持进程活着<br>pm2 web                # 运行健壮的 computer API endpoint<br>pm2 delete 0           # 杀死指定的进程<br>pm2 delete all         # 杀死全部进程</p>
+</blockquote>
+<p>运行进程的不同方式：</p>
+<blockquote>
+<p>pm2 start app.js -i max  # 根据有效CPU数目启动最大进程数目<br>pm2 start app.js -i 3      # 启动3个进程<br>pm2 start app.js -x        #用fork模式启动 app.js 而不是使用 cluster<br>pm2 start app.js -x – -a 23   # 用fork模式启动 app.js 并且传递参数 (-a 23)<br>pm2 start app.js –name serverone  # 启动一个进程并把它命名为 serverone<br>pm2 stop serverone       # 停止 serverone 进程<br><strong>pm2 start app.json</strong>        # 启动进程, 在 app.json里设置选项<br>pm2 start app.js -i max – -a 23  #在–之后给 app.js 传递参数<br>pm2 start app.js -i max -e err.log -o out.log  # 启动生成一个配置文件</p>
+</blockquote>
+<p>再补充一个app.json的写法，cluster与fork混用，启用多个实例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">[&#123;</div><div class="line">  <span class="string">"name"</span>        : <span class="string">"server1"</span>,</div><div class="line">  <span class="string">"script"</span>      : <span class="string">"bin/www"</span>,</div><div class="line">  <span class="string">"cwd"</span>         : <span class="string">"./server1"</span>,</div><div class="line">  <span class="string">"error_file"</span> : <span class="string">"server1-err.log"</span>,</div><div class="line">  <span class="string">"out_file"</span>   : <span class="string">"server1-out.log"</span>,</div><div class="line">  <span class="string">"pid_file"</span>   : <span class="string">"server1.pid"</span>,</div><div class="line">  <span class="string">"instances"</span>  : <span class="number">0</span>,</div><div class="line">  <span class="string">"exec_mode"</span>  : <span class="string">"cluster"</span>,</div><div class="line">  <span class="string">"env"</span>: &#123;</div><div class="line">      <span class="string">"NODE_ENV"</span>: <span class="string">"production"</span></div><div class="line">  &#125;</div><div class="line">&#125;,</div><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>        : <span class="string">"server2"</span>,</div><div class="line">  <span class="string">"script"</span>      : <span class="string">"bin/www"</span>,</div><div class="line">  <span class="string">"cwd"</span>         : <span class="string">"./server2"</span>,</div><div class="line">  <span class="string">"node_args"</span> : <span class="string">"--harmony"</span></div><div class="line">  <span class="string">"error_file"</span> : <span class="string">"server2-err.log"</span>,</div><div class="line">  <span class="string">"out_file"</span>   : <span class="string">"server2-out.log"</span>,</div><div class="line">  <span class="string">"pid_file"</span>   : <span class="string">"server2.pid"</span>,</div><div class="line">  <span class="string">"instances"</span>  : <span class="number">1</span>,</div><div class="line">  <span class="string">"exec_mode"</span>  : <span class="string">"fork"</span>,</div><div class="line">  <span class="string">"env"</span>: &#123;</div><div class="line">      <span class="string">"NODE_ENV"</span>: <span class="string">"production"</span></div><div class="line">  &#125;</div><div class="line">&#125;]</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2016/02/18/node.js学习之pm2记录/" data-id="cj3jwqfug001jjkv0mhnafge0" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2016/02/18/node.js学习之pm2记录/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
@@ -191,7 +260,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -209,7 +278,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -233,11 +302,11 @@
           </li>
         
           <li>
-            <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/">解决rabbitMQ无法远程登录</a>
+            <a href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
           </li>
         
           <li>
-            <a href="/2015/08/18/服务器端开发之rabbitmq集群搭建/">rabbitMQ集群搭建</a>
+            <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/">解决rabbitMQ无法远程登录</a>
           </li>
         
       </ul>

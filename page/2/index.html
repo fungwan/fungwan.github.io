@@ -73,6 +73,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-服务器端开发之rabbitmq集群搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/18/服务器端开发之rabbitmq集群搭建/" class="article-date">
+  <time datetime="2015-08-18T08:48:15.000Z" itemprop="datePublished">8月 18 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/服务器端开发/">服务器端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/18/服务器端开发之rabbitmq集群搭建/">rabbitMQ集群搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文笔记的是rabbitMQ集群搭建（镜像模式），同参考教程一样，设计模型为，在一个集群里，有3台机器，其中1台使用磁盘模式，另1台使用内存模式。内存模式的节点，无疑速度更快，因此客户端（consumer、producer）连接访问它。而磁盘模式的节点（RabbitMQ启动后，默认是磁盘节点），由于磁盘IO相对较慢，因此仅作数据备份使用，另外一台作为反向代理。接下来是具体配置：</p>
+<ol>
+<li><p>修改主机名</p>
+<p> 输入vim /etc/sysconfig/network后，将HOSTNAME后面的值改为想要设置的主机名</p>
+<p> 输入vim /etc/hosts后，将localhost.localdomain改为想要设置的主机名。</p>
+<p> reboot命令，重新启动服务器后，输入hostname查看主机名是否修改</p>
+<p> 修改主机名的意义在于以后以此区分各个节点</p>
+</li>
+</ol>
+<ol>
+<li><p>修改host文件</p>
+<p> 在安装好的两台节点服务器中，分别修改/etc/hosts文件，如：</p>
+<pre><code>172.16.3.32 queue
+
+172.16.3.107 influx
+
+172.16.3.109 proxy
+</code></pre></li>
+</ol>
+<ol>
+<li><p>设置每个节点Cookie</p>
+<p> Rabbitmq的集群是依赖于erlang的集群来工作的，所以必须先构建起erlang的集群环境。Erlang的集群中各节点是通过一个magic cookie来实现的，这个cookie存放在 /var/lib/rabbitmq/.erlang.cookie 中，文件是400的权限。所以必须保证各节点cookie保持一致，否则节点之间就无法通信。
+        
+          <p class="article-more-link">
+            <a href="/2015/08/18/服务器端开发之rabbitmq集群搭建/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/" data-id="cj3jwqfwk003kjkv0wxe1luuy" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitMQ/">rabbitMQ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-服务器端开发之rabbitmq安装" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/08/08/服务器端开发之rabbitmq安装/" class="article-date">
@@ -131,7 +205,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cj3dsim5m0039p0v0kst6mwc8" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cj3jwqfwc003djkv0h4z62d4k" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -177,13 +251,13 @@
         <p>用node写项目经常会用到第三方的包，阅读人家工程代码时留意到package.json里面除了我们常见的dependencies节点属性外，还看到了另外一个devDependencies，那么它们二者有什么区别呢？</p>
 <p>dependencies 程序正常运行需要的包，是需要发布到生产环境的。devDependencies 是开发需要的包，比如一些单元测试的包之类的。其中前者依赖的项该是正常运行该包时所需要的依赖项，而后者则是开发的时候需要的依赖项，像一些进行单元测试之类的包（jslint）。</p>
 <p>换言之，在使用 –save-dev 安装的插件它是被写入到 devDependencies对象里面去，而使用 –save 安装的插件，则被写入到 dependencies 对象里面去。</p>
-<p>如果将包下载下来在包的根目录里运行npminstall默认会安装两种依赖，如果只是单纯的使用这个包而不需要进行一些改动测试之类的，可以使用npm install –production，只安装dependencies而不安装devDependencies。</p>
+<p>如果将包下载下来在包的根目录里运行npminstall默认会安装两种依赖，如果只是单纯的使用这个包而不需要进行一些改动测试之类的，可以使用npm install –production，只安装dependencies而不安装devDependencies。反之npm install xxx -dev</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/" data-id="cj3dsim4i001vp0v0mc3iim2e" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/" data-id="cj3jwqfv1001zjkv0bfka3szm" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -242,7 +316,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cj3dsim49001op0v04449e0au" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cj3jwqfut001rjkv02eldhwyh" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -298,7 +372,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/22/js学习之作用域详解/" data-id="cj3dsim2l0006p0v0au5t2wn1" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/22/js学习之作用域详解/" data-id="cj3jwqfsy0006jkv0te315tvc" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -315,62 +389,9 @@
 
 
   
-    <article id="post-tcpip学习之广播消息" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/20/tcpip学习之广播消息/" class="article-date">
-  <time datetime="2015-06-20T09:32:11.000Z" itemprop="datePublished">6月 20 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/TCP-IP/">TCP/IP</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/20/tcpip学习之广播消息/">应用于广播的解决方案</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以前android终端连接服务器的地址都是写在了代码里（不可取）或者配置文件中，当然在平日开发中为了方便，问题当然不大，主要是我们的局域网中服务器的IP地址基本不会改变，要么都是手动设置了IP。但是如果一旦作为产品卖给客户，问题就凸显出来了，因为我们到时候是不清楚客户方的网络情况，不可能到一个地方都去改代码然后打包，这显然是不现实的。
-        
-          <p class="article-more-link">
-            <a href="/2015/06/20/tcpip学习之广播消息/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/06/20/tcpip学习之广播消息/" data-id="cj3dsim5a002yp0v0d8z0g6ub" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/06/20/tcpip学习之广播消息/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -381,7 +402,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/TCP-IP/">TCP/IP</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/c-c/">c/c++</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/javascript/">javascript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/markdown/">markdown</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/node-js/">node.js</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器端开发/">服务器端开发</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/流媒体/">流媒体</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -399,7 +420,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -423,11 +444,11 @@
           </li>
         
           <li>
-            <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/">解决rabbitMQ无法远程登录</a>
+            <a href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
           </li>
         
           <li>
-            <a href="/2015/08/18/服务器端开发之rabbitmq集群搭建/">rabbitMQ集群搭建</a>
+            <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/">解决rabbitMQ无法远程登录</a>
           </li>
         
       </ul>
