@@ -1,5 +1,5 @@
 title: node.js中的定时器setInterval
-date: 2014-12-31 17:44:12
+date: 2016-07-21 17:44:12
 tags:
 - node.js
 categories: 后端开发

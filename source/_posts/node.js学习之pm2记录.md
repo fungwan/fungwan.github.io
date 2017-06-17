@@ -40,7 +40,7 @@ pm2 delete 0           # 杀死指定的进程
 >pm2 delete all         # 杀死全部进程
 
 运行进程的不同方式：
-
+<!-- more -->
 >pm2 start app.js -i max  # 根据有效CPU数目启动最大进程数目
 >pm2 start app.js -i 3      # 启动3个进程
 >pm2 start app.js -x        #用fork模式启动 app.js 而不是使用 cluster
