@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Category: 后端开发 | 冯云</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Just do it!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="冯云">
+<meta property="og:url" content="http://fungwan.me/categories/后端开发/page/2/index.html">
+<meta property="og:site_name" content="冯云">
+<meta property="og:description" content="Just do it!">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="冯云">
+<meta name="twitter:description" content="Just do it!">
+  
+    <link rel="alternative" href="/atom.xml" title="冯云" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">冯云</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">踏踏实实工作，健健康康生活!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="fungwan.me">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node.js学习之第三方包依赖" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/07/28/node.js学习之第三方包依赖/" class="article-date">
+  <time datetime="2015-07-28T10:22:12.000Z" itemprop="datePublished">7月 28 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/07/28/node.js学习之第三方包依赖/">理解package.json中devDependencies和dependencies的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用node写项目经常会用到第三方的包，阅读人家工程代码时留意到package.json里面除了我们常见的dependencies节点属性外，还看到了另外一个devDependencies，那么它们二者有什么区别呢？</p>
+<p>dependencies 程序正常运行需要的包，是需要发布到生产环境的。devDependencies 是开发需要的包，比如一些单元测试的包之类的。其中前者依赖的项该是正常运行该包时所需要的依赖项，而后者则是开发的时候需要的依赖项，像一些进行单元测试之类的包（jslint）。</p>
+<p>换言之，在使用 –save-dev 安装的插件它是被写入到 devDependencies对象里面去，而使用 –save 安装的插件，则被写入到 dependencies 对象里面去。</p>
+<p>如果将包下载下来在包的根目录里运行npminstall默认会安装两种依赖，如果只是单纯的使用这个包而不需要进行一些改动测试之类的，可以使用npm install –production，只安装dependencies而不安装devDependencies。反之npm install xxx -dev</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/" data-id="cj40v7dtp001yz0v0gif9psw8" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node.js学习之作为windows服务" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/28/node.js学习之作为windows服务/" class="article-date">
+  <time datetime="2015-06-28T03:22:12.000Z" itemprop="datePublished">6月 28 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/28/node.js学习之作为windows服务/">node.js作为windows服务启动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为特殊原因，项目里node服务器需要部署在windowsServer上（怀念阿里云啊），很明显之前的forever神器就不能用了。但是回到现实中该怎么在windows上部署呢？不可能叫人家开个cmd窗口吧？怪怪的感觉，而且管理员稍不注意还容易将cmd误操作将其关闭！难不成再叫人家到目标目录，node app.js？</p>
+<p>后来到网上搜索找到了一篇文章 <a href="http://www.oschina.net/question/12_18694?sort=time" title="ruan" target="_blank" rel="external">将node.js程序注册为windows服务</a>，然后按照上面的方法照做，也下载了文中提到的两个必备工具：</p>
+<ol>
+<li>Instrsrv.exe installs and removes system services from Windows NT.</li>
+<li>Srvany.exe allows any Windows NT application to run as a service.</li>
+</ol>
+<p>最后比较遗憾的是，尽管在windows服务里面也查看到了我已经注册到的服务，但是怎么都跑不起来，重启也是一个情况。顺带说一句，它这个方案真是麻烦又难用。于是继续搜索，后来终于找到了一个工具可以解决，一个叫<strong>nssm</strong>的工具（“the Non-Sucking Service Manager”），它会监控你安装的node服务，如果node挂了，nssm会自动重启它。可以看<a href="http://nssm.cc/" title="nssm" target="_blank" rel="external">官网</a>深入了解。
+        
+          <p class="article-more-link">
+            <a href="/2015/06/28/node.js学习之作为windows服务/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cj40v7dtk001rz0v00ebaksu2" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-流媒体学习之spydroid" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/14/流媒体学习之spydroid/" class="article-date">
+  <time datetime="2015-02-14T07:44:12.000Z" itemprop="datePublished">2月 14 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/14/流媒体学习之spydroid/">解决spydroid-ipcamera视频串流的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>根据项目需求，要实现android端推送视频流，然后在客户端（这里是浏览器）里播放。后面选取的方案是采用Google Code上的一个开源项目：spydroid-ipcamera，它能在Android手机中建立一个精简的HTTP Server和RTSP Server。这跟以往的如需要类似red5流媒体服务器中转的解决方案不一样，它是在推送端直接建立服务器，让需要显示的客户端（浏览器）去连接它。
+        
+          <p class="article-more-link">
+            <a href="/2015/02/14/流媒体学习之spydroid/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="cj40v7duw003kz0v0hio324fh" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/02/14/流媒体学习之spydroid/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rtsp/">rtsp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node.js学习之获取本机IP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/07/node.js学习之获取本机IP/" class="article-date">
+  <time datetime="2015-01-07T02:29:15.000Z" itemprop="datePublished">1月 7 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/07/node.js学习之获取本机IP/">node.js获取本机IP地址</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在node.js里面获取本机IP很简单，在OS模块里面，直接调用networkInterfaces()，就可以列出你机子的所有网络接口的信息,它返回的是一个数组，如官网列出的信息：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="attr">lo0</span>: </div><div class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'::1'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'fe80::1'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'127.0.0.1'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125; ],</div><div class="line">  <span class="attr">en1</span>: </div><div class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'fe80::cabc:c8ff:feef:f996'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>,</div><div class="line">       <span class="attr">internal</span>: <span class="literal">false</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'10.0.1.123'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">vmnet1</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.99.99.254'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">vmnet8</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.88.88.1'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">ppp0</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.2.0.231'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ] &#125;</div></pre></td></tr></table></figure>
+<p>据此，我们可以根据实际需要取到相应的值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIPAdress</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> interfaces = <span class="built_in">require</span>(<span class="string">'os'</span>).networkInterfaces();</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> devName <span class="keyword">in</span> interfaces)&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> iface = interfaces[devName];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;iface.length;i++)&#123;</div><div class="line">            <span class="keyword">var</span> alias = iface[i];</div><div class="line">            <span class="keyword">if</span>(alias.family === <span class="string">'IPv4'</span> &amp;&amp; alias.address !== <span class="string">'127.0.0.1'</span> &amp;&amp; !alias.internal)&#123;</div><div class="line">                <span class="keyword">return</span> alias.address;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/07/node.js学习之获取本机IP/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/" data-id="cj40v7dtr0021z0v0ohe2t79v" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux学习之MAC更换" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/06/linux学习之MAC更换/" class="article-date">
+  <time datetime="2015-01-06T04:44:12.000Z" itemprop="datePublished">1月 6 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/06/linux学习之MAC更换/">解决clone过后的虚拟机网卡上网相关问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>当我把现有的centos虚拟机文件复制或clone一份后，然后再运行复制后的.vmdk文件，会发现系统加载的时候会提示相关错误信息，大致就是网卡不能启动，</p>
+<pre><code>Bringing up interface eth0: Device eth0 has different MAC address than expected,ignoring.
+</code></pre><p>究其原因就在于虚拟机镜像拷贝的问题，因为复制.vmdk文件是将虚拟机完全copy了一份（包括MAC地址），由于新的硬件平台网卡MAC与系统中网卡MAC不一致，因此就会有上述的结果显示。这时候你在系统里面ifconfig是得不到当前主机IP地址的信息。
+        
+          <p class="article-more-link">
+            <a href="/2015/01/06/linux学习之MAC更换/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/01/06/linux学习之MAC更换/" data-id="cj40v7dsl000tz0v0vfuocp79" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2015/01/06/linux学习之MAC更换/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日常问题/">日常问题</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/categories/后端开发/">&laquo; Prev</a><a class="page-number" href="/categories/后端开发/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/后端开发/page/3/">3</a><a class="page-number" href="/categories/后端开发/page/4/">4</a><a class="extend next" rel="next" href="/categories/后端开发/page/3/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">20</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Tcp-Ip/" style="font-size: 16px;">Tcp/Ip</a> <a href="/tags/exports/" style="font-size: 12px;">exports</a> <a href="/tags/https-ssl/" style="font-size: 12px;">https ssl</a> <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/javascript-正则表达式/" style="font-size: 10px;">javascript 正则表达式</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oauth2-0/" style="font-size: 10px;">oauth2.0</a> <a href="/tags/package-json/" style="font-size: 10px;">package.json</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/rabbitMQ/" style="font-size: 14px;">rabbitMQ</a> <a href="/tags/rtsp/" style="font-size: 10px;">rtsp</a> <a href="/tags/wechat/" style="font-size: 10px;">wechat</a> <a href="/tags/孕期饮食/" style="font-size: 10px;">孕期饮食</a> <a href="/tags/日常问题/" style="font-size: 10px;">日常问题</a> <a href="/tags/春天怀孕记/" style="font-size: 10px;">春天怀孕记</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/09/服务器端开发之微信支付微服务/">微信支付开发小结</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/">解决rabbitMQ无法远程登录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+		  
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 fungwan
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>
+	  
+	  <embed src="http://music.163.com/style/swf/widget.swf?sid=286602&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"fungwan"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"nocss.css"}};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                processEscapes: true
+                    
+}
+  
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                  
+}
+    
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                            all[i].SourceElement().parentNode.className += ' has-jax';
+                                    
+            }
+                
+        });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
