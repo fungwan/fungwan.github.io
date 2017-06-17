@@ -2,7 +2,7 @@ title: node.js获取本机IP地址
 date: 2015-1-7 10:29:15
 tags:
 - node.js
-categories: node.js
+categories: 后端开发
 toc: false
 ---
 

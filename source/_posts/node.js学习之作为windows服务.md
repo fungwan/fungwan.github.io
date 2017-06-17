@@ -2,7 +2,7 @@ title: node.js作为windows服务启动
 date: 2015-6-28 11:22:12
 tags:
 - node.js
-categories: node.js
+categories: 后端开发
 toc: false
 ---
 

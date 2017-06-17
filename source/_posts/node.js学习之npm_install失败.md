@@ -3,7 +3,7 @@ date: 2014-11-06 09:44:12
 tags:
 - node.js
 - npm
-categories: node.js
+categories: 后端开发
 ---
 
 之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。

@@ -2,7 +2,7 @@ title: 什么是js中的自执行
 date: 2015-1-15 10:44:12
 tags:
 - javascript 
-categories: javascript
+categories: 编程语言
 ---
 之前node的时候用了人家封装的库，调进去看了一下，遇到下面这种类似代码：
 

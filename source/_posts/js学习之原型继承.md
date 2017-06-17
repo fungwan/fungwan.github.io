@@ -2,7 +2,7 @@ title: 理解js中的原型继承
 date: 2015-1-5 12:44:12
 tags:
 - 面向对象 
-categories: javascript
+categories: 编程语言
 ---
 
 为了搞清在js中如何实现继承，也是对之前这篇博文[js中prototype用法](

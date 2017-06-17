@@ -2,7 +2,7 @@ title: https服务
 date: 2015-1-22 15:44:12
 tags:
 - https ssl
-categories: TCP/IP
+categories: 协议栈
 toc: false
 ---
 

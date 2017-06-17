@@ -2,7 +2,7 @@ title: node.js中的定时器setInterval
 date: 2014-12-31 17:44:12
 tags:
 - node.js
-categories: node.js
+categories: 后端开发
 ---
 定时器相信大家都用过，而且才开始接触时，老是与线程混淆(特别是自己原来写MFC程序时)，这里有一篇文章对这两个概念作了很好的对比【[定时器和多线程对比](http://blog.csdn.net/wangweitingaabbcc/article/details/6723606)】。这里我只是在node.js层面作个补充。<!-- more -->
 

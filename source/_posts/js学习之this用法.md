@@ -2,7 +2,7 @@ title: 学习js中的this用法
 date: 2014-12-23 09:44:12
 tags:
 - javascript
-categories: javascript
+categories: 编程语言
 toc: false
 ---
 

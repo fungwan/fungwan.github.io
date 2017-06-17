@@ -2,7 +2,7 @@ title: 常用的markdown标记
 date: 2014-12-23 17:44:12
 tags:
 - markdown
-categories: markdown
+categories: 后端开发
 
 ---
 ##Markdown

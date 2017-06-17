@@ -2,7 +2,7 @@ title: 温习typedef
 date: 2014-10-16 19:44:12
 tags:
 - javascript
-categories: c/c++
+categories: 编程语言
 ---
 typedef是c语言里面基础的语法知识，作用有点跟#define类似，但是如果它与其他结构搅在一起，还是会让你在风中凌乱。此次笔记就不说简单的typedef基本类型，只重点说下typedef结构体~<!-- more -->
 

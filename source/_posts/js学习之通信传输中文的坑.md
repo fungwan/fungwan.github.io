@@ -2,7 +2,7 @@ title: 踩中文的坑
 date: 2016-6-15 10:44:12
 tags:
 - javascript 
-categories: javascript
+categories: 编程语言
 ---
 如标题所示，这次笔记一个工作中遇到的小坑，虽说小却楞是花了我几大小时的时间。当时的背景是这样的，我需要在客户端这边发送一个http的POST请求，然后服务器根据请求执行相应的db操作。代码类似下面这样子：
 

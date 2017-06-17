@@ -2,7 +2,7 @@ title: 好久不见，mqtt
 date: 2015-2-22 13:44:12
 tags:
 - mqtt
-categories: TCP/IP
+categories: 协议栈
 toc: false
 ---
 

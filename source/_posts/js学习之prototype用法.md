@@ -2,7 +2,7 @@ title: 解惑js中的prototype
 date: 2014-12-24 09:44:12
 tags:
 - javascript
-categories: javascript
+categories: 编程语言
 ---
 平时node中在人家源码里往往会看到prototype，之前百度了下说的是原型方法，也没有细看，今天决定好好把这块知识点学习一下。结合网上的资料，把prototype的定义精简一下：js中每个函数都有一个默认的prototype属性，这个属性是另一个对象（我们称之为‘原型对象’）的引用，换句话说，其实prototype属性就是一个对象。这个原型对象的所有属性和方法，都会被构造函数的实例继承。
 

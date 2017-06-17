@@ -2,7 +2,7 @@ title: 谈谈js中的作用域
 date: 2015-6-22 12:44:12
 tags:
 - javascript 
-categories: javascript
+categories: 编程语言
 ---
 如果有过其他高级语言‘块级作用域’的认知，那么再接触js的函数作用域后就会大跌眼镜。个人认为应该在这几个方面着重关注一下：作用域、作用域链、变量提升。
 

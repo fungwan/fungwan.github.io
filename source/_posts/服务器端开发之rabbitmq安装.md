@@ -2,7 +2,7 @@ title: rabbitMQ安装笔记
 date: 2015-8-8 17:44:12
 tags:
 - rabbitMQ 
-categories: 服务器端开发
+categories: 后端开发
 ---
 
 根据自己的实验结果，同网上的其他教程资料参考，自己也笔记一份搭建手册供以后生产环境使用！

@@ -2,7 +2,7 @@ title: 解决clone过后的虚拟机网卡上网相关问题
 date: 2015-1-6 12:44:12
 tags:
 - 日常问题 
-categories: linux
+categories: 后端开发
 ---
 
 当我把现有的centos虚拟机文件复制或clone一份后，然后再运行复制后的.vmdk文件，会发现系统加载的时候会提示相关错误信息，大致就是网卡不能启动，

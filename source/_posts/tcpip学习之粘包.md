@@ -2,7 +2,7 @@ title: TCP的粘包问题
 date: 2015-3-8 16:45:11
 tags:
 - Tcp/Ip
-categories: TCP/IP
+categories: 协议栈
 ---
 
 TCP粘包这似乎是个老生长谈的问题，想不到还是在项目中给我遇到了。

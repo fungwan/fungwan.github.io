@@ -2,7 +2,7 @@ title: 判断对象内容是否为空
 date: 2015-2-1 11:44:12
 tags:
 - javascript 
-categories: javascript
+categories: 编程语言
 ---
 如题所说的判断对象为空指的是其里面是否有其属性和对应的值，而不是像以前普通的判断非空方法，如下：
 

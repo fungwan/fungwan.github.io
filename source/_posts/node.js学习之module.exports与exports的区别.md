@@ -3,7 +3,7 @@ date: 2014-09-30 12:44:12
 tags:
 - node.js
 - exports
-categories: node.js
+categories: 后端开发
 toc: false
 ---
 

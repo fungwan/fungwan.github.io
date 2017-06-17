@@ -2,7 +2,7 @@ title: Node.js在Centos上的安装
 date: 2014-8-8 17:44:12
 tags:
 - node.js 
-categories: node.js
+categories: 后端开发
 ---
 之前在windows上写Node,后面考虑到项目部署，于是需要移植到centos上。
 

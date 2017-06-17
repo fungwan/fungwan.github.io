@@ -2,7 +2,7 @@ title: 认知OAuth授权基本概念
 date: 2015-1-27 11:22:12
 tags:
 - oauth2.0
-categories: TCP/IP
+categories: 协议栈
 toc: false
 ---
 

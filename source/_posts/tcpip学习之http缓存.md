@@ -2,7 +2,7 @@ title: 记录下http的缓存策略
 date: 2017-1-16 22:44:12
 tags:
 - Tcp/Ip
-categories: TCP/IP
+categories: 协议栈
 ---
 相信很多做过前端或者后台性能优化的童鞋对http缓存机制都有过了解，今天准备复习下这部分的知识。
 
@@ -23,5 +23,4 @@ categories: TCP/IP
 一般而言，当Cache-Control/Expires和Last-Modified/ETag同时返回时，前者优先级高，所以再次请求相同资源，而当该副本还在有效期时间内，浏览器是不会再向服务器通过Last-Modified或者ETag去判断资源的新旧度返304或者200,而是直接取副本200(fromcache)。所以，当一些资源有可能改动比较频繁时，设置过期时间要短，不然会发生服务器端更新了资源，浏览器因为读的是缓存而不能加载最新资源。
 
 文章最后，附一张摘自网络上很常见的资源请求流程图：
-![cache][1]
-  [1]: http://note.youdao.com/yws/res/1524/WEBRESOURCEa3cb1ea3e84ac671477a92481b3e1c39
+![Markdown](http://i1.piimg.com/1949/aa2189c7c0e5fd83.png)

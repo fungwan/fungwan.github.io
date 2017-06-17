@@ -2,7 +2,7 @@ title: package.json里面的版本管理
 date: 2014-10-25 19:44:12
 tags:
 - package.json
-categories: node.js
+categories: 后端开发
 toc: false
 ---
 在学习和使用node的过程中，常常会接触到package.json里面的配置，不管是自己填写还是去阅读人家的文件，刚开始都是一头雾水，此篇笔记只是针对里面的**dependencies**属性。因为我们在更新或者使用人家第三方模块的时候（npm install），最关键的就是dependencies里面的版本值。举一个小例子：

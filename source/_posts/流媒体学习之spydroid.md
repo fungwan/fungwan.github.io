@@ -2,7 +2,7 @@ title: 解决spydroid-ipcamera视频串流的问题
 date: 2015-2-14 15:44:12
 tags:
 - rtsp
-categories: 流媒体
+categories: 后端开发
 ---
 根据项目需求，要实现android端推送视频流，然后在客户端（这里是浏览器）里播放。后面选取的方案是采用Google Code上的一个开源项目：spydroid-ipcamera，它能在Android手机中建立一个精简的HTTP Server和RTSP Server。这跟以往的如需要类似red5流媒体服务器中转的解决方案不一样，它是在推送端直接建立服务器，让需要显示的客户端（浏览器）去连接它。<!-- more -->
 

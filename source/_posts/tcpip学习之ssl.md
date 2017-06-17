@@ -2,7 +2,7 @@ title: 理解对称加密与非对称加密
 date: 2015-1-20 10:44:12
 tags:
 - https ssl
-categories: TCP/IP
+categories: 协议栈
 toc: false
 ---
 
