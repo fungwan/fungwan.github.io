@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: fung wan
-subtitle: 不想当歌手的演员不是好程序员!
+title: 冯云
+subtitle: 踏踏实实工作，健健康康生活!
 description: Just do it!
 author: fungwan
 email: noder.feng@gmail.com
@@ -85,6 +85,7 @@ duoshuo_shortname:  fungwan
 ## Plugins: https://github.com/hexojs/hexo/wiki/Plugins
 ## Themes: https://github.com/hexojs/hexo/wiki/Themes
 theme: landscape-plus
+#landscape-plus
 exclude_generator:
 
 # Deployment
