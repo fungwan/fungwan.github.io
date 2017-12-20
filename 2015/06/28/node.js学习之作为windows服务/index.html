@@ -12,6 +12,7 @@
 <meta property="og:url" content="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/index.html">
 <meta property="og:site_name" content="冯云">
 <meta property="og:description" content="因为特殊原因，项目里node服务器需要部署在windowsServer上（怀念阿里云啊），很明显之前的forever神器就不能用了。但是回到现实中该怎么在windows上部署呢？不可能叫人家开个cmd窗口吧？怪怪的感觉，而且管理员稍不注意还容易将cmd误操作将其关闭！难不成再叫人家到目标目录，node app.js？ 后来到网上搜索找到了一篇文章 将node.js程序注册为windows服务，然后">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-06-17T03:31:06.433Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js作为windows服务启动">
@@ -100,12 +101,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>因为特殊原因，项目里node服务器需要部署在windowsServer上（怀念阿里云啊），很明显之前的forever神器就不能用了。但是回到现实中该怎么在windows上部署呢？不可能叫人家开个cmd窗口吧？怪怪的感觉，而且管理员稍不注意还容易将cmd误操作将其关闭！难不成再叫人家到目标目录，node app.js？</p>
-<p>后来到网上搜索找到了一篇文章 <a href="http://www.oschina.net/question/12_18694?sort=time" title="ruan" target="_blank" rel="external">将node.js程序注册为windows服务</a>，然后按照上面的方法照做，也下载了文中提到的两个必备工具：</p>
+<p>后来到网上搜索找到了一篇文章 <a href="http://www.oschina.net/question/12_18694?sort=time" title="ruan" target="_blank" rel="noopener">将node.js程序注册为windows服务</a>，然后按照上面的方法照做，也下载了文中提到的两个必备工具：</p>
 <ol>
 <li>Instrsrv.exe installs and removes system services from Windows NT.</li>
 <li>Srvany.exe allows any Windows NT application to run as a service.</li>
 </ol>
-<p>最后比较遗憾的是，尽管在windows服务里面也查看到了我已经注册到的服务，但是怎么都跑不起来，重启也是一个情况。顺带说一句，它这个方案真是麻烦又难用。于是继续搜索，后来终于找到了一个工具可以解决，一个叫<strong>nssm</strong>的工具（“the Non-Sucking Service Manager”），它会监控你安装的node服务，如果node挂了，nssm会自动重启它。可以看<a href="http://nssm.cc/" title="nssm" target="_blank" rel="external">官网</a>深入了解。<a id="more"></a></p>
+<p>最后比较遗憾的是，尽管在windows服务里面也查看到了我已经注册到的服务，但是怎么都跑不起来，重启也是一个情况。顺带说一句，它这个方案真是麻烦又难用。于是继续搜索，后来终于找到了一个工具可以解决，一个叫<strong>nssm</strong>的工具（“the Non-Sucking Service Manager”），它会监控你安装的node服务，如果node挂了，nssm会自动重启它。可以看<a href="http://nssm.cc/" title="nssm" target="_blank" rel="noopener">官网</a>深入了解。<a id="more"></a></p>
 <ol>
 <li>进入官网下载对应系统版本，安装完成后，进入程序安装目录，nssw install +你的服务名（influx）</li>
 <li>接着它会弹出注册服务界面，里面需要配置相关的目录，按要求配置即可。<strong>Path</strong>中选择你的node.exe的安装路径，<strong>Startup directory</strong> 选择你的node应用的目录，即项目文件启动目录，<strong>Argument</strong>输入你的启动文件，我们项目是app.js</li>
@@ -121,7 +122,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cj419rpbp001rw0v0u203y0hp" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cjbes4kgr001qwgmfry1p1vrh" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -169,7 +170,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/娱乐爱好/">娱乐爱好</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -187,7 +188,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -199,23 +200,23 @@
       <ul>
         
           <li>
+            <a href="/2017/12/20/娱乐爱好之为娱乐置顶/">【置顶】为头条君而置顶！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/20/娱乐爱好之追星刘德华2/">【追星故事】刘德华，我听过你的歌（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/16/娱乐爱好之追星刘德华1/">【追星故事】刘德华，我听过你的歌（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/16/娱乐爱好之十年刘德华/">刘德华的[十年]您听过吗？</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/31/服务器端开发之微信支付微服务/">微信支付开发小结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/21/node.js学习之settimeout/">node.js中的定时器setInterval</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
           </li>
         
       </ul>

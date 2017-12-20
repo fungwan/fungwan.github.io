@@ -11,6 +11,7 @@
 <meta property="og:url" content="http://fungwan.me/categories/编程语言/page/2/index.html">
 <meta property="og:site_name" content="冯云">
 <meta property="og:description" content="Just do it!">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="冯云">
 <meta name="twitter:description" content="Just do it!">
@@ -101,8 +102,8 @@
       
         <p>为了搞清在js中如何实现继承，也是对之前这篇博文<a href="http://fungwan.me/2014/12/24/js%E5%AD%A6%E4%B9%A0%E4%B9%8Bprototype%E7%94%A8%E6%B3%95/" title="冯云的博客">js中prototype用法</a>的补充，我主要参考了下面两篇文章：</p>
 <blockquote>
-<p>伯乐在线的<a href="http://blog.jobbole.com/19795/" target="_blank" rel="external">JavaScript原型和继承</a></p>
-<p>阮一峰的<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="external">构造函数的继承</a></p>
+<p>伯乐在线的<a href="http://blog.jobbole.com/19795/" target="_blank" rel="noopener">JavaScript原型和继承</a></p>
+<p>阮一峰的<a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank" rel="noopener">构造函数的继承</a></p>
 </blockquote>
 <p>我是两篇对比着看的，刚开始看的时候脑袋都快被绕晕了，或许是自己对于js的高级特性不熟悉，亦或是js本身语言的强大灵活性与传统的编译性语言区别太大的原因导致，所以此次的学习笔记决定‘从简’，为了不搞混淆，只把我觉得易懂的部分给抽出来，方便以后查阅。
         
@@ -114,7 +115,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/05/js学习之原型继承/" data-id="cj419rp9z0006w0v08u3h7u7k" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/05/js学习之原型继承/" data-id="cjbes4kan0007wgmf5hw4x6nt" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -158,8 +159,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>平时node中在人家源码里往往会看到prototype，之前百度了下说的是原型方法，也没有细看，今天决定好好把这块知识点学习一下。结合网上的资料，把prototype的定义精简一下：js中每个函数都有一个默认的prototype属性，这个属性是另一个对象（我们称之为‘原型对象’）的引用，换句话说，其实prototype属性就是一个对象。这个原型对象的所有属性和方法，都会被构造函数的实例继承。</p>
-<p>说了定义，那我们来看什么时候使用prototype呢？这篇<a href="http://www.cnblogs.com/dolphinX/p/3286177.html" title="色拉油啊油" target="_blank" rel="external">博文</a>对这部分讲的很清楚。按照他的例子举个例，在传统的实例化出来的对象要使用属性或方法时，我们事先是这样构造一个‘类’（为了好理解暂叫类吧）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.friends = []; <span class="comment">//实例变量</span></div><div class="line">    <span class="keyword">this</span>.read=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">//实例方法</span></div><div class="line">	    <span class="keyword">var</span> bookName = <span class="string">'代码与艺术'</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'我要读'</span> + bookName);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> fengyun = <span class="keyword">new</span> Student();</div><div class="line">fengyun.friends.push(<span class="string">'lauchunpung'</span>);</div><div class="line">fengyun.read();</div><div class="line"><span class="built_in">console</span>.log(fengyun.friends); <span class="comment">//['lauchunpung']</span></div><div class="line">        </div><div class="line"><span class="keyword">var</span> andy = <span class="keyword">new</span> Student();</div><div class="line">andy.friends.push(<span class="string">'zhuliqian'</span>);</div><div class="line">andy.read();</div><div class="line"><span class="built_in">console</span>.log(andy.friends); <span class="comment">//['zhuliqian']</span></div></pre></td></tr></table></figure>
+<p>说了定义，那我们来看什么时候使用prototype呢？这篇<a href="http://www.cnblogs.com/dolphinX/p/3286177.html" title="色拉油啊油" target="_blank" rel="noopener">博文</a>对这部分讲的很清楚。按照他的例子举个例，在传统的实例化出来的对象要使用属性或方法时，我们事先是这样构造一个‘类’（为了好理解暂叫类吧）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.friends = []; <span class="comment">//实例变量</span></span><br><span class="line">    <span class="keyword">this</span>.read=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">//实例方法</span></span><br><span class="line">	    <span class="keyword">var</span> bookName = <span class="string">'代码与艺术'</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'我要读'</span> + bookName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> fengyun = <span class="keyword">new</span> Student();</span><br><span class="line">fengyun.friends.push(<span class="string">'lauchunpung'</span>);</span><br><span class="line">fengyun.read();</span><br><span class="line"><span class="built_in">console</span>.log(fengyun.friends); <span class="comment">//['lauchunpung']</span></span><br><span class="line">        </span><br><span class="line"><span class="keyword">var</span> andy = <span class="keyword">new</span> Student();</span><br><span class="line">andy.friends.push(<span class="string">'zhuliqian'</span>);</span><br><span class="line">andy.read();</span><br><span class="line"><span class="built_in">console</span>.log(andy.friends); <span class="comment">//['zhuliqian']</span></span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             <a href="/2014/12/24/js学习之prototype用法/#more">Read More</a>
@@ -169,7 +170,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/24/js学习之prototype用法/" data-id="cj419rp9j0000w0v0eelcytlx" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/24/js学习之prototype用法/" data-id="cjbes4k8j0002wgmfwhdf8w26" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -214,7 +215,7 @@
       
         <p>通过这几个月在node.js上的工作，发现js其实并不是那么简单，而且感觉上越来越深，比如现在要笔记的一个坑——this,因为之前用过C++对this有一定的了解，其就是指向当前对象，而javascript中的this，因其弱语言的灵活性，它被赋予了更多的作用和使用范围。由于其运行期绑定的特性，它可以是全局对象、当前对象或者任意对象，这完全取决于函数的调用方式，下面根据网上的文章作了一个归纳，方便日后温习。</p>
 <p>一般而言，在Javascript中，this指向函数执行时的当前对象，该关键字在Javascript中的执行环境，而非声明环境有关。</p>
-<p>##1.作为单纯的函数调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">modifyName</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">modifyName(<span class="string">'fengyun'</span>);</div><div class="line"><span class="built_in">console</span>.log(name);</div></pre></td></tr></table></figure></p>
+<p>##1.作为单纯的函数调用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">modifyName</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">modifyName(<span class="string">'fengyun'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br></pre></td></tr></table></figure></p>
         
           <p class="article-more-link">
             <a href="/2014/12/23/js学习之this用法/#more">Read More</a>
@@ -224,7 +225,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/12/23/js学习之this用法/" data-id="cj419rp9z0005w0v0tld2nphy" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/12/23/js学习之this用法/" data-id="cjbes4k980005wgmfsbdnbqx5" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -277,7 +278,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/10/16/C语言之typedef/" data-id="cj419rp9z0002w0v0li3hmhnx" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/10/16/C语言之typedef/" data-id="cjbes4k700000wgmf6lx73dhz" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -330,7 +331,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/08/15/js学习之正则表达式/" data-id="cj419rpae000ew0v027s2tz46" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/08/15/js学习之正则表达式/" data-id="cjbes4kc3000dwgmfmthj1ok0" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -360,7 +361,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/娱乐爱好/">娱乐爱好</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -378,7 +379,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -390,23 +391,23 @@
       <ul>
         
           <li>
+            <a href="/2017/12/20/娱乐爱好之为娱乐置顶/">【置顶】为头条君而置顶！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/20/娱乐爱好之追星刘德华2/">【追星故事】刘德华，我听过你的歌（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/16/娱乐爱好之追星刘德华1/">【追星故事】刘德华，我听过你的歌（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/16/娱乐爱好之十年刘德华/">刘德华的[十年]您听过吗？</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/31/服务器端开发之微信支付微服务/">微信支付开发小结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/21/node.js学习之settimeout/">node.js中的定时器setInterval</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
           </li>
         
       </ul>

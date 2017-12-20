@@ -12,6 +12,7 @@
 <meta property="og:url" content="http://fungwan.me/2015/02/14/流媒体学习之spydroid/index.html">
 <meta property="og:site_name" content="冯云">
 <meta property="og:description" content="根据项目需求，要实现android端推送视频流，然后在客户端（这里是浏览器）里播放。后面选取的方案是采用Google Code上的一个开源项目：spydroid-ipcamera，它能在Android手机中建立一个精简的HTTP Server和RTSP Server。这跟以往的如需要类似red5流媒体服务器中转的解决方案不一样，它是在推送端直接建立服务器，让需要显示的客户端（浏览器）去连接它。">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-06-17T03:33:25.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决spydroid-ipcamera视频串流的问题">
@@ -102,7 +103,7 @@
         <p>根据项目需求，要实现android端推送视频流，然后在客户端（这里是浏览器）里播放。后面选取的方案是采用Google Code上的一个开源项目：spydroid-ipcamera，它能在Android手机中建立一个精简的HTTP Server和RTSP Server。这跟以往的如需要类似red5流媒体服务器中转的解决方案不一样，它是在推送端直接建立服务器，让需要显示的客户端（浏览器）去连接它。<a id="more"></a></p>
 <p>在实作的过程当中，按照demo例子可以其正常运行，但是这里有一个小插曲，就是当初用vlc PC客户端去连接访问http地址或者rtsp地址时可正常访问，但是用网页的方式就是不行。后来通过单步调试才明白是浏览器上vlc插件似乎安装有问题，js代码里面提示vlc这个object找不到，继而addItem流失败。后面更新了下firefox和chrome的插件，然后开启一直启用方可正常！</p>
 <p>似乎到这里就都ok了，但好事多磨，当我在浏览器嵌入2个vlc播放对象，分别连接两个不同的android设备时候，竟然发现在浏览器上vlc播放窗口出现‘串影’，即一个vlc窗口里面会间断性播放两个android设备的直播流，而另一个vlc窗口则毫无响应。当时大伙儿都以为可能是web端在处理vlc对象的时候出问题了，是代码错误，可是后面看了vlc文档似乎找不出什么原因。于是，又换了另一种测试方案，分别开两个浏览器，再各自浏览器只嵌入1个vlc对象，再来连接android设备，最后的结果出人意料，还是出现上述的bug。</p>
-<p>这下使得我们将问题的出处指向了android客户端，没办法下载了它的源码，啃一啃再说。这里有一篇关于<a href="http://blog.csdn.net/xiaoliouc/article/details/8493161" title="." target="_blank" rel="external">spydroid</a>源码剖析的文章，会有一点帮助，此外还需要读一读关于rtsp协议的交互过程，才能更好理解代码的作用。参考这里，<a href="http://blog.chinaunix.net/uid-790245-id-2037516.html" title="." target="_blank" rel="external">关于RTSP的理解和例子说明 </a>。</p>
+<p>这下使得我们将问题的出处指向了android客户端，没办法下载了它的源码，啃一啃再说。这里有一篇关于<a href="http://blog.csdn.net/xiaoliouc/article/details/8493161" title="." target="_blank" rel="noopener">spydroid</a>源码剖析的文章，会有一点帮助，此外还需要读一读关于rtsp协议的交互过程，才能更好理解代码的作用。参考这里，<a href="http://blog.chinaunix.net/uid-790245-id-2037516.html" title="." target="_blank" rel="noopener">关于RTSP的理解和例子说明 </a>。</p>
 <p>最后，通过各种折腾，终于让我发现了这个bug的罪魁祸首！在RTSP交互命令的过程里面有这么一节点（<strong>DESCRIBE</strong>）：</p>
 <pre><code>C-&gt;S:DESCRIBE request //客户端要求得到S提供的媒体初始化描述信息 
 S-&gt;C:DESCRIBE response //S回应媒体初始化描述信息，主要是sdp 
@@ -144,7 +145,7 @@ a=control:trackID=0//trackID＝0表示视频流用的是通道0
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="cj419rpd0003pw0v0361uibou" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="cjbes4kmo0046wgmfvudrjgb2" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -192,7 +193,7 @@ a=control:trackID=0//trackID＝0表示视频流用的是通道0
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/娱乐爱好/">娱乐爱好</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -210,7 +211,7 @@ a=control:trackID=0//trackID＝0表示视频流用的是通道0
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -222,23 +223,23 @@ a=control:trackID=0//trackID＝0表示视频流用的是通道0
       <ul>
         
           <li>
+            <a href="/2017/12/20/娱乐爱好之为娱乐置顶/">【置顶】为头条君而置顶！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/20/娱乐爱好之追星刘德华2/">【追星故事】刘德华，我听过你的歌（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/16/娱乐爱好之追星刘德华1/">【追星故事】刘德华，我听过你的歌（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/16/娱乐爱好之十年刘德华/">刘德华的[十年]您听过吗？</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/31/服务器端开发之微信支付微服务/">微信支付开发小结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/21/node.js学习之settimeout/">node.js中的定时器setInterval</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
           </li>
         
       </ul>

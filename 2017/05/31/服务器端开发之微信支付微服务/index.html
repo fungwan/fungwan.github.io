@@ -12,6 +12,7 @@
 <meta property="og:url" content="http://fungwan.me/2017/05/31/服务器端开发之微信支付微服务/index.html">
 <meta property="og:site_name" content="冯云">
 <meta property="og:description" content="这段时间在忙于微商城项目，在我负责的商城结算模块用到了微信公众号支付，所以便把过程中的一些实践和问题整理了下来！ 1.微信支付环境准备当然，这里的支付准备默认前提是你已经申请了微信公众平台等相关信息。 a.确保微信支付功能开通，可以前往对应的公众号平台查看； b.在公众号的微信支付页面设置支付授权目录; c.前往对应的商户平台设置支付密钥和授权目录，并下载相应的证书文件；">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://i1.piimg.com/1949/24b888a7d6cf4f7e.png">
 <meta property="og:image" content="http://i1.piimg.com/1949/65ed6ae7756815bc.png">
 <meta property="og:image" content="http://i1.piimg.com/1949/5c3192db1596510d.png">
@@ -112,9 +113,9 @@
 <p>c.前往对应的商户平台设置支付密钥和授权目录，并下载相应的证书文件；<br><img src="http://i1.piimg.com/1949/5c3192db1596510d.png" alt="Markdown"><br><a id="more"></a></p>
 <h2 id="2-场景业务流程"><a href="#2-场景业务流程" class="headerlink" title="2.场景业务流程"></a>2.场景业务流程</h2><p>a.用户下单<br><img src="http://i1.piimg.com/1949/73284a36ccea6e99.png" alt="Markdown"></p>
 <p>b.公众号支付<br><img src="http://i1.piimg.com/1949/a4ce689af1aa53a3.png" alt="Markdown"></p>
-<h2 id="3-微信支付服务（wxpayserver）接口描述"><a href="#3-微信支付服务（wxpayserver）接口描述" class="headerlink" title="3.微信支付服务（wxpayserver）接口描述"></a>3.微信支付服务（wxpayserver）接口描述</h2><p>a.正确返回格式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    data:xxx</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="3-微信支付服务（wxpayserver）接口描述"><a href="#3-微信支付服务（wxpayserver）接口描述" class="headerlink" title="3.微信支付服务（wxpayserver）接口描述"></a>3.微信支付服务（wxpayserver）接口描述</h2><p>a.正确返回格式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    data:xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>xxx可以是任意对象，具体值应与相应业务接口返回为准。</p>
-<p>b.错误返回格式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    error:&#123;</div><div class="line">        code:xxx</div><div class="line">        message:xxx</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>b.错误返回格式：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    error:&#123;</span><br><span class="line">        code:xxx</span><br><span class="line">        message:xxx</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>code为错误代码，分为两大类，参数校验类和业务校验类。code值为wxPayError.params为参数校验类错误，其对应的message信息为提示具体的字段错误及其原因。剩余的所有code值都是业务结果错误的返回，具体描述也在message里面</p>
 </blockquote>
@@ -282,7 +283,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2017/05/31/服务器端开发之微信支付微服务/" data-id="cj419rpd0003mw0v0fj1jo29r" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2017/05/31/服务器端开发之微信支付微服务/" data-id="cjbes4kmc0043wgmf6s0bwg91" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -297,6 +298,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/08/16/娱乐爱好之十年刘德华/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          刘德华的[十年]您听过吗？
+        
+      </div>
+    </a>
   
   
     <a href="/2017/01/16/tcpip学习之http缓存/" id="article-nav-older" class="article-nav-link-wrap">
@@ -321,7 +331,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/娱乐爱好/">娱乐爱好</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -339,7 +349,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -351,23 +361,23 @@
       <ul>
         
           <li>
+            <a href="/2017/12/20/娱乐爱好之为娱乐置顶/">【置顶】为头条君而置顶！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/20/娱乐爱好之追星刘德华2/">【追星故事】刘德华，我听过你的歌（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/16/娱乐爱好之追星刘德华1/">【追星故事】刘德华，我听过你的歌（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/16/娱乐爱好之十年刘德华/">刘德华的[十年]您听过吗？</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/31/服务器端开发之微信支付微服务/">微信支付开发小结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/21/node.js学习之settimeout/">node.js中的定时器setInterval</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
           </li>
         
       </ul>

@@ -12,6 +12,7 @@
 <meta property="og:url" content="http://fungwan.me/2015/02/22/tcpip学习之Mqtt/index.html">
 <meta property="og:site_name" content="冯云">
 <meta property="og:description" content="公司新项目可能会用到推送，于是又重拾了有近1年时间没碰过的mqtt。而对于‘推送’本身，当初在选择实现的时候也是作了几番比较，现简要回顾一下。 一般此类的解决方案网上分为了几类（这里就忽略了pull）：  C2DM云端推送功能； MQTT协议实现Android推送功能； XMPP协议实现Android推送功能； 第三方推送平台。  对于第一种，C2DM需要依赖于Google官方提供的C2DM服务器">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-06-17T03:35:18.295Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="好久不见，mqtt">
@@ -110,10 +111,10 @@
 <p>对于第一种，C2DM需要依赖于Google官方提供的C2DM服务器，在国内这个基本不靠谱，放弃。MQTT是一个轻量级的消息发布/订阅协议，也是后来我准备采用的解决方案，实现它的客户端和服务器又丰富。接着是xmpp，该协议较复杂、冗余（基于XML）、费流量、费电，放弃。最后是第三方平台，确实，优点很明显（人家专门做这个，稳定先进），也符合了当前大环境下的web serivce的思想，把不是自己产品的核心功能，靠第三方完成，比如多说。但是，使用第三方会使用人家的服务器，感觉有些地方会受限，而且万一哪天就不免费了呢？<a id="more"></a></p>
 <p>综上，最终我还是准备采用MQTT协议实现Android推送功能，这里给几个参考，</p>
 <ol>
-<li>MQTT的<a href="http://mqtt.org/" title="mqtt" target="_blank" rel="external">官网</a> 地址</li>
-<li>MQTT<a href="http://joyexpr.com/2013/11/27/mqtt/#msg-id" target="_blank" rel="external">协议</a>的中文翻译</li>
-<li>MQTT的<a href="https://github.com/mcollina/mosca" target="_blank" rel="external">服务器端</a>(mosca)实现</li>
-<li>MQTT协议<a href="http://www.blogjava.net/yongboy/archive/2014/02/09/409630.html" target="_blank" rel="external">解析</a></li>
+<li>MQTT的<a href="http://mqtt.org/" title="mqtt" target="_blank" rel="noopener">官网</a> 地址</li>
+<li>MQTT<a href="http://joyexpr.com/2013/11/27/mqtt/#msg-id" target="_blank" rel="noopener">协议</a>的中文翻译</li>
+<li>MQTT的<a href="https://github.com/mcollina/mosca" target="_blank" rel="noopener">服务器端</a>(mosca)实现</li>
+<li>MQTT协议<a href="http://www.blogjava.net/yongboy/archive/2014/02/09/409630.html" target="_blank" rel="noopener">解析</a></li>
 </ol>
 <p>mosca是我准备使用的mqtt服务器，我看在github上作者还是一直在维护着它，而且是node.js实现的，比较对我的胃口。另外学习MQTT并使用好这个推送服务器，第一重要的就应该是清楚它的协议咯，看看人家的设计，这也对以后debug项目的时候有很大的帮助，不然抓包下来分析，你都不知data里面字节对应的意思都不清楚~囧</p>
 <p>后续可能会笔记学习MQTT的相关知识，以及在使用mosca时遇到的一些问题，此次只是为实现推送而引出MQTT的一篇前言~或者说是对技术选型的一次回顾吧，并没有涉及到MQTT里面的知识。</p>
@@ -122,7 +123,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/02/22/tcpip学习之Mqtt/" data-id="cj419rpc5002fw0v0l1rpre5u" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/02/22/tcpip学习之Mqtt/" data-id="cjbes4ki5002bwgmfrwfxwxyx" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -170,7 +171,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/娱乐爱好/">娱乐爱好</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -188,7 +189,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -200,23 +201,23 @@
       <ul>
         
           <li>
+            <a href="/2017/12/20/娱乐爱好之为娱乐置顶/">【置顶】为头条君而置顶！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/20/娱乐爱好之追星刘德华2/">【追星故事】刘德华，我听过你的歌（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/16/娱乐爱好之追星刘德华1/">【追星故事】刘德华，我听过你的歌（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/16/娱乐爱好之十年刘德华/">刘德华的[十年]您听过吗？</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/31/服务器端开发之微信支付微服务/">微信支付开发小结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/21/node.js学习之settimeout/">node.js中的定时器setInterval</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
           </li>
         
       </ul>

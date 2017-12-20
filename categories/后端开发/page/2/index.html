@@ -11,6 +11,7 @@
 <meta property="og:url" content="http://fungwan.me/categories/后端开发/page/2/index.html">
 <meta property="og:site_name" content="冯云">
 <meta property="og:description" content="Just do it!">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="冯云">
 <meta name="twitter:description" content="Just do it!">
@@ -131,7 +132,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cj419rpd0003dw0v0j195ji6z" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cjbes4kl2003kwgmfa4q25y3c" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -183,7 +184,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/" data-id="cj419rpbp0021w0v0xa1kze02" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/" data-id="cjbes4khh0020wgmfa1a6zjqy" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -227,12 +228,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>因为特殊原因，项目里node服务器需要部署在windowsServer上（怀念阿里云啊），很明显之前的forever神器就不能用了。但是回到现实中该怎么在windows上部署呢？不可能叫人家开个cmd窗口吧？怪怪的感觉，而且管理员稍不注意还容易将cmd误操作将其关闭！难不成再叫人家到目标目录，node app.js？</p>
-<p>后来到网上搜索找到了一篇文章 <a href="http://www.oschina.net/question/12_18694?sort=time" title="ruan" target="_blank" rel="external">将node.js程序注册为windows服务</a>，然后按照上面的方法照做，也下载了文中提到的两个必备工具：</p>
+<p>后来到网上搜索找到了一篇文章 <a href="http://www.oschina.net/question/12_18694?sort=time" title="ruan" target="_blank" rel="noopener">将node.js程序注册为windows服务</a>，然后按照上面的方法照做，也下载了文中提到的两个必备工具：</p>
 <ol>
 <li>Instrsrv.exe installs and removes system services from Windows NT.</li>
 <li>Srvany.exe allows any Windows NT application to run as a service.</li>
 </ol>
-<p>最后比较遗憾的是，尽管在windows服务里面也查看到了我已经注册到的服务，但是怎么都跑不起来，重启也是一个情况。顺带说一句，它这个方案真是麻烦又难用。于是继续搜索，后来终于找到了一个工具可以解决，一个叫<strong>nssm</strong>的工具（“the Non-Sucking Service Manager”），它会监控你安装的node服务，如果node挂了，nssm会自动重启它。可以看<a href="http://nssm.cc/" title="nssm" target="_blank" rel="external">官网</a>深入了解。
+<p>最后比较遗憾的是，尽管在windows服务里面也查看到了我已经注册到的服务，但是怎么都跑不起来，重启也是一个情况。顺带说一句，它这个方案真是麻烦又难用。于是继续搜索，后来终于找到了一个工具可以解决，一个叫<strong>nssm</strong>的工具（“the Non-Sucking Service Manager”），它会监控你安装的node服务，如果node挂了，nssm会自动重启它。可以看<a href="http://nssm.cc/" title="nssm" target="_blank" rel="noopener">官网</a>深入了解。
         
           <p class="article-more-link">
             <a href="/2015/06/28/node.js学习之作为windows服务/#more">Read More</a>
@@ -242,7 +243,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cj419rpbp001rw0v0u203y0hp" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cjbes4kgr001qwgmfry1p1vrh" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -295,7 +296,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="cj419rpd0003pw0v0361uibou" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="cjbes4kmo0046wgmfvudrjgb2" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -339,9 +340,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在node.js里面获取本机IP很简单，在OS模块里面，直接调用networkInterfaces()，就可以列出你机子的所有网络接口的信息,它返回的是一个数组，如官网列出的信息：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123; <span class="attr">lo0</span>: </div><div class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'::1'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'fe80::1'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'127.0.0.1'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125; ],</div><div class="line">  <span class="attr">en1</span>: </div><div class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'fe80::cabc:c8ff:feef:f996'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>,</div><div class="line">       <span class="attr">internal</span>: <span class="literal">false</span> &#125;,</div><div class="line">     &#123; <span class="attr">address</span>: <span class="string">'10.0.1.123'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">vmnet1</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.99.99.254'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">vmnet8</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.88.88.1'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</div><div class="line">  <span class="attr">ppp0</span>: [ &#123; <span class="attr">address</span>: <span class="string">'10.2.0.231'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ] &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">lo0</span>: </span><br><span class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'::1'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">     &#123; <span class="attr">address</span>: <span class="string">'fe80::1'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">     &#123; <span class="attr">address</span>: <span class="string">'127.0.0.1'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">true</span> &#125; ],</span><br><span class="line">  en1: </span><br><span class="line">   [ &#123; <span class="attr">address</span>: <span class="string">'fe80::cabc:c8ff:feef:f996'</span>, <span class="attr">family</span>: <span class="string">'IPv6'</span>,</span><br><span class="line">       internal: <span class="literal">false</span> &#125;,</span><br><span class="line">     &#123; <span class="attr">address</span>: <span class="string">'10.0.1.123'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</span><br><span class="line">  vmnet1: [ &#123; <span class="attr">address</span>: <span class="string">'10.99.99.254'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</span><br><span class="line">  vmnet8: [ &#123; <span class="attr">address</span>: <span class="string">'10.88.88.1'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ],</span><br><span class="line">  ppp0: [ &#123; <span class="attr">address</span>: <span class="string">'10.2.0.231'</span>, <span class="attr">family</span>: <span class="string">'IPv4'</span>, <span class="attr">internal</span>: <span class="literal">false</span> &#125; ] &#125;</span><br></pre></td></tr></table></figure>
 <p>据此，我们可以根据实际需要取到相应的值：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIPAdress</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> interfaces = <span class="built_in">require</span>(<span class="string">'os'</span>).networkInterfaces();</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> devName <span class="keyword">in</span> interfaces)&#123;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> iface = interfaces[devName];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;iface.length;i++)&#123;</div><div class="line">            <span class="keyword">var</span> alias = iface[i];</div><div class="line">            <span class="keyword">if</span>(alias.family === <span class="string">'IPv4'</span> &amp;&amp; alias.address !== <span class="string">'127.0.0.1'</span> &amp;&amp; !alias.internal)&#123;</div><div class="line">                <span class="keyword">return</span> alias.address;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getIPAdress</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> interfaces = <span class="built_in">require</span>(<span class="string">'os'</span>).networkInterfaces();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> devName <span class="keyword">in</span> interfaces)&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> iface = interfaces[devName];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;iface.length;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> alias = iface[i];</span><br><span class="line">            <span class="keyword">if</span>(alias.family === <span class="string">'IPv4'</span> &amp;&amp; alias.address !== <span class="string">'127.0.0.1'</span> &amp;&amp; !alias.internal)&#123;</span><br><span class="line">                <span class="keyword">return</span> alias.address;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             <a href="/2015/01/07/node.js学习之获取本机IP/#more">Read More</a>
@@ -351,7 +352,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/" data-id="cj419rpc50025w0v0oou39ott" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/" data-id="cjbes4khy0027wgmf49ik6gva" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -381,7 +382,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/娱乐爱好/">娱乐爱好</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -399,7 +400,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -411,23 +412,23 @@
       <ul>
         
           <li>
+            <a href="/2017/12/20/娱乐爱好之为娱乐置顶/">【置顶】为头条君而置顶！</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/20/娱乐爱好之追星刘德华2/">【追星故事】刘德华，我听过你的歌（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/16/娱乐爱好之追星刘德华1/">【追星故事】刘德华，我听过你的歌（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2017/08/16/娱乐爱好之十年刘德华/">刘德华的[十年]您听过吗？</a>
+          </li>
+        
+          <li>
             <a href="/2017/05/31/服务器端开发之微信支付微服务/">微信支付开发小结</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/16/tcpip学习之http缓存/">记录下http的缓存策略</a>
-          </li>
-        
-          <li>
-            <a href="/2016/07/21/node.js学习之settimeout/">node.js中的定时器setInterval</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/15/js学习之通信传输中文的坑/">踩中文的坑</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
           </li>
         
       </ul>
