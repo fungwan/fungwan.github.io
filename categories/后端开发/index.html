@@ -40,6 +40,10 @@
           <a href="/" id="subtitle">踏踏实实工作，健健康康生活!</a>
         </h2>
       
+	  <audio src="http://7u2nix.com1.z0.glb.clouddn.com/500miles.mp3" 
+		controls="controls" autoplay="autoplay">
+		Your browser does not support the audio element.
+	  </audio>
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
@@ -74,6 +78,228 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-后台开发之走取购订单合并支付" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/22/后台开发之走取购订单合并支付/" class="article-date">
+  <time datetime="2018-04-22T13:35:12.000Z" itemprop="datePublished">4月 22 2018</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/22/后台开发之走取购订单合并支付/">走取购项目-关于合并支付的解决方案</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前的一篇文章回顾了「走取购」应对订单拆单的解决方案，但还有一点没有说完，那就是支付的问题。因为我们不免出现以下的情况：</p>
+<p>1.多条订单创建完成之后， 不可能需要用户分开支付多次，一定是唤起一次支付宝/微信就支付完成；<br>2.用户可能放弃这次支付，然后又选择了支付其中某一笔订单，或其中订单列表里面待支付的另外两笔；</p>
+<p>所以在这样的场景下，订单与支付不可能再像没有合并支付功能那样，属于同一条数据或者一对一关系了。
+        
+          <p class="article-more-link">
+            <a href="/2018/04/22/后台开发之走取购订单合并支付/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2018/04/22/后台开发之走取购订单合并支付/" data-id="cjhfugdmc003i5sw8fcctcwrm" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2018/04/22/后台开发之走取购订单合并支付/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-后台开发之走取购订单拆单" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/11/后台开发之走取购订单拆单/" class="article-date">
+  <time datetime="2018-03-11T12:24:12.000Z" itemprop="datePublished">3月 11 2018</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/11/后台开发之走取购订单拆单/">走取购项目-思考订单拆单逻辑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在v1.1的版本之前，走取购的订单模块应付的业务场景比较简单，具体表现在所有的商品购买最终只会生成1笔订单，不过随着产品的需求升级，系统需要对接第三方渠道的商品，不仅仅是自营，例如还有网易严选，唯品会等等。</p>
+<p>对于新版本的要求，由于商品的来源渠道不同，促销方式和物流等亦不相同，不可能跟之前的版本一样处理成为1笔订单了，自然第一反应想到的肯定是拆单，但具体到方案落实上呢？</p>
+<p>为了响应本次需求，我还特意参考了其他主流电商网站的做法，主要是当当，京东。发现它们的需求场景跟我们大致一样，都是同有自营商品之外，另外有其他渠道/入驻店铺的商品，客户端用户则可以自由组合进行统一下单。</p>
+<p>而对于拆单的时机，上面的两个网站处理方式就稍显不同了：
+        
+          <p class="article-more-link">
+            <a href="/2018/03/11/后台开发之走取购订单拆单/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2018/03/11/后台开发之走取购订单拆单/" data-id="cjhfugdma003g5sw80gvrsn8s" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2018/03/11/后台开发之走取购订单拆单/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-后台开发之走取购防止超卖" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/02/后台开发之走取购防止超卖/" class="article-date">
+  <time datetime="2018-02-02T14:44:12.000Z" itemprop="datePublished">2月 2 2018</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/02/后台开发之走取购防止超卖/">走取购项目-防止库存超卖</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前的一篇文章回顾了「走取购」创建订单时库存的扣减时机。今天再来看看项目对于库存超卖的解决办法。</p>
+<p>什么是库存“超卖”？其实简单来讲就是多卖了，库存的数量变成了小于0。为什么会出现这种情况，因为明明在扣减库存的时候会去检查剩余数量，然后再进行减法运算。</p>
+<p>是的，明面上看这是没什么问题，似乎挺合理的，看下伪代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public <span class="built_in">Boolean</span> reduceStocks(<span class="built_in">String</span> goodsId,int number)&#123;</span><br><span class="line">	Goods goodsEntity = goodsDAO.findOne(goodsId);</span><br><span class="line">	<span class="keyword">if</span>(goodsEntity.getStock() &gt;= number)&#123;</span><br><span class="line">		goodsDAO.reduceStock(goodsId,number);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这段简单的代码，如果是放在单线程里面执行，或者不是在高并发的场景下，一般不会发生库存超卖的情况，否则的话，是有大概率使其库存为负数的。
+        
+          <p class="article-more-link">
+            <a href="/2018/02/02/后台开发之走取购防止超卖/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2018/02/02/后台开发之走取购防止超卖/" data-id="cjhfugdmd003l5sw8wnt6z4p5" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2018/02/02/后台开发之走取购防止超卖/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-后台开发之走取购库存扣减" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/25/后台开发之走取购库存扣减/" class="article-date">
+  <time datetime="2018-01-25T11:44:12.000Z" itemprop="datePublished">1月 25 2018</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/25/后台开发之走取购库存扣减/">走取购项目-谈库存扣减时机</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于库存的扣减时机，其主流的做法分为了两种：</p>
+<p> 1.用户在客户端立即下单后，系统扣减（锁定）对应数量的库存；<br> 2.用户在客户端立即下单，直至用户付款成功后，系统扣减（锁定）对应数量的库存；
+        
+          <p class="article-more-link">
+            <a href="/2018/01/25/后台开发之走取购库存扣减/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2018/01/25/后台开发之走取购库存扣减/" data-id="cjhfugdm8003c5sw8qkr42iwl" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2018/01/25/后台开发之走取购库存扣减/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-服务器端开发之微信支付微服务" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/31/服务器端开发之微信支付微服务/" class="article-date">
@@ -102,9 +328,9 @@
       
         <p>这段时间在忙于微商城项目，在我负责的商城结算模块用到了微信公众号支付，所以便把过程中的一些实践和问题整理了下来！</p>
 <h2 id="1-微信支付环境准备"><a href="#1-微信支付环境准备" class="headerlink" title="1.微信支付环境准备"></a>1.微信支付环境准备</h2><p><strong>当然，这里的支付准备默认前提是你已经申请了微信公众平台等相关信息。</strong></p>
-<p>a.确保微信支付功能开通，可以前往对应的公众号平台查看；<br><img src="http://i1.piimg.com/1949/24b888a7d6cf4f7e.png" alt="Markdown"></p>
-<p>b.<strong>在公众号的微信支付页面设置支付授权目录;</strong><br><img src="http://i1.piimg.com/1949/65ed6ae7756815bc.png" alt="Markdown"></p>
-<p>c.前往对应的商户平台设置支付密钥和授权目录，并下载相应的证书文件；<br><img src="http://i1.piimg.com/1949/5c3192db1596510d.png" alt="Markdown"><br>
+<p>a.确保微信支付功能开通，可以前往对应的公众号平台查看；<br><img src="http://7u2nix.com1.z0.glb.clouddn.com/%E6%94%AF%E4%BB%981.png" alt="Markdown"></p>
+<p>b.<strong>在公众号的微信支付页面设置支付授权目录;</strong><br><img src="http://7u2nix.com1.z0.glb.clouddn.com/%E6%94%AF%E4%BB%982.png" alt="Markdown"></p>
+<p>c.前往对应的商户平台设置支付密钥和授权目录，并下载相应的证书文件；<br><img src="http://7u2nix.com1.z0.glb.clouddn.com/%E6%94%AF%E4%BB%983.png" alt="Markdown"><br>
         
           <p class="article-more-link">
             <a href="/2017/05/31/服务器端开发之微信支付微服务/#more">Read More</a>
@@ -114,7 +340,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2017/05/31/服务器端开发之微信支付微服务/" data-id="cjbes4kmc0043wgmf6s0bwg91" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2017/05/31/服务器端开发之微信支付微服务/" data-id="cjhfugdml003v5sw8t2kzw709" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -123,256 +349,6 @@
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wechat/">wechat</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之settimeout" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/07/21/node.js学习之settimeout/" class="article-date">
-  <time datetime="2016-07-21T09:44:12.000Z" itemprop="datePublished">7月 21 2016</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/21/node.js学习之settimeout/">node.js中的定时器setInterval</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>定时器相信大家都用过，而且才开始接触时，老是与线程混淆(特别是自己原来写MFC程序时)，这里有一篇文章对这两个概念作了很好的对比【<a href="http://blog.csdn.net/wangweitingaabbcc/article/details/6723606" target="_blank" rel="noopener">定时器和多线程对比</a>】。这里我只是在node.js层面作个补充。
-        
-          <p class="article-more-link">
-            <a href="/2016/07/21/node.js学习之settimeout/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2016/07/21/node.js学习之settimeout/" data-id="cjbes4kgj001nwgmf45og3g8y" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2016/07/21/node.js学习之settimeout/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之pm2记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/02/18/node.js学习之pm2记录/" class="article-date">
-  <time datetime="2016-02-18T05:22:12.000Z" itemprop="datePublished">2月 18 2016</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/18/node.js学习之pm2记录/">PM2的学习记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近项目上线，准备上pm2，一个带有负载均衡功能的Node应用的进程管理器。抛弃forever了，哈哈。</p>
-<p>主要特性：</p>
-<ol>
-<li>内建负载均衡（使用Node cluster 集群模块）</li>
-<li>后台运行</li>
-<li>0秒停机重载，我理解大概意思是维护升级的时候不需要停机.</li>
-<li>具有Ubuntu和CentOS 的启动脚本</li>
-<li>停止不稳定的进程（避免无限循环</li>
-<li>控制台检测</li>
-<li>提供 HTTP API</li>
-<li>远程控制和实时的接口API ( Nodejs 模块,允许和PM2进程管理器交互 )</li>
-</ol>
-<p>下面是有用的命令：</p>
-<blockquote>
-<p>npm install pm2 -g     # 命令行安装 pm2<br>pm2 start app.js -i 4 #后台运行pm2，启动4个app.js<br>pm2 start app.js –name my-api # 命名进程<br><strong>pm2 list</strong>               # 显示所有进程状态<br><strong>pm2 show 0</strong>               # 显示某个id的进程状态<br><strong>pm2 monit</strong>              # 监视所有进程<br>pm2 logs               #  显示所有进程日志<br>pm2 stop all           # 停止所有进程<br>pm2 restart all        # 重启所有进程<br>pm2 reload all         # 0秒停机重载进程 (用于 NETWORKED 进程)<br>pm2 stop 0             # 停止指定的进程<br>pm2 restart 0          # 重启指定的进程<br>pm2 startup            # 产生 init 脚本 保持进程活着<br>pm2 web                # 运行健壮的 computer API endpoint<br>pm2 delete 0           # 杀死指定的进程<br>pm2 delete all         # 杀死全部进程</p>
-</blockquote>
-<p>运行进程的不同方式：<br>
-        
-          <p class="article-more-link">
-            <a href="/2016/02/18/node.js学习之pm2记录/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2016/02/18/node.js学习之pm2记录/" data-id="cjbes4kfm001ewgmfq7h0e46r" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2016/02/18/node.js学习之pm2记录/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-服务器端开发之rabbitmq无法登陆" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/" class="article-date">
-  <time datetime="2015-08-25T03:50:38.000Z" itemprop="datePublished">8月 25 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/25/服务器端开发之rabbitmq无法登陆/">解决rabbitMQ无法远程登录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>搭建好了rabbitmq集群后，自己想测试一下，于是通过rabbitmq的node.js lib去连了一下，我这里直接连的是proxy节点，但是迟迟没反应，没有收到回复消息，于是跑上去看日志，上面确实是收到了我的连接请求，但是proxy节点却在转发的时候出了问题，它始终连接不上下面的节点，难道是防火墙的问题，不会吧？我三台机子可是全部关闭了的，后来几经查证，确认了是rabbitmq自身机制问题引发的。</p>
-<p>原因是出于安全的考虑，guest这个默认的用户只能通过<a href="http://localhost:15672" target="_blank" rel="noopener">http://localhost:15672</a> 来登录，不能使用IP地址登录，也就是不能远程访问，这样的话，对于服务器上没有安装桌面的情况是不方便管理维护的（不用代码的方式）。
-        
-          <p class="article-more-link">
-            <a href="/2015/08/25/服务器端开发之rabbitmq无法登陆/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/08/25/服务器端开发之rabbitmq无法登陆/" data-id="cjbes4klz003wwgmfmv6zxqmu" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/08/25/服务器端开发之rabbitmq无法登陆/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitMQ/">rabbitMQ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-服务器端开发之rabbitmq集群搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/18/服务器端开发之rabbitmq集群搭建/" class="article-date">
-  <time datetime="2015-08-18T08:48:15.000Z" itemprop="datePublished">8月 18 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/18/服务器端开发之rabbitmq集群搭建/">rabbitMQ集群搭建</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本文笔记的是rabbitMQ集群搭建（镜像模式），同参考教程一样，设计模型为，在一个集群里，有3台机器，其中1台使用磁盘模式，另1台使用内存模式。内存模式的节点，无疑速度更快，因此客户端（consumer、producer）连接访问它。而磁盘模式的节点（RabbitMQ启动后，默认是磁盘节点），由于磁盘IO相对较慢，因此仅作数据备份使用，另外一台作为反向代理。接下来是具体配置：</p>
-<ol>
-<li><p>修改主机名</p>
-<p> 输入vim /etc/sysconfig/network后，将HOSTNAME后面的值改为想要设置的主机名</p>
-<p> 输入vim /etc/hosts后，将localhost.localdomain改为想要设置的主机名。</p>
-<p> reboot命令，重新启动服务器后，输入hostname查看主机名是否修改</p>
-<p> 修改主机名的意义在于以后以此区分各个节点</p>
-</li>
-</ol>
-<ol>
-<li><p>修改host文件</p>
-<p> 在安装好的两台节点服务器中，分别修改/etc/hosts文件，如：</p>
-<pre><code>172.16.3.32 queue
-
-172.16.3.107 influx
-
-172.16.3.109 proxy
-</code></pre></li>
-</ol>
-<ol>
-<li><p>设置每个节点Cookie</p>
-<p> Rabbitmq的集群是依赖于erlang的集群来工作的，所以必须先构建起erlang的集群环境。Erlang的集群中各节点是通过一个magic cookie来实现的，这个cookie存放在 /var/lib/rabbitmq/.erlang.cookie 中，文件是400的权限。所以必须保证各节点cookie保持一致，否则节点之间就无法通信。
-        
-          <p class="article-more-link">
-            <a href="/2015/08/18/服务器端开发之rabbitmq集群搭建/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/" data-id="cjbes4km6003zwgmfp7soagaw" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2015/08/18/服务器端开发之rabbitmq集群搭建/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitMQ/">rabbitMQ</a></li></ul>
 
     </footer>
   </div>
@@ -394,7 +370,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/娱乐爱好/">娱乐爱好</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -403,7 +379,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 16px;">Tcp/Ip</a> <a href="/tags/exports/" style="font-size: 14px;">exports</a> <a href="/tags/https-ssl/" style="font-size: 12px;">https ssl</a> <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/javascript-正则表达式/" style="font-size: 10px;">javascript 正则表达式</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oauth2-0/" style="font-size: 10px;">oauth2.0</a> <a href="/tags/package-json/" style="font-size: 10px;">package.json</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/rabbitMQ/" style="font-size: 14px;">rabbitMQ</a> <a href="/tags/rtsp/" style="font-size: 10px;">rtsp</a> <a href="/tags/wechat/" style="font-size: 10px;">wechat</a> <a href="/tags/孕期饮食/" style="font-size: 10px;">孕期饮食</a> <a href="/tags/日常问题/" style="font-size: 10px;">日常问题</a> <a href="/tags/春天怀孕记/" style="font-size: 10px;">春天怀孕记</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 16.67px;">Tcp/Ip</a> <a href="/tags/exports/" style="font-size: 13.33px;">exports</a> <a href="/tags/https-ssl/" style="font-size: 11.67px;">https ssl</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/javascript/" style="font-size: 18.33px;">javascript</a> <a href="/tags/javascript-正则表达式/" style="font-size: 10px;">javascript 正则表达式</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oauth2-0/" style="font-size: 10px;">oauth2.0</a> <a href="/tags/package-json/" style="font-size: 10px;">package.json</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/rabbitMQ/" style="font-size: 13.33px;">rabbitMQ</a> <a href="/tags/rtsp/" style="font-size: 10px;">rtsp</a> <a href="/tags/wechat/" style="font-size: 10px;">wechat</a> <a href="/tags/孕期饮食/" style="font-size: 10px;">孕期饮食</a> <a href="/tags/日常问题/" style="font-size: 10px;">日常问题</a> <a href="/tags/春天怀孕记/" style="font-size: 10px;">春天怀孕记</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     </div>
   </div>
 
@@ -412,7 +388,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -424,19 +400,19 @@
       <ul>
         
           <li>
-            <a href="/2017/12/20/娱乐爱好之为娱乐置顶/">【置顶】为头条君而置顶！</a>
+            <a href="/2018/04/22/后台开发之走取购订单合并支付/">走取购项目-关于合并支付的解决方案</a>
           </li>
         
           <li>
-            <a href="/2017/11/20/娱乐爱好之追星刘德华2/">【追星故事】刘德华，我听过你的歌（二）</a>
+            <a href="/2018/03/11/后台开发之走取购订单拆单/">走取购项目-思考订单拆单逻辑</a>
           </li>
         
           <li>
-            <a href="/2017/11/16/娱乐爱好之追星刘德华1/">【追星故事】刘德华，我听过你的歌（一）</a>
+            <a href="/2018/02/02/后台开发之走取购防止超卖/">走取购项目-防止库存超卖</a>
           </li>
         
           <li>
-            <a href="/2017/08/16/娱乐爱好之十年刘德华/">刘德华的[十年]您听过吗？</a>
+            <a href="/2018/01/25/后台开发之走取购库存扣减/">走取购项目-谈库存扣减时机</a>
           </li>
         
           <li>
@@ -475,12 +451,13 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 fungwan
+      &copy; 2018 fungwan
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>
 	  
-	  <embed src="http://music.163.com/style/swf/widget.swf?sid=286602&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed>
+	  <!-- embed src="http://music.163.com/style/swf/widget.swf?sid=286602&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed -->
+	  <!-- embed src="http://www.xiami.com/widget/0_2079912/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed -->
     </div>
   </div>
 </footer>

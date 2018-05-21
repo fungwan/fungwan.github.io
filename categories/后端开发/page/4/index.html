@@ -40,6 +40,10 @@
           <a href="/" id="subtitle">踏踏实实工作，健健康康生活!</a>
         </h2>
       
+	  <audio src="http://7u2nix.com1.z0.glb.clouddn.com/500miles.mp3" 
+		controls="controls" autoplay="autoplay">
+		Your browser does not support the audio element.
+	  </audio>
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
@@ -73,6 +77,223 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-node.js学习之单线程解惑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/30/node.js学习之单线程解惑/" class="article-date">
+  <time datetime="2014-12-30T04:44:12.000Z" itemprop="datePublished">12月 30 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/30/node.js学习之单线程解惑/">解惑node中的单线程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这里说一下node.js中的单线程缘由还是基于前段时间公司内部培训同事提出的问题：在网络通讯编程中，按照以往的语言或平台，应对成百上千的socket连接时，往往都会利用多线程的特性，对每个连接开启子线程分别接收数据再处理。那么在node.js中它是单线程，是基于事件响应的，即将每个的连接、处理事件会放到一个事件队列里面依次处理。那么问题来了，同事说如果某一个连接上来以后，一直在给服务器发送数据，那么排在事件队列后面的连接怎么处理，会一直等待吗？这个当然不是，下面我先用一个例子来说明一下这个问题的答案，方便理解。</p>
+<p>我们准备模拟这样一个场景：一个客户端向服务器发起tcp连接，成功之后，客户端一直给服务器发送数据，而服务器收到数据后只是作一个回显。然后，我们再用一个客户端向该服务器发起tcp连接，同样发送数据，这时看服务器会不会因为接收上一个连接的持续发送数据，而不能去处理第二个tcp连接的数据发送。
+        
+          <p class="article-more-link">
+            <a href="/2014/12/30/node.js学习之单线程解惑/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/12/30/node.js学习之单线程解惑/" data-id="cjhfugdl6001q5sw8m6lkx4er" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/12/30/node.js学习之单线程解惑/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-markdown学习之常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/23/markdown学习之常用命令/" class="article-date">
+  <time datetime="2014-12-23T09:44:12.000Z" itemprop="datePublished">12月 23 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/23/markdown学习之常用命令/">常用的markdown标记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Markdown<br>平常用markdown的时间不多，所以每次用它来写日志的时候都容易忘记，为此总结一些平常自己会经常用到的标记，方便查看（代码和效果同时附上），此后也会持续更新…</p>
+<p>###图片<br>为致敬女神，图片格式放最前，^_^<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![Alt text](<span class="regexp">/img/</span>hexie.jpg <span class="string">"Optional title"</span>)</span><br></pre></td></tr></table></figure></p>
+<p><img src="/img/songdaofeng.jpg" alt="" title="入门老师"><br>
+        
+          <p class="article-more-link">
+            <a href="/2014/12/23/markdown学习之常用命令/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/12/23/markdown学习之常用命令/" data-id="cjhfugdkk000w5sw8v1blw95o" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/12/23/markdown学习之常用命令/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node.js学习之promise实现" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/11/node.js学习之promise实现/" class="article-date">
+  <time datetime="2014-11-11T09:44:13.000Z" itemprop="datePublished">11月 11 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/11/node.js学习之promise实现/">node中异步回调解决方案之promise</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以前在其他开发平台写码习惯了同步的写法，现在切换到node.js里面的异步特性，还是有一点的不习惯，起初还不怎么觉得，但当遇到数据库的操作，并且需要其返回的数据作下一步的逻辑时，问题就出来了，后面的逻辑都会写在前一个异步的回调里面，如此炮制，最后的结果就是一个金字塔似的回调噩梦就产生了。</p>
+<p>那么如何解决这样的噩梦呢？其实不管是网上还是其他渠道的资料上都有其针对异步的解决方案，而我是在看了张丹老师的博文后，决定尝试使用asyn库，并且应用在了实际的项目中来，效果不错。而今天我要笔记的是另外一种异步的解决方案-promise。
+        
+          <p class="article-more-link">
+            <a href="/2014/11/11/node.js学习之promise实现/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/11/11/node.js学习之promise实现/" data-id="cjhfugdkz001l5sw8aff0tn7v" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/11/11/node.js学习之promise实现/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/promise/">promise</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-node.js学习之npm_install失败" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/06/node.js学习之npm_install失败/" class="article-date">
+  <time datetime="2014-11-06T01:44:12.000Z" itemprop="datePublished">11月 6 2014</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/06/node.js学习之npm_install失败/">npm install经常失败解决方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前在使用node.js的好基友npm包管理器install模块的时候，间断性的失败，而且是屡试不爽，后来网上了解到和我有相同遭遇的朋友们不在少数。原因就在于npm包管理服务器在米国，而我们有骄傲的GFW，故导致上述install不稳定的情况。所以，为了更好的使用体验采用了淘宝的 NPM 镜像，它是一个完整的npmjs.org镜像。</p>
+<p>*1.通过定制的 cnpm 命令行工具代替默认的 npm<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=http:<span class="comment">//registry.npm.taobao.org</span></span><br></pre></td></tr></table></figure></p>
+<p>*2.安装具体模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install [name]</span><br></pre></td></tr></table></figure>
+<p><code>tips</code>:当安装的时候发现安装的模块还没有同步过来, 淘宝 NPM 会自动在后台进行同步, 并且会让你从官方 NPM registry.npmjs.org 进行安装. 下次你再安装这个模块的时候, 就会直接从 淘宝 NPM 安装了.</p>
+<p>*3.同步模块（直接通过 sync 命令马上同步一个模块）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm sync connect</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/" data-id="cjhfugdku001b5sw8bw1vrbr9" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      
+        <a href="http://fungwan.me/2014/11/06/node.js学习之npm_install失败/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-node.js学习之packageJson管理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -134,7 +355,7 @@ path/path/path 以本地地址作为依赖
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2014/10/25/node.js学习之packageJson管理/" data-id="cjbes4kfy001hwgmfvmpi2ai7" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://fungwan.me/2014/10/25/node.js学习之packageJson管理/" data-id="cjhfugdkv001e5sw8qgn2roso" class="article-share-link" data-share="baidu">分享到</a>
       
 
       
@@ -143,231 +364,6 @@ path/path/path 以本地地址作为依赖
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/package-json/">package.json</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之定时任务" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/11/node.js学习之定时任务/" class="article-date">
-  <time datetime="2014-10-11T08:44:12.000Z" itemprop="datePublished">10月 11 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/11/node.js学习之定时任务/">node-schedule的使用说明</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这篇笔记内容很简单，就只是记录一下node-schedule的使用方法，特别是在初始化一个定时任务时，需要传递的参数的写法含义。</p>
-<p>先看一段代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> schedule = <span class="built_in">require</span>(<span class="string">'node-schedule'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createScheduleCron</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    schedule.scheduleJob(<span class="string">'30 * * * * *'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'excute scheduleCronstyle:'</span> + <span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">    &#125;); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">createScheduleCron();</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2014/10/11/node.js学习之定时任务/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/10/11/node.js学习之定时任务/" data-id="cjbes4khc001xwgmf5owroy1b" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/10/11/node.js学习之定时任务/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之module.exports与exports的区别" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/30/node.js学习之module.exports与exports的区别/" class="article-date">
-  <time datetime="2014-09-30T04:44:12.000Z" itemprop="datePublished">9月 30 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/30/node.js学习之module.exports与exports的区别/">node.js中module.exports与exports的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们在阅读它人或开源的node.js代码时，会发现在对模块导出的写法上会出现下面几种情况，而关于导出的方法整理，可以参见我这篇文章<a href="http://fungwan.me/2014/09/29/node.js%E5%AD%A6%E4%B9%A0%E4%B9%8Bexports/">node.js中exports的用法整理</a>。现在，我们以导出字符串对象为例：</p>
-<p>在module.js文件中，有如下写法：</p>
-<ul>
-<li>1.exports.get_name = ‘fungwan by exports ‘;</li>
-<li>2.module.exports.get_name = ‘fungwan by modules’;</li>
-<li>3.module.exports = ‘fungwan by modules’;</li>
-</ul>
-<p>通过对比发现，这里较之前多了module.exports，那么它跟exports的导出有什么关系呢？查阅资料即可知晓，其实exports就是module.exports对象的引用，本质上是相等的。我们可以通过这句代码证实：</p>
-        
-          <p class="article-more-link">
-            <a href="/2014/09/30/node.js学习之module.exports与exports的区别/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/" data-id="cjbes4kf20017wgmfuq3uxe7e" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/09/30/node.js学习之module.exports与exports的区别/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之exports" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/29/node.js学习之exports/" class="article-date">
-  <time datetime="2014-09-29T10:44:12.000Z" itemprop="datePublished">9月 29 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/29/node.js学习之exports/">node.js中exports的用法整理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>相信很多跟我一样是node.js新手的同学对模块的导出或多或少有些混淆，现在我把exports对象的方式整理一下，其中包含了模块中需要导出的string对象、json对象、函数、类对象。</p>
-<p>我们将需要导出的模块就命名为module.js，通过下面的代码导出需要的对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">exports.some_words = <span class="string">'this is string'</span>;<span class="comment">//导出一个字符串</span></span><br><span class="line"></span><br><span class="line">exports.some_fun = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="comment">//导出一个函数</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this is function'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">exports.jsonObj = &#123;</span><br><span class="line">    name : <span class="string">'fungwan'</span>,</span><br><span class="line">    sex  : <span class="string">'man'</span>,</span><br><span class="line">    run  : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'love running!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//导出一个类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">helper</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> number = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">this</span>.do = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'I can help you!'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">helper.prototype.giveMoney = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'I have lots of cash!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">exports.c_help = helper;</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2014/09/29/node.js学习之exports/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/09/29/node.js学习之exports/" data-id="cjbes4keo0010wgmfbyywpgl7" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/09/29/node.js学习之exports/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exports/">exports</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-node.js学习之解决Node在centos上无法访问" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/08/09/node.js学习之解决Node在centos上无法访问/" class="article-date">
-  <time datetime="2014-08-09T05:44:12.000Z" itemprop="datePublished">8月 9 2014</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/09/node.js学习之解决Node在centos上无法访问/">解决Node在centos上无法访问</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>将Node安装在了centos 上，发现在主机上并不能访问虚拟机上centos的node服务器，但是虚拟机能访问自己的web。各自都可ping通对方的IP。虚拟机采用的NAT的方式。后来查阅了资料，可能是防火墙的原因。<br>服务器的5858端口被防火墙堵了，可在主机通过命令：telnet server_ip 5858 来测试。</p>
-<p>解决方案：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sbin/iptables -I INPUT -p tcp --dport <span class="number">5858</span> -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>然后保存：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/rc.d/init.d/iptables save</span><br></pre></td></tr></table></figure></p>
-<p>重启防火墙</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/iptables restart</span><br></pre></td></tr></table></figure>
-<p>再在主机访问OK！</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2014/08/09/node.js学习之解决Node在centos上无法访问/" data-id="cjbes4kht0024wgmfui6yfkl7" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      
-        <a href="http://fungwan.me/2014/08/09/node.js学习之解决Node在centos上无法访问/#ds-thread" class="article-comment-link">Comments</a>
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node-js/">node.js</a></li></ul>
 
     </footer>
   </div>
@@ -389,7 +385,7 @@ path/path/path 以本地地址作为依赖
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/娱乐爱好/">娱乐爱好</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -398,7 +394,7 @@ path/path/path 以本地地址作为依赖
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Tcp-Ip/" style="font-size: 16px;">Tcp/Ip</a> <a href="/tags/exports/" style="font-size: 14px;">exports</a> <a href="/tags/https-ssl/" style="font-size: 12px;">https ssl</a> <a href="/tags/javascript/" style="font-size: 18px;">javascript</a> <a href="/tags/javascript-正则表达式/" style="font-size: 10px;">javascript 正则表达式</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oauth2-0/" style="font-size: 10px;">oauth2.0</a> <a href="/tags/package-json/" style="font-size: 10px;">package.json</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/rabbitMQ/" style="font-size: 14px;">rabbitMQ</a> <a href="/tags/rtsp/" style="font-size: 10px;">rtsp</a> <a href="/tags/wechat/" style="font-size: 10px;">wechat</a> <a href="/tags/孕期饮食/" style="font-size: 10px;">孕期饮食</a> <a href="/tags/日常问题/" style="font-size: 10px;">日常问题</a> <a href="/tags/春天怀孕记/" style="font-size: 10px;">春天怀孕记</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+      <a href="/tags/Tcp-Ip/" style="font-size: 16.67px;">Tcp/Ip</a> <a href="/tags/exports/" style="font-size: 13.33px;">exports</a> <a href="/tags/https-ssl/" style="font-size: 11.67px;">https ssl</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/javascript/" style="font-size: 18.33px;">javascript</a> <a href="/tags/javascript-正则表达式/" style="font-size: 10px;">javascript 正则表达式</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/mqtt/" style="font-size: 10px;">mqtt</a> <a href="/tags/node-js/" style="font-size: 20px;">node.js</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/oauth2-0/" style="font-size: 10px;">oauth2.0</a> <a href="/tags/package-json/" style="font-size: 10px;">package.json</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/rabbitMQ/" style="font-size: 13.33px;">rabbitMQ</a> <a href="/tags/rtsp/" style="font-size: 10px;">rtsp</a> <a href="/tags/wechat/" style="font-size: 10px;">wechat</a> <a href="/tags/孕期饮食/" style="font-size: 10px;">孕期饮食</a> <a href="/tags/日常问题/" style="font-size: 10px;">日常问题</a> <a href="/tags/春天怀孕记/" style="font-size: 10px;">春天怀孕记</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
     </div>
   </div>
 
@@ -407,7 +403,7 @@ path/path/path 以本地地址作为依赖
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -419,19 +415,19 @@ path/path/path 以本地地址作为依赖
       <ul>
         
           <li>
-            <a href="/2017/12/20/娱乐爱好之为娱乐置顶/">【置顶】为头条君而置顶！</a>
+            <a href="/2018/04/22/后台开发之走取购订单合并支付/">走取购项目-关于合并支付的解决方案</a>
           </li>
         
           <li>
-            <a href="/2017/11/20/娱乐爱好之追星刘德华2/">【追星故事】刘德华，我听过你的歌（二）</a>
+            <a href="/2018/03/11/后台开发之走取购订单拆单/">走取购项目-思考订单拆单逻辑</a>
           </li>
         
           <li>
-            <a href="/2017/11/16/娱乐爱好之追星刘德华1/">【追星故事】刘德华，我听过你的歌（一）</a>
+            <a href="/2018/02/02/后台开发之走取购防止超卖/">走取购项目-防止库存超卖</a>
           </li>
         
           <li>
-            <a href="/2017/08/16/娱乐爱好之十年刘德华/">刘德华的[十年]您听过吗？</a>
+            <a href="/2018/01/25/后台开发之走取购库存扣减/">走取购项目-谈库存扣减时机</a>
           </li>
         
           <li>
@@ -470,12 +466,13 @@ path/path/path 以本地地址作为依赖
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 fungwan
+      &copy; 2018 fungwan
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       .
       Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a><br>
 	  
-	  <embed src="http://music.163.com/style/swf/widget.swf?sid=286602&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed>
+	  <!-- embed src="http://music.163.com/style/swf/widget.swf?sid=286602&type=2&auto=1&width=320&height=66" width="340" height="86"  allowNetworking="all"></embed -->
+	  <!-- embed src="http://www.xiami.com/widget/0_2079912/singlePlayer.swf" type="application/x-shockwave-flash" width="257" height="33" wmode="transparent"></embed -->
     </div>
   </div>
 </footer>
