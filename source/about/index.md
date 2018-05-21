@@ -3,7 +3,7 @@ date: 2017-06-17 13:44:12
 ---
 
 > * 一个有代码洁癖的码仔
-> * Javascript/Node.js重度使用者
+> * Javascript/Node.js/java重度使用者
 > * 被程序耽误的「歌手」
 > * 痛恨语言派系之争
 
