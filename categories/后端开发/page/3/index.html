@@ -78,6 +78,79 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-服务器端开发之rabbitmq安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/08/服务器端开发之rabbitmq安装/" class="article-date">
+  <time datetime="2015-08-08T09:44:12.000Z" itemprop="datePublished">8月 8 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/08/服务器端开发之rabbitmq安装/">rabbitMQ安装笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>根据自己的实验结果，同网上的其他教程资料参考，自己也笔记一份搭建手册供以后生产环境使用！</p>
+<h1 id="一、Erlang安装"><a href="#一、Erlang安装" class="headerlink" title="一、Erlang安装"></a>一、Erlang安装</h1><p>RabbitMQ是基于Erlang的，所以首先必须配置Erlang环境。</p>
+<ol>
+<li><p>安装依赖包，我的实验环境是需要安装<strong>ncurses-devel</strong>，至于其他的可按实际需要安装，这在后面erlang安装完成后有提示的</p>
+<p> yum install ncurses-devel</p>
+</li>
+<li><p>2.下载Erlang源码otp_src_R15B03-1.tar.gz，并解压到指定位置</p>
+<p> tar -xzvf otp_src_R15B03-1.tar.gz</p>
+</li>
+<li><p>进入安装目录，依次执行以下操作</p>
+<p> ./configure –prefix=/usr/local/erlang –without-javac //不用java编译，故去掉java避免错误</p>
+<p> make &amp;&amp; make install</p>
+</li>
+<li><p>上述编译安装无误后，配置环境变量</p>
+<p> vi /etc/profile</p>
+<p> export PATH=$PATH:/usr/local/erlang/bin</p>
+</li>
+</ol>
+<ol>
+<li><p>在终端输入erl看可否进入交互界面，如下</p>
+<p> Erlang/OTP 18 [erts-7.0] [source] [64-bit] [async-threads:10] [hipe] [kernel-poll:false]</p>
+</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2015/08/08/服务器端开发之rabbitmq安装/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/08/08/服务器端开发之rabbitmq安装/" data-id="cjhvhq4ow003s5gw84ni25toa" class="article-share-link">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rabbitMQ/">rabbitMQ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-node.js学习之第三方包依赖" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/07/28/node.js学习之第三方包依赖/" class="article-date">
@@ -113,7 +186,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/" data-id="cjhga1dd200209sw8ufhibwp7" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2015/07/28/node.js学习之第三方包依赖/" data-id="cjhvhq4n500205gw8i82umu2p" class="article-share-link">分享到</a>
       
 
       
@@ -170,7 +243,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cjhga1dct001q9sw8w4yq35ff" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/28/node.js学习之作为windows服务/" data-id="cjhvhq4mu001q5gw8b1ag0fu5" class="article-share-link">分享到</a>
       
 
       
@@ -221,7 +294,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="cjhga1deo00409sw87igm6zyu" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2015/02/14/流媒体学习之spydroid/" data-id="cjhvhq4p900435gw8cx81sutt" class="article-share-link">分享到</a>
       
 
       
@@ -275,7 +348,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/" data-id="cjhga1ddb00249sw8exsyl60x" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2015/01/07/node.js学习之获取本机IP/" data-id="cjhvhq4na00245gw8e3xhruze" class="article-share-link">分享到</a>
       
 
       
@@ -290,62 +363,9 @@
 
 
   
-    <article id="post-linux学习之MAC更换" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/06/linux学习之MAC更换/" class="article-date">
-  <time datetime="2015-01-06T04:44:12.000Z" itemprop="datePublished">1月 6 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/06/linux学习之MAC更换/">解决clone过后的虚拟机网卡上网相关问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>当我把现有的centos虚拟机文件复制或clone一份后，然后再运行复制后的.vmdk文件，会发现系统加载的时候会提示相关错误信息，大致就是网卡不能启动，</p>
-<pre><code>Bringing up interface eth0: Device eth0 has different MAC address than expected,ignoring.
-</code></pre><p>究其原因就在于虚拟机镜像拷贝的问题，因为复制.vmdk文件是将虚拟机完全copy了一份（包括MAC地址），由于新的硬件平台网卡MAC与系统中网卡MAC不一致，因此就会有上述的结果显示。这时候你在系统里面ifconfig是得不到当前主机IP地址的信息。
-        
-          <p class="article-more-link">
-            <a href="/2015/01/06/linux学习之MAC更换/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/01/06/linux学习之MAC更换/" data-id="cjhga1dc5000s9sw8m4qg61tw" class="article-share-link">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日常问题/">日常问题</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/categories/后端开发/page/2/">&laquo; Prev</a><a class="page-number" href="/categories/后端开发/">1</a><a class="page-number" href="/categories/后端开发/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/categories/后端开发/page/4/">4</a><a class="page-number" href="/categories/后端开发/page/5/">5</a><a class="extend next" rel="next" href="/categories/后端开发/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/categories/后端开发/page/2/">&laquo; Prev</a><a class="page-number" href="/categories/后端开发/">1</a><a class="page-number" href="/categories/后端开发/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/categories/后端开发/page/4/">4</a><a class="page-number" href="/categories/后端开发/page/5/">5</a><a class="page-number" href="/categories/后端开发/page/6/">6</a><a class="extend next" rel="next" href="/categories/后端开发/page/4/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -356,7 +376,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -374,7 +394,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -384,6 +404,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/05/20/后台开发之走取购订单删除状态考虑/">走取购项目-订单的删除状态是否单独预留</a>
+          </li>
         
           <li>
             <a href="/2018/04/22/后台开发之走取购订单合并支付/">走取购项目-关于合并支付的解决方案</a>
@@ -399,10 +423,6 @@
         
           <li>
             <a href="/2018/01/25/后台开发之走取购库存扣减/">走取购项目-谈库存扣减时机</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/31/服务器端开发之微信支付微服务/">微信支付开发小结</a>
           </li>
         
       </ul>

@@ -78,6 +78,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-后台开发之走取购订单删除状态考虑" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/20/后台开发之走取购订单删除状态考虑/" class="article-date">
+  <time datetime="2018-05-20T13:44:12.000Z" itemprop="datePublished">5月 20 2018</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/20/后台开发之走取购订单删除状态考虑/">走取购项目-订单的删除状态是否单独预留</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>走取购项目跟其他一般商城一样，对于订单的状态大致可以分为如下几个：<br>待付款 | 待发货 | 待收货 | 已完成 | 已取消 | 已关闭 | 已删除</p>
+<p>在最初的设计中，我把‘已删除’状态跟订单的其他状态一起放入到一个字段(status)中存储。在前期看来好像是没什么问题，<br>并且该状态的应用场景也很简单，只是针对于前端用户手动删除自己认为可不用显示在订单列表的订单，当然用户发起的这个删除<br>操作是有前提的，比如某一个订单已经处于在不可逆的生命周期里面（待发货，待收货）是不允许删除的。</p>
+<p>因此在符合特定的条件下，用户删除订单后，这张订单对于用户来说是不可见的，而对于后台系统来说，这个状态只是一个逻辑删除（状态标识），管理员仍旧可以查询到该订单，这个很好理解，一个正常的订单系统都应该完整的保存用户生成的每笔订单。</p>
+<p>这是之前线上的订单删除逻辑，系统也稳定运行，直到有一天走取购运营人员核对财务账单后，爆出了一个问题!
+        
+          <p class="article-more-link">
+            <a href="/2018/05/20/后台开发之走取购订单删除状态考虑/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2018/05/20/后台开发之走取购订单删除状态考虑/" data-id="cjhvhq4og003g5gw86ui0ql3f" class="article-share-link">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-后台开发之走取购订单合并支付" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/22/后台开发之走取购订单合并支付/" class="article-date">
@@ -116,7 +170,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2018/04/22/后台开发之走取购订单合并支付/" data-id="cjhga1de9003f9sw8qf0638k7" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2018/04/22/后台开发之走取购订单合并支付/" data-id="cjhvhq4oj003i5gw8nkunp3uv" class="article-share-link">分享到</a>
       
 
       
@@ -170,7 +224,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2018/03/11/后台开发之走取购订单拆单/" data-id="cjhga1deb003h9sw8oi4gm6s8" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2018/03/11/后台开发之走取购订单拆单/" data-id="cjhvhq4oo003l5gw80ijyb8ur" class="article-share-link">分享到</a>
       
 
       
@@ -225,7 +279,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2018/02/02/后台开发之走取购防止超卖/" data-id="cjhga1dee003n9sw8b2eh5m5b" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2018/02/02/后台开发之走取购防止超卖/" data-id="cjhvhq4ot003o5gw8hxm9subp" class="article-share-link">分享到</a>
       
 
       
@@ -277,68 +331,13 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2018/01/25/后台开发之走取购库存扣减/" data-id="cjhga1de8003b9sw8sna8yeua" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2018/01/25/后台开发之走取购库存扣减/" data-id="cjhvhq4oe003c5gw831y4bdfb" class="article-share-link">分享到</a>
       
 
       
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-服务器端开发之微信支付微服务" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/31/服务器端开发之微信支付微服务/" class="article-date">
-  <time datetime="2017-05-31T10:44:12.000Z" itemprop="datePublished">5月 31 2017</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/后端开发/">后端开发</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/31/服务器端开发之微信支付微服务/">微信支付开发小结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这段时间在忙于微商城项目，在我负责的商城结算模块用到了微信公众号支付，所以便把过程中的一些实践和问题整理了下来！</p>
-<h2 id="1-微信支付环境准备"><a href="#1-微信支付环境准备" class="headerlink" title="1.微信支付环境准备"></a>1.微信支付环境准备</h2><p><strong>当然，这里的支付准备默认前提是你已经申请了微信公众平台等相关信息。</strong></p>
-<p>a.确保微信支付功能开通，可以前往对应的公众号平台查看；<br><img src="http://7u2nix.com1.z0.glb.clouddn.com/%E6%94%AF%E4%BB%981.png" alt="Markdown"></p>
-<p>b.<strong>在公众号的微信支付页面设置支付授权目录;</strong><br><img src="http://7u2nix.com1.z0.glb.clouddn.com/%E6%94%AF%E4%BB%982.png" alt="Markdown"></p>
-<p>c.前往对应的商户平台设置支付密钥和授权目录，并下载相应的证书文件；<br><img src="http://7u2nix.com1.z0.glb.clouddn.com/%E6%94%AF%E4%BB%983.png" alt="Markdown"><br>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/31/服务器端开发之微信支付微服务/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2017/05/31/服务器端开发之微信支付微服务/" data-id="cjhga1del003x9sw8kray76s1" class="article-share-link">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wechat/">wechat</a></li></ul>
 
     </footer>
   </div>
@@ -360,7 +359,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -378,7 +377,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -388,6 +387,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/05/20/后台开发之走取购订单删除状态考虑/">走取购项目-订单的删除状态是否单独预留</a>
+          </li>
         
           <li>
             <a href="/2018/04/22/后台开发之走取购订单合并支付/">走取购项目-关于合并支付的解决方案</a>
@@ -403,10 +406,6 @@
         
           <li>
             <a href="/2018/01/25/后台开发之走取购库存扣减/">走取购项目-谈库存扣减时机</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/31/服务器端开发之微信支付微服务/">微信支付开发小结</a>
           </li>
         
       </ul>

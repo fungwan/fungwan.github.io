@@ -78,6 +78,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js学习之作用域详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/22/js学习之作用域详解/" class="article-date">
+  <time datetime="2015-06-22T04:44:12.000Z" itemprop="datePublished">6月 22 2015</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/编程语言/">编程语言</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/22/js学习之作用域详解/">谈谈js中的作用域</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果有过其他高级语言‘块级作用域’的认知，那么再接触js的函数作用域后就会大跌眼镜。个人认为应该在这几个方面着重关注一下：作用域、作用域链、变量提升。</p>
+<p>先看作用域，js是没有块作用域的说法的（不过现在ES6的let关键字已经支持了），用网络上其他的例子作说明：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name=<span class="string">"global"</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> name=<span class="string">"local"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(name)<span class="comment">//local</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(name);<span class="comment">//local</span></span><br></pre></td></tr></table></figure>
+<p>上面的输出都为local,如果不是函数作用域而是块作用域的话，输出应该依次是local和global。所以，以上代码证明了开始的观点。这里一定要注意<strong>函数作用域</strong>这个关键点哦！
+        
+          <p class="article-more-link">
+            <a href="/2015/06/22/js学习之作用域详解/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://fungwan.me/2015/06/22/js学习之作用域详解/" data-id="cjhvhq4ks00065gw8xnid69d2" class="article-share-link">分享到</a>
+      
+
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-tcpip学习之广播消息" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/06/20/tcpip学习之广播消息/" class="article-date">
@@ -114,7 +168,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/20/tcpip学习之广播消息/" data-id="cjhga1de000319sw8d0cbk62s" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/20/tcpip学习之广播消息/" data-id="cjhvhq4o400325gw8ujzkc21c" class="article-share-link">分享到</a>
       
 
       
@@ -166,7 +220,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/19/js学习之闭包/" data-id="cjhga1dc3000p9sw80vvthapg" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/19/js学习之闭包/" data-id="cjhvhq4lg000p5gw8b36cl716" class="article-share-link">分享到</a>
       
 
       
@@ -245,7 +299,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/06/18/生活杂记之孕期饮食/" data-id="cjhga1der00429sw8ita1qt47" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2015/06/18/生活杂记之孕期饮食/" data-id="cjhvhq4pb00475gw8mv87994h" class="article-share-link">分享到</a>
       
 
       
@@ -297,58 +351,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://fungwan.me/2015/03/08/tcpip学习之粘包/" data-id="cjhga1de500389sw8qh654vao" class="article-share-link">分享到</a>
-      
-
-      
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tcp-Ip/">Tcp/Ip</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tcpip学习之半打开" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/02/28/tcpip学习之半打开/" class="article-date">
-  <time datetime="2015-02-28T11:44:12.000Z" itemprop="datePublished">2月 28 2015</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/协议栈/">协议栈</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/28/tcpip学习之半打开/">TCP的半开连接</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>项目里面要测试平板终端的关机功能，所以需要我服务器接收发送端的关机命令，然后转发至接收端。因为考虑到方便测试，所以平板发过来的命令是‘重启’，不然每一台都要人工去开机很麻烦，重启之后各终端再连接服务器，进入app主界面。很简单的一个逻辑，可是在实际测试的时候，却出现了问题，影响了后面程序的逻辑，后来仔细分析原来是TCP的半开连接所导致！以此记录。
-        
-          <p class="article-more-link">
-            <a href="/2015/02/28/tcpip学习之半打开/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://fungwan.me/2015/02/28/tcpip学习之半打开/" data-id="cjhga1ddy002y9sw8lfjfxsfg" class="article-share-link">分享到</a>
+        <a data-url="http://fungwan.me/2015/03/08/tcpip学习之粘包/" data-id="cjhvhq4ob00395gw85ye61a0u" class="article-share-link">分享到</a>
       
 
       
@@ -376,7 +379,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">25</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/协议栈/">协议栈</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/后端开发/">后端开发</a><span class="category-list-count">26</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活杂记/">生活杂记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程语言/">编程语言</a><span class="category-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -394,7 +397,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">一月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">五月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">二月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">六月 2015</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">九月 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -404,6 +407,10 @@
     <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/05/20/后台开发之走取购订单删除状态考虑/">走取购项目-订单的删除状态是否单独预留</a>
+          </li>
         
           <li>
             <a href="/2018/04/22/后台开发之走取购订单合并支付/">走取购项目-关于合并支付的解决方案</a>
@@ -419,10 +426,6 @@
         
           <li>
             <a href="/2018/01/25/后台开发之走取购库存扣减/">走取购项目-谈库存扣减时机</a>
-          </li>
-        
-          <li>
-            <a href="/2017/05/31/服务器端开发之微信支付微服务/">微信支付开发小结</a>
           </li>
         
       </ul>
